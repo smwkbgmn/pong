@@ -1,0 +1,46 @@
+@font-face {
+	font-family: 'CrayonFont';
+	src: url(../../design_src/Typo_CrayonM.ttf);
+}
+
+.background {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+	background-image: url('../../design_src/blackboard.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	
+	color: white;
+	font-family: 'CrayonFont', sans-serif;
+	text-decoration: none;
+
+	font-size: 1vw;
+}
+
+.main-box {
+	position: absolute;
+	display: flex;
+	height: 55%;
+	width: 50%;
+	
+	border: none;
+	border-radius: 25px;
+	background-color: rgba(76, 76, 76, 0.5);
+	cursor: pointer;
+}
+
+.main-text{
+	position: absolute;
+	top: 12%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: none;
+
+	font-size: 40px;
+}
