@@ -14,4 +14,3 @@ export default class GameTypePage extends Component {
 		`;
 	}
 }
-			// <button class="remote-btn">온라인 게임</button>

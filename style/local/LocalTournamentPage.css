@@ -1,4 +1,4 @@
-.tournament-a{
+.num-text{
 	position: absolute;
 	top: 40%;
 	left: 50%;
@@ -10,22 +10,18 @@
 	font-size: 300%;
 }
 
-.tournament-a:hover {
-	color: black;
+.num-input {
+	width: 30%;
 }
 
-.ai-a{
+.start-a {
 	position: absolute;
-	top: 65%;
+	top: 88%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	
 	border: none;
 	background-color: none;
 
-	font-size: 300%;
-}
-
-.ai-a:hover {
-	color: black;
+	font-size: 250%;
 }

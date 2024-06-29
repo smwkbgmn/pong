@@ -8,8 +8,8 @@ export default class LocalGamePage extends Component {
 			
 			<div class="main-box">
 				<p class="main-text">게임 모드</p>
-				<a href="#local-tournament/" class="tournament-a">토너먼트</a>
-				<a href="#local-ai/" class="ai-a">AI 대전</a>
+				<a href="#local_tournament/" class="tournament-a">토너먼트</a>
+				<a href="#local_ai/" class="ai-a">AI 대전</a>
 			</div>
 		`;
 	}

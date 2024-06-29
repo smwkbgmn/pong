@@ -115,27 +115,31 @@ export default class Three extends Component {
 			function (error) { console.error('An error happened', error); }
 		);
 		
-		/* RENDERING */
-		// window.addEventListener( 'resize', onWindowResize );
+		window.addEventListener( 'resize', onWindowResize );
 		
-		// function onWindowResize() {
-		// 	camera.aspect = window.innerWidth / window.innerHeight;
-		// 	camera.updateProjectionMatrix();
-		
-		// 	renderer.setSize( window.innerWidth, window.innerHeight );
-		// }
-		
-		function animate() {
-			controls.update();
-		
-			render();
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			
+			renderer.setSize( window.innerWidth, window.innerHeight );
 		}
 		
-		function render() {
-			renderer.render( scene, camera );
-			// renderer.render( scene, seeing );
+		// function onPageLobby() {
+			// 	camera.
+			// }
+			
+			/* RENDERING */
+			function animate() {
+				controls.update();
+				
+				render();
+			}
+			
+			function render() {
+				renderer.render( scene, camera );
+				// renderer.render( scene, seeing );
+			}
+			
+			renderer.setAnimationLoop( animate );
 		}
-		
-		renderer.setAnimationLoop( animate );
 	}
-}

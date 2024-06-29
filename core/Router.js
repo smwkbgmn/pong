@@ -23,6 +23,8 @@ export default class Router extends Component {
 			this.$state.routes[0].component();
 		}
 
+		console.log(currentRoute);
+
 		currentRoute.component();
 	}
 	
