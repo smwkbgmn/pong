@@ -2,7 +2,6 @@ import Component from '../../core/Component.js'
 
 export default class StartPage extends Component {
 	template() {
-		console.log('start');
 		return `
 				<link rel="stylesheet" href="./style/enter/Enter.css">
 				<link rel="stylesheet" href="./style/enter/StartPage.css">

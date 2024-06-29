@@ -7,8 +7,6 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 export default class Three extends Component {
 	render() {
-		console.log('render');
-		
 		/* RENDERER */
 		const renderer = new THREE.WebGLRenderer();
 		renderer.setSize( window.innerWidth, window.innerHeight );

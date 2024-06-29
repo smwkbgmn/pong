@@ -4,8 +4,6 @@ export default class Component {
 	$state;
 
 	constructor($target, $props) {
-		console.log('component page constructor');
-
 		this.$target = $target;
 		this.$props = $props;
 		
@@ -23,8 +21,7 @@ export default class Component {
 	}
 
 	render() {
-		console.log('render com');
-		console.log(this.template());
+		(this.template());
 		this.$target.innerHTML = this.template();
 		this.mounted();
 	}

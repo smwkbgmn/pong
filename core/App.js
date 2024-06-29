@@ -8,9 +8,7 @@ export default class App extends Component {
 		return `
 		<head></head>
 		<main>
-			<canvas data-component="three">
-				
-			</canvas>
+			<canvas data-component="three"></canvas>
 		</main>
 		`;
 	}
@@ -29,10 +27,7 @@ export default class App extends Component {
 		router.addRoute('#game_type/', pages.game_type);
 		router.addRoute('#local_game/', pages.local_game);
 		router.addRoute('#lobby/', pages.lobby);
-		
-		console.log('app mounted');
 
 		router.start();
-
 	}
 }

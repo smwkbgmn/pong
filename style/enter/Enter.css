@@ -3,19 +3,15 @@
 	src: url(../../design_src/Typo_CrayonM.ttf);
 }
 
-canvas {
-	z-index: 2;
+body {
+	font-family: 'CrayonFont', sans-serif;
+	color: white;
+	font-size: 1vw;
 }
 
 a {
 	text-decoration: none;
 	color: white;
-}
-
-body {
-	font-family: 'CrayonFont', sans-serif;
-	color: white;
-	font-size: 1vw;
 }
 
 .main-box {
