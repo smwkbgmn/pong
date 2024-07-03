@@ -62,27 +62,23 @@ export default class Three extends Component {
 
 		/*** CONTROL - Tween ***/
 		const cameraPositions = {
-			"/": { x: 0.001, y: 0.001, z: 0.001 },
-			"lobby/": { x: 0.001, y: 0.001, z: 4.9 }
+			"#/": { x: 0.001, y: 0.001, z: 0.001 },
+			"#lobby/": { x: 0.001, y: 0.001, z: 4.9 }
 		};
-
-		function onSPANavigation( event ) {
-			const section = event.detail.section; 
-			updateCameraForSection( section );
-		}
 
 		// function navigateToSection( section ) {
 		// 	updateCameraForSection( section );
 		// 	// Your SPA navigation logic here
 		// }
 		
-		function updateCameraForSection( section ) {
+		function updateCameraForSection( ) {
+			const section = window.location.hash;
 			const targetPosition = cameraPositions[section];
 
 			console.log( "in section: " + section );
 
 			if ( targetPosition ) {
-				if ( section === "/" ) { setCameraHome(); }
+				if ( section === "#/" ) { setCameraHome(); }
 				else { setCameraLobby(); }
 
 				animateCamera( targetPosition );
@@ -126,12 +122,9 @@ export default class Three extends Component {
 			controls.enabled = false;
 		}
 
-		document.addEventListener( 'spaNavigate', onSPANavigation );
-
-
 		/*** LISTEN ***/
 		window.addEventListener( 'resize', onWindowResize );
-		// document.addEventListener( 'hashchange', onSPANavigation );
+		window.addEventListener( 'hashchange', updateCameraForSection );
 		document.addEventListener( 'keydown', onKeyDown );
 		
 		function onWindowResize() {
