@@ -1,7 +1,7 @@
-.num-text{
+.num-text {
 	position: absolute;
-	top: 40%;
-	left: 50%;
+	top: 50%;
+	left: 40%;
 	transform: translate(-50%, -50%);
 	
 	border: none;
@@ -10,18 +10,45 @@
 	font-size: 300%;
 }
 
-.num-input {
-	width: 30%;
+.num-dropdown {
+	position: absolute;
+	top: 50%;
+	left: 58%;
+	transform: translate(-50%, -50%);
+}
+
+.btn {
+	border: none;
+	border-radius: 0%;
+	outline: none;
+	width: 120%;
+	height: 100%;
+	font-size: 230%;
+}
+
+.dropdown-menu {
+	border-radius: 0%;
+	background-color: rgba(200, 200, 200, 0.5) !important;
+
+	font-size: 200%;
+}
+
+.dropdown-item:hover {
+	background-color: rgba(200, 200, 200, 0) !important;
 }
 
 .start-a {
 	position: absolute;
-	top: 88%;
+	top: 85%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	
 	border: none;
 	background-color: none;
 
-	font-size: 250%;
+	font-size: 300%;
+}
+
+.start-a:hover {
+	color: black;
 }
