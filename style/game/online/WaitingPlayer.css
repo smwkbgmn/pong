@@ -1,31 +1,28 @@
-.tournament-a{
+.message-text {
 	position: absolute;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	top: 45%;
+	left: 20%;
 	
 	border: none;
 	background-color: rgba(0, 0, 0, 0);
 
-	font-size: 300%;
+	font-size: 200%;
+	white-space: nowrap;
 }
 
-.tournament-a:hover {
-	color: black;
-}
-
-.ai-btn{
+.exit-a {
 	position: absolute;
-	top: 65%;
+	top: 85%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	
 	border: none;
-	background-color: none;
+	background-color: rgba(200, 200, 200, 0);
 
+	color: white;
 	font-size: 300%;
 }
 
-.ai-btn:hover {
+.exit-a:hover {
 	color: black;
 }

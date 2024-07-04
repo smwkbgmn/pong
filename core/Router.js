@@ -1,6 +1,4 @@
-import { element } from 'three/examples/jsm/nodes/Nodes.js';
 import Component from './Component.js'
-// import { logging } from '../pages/enter/ConnectionType.js'
 
 export default class Router extends Component {
 	setUp() {
@@ -23,15 +21,12 @@ export default class Router extends Component {
 		if (window.location.hash == '#/') {
 			if (sessionStorage.getItem('isLogging') == 'true') {
 
-				console.log('before getToken');
 				await this.waitForLoad().then(() => {
 					this.extractToken();
 				})
 
-				if ( this.isValidToken() == true ) {
+				if ( this.isValidToken() == true )
 					window.location.href = './#game_type/';
-					this.$state.routes[0].component();
-				}
 				else
 					currentRoute.component();
 			}
@@ -43,6 +38,8 @@ export default class Router extends Component {
 			window.location.href = './#';
 			this.$state.routes[0].component();
 		}
+
+		console.log(currentRoute);
 
 		currentRoute.component();
 	}

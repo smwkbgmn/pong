@@ -37,18 +37,19 @@
 	background-color: rgba(200, 200, 200, 0) !important;
 }
 
-.start-a {
+.start-btn {
 	position: absolute;
 	top: 85%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	
 	border: none;
-	background-color: none;
+	background-color: rgba(200, 200, 200, 0);
 
+	color: white;
 	font-size: 300%;
 }
 
-.start-a:hover {
+.start-btn:hover {
 	color: black;
 }

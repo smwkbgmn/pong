@@ -1,6 +1,6 @@
 import Component from '../../core/Component.js'
 
-export default class TournamentGame extends Component {
+export default class ModeTournament extends Component {
 	setUp() {
 		this.$state = {
 			num: '2  ',
@@ -11,7 +11,7 @@ export default class TournamentGame extends Component {
 		const { num } = this.$state;
 		return `
 			<link rel="stylesheet" href="./style/Common.css">
-			<link rel="stylesheet" href="./style/game/TournamentGame.css">
+			<link rel="stylesheet" href="./style/game/ModeTournament.css">
 			
 			<div class="main-box">
 				<p class="main-text">토너먼트</p>
@@ -26,7 +26,7 @@ export default class TournamentGame extends Component {
 						</ul>
 				</div>
 
-				<a href="#local_tournament_game/" class="start-a">게임 시작</a>
+				<button class="start-btn">게임 시작</button>
 			</div>
 		`;
 	}
@@ -40,6 +40,18 @@ export default class TournamentGame extends Component {
 		});
 		this.addEvent('click', '#num_8', ({ target }) => {
 			this.printNum('8  ');
+		});
+
+		this.addEvent('click', '.start-btn', ({ target }) => {
+			const { num } = this.$state;
+			sessionStorage.setItem('player_num', num);
+
+			if (sessionStorage.getItem('isLogging') == 'true')
+				window.location.href = './#waiting_player/';
+			else {
+
+				window.location.href = './#set_name_tournament/';
+			}
 		});
 	}
 

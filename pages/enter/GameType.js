@@ -8,9 +8,18 @@ export default class Gametype extends Component {
 			
 			<div class="main-box">
 				<p class="main-text">게임 모드</p>
-				<a href="#tournament_game/" class="tournament-a">토너먼트</a>
-				<a href="#ai_game/" class="ai-a">AI 대전</a>
+				<a href="#mode_tournament/" class="tournament-a">토너먼트</a>
+				<botton href="#mode_ai/" class="ai-btn">AI 대전</botton>
 			</div>
 		`;
+	}
+
+	setEvent() {
+		this.addEvent('click', '.ai-btn', ({ target }) => {
+			if (sessionStorage.getItem('isLogging') == 'true')
+				window.location.href = './#game_ai/';
+			else
+				window.location.href = './#set_name_ai/';
+		});
 	}
 }
