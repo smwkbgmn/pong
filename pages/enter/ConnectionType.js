@@ -27,11 +27,5 @@ export default class ConnectionType extends Component {
 		sessionStorage.setItem('isLogging', true);
 	    const authURL = `https://api.intra.42.fr/oauth/authorize?client_id=${clientID}&redirect_uri=${encodeURIComponent(redirectURI)}&response_type=code&scope=public`;
 		window.location.href = authURL;
-
-		// let response = await fetch(authURL, {
-		// 	mode: 'no-cors'
-		// });
-		// console.log('response');
-		// console.log(response);
 	}	
 }

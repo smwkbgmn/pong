@@ -13,28 +13,7 @@ export default class Router extends Component {
 		this.$state.routes.push({ fragment, component });
 	}
 
-	hasToken() {
-		// 토큰값을 그대로 바로 우리 백에 전달함과 동시에
-		// 토큰은 이미 얻었기 때문에 DOM 주소창 깨끗하게 만들기
-		// 42api 데이터 요청하는 우리 백 api 바로 요청
-		// 성공 -> 게임 모드 페이지, 실패 -> 알림 및 메인페이지로 튕기기
-
-		const tokenString = sessionStorage.getItem('token42');
-		const token42 = JSON.parse(tokenString);
-
-		// console.log('token42');
-		// console.log(tokenString);
-		console.log(token42);
-		return token42 != null;
-	}
-
-	async getToken() {
-		await this.waitForEvent(window, 'load').then(() => {
-			this.extractToken();
-		});
-	}
-
-	checkRoutes = () => {
+	async checkRoutes() {
 		const currentRoute = this.$state.routes.find((route) => {
 			return route.fragment === window.location.hash;
 		});
@@ -42,14 +21,14 @@ export default class Router extends Component {
 		console.log('hash ' + window.location.hash);
 		
 		if (window.location.hash == '#/') {
-			console.log(sessionStorage.getItem('isLogging'));
 			if (sessionStorage.getItem('isLogging') == 'true') {
 
 				console.log('before getToken');
-				this.getToken(); // wait 'load' event and extractToken
-				console.log('after getToken');
+				await this.waitForLoad().then(() => {
+					this.extractToken();
+				})
 
-				if ( this.hasToken() == true ) {
+				if ( this.isValidToken() == true ) {
 					window.location.href = './#game_type/';
 					this.$state.routes[0].component();
 				}
@@ -61,11 +40,9 @@ export default class Router extends Component {
 		}
 
 		if (!currentRoute) {
-			window.location.href = './#'; //?
+			window.location.href = './#';
 			this.$state.routes[0].component();
 		}
-
-		// console.log(currentRoute);
 
 		currentRoute.component();
 	}
@@ -82,15 +59,16 @@ export default class Router extends Component {
 		this.checkRoutes();
 	}
 
-	setEvent() {
-		window.addEventListener('load', this.extractToken);
-	}
-
-	waitForEvent(element, eventName) {
-		return new Promise(resolve => {
-			element.addEventListener(eventName, function handler(event) {
-				console.log('event ' + event);
-				element.removeEventListener(eventName, handler);
+	// new Promise() 메서드 호출 시 resolve와 reject를 인자로 대기 상태 진입
+	// resolve()를 실행하면 이행 상태가 되어 promise 종료
+	// reject는 실패 상태로 종료
+	// 콜백 함수에서 이벤트를 등록하고, load 이벤트 핸들러에서 resolve를 실행하기 때문에
+	// 이벤트가 발생할 때까지 promise는 대기 상태이고 종료될 때까지 await 했기 때문에
+	// 이벤트 발생 대기가 가능함
+	waitForLoad() {
+		return new Promise((resolve, reject) => {
+			window.addEventListener('load', function handler(event) {
+				window.removeEventListener('load', handler);
 				resolve(event);
 			});
 		});
@@ -101,7 +79,7 @@ export default class Router extends Component {
 
 		if (token42) {
 			sessionStorage.setItem('token42', JSON.stringify(token42));
-			// 백에 전달
+			// 백에 전달 해야됨
 
 			let currentURL = new URL(window.location.href);
 			let cleanURL = new URL(currentURL.origin + window.location.hash);
@@ -111,6 +89,20 @@ export default class Router extends Component {
 		}
 		// else
 		//	hadling with fail
+	}
+
+	isValidToken() {
+		// 토큰값을 그대로 바로 우리 백에 전달함과 동시에
+		// 42api 데이터 요청하는 우리 백 api 바로 요청
+		// 성공 -> 게임 모드 페이지, 실패 -> 알림 및 메인페이지로 튕기기
+
+		const tokenString = sessionStorage.getItem('token42');
+		const token42 = JSON.parse(tokenString);
+
+		// console.log('token42');
+		// console.log(tokenString);
+		console.log(token42);
+		return token42 != null;
 	}
 }
 
