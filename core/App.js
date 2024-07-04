@@ -24,10 +24,10 @@ export default class App extends Component {
 
 		const router = new Router($main);
 		router.addRoute('#/', pages.start);
+		router.addRoute('#connection_type/', pages.connection_type);
 		router.addRoute('#game_type/', pages.game_type);
-		router.addRoute('#local_game/', pages.local_game);
-		router.addRoute('#local_tournament/', pages.local_tournament);
-		router.addRoute('#lobby/', pages.lobby);
+		router.addRoute('#tournament_game/', pages.tournament_game);
+		router.addRoute('#ai_game/', pages.ai_game);
 
 		router.start();
 	}

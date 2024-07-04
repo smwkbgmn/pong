@@ -1,21 +1,21 @@
 import StartPage from './enter/StartPage.js'
-import GameTypePage from './enter/GameTypePage.js';
-import LocalGamePage from './enter/LocalGamePage.js';
-import LocalTournamentPage from './local/LocalTournamentPage.js';
-import LobbyPage from './lobby/LobbyPage.js';
+import ConnectionType from './enter/ConnectionType.js';
+import GameType from './enter/GameType.js';
+import TournamentGame from './game/TournamentGame.js';
+import AIGame from './game/AIGame.js';
 
 export default (main) => {
 	const start = () => new StartPage(main);
-	const game_type = () => new GameTypePage(main);
-	const local_game = () => new LocalGamePage(main);
-	const local_tournament = () => new LocalTournamentPage(main);
-	const lobby = () => new LobbyPage(main);
+	const connection_type = () => new ConnectionType(main);
+	const game_type = () => new GameType(main);
+	const tournament_game = () => new TournamentGame(main);
+	const ai_game = () => new AIGame(main);
 
 	return {
 		start,
+		connection_type,
 		game_type,
-		local_game,
-		local_tournament,
-		lobby,
+		tournament_game,
+		ai_game,
 	};
 };

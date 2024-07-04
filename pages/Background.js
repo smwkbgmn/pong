@@ -13,6 +13,7 @@ import TWEEN from '@tweenjs/tween.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { ArrowHelper } from 'three';
+import { mx_bits_to_01 } from 'three/examples/jsm/nodes/materialx/lib/mx_noise.js';
 
 
 
@@ -26,12 +27,13 @@ export default class Three extends Component {
 			scene.background = texture;
 		});
 		
-		const lightAmbient = new THREE.AmbientLight( 0xffffff, 0.35 );
+		const lightAmbient = new THREE.AmbientLight( 0xffffff, 0.38 );
 		scene.add( lightAmbient );
 
 		
 		/*** CAMERA ***/
-		let camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 100 );
+		let camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 200 );
+		camera.position.set( 0, 0, 0.01 );
 		camera.lookAt( 0, 0, 10 );
 
 		const seeing = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
@@ -49,21 +51,32 @@ export default class Three extends Component {
 		const controls = new OrbitControls( camera, renderer.domElement );
 		// const controls = new OrbitControls( seeing, renderer.domElement );
 
+		controls.target.set( 0, 0, 1 );
+
 		controls.enableDamping = true;
 		controls.dampingFactor = 0.05;
 		
 		controls.screenSpacePanning = false;
 		
-		controls.minDistance = 0;
-		controls.maxDistance = 1; 
-		controls.minPolarAngle = Math.PI / 3;
-		controls.maxPolarAngle = Math.PI / 1.5;
+		setControlLimit();
+
+		function setControlLimit() {
+			controls.maxDistance = 1; 
+			controls.minPolarAngle = Math.PI / 3;
+			controls.maxPolarAngle = Math.PI / 1.5;
+		}
+
+		function unsetControlLimit() {
+			controls.maxDistance = Infinity; 
+			controls.minPolarAngle = 0;
+			controls.maxPolarAngle = Math.PI;
+		}
 
 
 		/*** CONTROL - Tween ***/
 		const cameraPositions = {
 			"#/": { x: 0.001, y: 0.001, z: 0.001 },
-			"#lobby/": { x: 0.001, y: 0.001, z: 4.9 }
+			"#connection_type/": { x: 0.001, y: 0.001, z: 4.9 }
 		};
 
 		// function navigateToSection( section ) {
@@ -71,8 +84,10 @@ export default class Three extends Component {
 		// 	// Your SPA navigation logic here
 		// }
 		
-		function updateCameraForSection( ) {
+		function updateCameraForSection() {
 			const section = window.location.hash;
+			console.log(section);
+			
 			const targetPosition = cameraPositions[section];
 
 			console.log( "in section: " + section );
@@ -90,14 +105,6 @@ export default class Three extends Component {
 			new TWEEN.Tween( camera.position )
 				.to( targetPosition, duration )
 				.easing( TWEEN.Easing.Quadratic.InOut )
-		
-				// .onComplete(() => {
-				// 	camera.position.x = Math.round(camera.position.x * 100) / 100;
-				// 	camera.position.y = Math.round(camera.position.y * 100) / 100;
-				// 	camera.position.z = Math.round(camera.position.z * 100) / 100;
-				// 	console.log("Rounded camera position after tween:", camera.position);
-				// })
-
 				.start();
 				
 			new TWEEN.Tween( controls.target )
@@ -122,9 +129,11 @@ export default class Three extends Component {
 			controls.enabled = false;
 		}
 
+		window.addEventListener( 'hashchange', updateCameraForSection );
+
+
 		/*** LISTEN ***/
 		window.addEventListener( 'resize', onWindowResize );
-		window.addEventListener( 'hashchange', updateCameraForSection );
 		document.addEventListener( 'keydown', onKeyDown );
 		
 		function onWindowResize() {
@@ -150,6 +159,8 @@ export default class Three extends Component {
 						// arrow.visible = true;
 						arrowWorld.visible = true;
 						controls.object = seeing;
+
+						unsetControlLimit();
 					}
 
 					else {
@@ -158,6 +169,8 @@ export default class Three extends Component {
 						// arrow.visible = false;
 						arrowWorld.visible = false;
 						controls.object = camera;
+
+						setControlLimit();
 					}
 
 					break;
@@ -171,7 +184,8 @@ export default class Three extends Component {
 		const loader = new GLTFLoader();
 		
 		loader.load(
-			'../../design_src/3d/school_class_room/scene.gltf',
+			// '../../design_src/3d/school_class_room/scene.gltf',
+			'../../design_src/3d/classroom/classRoom_light.glb',
 		
 			function ( gltf ) {
 		
@@ -258,18 +272,18 @@ export default class Three extends Component {
 		// 	return axesHelper;
 		// }
 
-		// const arrow = createArrow( camera );
+		// const arrowCamera = createArrow( camera );
 		
 		
 		/*** SHOOT ***/
 		function animate() {
 			
-			TWEEN.update();
 			controls.update();
-			camera.updateMatrixWorld();
+			TWEEN.update();
+			activation.updateMatrixWorld();
 			
-			// arrow.position.copy( camera.position );
-			// arrow.quaternion.copy( camera.quaternion );
+			// arrowCamera.position.copy( camera.position );
+			// arrowCamera.quaternion.copy( camera.quaternion );
 			
 			render();
 
