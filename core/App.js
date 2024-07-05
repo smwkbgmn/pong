@@ -26,7 +26,7 @@ export default class App extends Component {
 		router.addRoute('#/', pages.start);
 		router.addRoute('#connection_type/', pages.connection_type);
 		router.addRoute('#game_type/', pages.game_type);
-		router.addRoute('#mode_tournament/', pages.mode_tournament);
+		router.addRoute('#set_player_num/', pages.set_player_num);
 		router.addRoute('#game_tournament/', pages.game_tournament);
 		router.addRoute('#waiting_player/', pages.waiting_player);
 		router.addRoute('#set_name_tournament/', pages.set_name_tournament);

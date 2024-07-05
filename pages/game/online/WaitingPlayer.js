@@ -28,7 +28,7 @@ export default class WaitingPlayer extends Component {
 
 				<p class="message-text">${textList[idx]}</p>
 				
-				<a href="#mode_tournament/" class="exit-a">돌아가기</a>
+				<a href="#set_player_num/" class="exit-a">돌아가기</a>
 			</div>
 		`;
 	}

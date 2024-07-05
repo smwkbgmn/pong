@@ -37,8 +37,6 @@ export default class SetNameAI extends Component {
 		});
 	}
 
-	// 다른 파일 설정 적용되는 것 같음 ai일 때 input 박스 안뜨고 라우팅 안 됨
-	// 카메라 시점 라우팅하기
 	checkInput() {
 		const player_num = sessionStorage.getItem('player_num');
 

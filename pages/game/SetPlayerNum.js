@@ -1,6 +1,6 @@
 import Component from '../../core/Component.js'
 
-export default class ModeTournament extends Component {
+export default class SetPlayerNum extends Component {
 	setUp() {
 		this.$state = {
 			num: '2  ',
@@ -11,7 +11,7 @@ export default class ModeTournament extends Component {
 		const { num } = this.$state;
 		return `
 			<link rel="stylesheet" href="./style/Common.css">
-			<link rel="stylesheet" href="./style/game/ModeTournament.css">
+			<link rel="stylesheet" href="./style/game/SetPlayerNum.css">
 			
 			<div class="main-box">
 				<p class="main-text">토너먼트</p>

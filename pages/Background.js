@@ -75,30 +75,34 @@ export default class Three extends Component {
 
 		/*** CONTROL - Tween ***/
 		const cameraPositions = {
-			"#/": { x: 0.001, y: 0.001, z: 0.001 },
-			"#connection_type/": { x: 0.001, y: 0.001, z: 4.9 }
+			"home": { x: 0.001, y: 0.001, z: 0.001 },
+			"game": { x: 0.001, y: 0.001, z: 4.9 }
 		};
 
 		// function navigateToSection( section ) {
 		// 	updateCameraForSection( section );
 		// 	// Your SPA navigation logic here
 		// }
-		
-		function updateCameraForSection() {
-			const section = window.location.hash;
-			console.log(section);
-			
-			const targetPosition = cameraPositions[section];
 
+		function getTargetPosition() {
+			const section = window.location.hash;
 			console.log( "in section: " + section );
 
-			if ( targetPosition ) {
-				if ( section === "#/" ) { setCameraHome(); }
-				else { setCameraLobby(); }
-
-				animateCamera( targetPosition );
-				console.log( camera.position );
+			if (section == "#game_tournament/" || section == "game_ai") {
+				setCameraHome();
+				return cameraPositions["game"];
 			}
+			else {
+				setCameraGame();
+				return cameraPositions["home"];
+			}
+		}
+		
+		function updateCameraForSection() {
+			const targetPosition = getTargetPosition();
+
+			animateCamera( targetPosition );
+			console.log( camera.position );
 		}
 
 		function animateCamera( targetPosition, duration = 2300 ) {
@@ -124,7 +128,7 @@ export default class Three extends Component {
 			controls.enabled = true;
 		}
 
-		function setCameraLobby() {
+		function setCameraGame() {
 			camera.fov = 15;
 			controls.enabled = false;
 		}
