@@ -10,6 +10,10 @@ export default class ConnectionType extends Component {
 			<link rel="stylesheet" href="./style/enter/ConnectionType.css">
 			
 			<div class="main-box">
+				<a href="#/" class="home-a">
+					<img class="home-img" src="./design_src/home-icon.png">
+				</a>
+
 				<p class="main-text">게임 모드</p>
 				<botton class="online-btn">온라인 게임</botton>
 				<a href="#game_type/" class="local-a">로컬 게임</a>

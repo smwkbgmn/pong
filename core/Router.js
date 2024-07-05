@@ -20,12 +20,17 @@ export default class Router extends Component {
 		
 		if (window.location.hash == '#/') {
 			if (sessionStorage.getItem('isLogging') == 'true') {
+				const isLoggedIn = sessionStorage.getItem('isLoggedIn');
 
-				await this.waitForLoad().then(() => {
-					this.extractToken();
-				})
+				if (isLoggedIn != 'true') {
+					await this.waitForLoad().then(() => {
+						this.extractToken();
+					})
+					if (this.isValidToken() == true)
+						sessionStorage.setItem('isLoggedIn', true);
+				}
 
-				if ( this.isValidToken() == true )
+				if (sessionStorage.getItem('isLoggedIn') == 'true')
 					window.location.href = './#game_type/';
 				else
 					currentRoute.component();

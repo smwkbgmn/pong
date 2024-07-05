@@ -14,6 +14,10 @@ export default class SetPlayerNum extends Component {
 			<link rel="stylesheet" href="./style/setting/SetPlayerNum.css">
 			
 			<div class="main-box">
+				<a href="#/" class="home-a">
+					<img class="home-img" src="./design_src/home-icon.png">
+				</a>
+				
 				<p class="main-text">토너먼트</p>
 
 				<p class="num-text">인원 수</p>

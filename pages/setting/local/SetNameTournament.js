@@ -26,6 +26,10 @@ export default class SetNameTournament extends Component {
 			<link rel="stylesheet" href="./style/setting/local/SetNameTournament.css">
 			
 			<div class="main-box">
+				<a href="#/" class="home-a">
+					<img class="home-img" src="./design_src/home-icon.png">
+				</a>
+				
 				<p class="main-text">이름 설정</p>
 
 				<div class="set-box">

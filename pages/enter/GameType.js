@@ -7,6 +7,10 @@ export default class Gametype extends Component {
 			<link rel="stylesheet" href="./style/enter/GameType.css">
 			
 			<div class="main-box">
+				<a href="#/" class="home-a">
+					<img class="home-img" src="./design_src/home-icon.png">
+				</a>
+				
 				<p class="main-text">게임 모드</p>
 				<a href="#set_player_num/" class="tournament-a">토너먼트</a>
 				<botton href="#mode_ai/" class="ai-btn">AI 대전</botton>

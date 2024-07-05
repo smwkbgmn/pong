@@ -15,6 +15,10 @@ export default class SetNameAI extends Component {
 			<link rel="stylesheet" href="./style/setting/local/SetNameAI.css">
 			
 			<div class="main-box">
+				<a href="#/" class="home-a">
+					<img class="home-img" src="./design_src/home-icon.png">
+				</a>
+				
 				<p class="main-text">이름 설정</p>
 
 				<div class="set-box">
@@ -41,7 +45,6 @@ export default class SetNameAI extends Component {
 		const player_num = sessionStorage.getItem('player_num');
 
 		let name = this.$target.querySelector('.set-input').value;
-		console.log(name);
 
 		if (name == '') {
 			this.setErrorMessage();
@@ -49,7 +52,7 @@ export default class SetNameAI extends Component {
 		}
 
 		localStorage.setItem('player_name', JSON.stringify(name));
-		// window.location.href = './#game_ai/';
+		window.location.href = './#game_ai/';
 	}
 
 	setErrorMessage() {
