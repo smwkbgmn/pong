@@ -6,21 +6,21 @@ export default class Gametype extends Component {
 			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/enter/GameType.css">
 			
-			<div class="main-box">
-				<a href="#/" class="home-a">
+			<div class="main-div">
+				<a class="home-a" href="#/">
 					<img class="home-img" src="./design_src/home-icon.png">
 				</a>
 				
-				<p class="main-text">게임 모드</p>
-				<a href="#set_player_num/" class="tournament-a">토너먼트</a>
-				<botton href="#mode_ai/" class="ai-btn">AI 대전</botton>
+				<p class="main-p">게임 모드</p>
+				<a class="tournament-a" href="#set_player_num/">토너먼트</a>
+				<botton class="ai-btn">AI 대전</botton>
 			</div>
 		`;
 	}
 
 	setEvent() {
 		this.addEvent('click', '.ai-btn', ({ target }) => {
-			if (sessionStorage.getItem('isLogging') == 'true')
+			if (sessionStorage.getItem('isLoggedIn') == 'true')
 				window.location.href = './#game_ai/';
 			else
 				window.location.href = './#set_name_ai/';

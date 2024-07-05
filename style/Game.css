@@ -10,11 +10,11 @@ body {
 }
 
 a {
-	text-decoration: none;
+	p-decoration: none;
 	color: white;
 }
 
-.main-box {
+.main-div {
 	position: absolute;
 	display: flex;
 
@@ -31,7 +31,7 @@ a {
 	cursor: pointer;
 }
 
-.main-text{
+.main-p{
 	position: absolute;
 	top: 15%;
 	left: 50%;

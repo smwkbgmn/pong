@@ -1,4 +1,4 @@
-.set-box{
+.set-div{
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -18,7 +18,7 @@
 	font-size: 200%;
 }
 
-.set-text{
+.set-p{
 	margin-top: 2.5%;
 }
 
@@ -29,7 +29,7 @@
 	padding-left: 1.5%;
 }
 
-.error-text {
+.error-p {
 	position: absolute;
 	top: 85%;
 	left: 70%;

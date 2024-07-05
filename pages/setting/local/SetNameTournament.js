@@ -15,8 +15,8 @@ export default class SetNameTournament extends Component {
 		for(let i = 0; i < player_num; i++) {
 			inputHTML += `
 				<div class="set-wrap">
-					<p class="set-text">플레이어 ${i + 1}</p>
-					<input class="set-input set${i + 1}" type="text"</input>
+					<p class="set-p">플레이어 ${i + 1}</p>
+					<input class="set-input set${i + 1}"></input>
 				</div>
 			`;
 		}
@@ -25,18 +25,18 @@ export default class SetNameTournament extends Component {
 			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/setting/local/SetNameTournament.css">
 			
-			<div class="main-box">
-				<a href="#/" class="home-a">
+			<div class="main-div">
+				<a class="home-a" href="#/">
 					<img class="home-img" src="./design_src/home-icon.png">
 				</a>
 				
-				<p class="main-text">이름 설정</p>
+				<p class="main-p">이름 설정</p>
 
-				<div class="set-box">
+				<div class="set-div">
 					${inputHTML}
 				</div>
 
-				<p class="error-text">${errorMessage}</p>
+				<p class="error-p">${errorMessage}</p>
 
 				<button class="done-btn">완료</button>
 			</div>

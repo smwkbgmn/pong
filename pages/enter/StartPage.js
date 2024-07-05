@@ -6,7 +6,7 @@ export default class StartPage extends Component {
 			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/enter/StartPage.css">
 			
-			<div class="main-box">
+			<div class="main-div">
 				<a href="#connection_type/" class="start-a">게임 시작</a>
 			</div>
 		`;

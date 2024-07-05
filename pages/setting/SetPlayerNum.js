@@ -13,14 +13,14 @@ export default class SetPlayerNum extends Component {
 			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/setting/SetPlayerNum.css">
 			
-			<div class="main-box">
-				<a href="#/" class="home-a">
+			<div class="main-div">
+				<a class="home-a" href="#/">
 					<img class="home-img" src="./design_src/home-icon.png">
 				</a>
 				
-				<p class="main-text">토너먼트</p>
+				<p class="main-p">토너먼트</p>
 
-				<p class="num-text">인원 수</p>
+				<p class="num-p">인원 수</p>
 				<div class="num-dropdown dropend">
 					<button class="btn text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgba(200, 200, 200, 0.5);">${num}</botton>
 						<ul class="dropdown-menu">

@@ -14,21 +14,21 @@ export default class SetNameAI extends Component {
 			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/setting/local/SetNameAI.css">
 			
-			<div class="main-box">
-				<a href="#/" class="home-a">
+			<div class="main-div">
+				<a class="home-a" href="#/">
 					<img class="home-img" src="./design_src/home-icon.png">
 				</a>
 				
-				<p class="main-text">이름 설정</p>
+				<p class="main-p">이름 설정</p>
 
-				<div class="set-box">
+				<div class="set-div">
 					<div class="set-wrap">
-						<p class="set-text">플레이어</p>
-						<input class="set-input" type="text"</input>
+						<p class="set-p">플레이어</p>
+						<input class="set-input"></input>
 					</div>
 				</div>
 
-				<p class="error-text">${errorMessage}</p>
+				<p class="error-p">${errorMessage}</p>
 
 				<button class="done-btn">완료</button>
 			</div>

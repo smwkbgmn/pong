@@ -23,12 +23,12 @@ export default class WaitingPlayer extends Component {
 			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/setting/online/WaitingPlayer.css">
 			
-			<div class="main-box">
-				<p class="main-text">토너먼트</p>
+			<div class="main-div">
+				<p class="main-p">토너먼트</p>
 
-				<p class="message-text">${textList[idx]}</p>
+				<p class="message-p">${textList[idx]}</p>
 				
-				<a href="#set_player_num/" class="exit-a">돌아가기</a>
+				<a class="exit-a" href="#set_player_num/">돌아가기</a>
 			</div>
 		`;
 	}
