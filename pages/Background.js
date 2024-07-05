@@ -89,11 +89,11 @@ export default class Three extends Component {
 			console.log( "in section: " + section );
 
 			if (section == "#game_tournament/" || section == "#game_ai/") {
-				setCameraHome();
+				setCameraGame();
 				return cameraPositions["game"];
 			}
 			else {
-				setCameraGame();
+				setCameraHome();
 				return cameraPositions["home"];
 			}
 		}
