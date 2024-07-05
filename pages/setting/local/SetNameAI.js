@@ -11,8 +11,8 @@ export default class SetNameAI extends Component {
 		const { errorMessage } = this.$state;
 
 		return `
-			<link rel="stylesheet" href="./style/Common.css">
-			<link rel="stylesheet" href="./style/game/local/SetNameAI.css">
+			<link rel="stylesheet" href="./style/Home.css">
+			<link rel="stylesheet" href="./style/setting/local/SetNameAI.css">
 			
 			<div class="main-box">
 				<p class="main-text">이름 설정</p>

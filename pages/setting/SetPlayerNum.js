@@ -10,8 +10,8 @@ export default class SetPlayerNum extends Component {
 	template() {
 		const { num } = this.$state;
 		return `
-			<link rel="stylesheet" href="./style/Common.css">
-			<link rel="stylesheet" href="./style/game/SetPlayerNum.css">
+			<link rel="stylesheet" href="./style/Home.css">
+			<link rel="stylesheet" href="./style/setting/SetPlayerNum.css">
 			
 			<div class="main-box">
 				<p class="main-text">토너먼트</p>

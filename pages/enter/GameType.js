@@ -3,7 +3,7 @@ import Component from '../../core/Component.js'
 export default class Gametype extends Component {
 	template() {
 		return `
-			<link rel="stylesheet" href="./style/Common.css">
+			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/enter/GameType.css">
 			
 			<div class="main-box">

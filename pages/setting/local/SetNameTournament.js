@@ -22,8 +22,8 @@ export default class SetNameTournament extends Component {
 		}
 
 		return `
-			<link rel="stylesheet" href="./style/Common.css">
-			<link rel="stylesheet" href="./style/game/local/SetNameTournament.css">
+			<link rel="stylesheet" href="./style/Home.css">
+			<link rel="stylesheet" href="./style/setting/local/SetNameTournament.css">
 			
 			<div class="main-box">
 				<p class="main-text">이름 설정</p>

@@ -3,7 +3,7 @@ import Component from '../../core/Component.js'
 export default class StartPage extends Component {
 	template() {
 		return `
-			<link rel="stylesheet" href="./style/Common.css">
+			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/enter/StartPage.css">
 			
 			<div class="main-box">

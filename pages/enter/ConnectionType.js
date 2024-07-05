@@ -6,7 +6,7 @@ const redirectURI = 'http://localhost:5173/';
 export default class ConnectionType extends Component {
 	template() {
 		return `
-			<link rel="stylesheet" href="./style/Common.css">
+			<link rel="stylesheet" href="./style/Home.css">
 			<link rel="stylesheet" href="./style/enter/ConnectionType.css">
 			
 			<div class="main-box">

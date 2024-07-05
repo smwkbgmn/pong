@@ -20,8 +20,8 @@ export default class WaitingPlayer extends Component {
 		]
 
 		return `
-			<link rel="stylesheet" href="./style/Common.css">
-			<link rel="stylesheet" href="./style/game/online/WaitingPlayer.css">
+			<link rel="stylesheet" href="./style/Home.css">
+			<link rel="stylesheet" href="./style/setting/online/WaitingPlayer.css">
 			
 			<div class="main-box">
 				<p class="main-text">토너먼트</p>

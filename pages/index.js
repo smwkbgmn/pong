@@ -1,12 +1,12 @@
 import StartPage from './enter/StartPage.js'
 import ConnectionType from './enter/ConnectionType.js';
 import GameType from './enter/GameType.js';
-import SetPlayerNum from './game/SetPlayerNum.js';
+import SetPlayerNum from './setting/SetPlayerNum.js';
+import WaitingPlayer from './setting/online/WaitingPlayer.js';
+import SetNameTournament from './setting/local/SetNameTournament.js';
+import SetNameAI from './setting/local/SetNameAI.js';
 import GameTournament from './game/GameTournament.js';
-import WaitingPlayer from './game/online/WaitingPlayer.js';
-import SetNameTournament from './game/local/SetNameTournament.js';
 import GameAI from './game/GameAI.js';
-import SetNameAI from './game/local/SetNameAI.js';
 
 export default (main) => {
 	const start = () => new StartPage(main);
