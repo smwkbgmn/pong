@@ -10,35 +10,20 @@ body {
 }
 
 a {
-	p-decoration: none;
+	text-decoration: none;
 	color: white;
 }
 
-.main-div {
+.game-home-img {
+	z-index: 2;
 	position: absolute;
-	display: flex;
-
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-
-	height: 55%;
-	width: 50%;
-	
-	border: none;
-	border-radius: 5%;
-	background-color: rgba(76, 76, 76, 0.5);
-	cursor: pointer;
+	top: 6%;
+	left: 4%;
+	width: 3%;
+	filter: brightness(0) invert(1);
 }
 
-.main-p{
+.game-div {
 	position: absolute;
-	top: 15%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	
-	border: none;
-	background-color: none;
-
-	font-size: 250%;
+	z-index: 1;
 }

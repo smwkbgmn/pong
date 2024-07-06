@@ -1,4 +1,5 @@
 import Component from './Component.js'
+// import PongGame from '../pages/game/Game.js'
 
 export default class Router extends Component {
 	setUp() {
@@ -17,7 +18,7 @@ export default class Router extends Component {
 		});
 
 		console.log('hash ' + window.location.hash);
-		
+
 		if (window.location.hash == '#/') {
 			if (sessionStorage.getItem('isLogging') == 'true') {
 				const isLoggedIn = sessionStorage.getItem('isLoggedIn');

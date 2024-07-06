@@ -33,7 +33,10 @@ export default class Three extends Component {
 		
 		/*** CAMERA ***/
 		let camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 200 );
-		camera.position.set( 0, 0, 0.01 );
+		if (window.location.hash == '#game_tournament/' || window.location.hash == '#game_ai/')
+			camera.position.set( 0, 0, 4.9 );
+		else
+			camera.position.set( 0, 0, 0.01 );
 		camera.lookAt( 0, 0, 10 );
 
 		const seeing = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
@@ -50,8 +53,13 @@ export default class Three extends Component {
 		/*** CONTROL - Orbit ***/
 		const controls = new OrbitControls( camera, renderer.domElement );
 		// const controls = new OrbitControls( seeing, renderer.domElement );
-
-		controls.target.set( 0, 0, 1 );
+		
+		if (window.location.hash == '#game_tournament/' || window.location.hash == '#game_ai/') {
+			controls.target.set( 0, 0, 4.95 );
+			controls.enabled = false;
+		}
+		else
+			controls.target.set( 0, 0, 0.5 );
 
 		controls.enableDamping = true;
 		controls.dampingFactor = 0.05;

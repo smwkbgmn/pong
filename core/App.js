@@ -8,14 +8,14 @@ export default class App extends Component {
 		return `
 		<head></head>
 		<main>
-			<canvas data-component="three"></canvas>
+			<canvas data-component="three-canvas"></canvas>
 		</main>
 		`;
 	}
 	
 	mounted() {
 		const $three = this.$target.querySelector(
-			'[data-conponent="three"]'
+			'[data-conponent="three-canvas"]'
 		);
 		new Three($three);
 		
