@@ -29,7 +29,6 @@ export default class PongGame extends Component {
 				<button class="restart-btn">${button}</button>
 			</div>
 		`;
-		// 로컬 토너먼트면 다시하기 버튼 숨기고 계속하기로 바꾸기. 게임 완전히 끝났을 때만 다시하기
 	}
 
 	setUp() {
@@ -41,6 +40,7 @@ export default class PongGame extends Component {
 		
 		this.isRunning = true;
 		this.isFinish = false;
+		this.winnerName = '';
 		
 		this.ballDirection = { x: 1, y: 1 };
 		this.ballSpeedDefault = 0.04;
@@ -83,12 +83,15 @@ export default class PongGame extends Component {
 				this.resetBall();
 				this.resumeGame();
 			}
-			// else {
-			// 로컬 토너먼트에서 다시하기 눌렀을 때
-			// }
+			else
+				this.winnerName = this.left_score > this.right_score ? this.$props.player1 : this.$props.player2;
 		});
 	}
 
+	// 게임이 종료되고 버튼을 클릭하면 설정됨
+	isWinnerName() {
+		return this.winnerName;
+	}
 
 	/*** SETUP ***/
     setupThreeJS() {

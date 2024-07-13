@@ -59,7 +59,7 @@ export default class SetNameAI extends Component {
 			return ;
 		}
 
-		localStorage.setItem('player_name', JSON.stringify(name));
+		sessionStorage.setItem('player_name', JSON.stringify(name));
 		window.location.href = './#game_ai/';
 	}
 

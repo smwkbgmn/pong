@@ -1,11 +1,13 @@
 import Component from './Component.js'
-// import PongGame from '../pages/game/Game.js'
+import * as Account from '../api/Account.js'
 
 export default class Router extends Component {
 	setUp() {
 		this.$state = {
 			routes: [],
 		};
+	
+		sessionStorage.setItem('isLoggedIn', false);
 	}
 
 	addRoute(fragment, component) {
@@ -16,26 +18,21 @@ export default class Router extends Component {
 		const currentRoute = this.$state.routes.find((route) => {
 			return route.fragment === window.location.hash;
 		});
-
+		
 		console.log('hash ' + window.location.hash);
-
-		if (window.location.hash == '#/') {
-			if (sessionStorage.getItem('isLogging') == 'true') {
-				const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-
-				if (isLoggedIn != 'true') {
-					await this.waitForLoad().then(() => {
-						this.extractToken();
-					})
-					if (this.isValidToken() == true)
-						sessionStorage.setItem('isLoggedIn', true);
-				}
-
-				if (sessionStorage.getItem('isLoggedIn') == 'true')
-					window.location.href = './#game_type/';
-				else
-					currentRoute.component();
+		
+		let isLoggedIn = sessionStorage.getItem('isLoggedIn');
+		if (isLoggedIn == 'true') {
+			if ((await Account.validateToken()).success == false) {
+				sessionStorage.setItem('isLoggedIn', false);
+				window.location.href = './#connection_type/';
 			}
+		}
+
+		isLoggedIn = sessionStorage.getItem('isLoggedIn');
+		if (window.location.hash == '#/') {
+			if (isLoggedIn == 'true')
+				window.location.href = './#game_type/';
 			else
 				currentRoute.component();
 		}
