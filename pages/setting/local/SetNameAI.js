@@ -16,7 +16,7 @@ export default class SetNameAI extends Component {
 			
 			<div class="main-div">
 				<a class="home-a" href="#/">
-					<img class="home-img" src="./design_src/home-icon.png">
+					<img class="home-img" src="./asset/home-icon.png">
 				</a>
 				
 				<p class="main-p">이름 설정</p>
@@ -47,7 +47,15 @@ export default class SetNameAI extends Component {
 		let name = this.$target.querySelector('.set-input').value;
 
 		if (name == '') {
-			this.setErrorMessage();
+			this.setErrorMessage('이름을 설정해주세요.');
+			return ;
+		}
+		else if (name.length > 10) {
+			this.setErrorMessage('영문/한글/숫자 10자 이내로 설정해주세요.');
+			return ;
+		}
+		else if (this.checkInvalidCharacter(name) == true) {
+			this.setErrorMessage('영문/한글/숫자 10자 이내로 설정해주세요.');
 			return ;
 		}
 
@@ -55,7 +63,12 @@ export default class SetNameAI extends Component {
 		window.location.href = './#game_ai/';
 	}
 
-	setErrorMessage() {
-		this.setState({ errorMessage: '이름을 설정해주세요.' });
+	checkInvalidCharacter(name) {
+		const chars = /[^0-9a-zA-Z가-힣]/;
+		return chars.test(name);
+	}
+
+	setErrorMessage(msg) {
+		this.setState({ errorMessage: msg });
 	}
 }

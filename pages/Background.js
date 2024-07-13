@@ -23,7 +23,7 @@ export default class Three extends Component {
 		const scene = new THREE.Scene();
 		
 		const texture = new THREE.TextureLoader();
-		texture.load('../../design_src/3d/cloud.jpg', function(texture) {
+		texture.load('../../asset/3d/cloud.jpg', function(texture) {
 			scene.background = texture;
 		});
 		
@@ -43,6 +43,25 @@ export default class Three extends Component {
 		seeing.position.z = 20;
 
 		let activation = camera;
+
+		/*** AUDIO ***/
+		const listener = new THREE.AudioListener();
+		camera.add(listener);
+
+		const bgSound = new THREE.Audio(listener);
+		const audioLoader = new THREE.AudioLoader();
+		audioLoader.load('../asset/bgm.mp3', function(buffer) {
+			bgSound.setBuffer(buffer);
+			bgSound.setLoop(true);
+			bgSound.setVolume(0.5);
+			bgSound.play();
+ 	 	});
+
+		if (!window.audioContext) {
+			window.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+		} else if (window.audioContext.state === 'suspended') {
+			window.audioContext.resume();
+		}
 
 		/*** RENDERER ***/
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -196,8 +215,8 @@ export default class Three extends Component {
 		const loader = new GLTFLoader();
 		
 		loader.load(
-			// '../../design_src/3d/school_class_room/scene.gltf',
-			'../../design_src/3d/classroom/classRoom_light.glb',
+			// '../../asset/3d/school_class_room/scene.gltf',
+			'../../asset/3d/classroom/classRoom_light.glb',
 		
 			function ( gltf ) {
 		

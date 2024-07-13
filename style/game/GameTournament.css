@@ -1,55 +1,86 @@
-.num-text {
+.player_list-box {
 	position: absolute;
-	top: 50%;
-	left: 40%;
+	display: flex;
+
+	top: 30%;
+	left: 95%;
 	transform: translate(-50%, -50%);
+
+	width: 15%;
+	height: 50%;
+
+	background-color: none;
+
+	display: block;
+
+	font-size: 170%;
+}
+
+.players_name-p {
+	margin: -5px;
+}
+
+.match-box {
+	position: absolute;
+	display: flex;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+
+	height: 55%;
+	width: 50%;
 	
 	border: none;
-	background-color: rgba(0, 0, 0, 0);
+	border-radius: 5%;
+	background-color: rgba(76, 76, 76, 0.5);
 
+	opacity: 100;
+}
+
+.match-p{
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	font-size: 250%;
+}
+
+.next_player1-p{
+	position: absolute;
+	top: 50%;
+	left: 25%;
+	transform: translate(-50%, -50%);
+	
 	font-size: 300%;
 }
 
-.num-dropdown {
+.next_player_vs-p {
 	position: absolute;
 	top: 50%;
-	left: 58%;
+	left: 50%;
 	transform: translate(-50%, -50%);
+	
+	font-size: 300%;
 }
 
-.btn {
-	border: none;
-	border-radius: 0%;
-	outline: none;
-	width: 120%;
-	height: 100%;
-	font-size: 230%;
+.next_player2-p{
+	position: absolute;
+	top: 50%;
+	left: 75%;
+	transform: translate(-50%, -50%);
+	
+	font-size: 300%;
 }
 
-.dropdown-menu {
-	border-radius: 0%;
-	background-color: rgba(200, 200, 200, 0.5) !important;
-
-	font-size: 100%;
-}
-
-.dropdown-item:hover {
-	background-color: rgba(200, 200, 200, 0) !important;
-}
-
-.start-a {
+.countdown-p{
 	position: absolute;
 	top: 85%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	
-	border: none;
-	background-color: rgba(200, 200, 200, 0);
-
 	color: white;
-	font-size: 300%;
-}
-
-.start-a:hover {
-	color: black;
+	font-size: 350%;
 }

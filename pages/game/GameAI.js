@@ -1,17 +1,23 @@
 import Component from '../../core/Component.js'
-import PongGame from './Game.js'
+import PongGame from '../../components/GameLocal.js'
 
 export default class GameAI extends Component {
+	setUp() {
+		this.$state = {
+			aiMode: true,
+		}
+	}
+
 	template() {
 		return `
 			<link rel="stylesheet" href="./style/Game.css">
 			<link rel="stylesheet" href="./style/game/GameAI.css">
 			
-			<a class="home-a" href="#/">
-				<img class="game-home-img" src="./design_src/home-icon.png">
-			</a>
-
 			<div data-component="game-div"></div>
+
+			<a class="home-a" href="#/">
+				<img class="game-home-img" src="./asset/home-icon.png">
+			</a>
 		`;
 	}
 
@@ -19,6 +25,6 @@ export default class GameAI extends Component {
 		const $game = this.$target.querySelector(
 			'[data-component="game-div"]'
 		);
-		new PongGame($game);
+		new PongGame($game, this.$state);
 	}
 }

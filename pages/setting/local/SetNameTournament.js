@@ -27,7 +27,7 @@ export default class SetNameTournament extends Component {
 			
 			<div class="main-div">
 				<a class="home-a" href="#/">
-					<img class="home-img" src="./design_src/home-icon.png">
+					<img class="home-img" src="./asset/home-icon.png">
 				</a>
 				
 				<p class="main-p">이름 설정</p>
@@ -57,17 +57,30 @@ export default class SetNameTournament extends Component {
 			let tmp = this.$target.querySelector('.set' + (i + 1)).value;
 
 			if (tmp == '') {
-				this.setErrorMessage();
+				this.setErrorMessage('이름을 설정해주세요.');
+				return ;
+			}
+			else if (tmp.length > 10) {
+				this.setErrorMessage('영문/한글/숫자 10자 이내로 설정해주세요.');
+				return ;
+			}
+			else if (this.checkInvalidCharacter(tmp) == true) {
+				this.setErrorMessage('영문/한글/숫자 10자 이내로<br>설정해주세요.');
 				return ;
 			}
 			name.push(tmp);
 		}
 
-		localStorage.setItem('player_name', JSON.stringify(name));
+		sessionStorage.setItem('players_name', JSON.stringify(name));
 		window.location.href = './#game_tournament/';
 	}
 
-	setErrorMessage() {
-		this.setState({ errorMessage: '이름을 설정해주세요.' });
+	checkInvalidCharacter(name) {
+		const chars = /[^0-9a-zA-Z가-힣]/;
+		return chars.test(name);
+	}
+
+	setErrorMessage(msg) {
+		this.setState({ errorMessage: msg });
 	}
 }

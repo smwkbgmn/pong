@@ -11,7 +11,7 @@ export default class ConnectionType extends Component {
 			
 			<div class="main-div">
 				<a class="home-a" href="#/">
-					<img class="home-img" src="./design_src/home-icon.png">
+					<img class="home-img" src="./asset/home-icon.png">
 				</a>
 
 				<p class="main-p">게임 모드</p>

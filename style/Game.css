@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'CrayonFont';
-	src: url(../../design_src/Typo_CrayonM.ttf);
+	src: url(../../asset/Typo_CrayonM.ttf);
 }
 
 body {
@@ -26,4 +26,68 @@ a {
 .game-div {
 	position: absolute;
 	z-index: 1;
+}
+
+.score-p {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+
+	font-size: 350%;
+	transform: translate(-50%, -50%);
+}
+
+.result-box {
+	position: absolute;
+	display: flex;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+
+	height: 55%;
+	width: 50%;
+	
+	border: none;
+	border-radius: 5%;
+	background-color: rgba(76, 76, 76, 0.5);
+
+	opacity: 0;
+}
+
+.result-p{
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	font-size: 250%;
+}
+
+.win_or_lose-p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	font-size: 400%;
+	white-space: nowrap;
+}
+
+.restart-btn{
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: rgba(200, 200, 200, 0);
+
+	color: white;
+	font-size: 300%;
+}
+
+.restart-btn:hover {
+	color: black;
 }
