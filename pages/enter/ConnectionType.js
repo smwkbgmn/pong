@@ -1,6 +1,9 @@
 import Component from '../../core/Component.js'
 import * as Account from '../../api/Account.js'
 
+const clientID = 'u-s4t2ud-9063f4e8ff01e5b0878f85b3cc0434661267ebbee2ae65bcba9fc2a973a6584e';
+const redirectURI = 'http://localhost:5173/';
+
 export default class ConnectionType extends Component {
 	template() {
 		return `
@@ -21,8 +24,12 @@ export default class ConnectionType extends Component {
 
 	setEvent() {
 		this.addEvent('click', '.online-btn', async ({ target }) => {
-			await Account.attemptLogin();
-			window.location.href = './#game_type/';
+			sessionStorage.setItem('isLogging', true);
+			const authURL = `https://api.intra.42.fr/oauth/authorize?client_id=${clientID}&redirect_uri=${encodeURIComponent(redirectURI)}&response_type=code&scope=public`;
+			window.location.href = authURL;
+
+			// await Account.attemptLogin();
+			// window.location.href = './#game_type/';
 		});
 	}
 }

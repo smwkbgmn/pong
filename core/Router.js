@@ -23,15 +23,25 @@ export default class Router extends Component {
 		
 		let isLoggedIn = sessionStorage.getItem('isLoggedIn');
 		if (isLoggedIn == 'true') {
-			if ((await Account.validateToken()).success == false) {
+			const response = await Account.validateToken();
+			if (response.success == false) {
 				sessionStorage.setItem('isLoggedIn', false);
 				window.location.href = './#connection_type/';
 			}
 		}
 
-		isLoggedIn = sessionStorage.getItem('isLoggedIn');
 		if (window.location.hash == '#/') {
-			if (isLoggedIn == 'true')
+			if (sessionStorage.getItem('isLogging') == 'true') {
+				await this.waitForLoad().then(() => {
+					this.extractToken();
+				})
+
+				await Account.validateToken();
+			}
+
+			console.log(sessionStorage.getItem('isLoggedIn'));
+
+			if (sessionStorage.getItem('isLoggedIn') == 'true')
 				window.location.href = './#game_type/';
 			else
 				currentRoute.component();
@@ -79,7 +89,6 @@ export default class Router extends Component {
 
 		if (token42) {
 			sessionStorage.setItem('token42', JSON.stringify(token42));
-			// 백에 전달 해야됨
 
 			let currentURL = new URL(window.location.href);
 			let cleanURL = new URL(currentURL.origin + window.location.hash);
@@ -90,19 +99,4 @@ export default class Router extends Component {
 		// else
 		//	hadling with fail
 	}
-
-	isValidToken() {
-		// 토큰값을 그대로 바로 우리 백에 전달함과 동시에
-		// 42api 데이터 요청하는 우리 백 api 바로 요청
-		// 성공 -> 게임 모드 페이지, 실패 -> 알림 및 메인페이지로 튕기기
-
-		const tokenString = sessionStorage.getItem('token42');
-		const token42 = JSON.parse(tokenString);
-
-		// console.log('token42');
-		// console.log(tokenString);
-		console.log(token42);
-		return token42 != null;
-	}
 }
-

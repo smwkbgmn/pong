@@ -1,47 +1,77 @@
 import Component from '../../core/Component.js'
-import PongGame from '../../components/GameLocal.js'
-
+import * as GameUtils from "./GameUtils.js"
 export default class GameAI extends Component {
+	constructor($target, $props) {
+		super($target, $props);
+
+		this.startAIGame();
+	}
+
 	setUp() {
 		this.$state = {
 			aiMode: true,
+			countdown: '',
+			lastGame: true,
 		}
 	}
 
 	template() {
-		const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-
-		// 이미지 잘 불러와지는지 확인하기
-		let inputHTML = '';
-		if (isLoggedIn == true) {
-			const player_img = JSON.parse(sessionStorage.getItem('player_img'));
-			inputHTML = '<img class="player-img" src="player_img"></img>';
-		}
-
-		// 저장된 이름이 없으면 setNameAI로 리다이렉트?
+		const inputHTML = this.makePlayerInfo();
 		const player_name = JSON.parse(sessionStorage.getItem('player_name'));
 
 		return `
 			<link rel="stylesheet" href="./style/Game.css">
 			<link rel="stylesheet" href="./style/game/GameAI.css">
 			
-			<div data-component="game-div"></div>
-
 			<a class="home-a" href="#/">
-				<img class="game-home-img" src="./asset/home-icon.png">
+			<img class="game-home-img" src="./asset/home-icon.png">
 			</a>
-
+			
+			<p class="countdown-p">${this.$state.countdown}</p>
+			
 			<div class="player-div">
 				${inputHTML}
-				<p class="player_name">${player_name}</p>
+				<p class="player_name-p">${player_name}</p>
 			</div>
+			
+			<div data-component="game-div"></div>
 		`;
 	}
 
-	mounted() {
-		const $game = this.$target.querySelector(
-			'[data-component="game-div"]'
-		);
-		new PongGame($game, this.$state);
+	makePlayerInfo() {
+		const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+
+		let inputHTML = '';
+		if (isLoggedIn == 'true') {
+			const player_img = JSON.parse(sessionStorage.getItem('player_image'));
+			inputHTML = `<img class="player-img" src="${player_img}"></img>`;
+		}
+
+		return inputHTML;
+	}
+
+	async startAIGame() {
+		await this.showCountdown();
+		this.setPlayerInfoStyle();
+		while (window.location.hash == '#game_ai/') {
+			await GameUtils.playGame(this.$state, this.$target);
+		}
+	}
+
+	async showCountdown() {
+		for (let i = 3; i > 0; i--) {
+			this.setState({ countdown: i });
+			await GameUtils.sleep(1000);
+		}
+		GameUtils.setComponentOpacity('.countdown-p', 0);
+	}
+
+	setPlayerInfoStyle() {
+		const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+
+		if (isLoggedIn == 'true') {
+			const playerDiv = this.$target.querySelector('.player-div');
+			playerDiv.style.top = '52%';
+		}
 	}
 }

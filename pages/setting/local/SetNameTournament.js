@@ -56,16 +56,18 @@ export default class SetNameTournament extends Component {
 		for(let i = 0; i < player_num; i++) {
 			let tmp = this.$target.querySelector('.set' + (i + 1)).value;
 
+			console.log(tmp);
+
 			if (tmp == '') {
 				this.setErrorMessage('이름을 설정해주세요.');
 				return ;
 			}
-			else if (tmp.length > 10) {
-				this.setErrorMessage('영문/한글/숫자 10자 이내로 설정해주세요.');
+			else if (tmp.length > 8) {
+				this.setErrorMessage('영문/한글/숫자 8자<br>이내로 설정해주세요.');
 				return ;
 			}
 			else if (this.checkInvalidCharacter(tmp) == true) {
-				this.setErrorMessage('영문/한글/숫자 10자 이내로<br>설정해주세요.');
+				this.setErrorMessage('영문/한글/숫자 8자<br>이내로 설정해주세요.');
 				return ;
 			}
 			name.push(tmp);

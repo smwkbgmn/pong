@@ -7,13 +7,13 @@ import Matter from 'matter-js';
 export default class PongGame extends Component {	
 	template() {
 		const { left_score, right_score } = this.$state;
-		const { player1, player2 } = this.$props;
+		const { player_name1, player_name2 } = this.$props;
 
 		let result;
 		if (this.$props.aiMode == true)
 			result = left_score > right_score ? '승리' : '패배';
 		else
-			result = left_score > right_score ? player1 + ' 승리' : player2 + ' 승리';
+			result = left_score > right_score ? player_name1 + ' 승리' : player_name2 + ' 승리';
 
 		let button;
 		if (this.$props.lastGame == true)
@@ -40,7 +40,7 @@ export default class PongGame extends Component {
 		
 		this.isRunning = true;
 		this.isFinish = false;
-		this.winnerName = '';
+		this.endReturnValue = '';
 		
 		this.ballDirection = { x: 1, y: 1 };
 		this.ballSpeedDefault = 0.04;
@@ -77,20 +77,22 @@ export default class PongGame extends Component {
 
 		this.addEvent('click', '.restart-btn', ({ target }) => {
 			if (this.aiMode == true) {
-				this.setState({ left_score: 0, right_score: 0 });
-				this.setResultOpacity(0);
-				this.resetPaddle();
-				this.resetBall();
-				this.resumeGame();
+				// this.setState({ left_score: 0, right_score: 0 });
+				// this.setResultOpacity(0);
+				// this.resetPaddle();
+				// this.resetBall();
+				// this.resumeGame();
+
+				this.endReturnValue = 'end';
 			}
 			else
-				this.winnerName = this.left_score > this.right_score ? this.$props.player1 : this.$props.player2;
+				this.endReturnValue = this.left_score > this.right_score ? this.$props.player_name1 : this.$props.player_name2;
 		});
 	}
 
 	// 게임이 종료되고 버튼을 클릭하면 설정됨
-	isWinnerName() {
-		return this.winnerName;
+	isGameEnd() {
+		return this.endReturnValue;
 	}
 
 	/*** SETUP ***/

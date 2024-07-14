@@ -54,7 +54,7 @@ export default class Three extends Component {
 			bgSound.setBuffer(buffer);
 			bgSound.setLoop(true);
 			bgSound.setVolume(0.5);
-			bgSound.play();
+			// bgSound.play();
  	 	});
 
 		if (!window.audioContext) {

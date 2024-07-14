@@ -50,12 +50,12 @@ export default class SetNameAI extends Component {
 			this.setErrorMessage('이름을 설정해주세요.');
 			return ;
 		}
-		else if (name.length > 10) {
-			this.setErrorMessage('영문/한글/숫자 10자 이내로 설정해주세요.');
+		else if (name.length > 8) {
+			this.setErrorMessage('영문/한글/숫자 8자<br>이내로 설정해주세요.');
 			return ;
 		}
 		else if (this.checkInvalidCharacter(name) == true) {
-			this.setErrorMessage('영문/한글/숫자 10자 이내로 설정해주세요.');
+			this.setErrorMessage('영문/한글/숫자 8자<br>이내로 설정해주세요.');
 			return ;
 		}
 
