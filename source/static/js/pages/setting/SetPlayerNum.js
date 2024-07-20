@@ -9,10 +9,8 @@ export default class SetPlayerNum extends Component {
 
 	template() {
 		const { player_num } = this.$state;
-		return `
-			<link rel="stylesheet" href="/static/style/Home.css">
-			<link rel="stylesheet" href="/static/style/setting/SetPlayerNum.css">
-			
+
+		return `			
 			<div class="main-div">
 				<a class="home-a" href="#/">
 					<img class="home-img" src="/static/asset/home-icon.png">
@@ -30,7 +28,7 @@ export default class SetPlayerNum extends Component {
 						</ul>
 				</div>
 
-				<button class="start-btn">게임 시작</button>
+				<button class="start-btn">다음</button>
 			</div>
 		`;
 	}

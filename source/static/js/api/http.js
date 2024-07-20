@@ -1,22 +1,3 @@
-const parseResponse = async (response) => {
-	const { status } = response;
-	let data;
-	if (status !== 204) {
-		// const text = await response.text();
-		// if (text)
-			data = await response.json();
-	}
-
-	return {
-		status,
-		data,
-	}
-}
-
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 const request = async (params) => {
 	const { method = 'GET', url, headers = {}, body} = params;
 
@@ -32,66 +13,66 @@ const request = async (params) => {
 	const response = await window.fetch(url, config).catch(error => console.log(error));
 	console.log(response);
 
-	return parseResponse(response);
+	return await response.json();
 }
 
-const get = async (url, headers) => {
+export default async function get(url, headers) {
 	const response = await request({
 		url,
 		headers,
 		method: 'GET',
 	});
 
-	return response.data;
+	return response;
 }
 
-const post = async (url, body, headers) => {
-	const response = await request({
-		url,
-		headers,
-		method: 'POST',
-		body,
-	});
+// const post = async (url, body, headers) => {
+// 	const response = await request({
+// 		url,
+// 		headers,
+// 		method: 'POST',
+// 		body,
+// 	});
 
-	return response.data;
-}
+// 	return response;
+// }
 
-const put = async (url, body, headers) => {
-	const response = await request({
-		url,
-		headers,
-		method: 'PUT',
-		body,
-	});
+// const put = async (url, body, headers) => {
+// 	const response = await request({
+// 		url,
+// 		headers,
+// 		method: 'PUT',
+// 		body,
+// 	});
 
-	return response.data;
-}
+// 	return response;
+// }
 
-const patch = async (url, body, headers) => {
-	const response = await request({
-		url,
-		headers,
-		method: 'PATCH',
-		body,
-	});
+// const patch = async (url, body, headers) => {
+// 	const response = await request({
+// 		url,
+// 		headers,
+// 		method: 'PATCH',
+// 		body,
+// 	});
 
-	return response.data;
-}
+// 	return response;
+// }
 
-const deleteRequest = async (url, headers) => {
-	const response = await request({
-		url,
-		headers,
-		method: 'DELETE',
-	});
+// const deleteRequest = async (url, headers) => {
+// 	const response = await request({
+// 		url,
+// 		headers,
+// 		method: 'DELETE',
+// 	});
 
-	return response.data;
-}
+// 	return response;
+// }
 
-export default {
-	get,
-	post,
-	put,
-	patch,
-	delete: deleteRequest,
-};
+// export default {
+// 	get,
+// 	post,
+// 	put,
+// 	patch,
+// 	delete: deleteRequest,
+// };

@@ -5,10 +5,16 @@ export default class GameTournament extends Component {
 	constructor($target, $props) {
 		super($target, $props);
 
-		if (sessionStorage.getItem('isLoggedIn') == 'true')
-			window.location.href = './#waiting_player/';
+		const { settingDone } = this.$state;
+
+		if (settingDone == true) {
+			if (sessionStorage.getItem('isLoggedIn') == 'true')
+				window.location.href = './#waiting_player/';
+			else
+				this.startTournamentGame();
+		}
 		else
-			this.startTournamentGame();
+			window.location.href = './#/';
 	}
 
 	setUp() {
@@ -26,19 +32,22 @@ export default class GameTournament extends Component {
 
 			countdown: '',
 			lastGame: false,
-		};
 
-		// this.checkSetting();
+			settingDone: false,
+		};
+		
+		this.$state.settingDone = this.$state.players_name != null;
 	}
 
 	template() {
-		const { player_name1, player_name2, countdown } = this.$state;
+		const { settingDone, player_name1, player_name2, countdown } = this.$state;
+		
+		if (settingDone == false)
+			return ``;
+		
 		const inputHTML = this.makePlayerList();
 
 		return `
-			<link rel="stylesheet" href="/static/style/Game.css">
-			<link rel="stylesheet" href="/static/style/game/GameTournament.css">
-			
 			<a class="home-a" href="#/">
 				<img class="game-home-img" src="/static/asset/home-icon.png">
 			</a>
@@ -66,11 +75,6 @@ export default class GameTournament extends Component {
 			<div data-component="game-div"></div>
 		`;
 	}
-
-	// checkSetting() {
-	// 	if (this.$state.player_num == undefined)
-	// 		window.location.href = './#';
-	// }
 	
 	makePlayerList() {
 		const { player_num, players_name, lose_players_name } = this.$state;

@@ -19,10 +19,7 @@ export default class WaitingPlayer extends Component {
 			'다른 참가자를 기다리는 중입니다...'
 		]
 
-		return `
-			<link rel="stylesheet" href="/static/style/Home.css">
-			<link rel="stylesheet" href="/static/style/setting/online/WaitingPlayer.css">
-			
+		return `			
 			<div class="main-div">
 				<p class="main-p">토너먼트</p>
 

@@ -6,7 +6,19 @@ import createPages from "../pages/index.js"
 export default class App extends Component {
 	template() {
 		return `
-		<head></head>
+		<head>
+			<link rel="stylesheet" href="/static/style/Home.css">
+			<link rel="stylesheet" href="/static/style/enter/StartPage.css">
+			<link rel="stylesheet" href="/static/style/enter/ConnectionType.css">
+			<link rel="stylesheet" href="/static/style/enter/GameType.css">
+			<link rel="stylesheet" href="/static/style/setting/SetPlayerNum.css">
+			<link rel="stylesheet" href="/static/style/setting/local/SetNameAI.css">
+			<link rel="stylesheet" href="/static/style/setting/local/SetNameTournament.css">
+			<link rel="stylesheet" href="/static/style/setting/online/WaitingPlayer.css">
+			<link rel="stylesheet" href="/static/style/Game.css">
+			<link rel="stylesheet" href="/static/style/game/GameAI.css">
+			<link rel="stylesheet" href="/static/style/game/GameTournament.css">
+		</head>
 		<main>
 			<canvas data-component="three-canvas"></canvas>
 		</main>

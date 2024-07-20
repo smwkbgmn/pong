@@ -15,46 +15,54 @@ export default class Router extends Component {
 	}
 
 	async checkRoutes() {
+		console.log('current hash: ' + window.location.hash);
+		
 		const currentRoute = this.$state.routes.find((route) => {
 			return route.fragment === window.location.hash;
 		});
-		
-		console.log('current hash: ' + window.location.hash);
 		
 		let isLoggedIn = sessionStorage.getItem('isLoggedIn');
 		if (isLoggedIn == 'true') {
 			const response = await Account.validateToken();
 			if (response.success == false) {
+				console.log(response.message);
+
 				sessionStorage.setItem('isLoggedIn', false);
 				window.location.href = './#connection_type/';
 			}
 		}
 
 		if (window.location.hash == '#/') {
+			console.log('check move to home');
 			if (sessionStorage.getItem('isLogging') == 'true') {
 				await this.waitForLoad().then(() => {
 					this.extractToken();
 				})
 
-				await Account.attemptLogin(); //여기 바꿈
+				await Account.attemptLogin();
 
-				console.log(sessionStorage.getItem('isLogging'));
-				console.log(sessionStorage.getItem('isLoggedIn'));
+				console.log('why print twice???');
+
+				console.log('isLogging ' + sessionStorage.getItem('isLogging'));
+				console.log('isLoggedIn ' + sessionStorage.getItem('isLoggedIn'));
 				console.log(sessionStorage.getItem('player_name'));
 				console.log(sessionStorage.getItem('player_image'));
 				console.log(sessionStorage.getItem('access_token'));
 				console.log(sessionStorage.getItem('refresh_token'));
 			}
 
-			if (sessionStorage.getItem('isLoggedIn') == 'true')
+			if (sessionStorage.getItem('isLoggedIn') == 'true') {
 				window.location.href = './#game_type/';
+				return ;
+			}
 			else
 				currentRoute.component();
 		}
 
 		if (!currentRoute) {
-			window.location.href = './#';
-			this.$state.routes[0].component();
+			console.log('no current route');
+			window.location.href = './#/';
+			return ;
 		}
 
 		currentRoute.component();
@@ -63,10 +71,9 @@ export default class Router extends Component {
 	start() {
 		window.addEventListener('hashchange', () => this.checkRoutes());
 
-		console.log('hashchange');
-		
 		if (!window.location.hash) {
 			window.location.hash = '#/';
+			return ;
 		}
 		
 		this.checkRoutes();

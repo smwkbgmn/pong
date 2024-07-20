@@ -3,13 +3,23 @@ import Component from '../../../core/Component.js'
 export default class SetNameTournament extends Component {
 	setUp() {
 		this.$state = {
+			player_num: sessionStorage.getItem('player_num'),
+
 			errorMessage: '',
+
+			settingDone: false,
 		}
+
+		this.$state.settingDone = this.$state.player_num != null;
 	}
 
 	template() {
-		const player_num = sessionStorage.getItem('player_num');
-		const { errorMessage } = this.$state;
+		const { settingDone, player_num, errorMessage } = this.$state;
+			
+		if (settingDone == false) {
+			window.location.href = './#/';
+			return ``;
+		}
 		
 		let inputHTML = '';
 		for(let i = 0; i < player_num; i++) {
@@ -21,10 +31,7 @@ export default class SetNameTournament extends Component {
 			`;
 		}
 
-		return `
-			<link rel="stylesheet" href="/static/style/Home.css">
-			<link rel="stylesheet" href="/static/style/setting/local/SetNameTournament.css">
-			
+		return `			
 			<div class="main-div">
 				<a class="home-a" href="#/">
 					<img class="home-img" src="/static/asset/home-icon.png">

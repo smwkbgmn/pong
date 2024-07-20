@@ -10,10 +10,7 @@ export default class SetNameAI extends Component {
 	template() {
 		const { errorMessage } = this.$state;
 
-		return `
-			<link rel="stylesheet" href="/static/style/Home.css">
-			<link rel="stylesheet" href="/static/style/setting/local/SetNameAI.css">
-			
+		return `			
 			<div class="main-div">
 				<a class="home-a" href="#/">
 					<img class="home-img" src="/static/asset/home-icon.png">

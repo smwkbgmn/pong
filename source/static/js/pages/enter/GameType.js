@@ -2,10 +2,7 @@ import Component from '../../core/Component.js'
 
 export default class Gametype extends Component {
 	template() {
-		return `
-			<link rel="stylesheet" href="/static/style/Home.css">
-			<link rel="stylesheet" href="/static/style/enter/GameType.css">
-			
+		return `			
 			<div class="main-div">
 				<a class="home-a" href="#/">
 					<img class="home-img" src="/static/asset/home-icon.png">

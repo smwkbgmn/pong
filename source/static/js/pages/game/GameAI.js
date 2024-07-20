@@ -5,25 +5,38 @@ export default class GameAI extends Component {
 	constructor($target, $props) {
 		super($target, $props);
 
-		this.startAIGame();
+		const { settingDone } = this.$state;
+
+		if (settingDone == true)
+			this.startAIGame();
+		else
+			window.location.href = './#/';
 	}
 
 	setUp() {
 		this.$state = {
 			aiMode: true,
+
+			player_name: JSON.parse(sessionStorage.getItem('player_name')),
+
 			countdown: '',
 			lastGame: true,
+
+			settingDone: false,
 		}
+
+		this.$state.settingDone = this.$state.player_name != null;
 	}
 
 	template() {
+		const { settingDone, player_name } = this.$state;
+		
+		if (settingDone == false)
+			return ``;
+		
 		const inputHTML = this.makePlayerInfo();
-		const player_name = JSON.parse(sessionStorage.getItem('player_name'));
-
+		
 		return `
-			<link rel="stylesheet" href="/static/style/Game.css">
-			<link rel="stylesheet" href="/static/style/game/GameAI.css">
-			
 			<a class="home-a" href="#/">
 			<img class="game-home-img" src="/static/asset/home-icon.png">
 			</a>
