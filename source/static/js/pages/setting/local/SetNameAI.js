@@ -1,4 +1,5 @@
 import Component from '../../../core/Component.js'
+import * as Utils from '../../../Utils.js'
 
 export default class SetNameAI extends Component {
 	setUp() {
@@ -39,7 +40,7 @@ export default class SetNameAI extends Component {
 	}
 
 	checkInput() {
-		const player_num = sessionStorage.getItem('playerNum');
+		const player_num = Utils.getParsedItem('playerNum');
 
 		let name = this.$target.querySelector('.set-input').value;
 
@@ -56,8 +57,8 @@ export default class SetNameAI extends Component {
 			return ;
 		}
 
-		sessionStorage.setItem('playerName', JSON.stringify(name));
-		window.location.href = './#game_ai/';
+		Utils.setStringifiedItem('playerName', name);
+		Utils.changeFragment('#game_ai/');
 	}
 
 	checkInvalidCharacter(name) {

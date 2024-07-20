@@ -1,21 +1,29 @@
-import get from './http.js'
+import GET from './http.js'
+import * as Utils from '../Utils.js'
 
-export async function attemptLogin() {
-	const token42 = JSON.parse(sessionStorage.getItem('token42'));
+const clientID = 'u-s4t2ud-ffe307ba0889574ea9737775e70526b8e6ba5c1aac4b9b0e80086de8f383c9ab';
+const redirectURI = 'http://localhost:8000/';
+
+export function requestOAuth() {
+	const authURL = `https://api.intra.42.fr/oauth/authorize?client_id=${clientID}&redirect_uri=${encodeURIComponent(redirectURI)}&response_type=code&scope=public`;
+	Utils.changeURL(authURL);
+}
+
+export async function initialToken() {
+	const token42 = Utils.getParsedItem('token42');
 	const url = `http://localhost:8000/oauth/login/callback/?code=${encodeURIComponent(token42)}`;
 
-	return	get(url)
+	return	GET(url)
 			.then(response => {
 				if (response.code == 'ok') {
-					if (sessionStorage.getItem('isLoggedIn') == 'false') {
+					if (Utils.getParsedItem('isLoggedIn') == false) {
 
-						sessionStorage.setItem('isLogging', false);
-						sessionStorage.setItem('isLoggedIn', true);
-
-						sessionStorage.setItem('playerName', JSON.stringify(response.detail.name));
-						sessionStorage.setItem('playerImage', JSON.stringify(response.detail.image));
-						sessionStorage.setItem('accessToken', JSON.stringify(response.detail.accessToken));
-						sessionStorage.setItem('refreshToken', JSON.stringify(response.detail.refresh_token));
+						Utils.setStringifiedItem('isLogging', false);
+						Utils.setStringifiedItem('isLoggedIn', true);
+						Utils.setStringifiedItem('playerName', response.detail.name);
+						Utils.setStringifiedItem('playerImage', response.detail.image);
+						Utils.setStringifiedItem('accessToken', response.detail.access_token);
+						Utils.setStringifiedItem('refreshToken', response.detail.refresh_token);
 					}
 					return {
 						success: true,
@@ -31,13 +39,13 @@ export async function attemptLogin() {
 }
 
 export async function validateToken() {
-	const accessToken = JSON.parse(sessionStorage.getItem('accessToken'));
+	const accessToken = Utils.getParsedItem('accessToken');
 	const url = `http://localhost:8000/oauth/login/callback/`;
 	const header = {
 		Authorization: `${accessToken}`,
 	}
 
-	return	get(url, header)
+	return	GET(url, header)
 			.then(response => {
 				if (response.code == 'ok') {
 					return {

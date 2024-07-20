@@ -1,4 +1,5 @@
 import Component from '../../core/Component.js'
+import * as Utils from '../../Utils.js'
 
 export default class SetPlayerNum extends Component {
 	setUp() {
@@ -46,12 +47,12 @@ export default class SetPlayerNum extends Component {
 
 		this.addEvent('click', '.start-btn', ({ target }) => {
 			const { playerNum } = this.$state;
-			sessionStorage.setItem('playerNum', playerNum);
+			Utils.setStringifiedItem('playerNum', playerNum);
 
-			if (sessionStorage.getItem('isLoggedIn') == 'true')
-				window.location.href = './#waiting_player/';
+			if (Utils.getParsedItem('isLoggedIn') == true)
+				Utils.changeFragment('#waiting_player/');
 			else
-				window.location.href = './#set_name_tournament/';
+				Utils.changeFragment('#set_name_tournament/');
 		});
 	}
 

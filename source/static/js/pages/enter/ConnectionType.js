@@ -1,7 +1,6 @@
 import Component from '../../core/Component.js'
-
-const clientID = 'u-s4t2ud-ffe307ba0889574ea9737775e70526b8e6ba5c1aac4b9b0e80086de8f383c9ab';
-const redirectURI = 'http://localhost:8000/';
+import * as Account from '../../api/Account.js'
+import * as Utils from '../../Utils.js'
 
 export default class ConnectionType extends Component {
 	template() {
@@ -20,9 +19,8 @@ export default class ConnectionType extends Component {
 
 	setEvent() {
 		this.addEvent('click', '.online-btn', async ({ target }) => {
-			sessionStorage.setItem('isLogging', true);
-			const authURL = `https://api.intra.42.fr/oauth/authorize?client_id=${clientID}&redirect_uri=${encodeURIComponent(redirectURI)}&response_type=code&scope=public`;
-			window.location.href = authURL;
+			Utils.setStringifiedItem('isLogging', true);
+			Account.requestOAuth();
 		});
 	}
 }

@@ -1,4 +1,5 @@
 import Component from '../../core/Component.js'
+import * as Utils from '../../Utils.js'
 
 export default class Gametype extends Component {
 	template() {
@@ -17,10 +18,10 @@ export default class Gametype extends Component {
 
 	setEvent() {
 		this.addEvent('click', '.ai-btn', ({ target }) => {
-			if (sessionStorage.getItem('isLoggedIn') == 'true')
-				window.location.href = './#game_ai/';
+			if (Utils.getParsedItem('isLoggedIn') == true)
+				Utils.changeFragment('#game_ai/');
 			else
-				window.location.href = './#set_name_ai/';
+				Utils.changeFragment('#set_name_ai/');
 		});
 	}
 }

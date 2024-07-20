@@ -1,5 +1,6 @@
 import Component from '../../core/Component.js'
 import * as GameUtils from "./GameUtils.js"
+import * as Utils from '../../Utils.js'
 
 export default class GameAI extends Component {
 	constructor($target, $props) {
@@ -10,14 +11,14 @@ export default class GameAI extends Component {
 		if (settingDone == true)
 			this.startAIGame();
 		else
-			window.location.href = './#/';
+			Utils.changeFragment('#/');
 	}
 
 	setUp() {
 		this.$state = {
 			aiMode: true,
 
-			playerName: JSON.parse(sessionStorage.getItem('playerName')),
+			playerName: Utils.getParsedItem('playerName'),
 
 			countdown: '',
 			lastGame: true,
@@ -53,11 +54,12 @@ export default class GameAI extends Component {
 	}
 
 	makePlayerInfo() {
-		const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+		const isLoggedIn = Utils.getParsedItem('isLoggedIn');
 
 		let inputHTML = '';
-		if (isLoggedIn == 'true') {
-			const playerImage = JSON.parse(sessionStorage.getItem('playerImage'));
+		if (isLoggedIn == true) {
+			const playerImage = Utils.getParsedItem('playerImage');
+
 			inputHTML = `<img class="player-img" src="${playerImage}"></img>`;
 		}
 
@@ -67,9 +69,9 @@ export default class GameAI extends Component {
 	async startAIGame() {
 		await this.showCountdown();
 		this.setPlayerInfoStyle();
-		while (window.location.hash == '#game_ai/') {
+
+		while (window.location.hash == '#game_ai/')
 			await GameUtils.playGame(this.$state, this.$target);
-		}
 	}
 
 	async showCountdown() {
@@ -77,13 +79,14 @@ export default class GameAI extends Component {
 			this.setState({ countdown: i });
 			await GameUtils.sleep(1000);
 		}
+		
 		GameUtils.setComponentOpacity('.countdown-p', 0);
 	}
 
 	setPlayerInfoStyle() {
-		const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+		const isLoggedIn = Utils.getParsedItem('isLoggedIn');
 
-		if (isLoggedIn == 'true') {
+		if (isLoggedIn == true) {
 			const playerDiv = this.$target.querySelector('.player-div');
 			playerDiv.style.top = '52%';
 		}

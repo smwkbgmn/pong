@@ -1,4 +1,5 @@
 import Component from '../../core/Component.js'
+import * as Utils from '../../Utils.js'
 import * as GameUtils from "./GameUtils.js"
 
 export default class GameTournament extends Component {
@@ -8,23 +9,23 @@ export default class GameTournament extends Component {
 		const { settingDone } = this.$state;
 
 		if (settingDone == true) {
-			if (sessionStorage.getItem('isLoggedIn') == 'true')
-				window.location.href = './#waiting_player/';
+			if (Utils.getParsedItem('isLoggedIn') == true)
+				Utils.changeFragment('#waiting_player/');
 			else
 				this.startTournamentGame();
 		}
 		else
-			window.location.href = './#/';
+			Utils.changeFragment('#/');
 	}
 
 	setUp() {
 		this.$state = {
 			aiMode: false,
 
-			playerNum: sessionStorage.getItem('playerNum'),
+			playerNum: Utils.getParsedItem('playerNum'),
 
-			playerNames: JSON.parse(sessionStorage.getItem('playerNames')),
-			activePlayerNames: JSON.parse(sessionStorage.getItem('playerNames')),
+			playerNames: Utils.getParsedItem('playerNames'),
+			activePlayerNames: Utils.getParsedItem('playerNames'),
 			losePlayerNames: [],
 
 			playerNameLeft: '',

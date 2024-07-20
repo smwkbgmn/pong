@@ -1,9 +1,10 @@
 import Component from '../../../core/Component.js'
+import * as Utils from '../../../Utils.js'
 
 export default class SetNameTournament extends Component {
 	setUp() {
 		this.$state = {
-			playerNum: sessionStorage.getItem('playerNum'),
+			playerNum: Utils.getParsedItem('playerNum'),
 
 			errorMessage: '',
 
@@ -17,7 +18,7 @@ export default class SetNameTournament extends Component {
 		const { settingDone, playerNum, errorMessage } = this.$state;
 			
 		if (settingDone == false) {
-			window.location.href = './#/';
+			Utils.changeFragment('#/');
 			return ``;
 		}
 		
@@ -57,7 +58,7 @@ export default class SetNameTournament extends Component {
 	}
 
 	checkInput() {
-		const playerNum = sessionStorage.getItem('playerNum');
+		const playerNum = Utils.getParsedItem('playerNum');
 		let name = [];
 
 		for(let i = 0; i < playerNum; i++) {
@@ -80,8 +81,8 @@ export default class SetNameTournament extends Component {
 			name.push(tmp);
 		}
 
-		sessionStorage.setItem('playerNames', JSON.stringify(name));
-		window.location.href = './#game_tournament/';
+		Utils.setStringifiedItem('playerNames', name);
+		Utils.changeFragment('#game_tournament/');
 	}
 
 	checkInvalidCharacter(name) {

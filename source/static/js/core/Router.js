@@ -1,5 +1,6 @@
 import Component from './Component.js'
 import * as Account from '../api/Account.js'
+import * as Utils from '../Utils.js'
 
 export default class Router extends Component {
 	setUp() {
@@ -7,11 +8,20 @@ export default class Router extends Component {
 			routes: [],
 		};
 	
-		sessionStorage.setItem('isLoggedIn', false);
+		Utils.setStringifiedItem('isLoggedIn', false);
 	}
 
 	addRoute(fragment, component) {
 		this.$state.routes.push({ fragment, component });
+	}
+	
+	start() {
+		window.addEventListener('hashchange', () => this.checkRoutes());
+
+		if (!window.location.hash)
+			return Utils.changeFragment('#/');
+		
+		this.checkRoutes();
 	}
 
 	async checkRoutes() {
@@ -21,59 +31,49 @@ export default class Router extends Component {
 			return route.fragment === window.location.hash;
 		});
 		
-		let isLoggedIn = sessionStorage.getItem('isLoggedIn');
-		if (isLoggedIn == 'true') {
-			const response = await Account.validateToken();
-			if (response.success == false) {
-				console.log(response.message);
-
-				sessionStorage.setItem('isLoggedIn', false);
-				window.location.href = './#connection_type/';
-			}
-		}
+		if (Utils.getParsedItem('isLoggedIn') == true)
+			await this.validateUserSession();
 
 		if (window.location.hash == '#/') {
-			if (sessionStorage.getItem('isLogging') == 'true') {
-				await this.waitForLoad().then(() => {
-					this.extractToken();
-				})
+			if (Utils.getParsedItem('isLogging') == true)
+				await this.handleOAuthRedirect();
 
-				await Account.attemptLogin();
-
-				console.log('isLogging ' + sessionStorage.getItem('isLogging'));
-				console.log('isLoggedIn ' + sessionStorage.getItem('isLoggedIn'));
-				console.log(sessionStorage.getItem('playerName'));
-				console.log(sessionStorage.getItem('playerImage'));
-				console.log(sessionStorage.getItem('accessToken'));
-				console.log(sessionStorage.getItem('refreshToken'));
-			}
-
-			if (sessionStorage.getItem('isLoggedIn') == 'true') {
-				window.location.href = './#game_type/';
-				return ;
-			}
+			if (Utils.getParsedItem('isLoggedIn') == true)
+				return Utils.changeFragment('#game_type/');
 			else
 				currentRoute.component();
 		}
 
-		if (!currentRoute) {
-			console.log('no current route');
-			window.location.href = './#/';
-			return ;
-		}
+		if (!currentRoute)
+			return Utils.changeFragment('#/');
 
 		currentRoute.component();
 	}
-	
-	start() {
-		window.addEventListener('hashchange', () => this.checkRoutes());
 
-		if (!window.location.hash) {
-			window.location.hash = '#/';
-			return ;
-		}
-		
-		this.checkRoutes();
+	async validateUserSession() {
+		await Account.validateToken().then(response => {
+			if (response.success == false) {
+				console.log(response.message);
+	
+				Utils.setStringifiedItem('isLoggedIn', false);
+				Utils.changeFragment('#connection_type/');
+			}
+		})
+	}
+
+	async handleOAuthRedirect() {
+		await this.waitForLoad().then(() => {
+			this.extractToken();
+		})
+
+		await Account.initialToken();
+
+		console.log('isLogging ' + Utils.getParsedItem('isLogging'));
+		console.log('isLoggedIn ' + Utils.getParsedItem('isLoggedIn'));
+		console.log(Utils.getParsedItem('playerName'));
+		console.log(Utils.getParsedItem('playerImage'));
+		console.log(Utils.getParsedItem('accessToken'));
+		console.log(Utils.getParsedItem('refreshToken'));
 	}
 
 	// new Promise() 메서드 호출 시 resolve와 reject를 인자로 대기 상태 진입
@@ -95,7 +95,7 @@ export default class Router extends Component {
 		const token42 = new URLSearchParams(window.location.search).get('code');
 
 		if (token42) {
-			sessionStorage.setItem('token42', JSON.stringify(token42));
+			Utils.setStringifiedItem('token42', token42);
 
 			let currentURL = new URL(window.location.href);
 			let cleanURL = new URL(currentURL.origin + window.location.hash);

@@ -1,4 +1,5 @@
 import Component from '../../../core/Component.js'
+import * as Utils from '../../../Utils.js'
 
 export default class WaitingPlayer extends Component {
 	setUp() {
@@ -43,6 +44,6 @@ export default class WaitingPlayer extends Component {
 			this.$state.timer = setTimeout(this.changeMsg.bind(this, this.$state.idx), 800);
 		}
 		else
-			window.location.href = './#game_tournament/';
+			Utils.changeFragment('#game_tournament/');
 	}
 }

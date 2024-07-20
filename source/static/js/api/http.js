@@ -6,9 +6,8 @@ const request = async (params) => {
 		headers: new window.Headers(headers),
 	}
 
-	if (body) {
+	if (body)
 		config.body = JSON.stringify(body);
-	}
 
 	const response = await window.fetch(url, config).catch(error => console.log(error));
 	console.log(response);
