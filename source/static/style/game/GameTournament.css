@@ -47,7 +47,7 @@
 	font-size: 250%;
 }
 
-.next_player_name1-p{
+.next_player_left-p{
 	position: absolute;
 	top: 50%;
 	left: 25%;
@@ -65,7 +65,7 @@
 	font-size: 300%;
 }
 
-.next_player_name2-p{
+.next_player_right-p{
 	position: absolute;
 	top: 50%;
 	left: 75%;
@@ -84,7 +84,7 @@
 	font-size: 350%;
 }
 
-.player-div1 {
+.player_left-div {
 	position: absolute;
 	top: 51%;
 	left: 10%;
@@ -97,7 +97,7 @@
 	font-size: 260%;
 }
 
-.player-div2 {
+.player_right-div {
 	position: absolute;
 	top: 51%;
 	left: 90%;

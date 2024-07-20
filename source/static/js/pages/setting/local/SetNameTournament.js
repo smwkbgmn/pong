@@ -3,18 +3,18 @@ import Component from '../../../core/Component.js'
 export default class SetNameTournament extends Component {
 	setUp() {
 		this.$state = {
-			player_num: sessionStorage.getItem('player_num'),
+			playerNum: sessionStorage.getItem('playerNum'),
 
 			errorMessage: '',
 
 			settingDone: false,
 		}
 
-		this.$state.settingDone = this.$state.player_num != null;
+		this.$state.settingDone = this.$state.playerNum != null;
 	}
 
 	template() {
-		const { settingDone, player_num, errorMessage } = this.$state;
+		const { settingDone, playerNum, errorMessage } = this.$state;
 			
 		if (settingDone == false) {
 			window.location.href = './#/';
@@ -22,7 +22,7 @@ export default class SetNameTournament extends Component {
 		}
 		
 		let inputHTML = '';
-		for(let i = 0; i < player_num; i++) {
+		for(let i = 0; i < playerNum; i++) {
 			inputHTML += `
 				<div class="set-wrap">
 					<p class="set-p">플레이어 ${i + 1}</p>
@@ -57,10 +57,10 @@ export default class SetNameTournament extends Component {
 	}
 
 	checkInput() {
-		const player_num = sessionStorage.getItem('player_num');
+		const playerNum = sessionStorage.getItem('playerNum');
 		let name = [];
 
-		for(let i = 0; i < player_num; i++) {
+		for(let i = 0; i < playerNum; i++) {
 			let tmp = this.$target.querySelector('.set' + (i + 1)).value;
 
 			console.log(tmp);
@@ -80,7 +80,7 @@ export default class SetNameTournament extends Component {
 			name.push(tmp);
 		}
 
-		sessionStorage.setItem('players_name', JSON.stringify(name));
+		sessionStorage.setItem('playerNames', JSON.stringify(name));
 		window.location.href = './#game_tournament/';
 	}
 

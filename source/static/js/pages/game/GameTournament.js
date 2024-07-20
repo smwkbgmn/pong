@@ -21,14 +21,14 @@ export default class GameTournament extends Component {
 		this.$state = {
 			aiMode: false,
 
-			player_num: sessionStorage.getItem('player_num'),
+			playerNum: sessionStorage.getItem('playerNum'),
 
-			players_name: JSON.parse(sessionStorage.getItem('players_name')),
-			active_players_name: JSON.parse(sessionStorage.getItem('players_name')),
-			lose_players_name: [],
+			playerNames: JSON.parse(sessionStorage.getItem('playerNames')),
+			activePlayerNames: JSON.parse(sessionStorage.getItem('playerNames')),
+			losePlayerNames: [],
 
-			player_name1: '',
-			player_name2: '',
+			playerNameLeft: '',
+			playerNameRight: '',
 
 			countdown: '',
 			lastGame: false,
@@ -36,11 +36,11 @@ export default class GameTournament extends Component {
 			settingDone: false,
 		};
 		
-		this.$state.settingDone = this.$state.players_name != null;
+		this.$state.settingDone = this.$state.playerNames != null;
 	}
 
 	template() {
-		const { settingDone, player_name1, player_name2, countdown } = this.$state;
+		const { settingDone, playerNameLeft, playerNameRight, countdown } = this.$state;
 		
 		if (settingDone == false)
 			return ``;
@@ -49,7 +49,7 @@ export default class GameTournament extends Component {
 
 		return `
 			<a class="home-a" href="#/">
-				<img class="game-home-img" src="/static/asset/home-icon.png">
+				<img class="game_home-img" src="/static/asset/home-icon.png">
 			</a>
 
 			<div class="player_list-box">
@@ -58,18 +58,18 @@ export default class GameTournament extends Component {
 
 			<div class="match-box">
 				<p class="match-p">대전 상대</p>
-				<p class="next_player_name1-p">${player_name1}</p>
+				<p class="next_player_left-p">${playerNameLeft}</p>
 				<p class="next_player_vs-p">VS</p>
-				<p class="next_player_name2-p">${player_name2}</p>
+				<p class="next_player_right-p">${playerNameRight}</p>
 				<p class="countdown-p">${countdown}</p>
 			</div>
 
-			<div class="player-div1">
-				<p class="player_name-p">${player_name1}</p>
+			<div class="player_left-div">
+				<p class="player_name-p">${playerNameLeft}</p>
 			</div>
 
-			<div class="player-div2">
-				<p class="player_name-p">${player_name2}</p>
+			<div class="player_right-div">
+				<p class="player_name-p">${playerNameRight}</p>
 			</div>
 
 			<div data-component="game-div"></div>
@@ -77,19 +77,19 @@ export default class GameTournament extends Component {
 	}
 	
 	makePlayerList() {
-		const { player_num, players_name, lose_players_name } = this.$state;
+		const { playerNum, playerNames, losePlayerNames } = this.$state;
 		let inputHTML = '';
 
-		for(let i = 0; i < player_num; i++) {
+		for(let i = 0; i < playerNum; i++) {
 			let color;
 
-			if (lose_players_name.find(player => player == players_name[i]))
+			if (losePlayerNames.find(player => player == playerNames[i]))
 				color = 'darkgray';
 			else
 				color = 'white';
 
 			inputHTML += `
-				<p class="players_name-p name${i + 1}" style="color: ${color};">${players_name[i]}</p>
+				<p class="playerNames-p name${i + 1}" style="color: ${color};">${playerNames[i]}</p>
 			`;
 		}
 
@@ -97,33 +97,33 @@ export default class GameTournament extends Component {
 	}
 
 	async startTournamentGame() {
-		let active_player_num = this.$state.player_num;
+		let active_playerNum = this.$state.playerNum;
 
 		while (window.location.hash == '#game_tournament/') {
-			let win_players_name = [];
+			let winPlayerNames = [];
 
-			for(let i = 0; i < active_player_num; i += 2) {
+			for(let i = 0; i < active_playerNum; i += 2) {
 				await this.showNextPlayers(i);
 
-				if (active_player_num == 2)
+				if (active_playerNum == 2)
 					this.$state.lastGame = true;
 
 				const winnerName = await GameUtils.playGame(this.$state, this.$target);
 				
-				win_players_name.push(winnerName);
-				this.$state.lose_players_name.push(this.getLoserName(winnerName));
+				winPlayerNames.push(winnerName);
+				this.$state.losePlayerNames.push(this.getLoserName(winnerName));
 
 				this.render();
 			}
 			
-			active_player_num = this.setLoopCondition(active_player_num, win_players_name);
+			active_playerNum = this.setLoopCondition(active_playerNum, winPlayerNames);
 		}
 	}
 
 	async showNextPlayers(idx) {
-		const { active_players_name } = this.$state;
+		const { activePlayerNames } = this.$state;
 
-		this.setState({ player_name1: active_players_name[idx], player_name2: active_players_name[idx + 1] });
+		this.setState({ playerNameLeft: activePlayerNames[idx], playerNameRight: activePlayerNames[idx + 1] });
 		for (let i = 3; i > 0; i--) {
 			this.setState({ countdown: i });
 			await GameUtils.sleep(1000);
@@ -132,24 +132,24 @@ export default class GameTournament extends Component {
 	}
 
 	getLoserName(winnerName) {
-		return winnerName == this.$state.player_name1 ? this.$state.player_name2 : this.$state.player_name1;
+		return winnerName == this.$state.playerNameLeft ? this.$state.playerNameRight : this.$state.playerNameLeft;
 	}
 
-	setLoopCondition(active_player_num, win_players_name) {
+	setLoopCondition(active_playerNum, winPlayerNames) {
 		if (this.$state.lastGame == true)
 			return this.resetTournament();
-		return this.setNextGame(active_player_num, win_players_name);
+		return this.setNextGame(active_playerNum, winPlayerNames);
 	}
 
 	resetTournament() {
-		this.$state.active_players_name = this.$state.players_name;
+		this.$state.activePlayerNames = this.$state.playerNames;
 		this.$state.lastGame = false;
-		this.$state.lose_players_name = [];
-		return this.$state.player_num;
+		this.$state.losePlayerNames = [];
+		return this.$state.playerNum;
 	}
 	
-	setNextGame(active_player_num, win_players_name) {
-		this.$state.active_players_name = win_players_name;
-		return active_player_num / 2;
+	setNextGame(active_playerNum, winPlayerNames) {
+		this.$state.activePlayerNames = winPlayerNames;
+		return active_playerNum / 2;
 	}
 }

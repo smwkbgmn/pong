@@ -12,10 +12,10 @@ export async function playGame($state, $target) {
 export function waitForGameEnd(pongGame) {
 	return new Promise(resolve => {
 		const intervalID = setInterval(() => {
-			const Value = pongGame.isGameEnd();
-			if (Value != '') {
+			const value = pongGame.isGameEnd();
+			if (value != '') {
 				clearInterval(intervalID);
-				resolve(Value);
+				resolve(value);
 			}
 		}, 100);
 	})

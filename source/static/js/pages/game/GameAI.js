@@ -17,7 +17,7 @@ export default class GameAI extends Component {
 		this.$state = {
 			aiMode: true,
 
-			player_name: JSON.parse(sessionStorage.getItem('player_name')),
+			playerName: JSON.parse(sessionStorage.getItem('playerName')),
 
 			countdown: '',
 			lastGame: true,
@@ -25,11 +25,11 @@ export default class GameAI extends Component {
 			settingDone: false,
 		}
 
-		this.$state.settingDone = this.$state.player_name != null;
+		this.$state.settingDone = this.$state.playerName != null;
 	}
 
 	template() {
-		const { settingDone, player_name } = this.$state;
+		const { settingDone, playerName } = this.$state;
 		
 		if (settingDone == false)
 			return ``;
@@ -38,14 +38,14 @@ export default class GameAI extends Component {
 		
 		return `
 			<a class="home-a" href="#/">
-			<img class="game-home-img" src="/static/asset/home-icon.png">
+			<img class="game_home-img" src="/static/asset/home-icon.png">
 			</a>
 			
 			<p class="countdown-p">${this.$state.countdown}</p>
 			
 			<div class="player-div">
 				${inputHTML}
-				<p class="player_name-p">${player_name}</p>
+				<p class="playerName-p">${playerName}</p>
 			</div>
 			
 			<div data-component="game-div"></div>
@@ -57,8 +57,8 @@ export default class GameAI extends Component {
 
 		let inputHTML = '';
 		if (isLoggedIn == 'true') {
-			const player_img = JSON.parse(sessionStorage.getItem('player_image'));
-			inputHTML = `<img class="player-img" src="${player_img}"></img>`;
+			const playerImage = JSON.parse(sessionStorage.getItem('playerImage'));
+			inputHTML = `<img class="player-img" src="${playerImage}"></img>`;
 		}
 
 		return inputHTML;

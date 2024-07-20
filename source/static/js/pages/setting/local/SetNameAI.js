@@ -39,7 +39,7 @@ export default class SetNameAI extends Component {
 	}
 
 	checkInput() {
-		const player_num = sessionStorage.getItem('player_num');
+		const player_num = sessionStorage.getItem('playerNum');
 
 		let name = this.$target.querySelector('.set-input').value;
 
@@ -56,7 +56,7 @@ export default class SetNameAI extends Component {
 			return ;
 		}
 
-		sessionStorage.setItem('player_name', JSON.stringify(name));
+		sessionStorage.setItem('playerName', JSON.stringify(name));
 		window.location.href = './#game_ai/';
 	}
 

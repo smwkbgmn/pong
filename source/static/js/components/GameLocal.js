@@ -4,14 +4,14 @@ import Component from '../core/Component.js'
 
 export default class PongGame extends Component {	
 	template() {
-		const { left_score, right_score } = this.$state;
-		const { player_name1, player_name2 } = this.$props;
+		const { scoreLeft, scoreRight } = this.$state;
+		const { playerNameLeft, playerNameRight } = this.$props;
 
 		let result;
 		if (this.$props.aiMode == true)
-			result = left_score > right_score ? '승리' : '패배';
+			result = scoreLeft > scoreRight ? '승리' : '패배';
 		else
-			result = left_score > right_score ? player_name1 + ' 승리' : player_name2 + ' 승리';
+			result = scoreLeft > scoreRight ? playerNameLeft + ' 승리' : playerNameRight + ' 승리';
 
 		let button;
 		if (this.$props.lastGame == true)
@@ -20,7 +20,7 @@ export default class PongGame extends Component {
 			button = '다음 게임';
 
 		return `
-			<p class="score-p">${left_score} : ${right_score}</p>
+			<p class="score-p">${scoreLeft} : ${scoreRight}</p>
 			<div class="result-box">
 				<p class="result-p">게임 결과</p>
 				<p class="win_or_lose-p">${result}</p>
@@ -32,8 +32,8 @@ export default class PongGame extends Component {
 	setUp() {
 		this.$state = {
 			isSetup: true,
-			left_score: 0,
-			right_score: 0,
+			scoreLeft: 0,
+			scoreRight: 0,
 		}
 		
 		this.isRunning = true;
@@ -75,7 +75,7 @@ export default class PongGame extends Component {
 
 		this.addEvent('click', '.restart-btn', ({ target }) => {
 			if (this.aiMode == true) {
-				// this.setState({ left_score: 0, right_score: 0 });
+				// this.setState({ scoreLeft: 0, scoreRight: 0 });
 				// this.setResultOpacity(0);
 				// this.resetPaddle();
 				// this.resetBall();
@@ -84,7 +84,7 @@ export default class PongGame extends Component {
 				this.endReturnValue = 'end';
 			}
 			else
-				this.endReturnValue = this.left_score > this.right_score ? this.$props.player_name1 : this.$props.player_name2;
+				this.endReturnValue = this.scoreLeft > this.scoreRight ? this.$props.playerNameLeft : this.$props.playerNameRight;
 		});
 	}
 
@@ -403,10 +403,10 @@ export default class PongGame extends Component {
 	checkIfBallIsOutOfBounds() {
 		if (Math.abs(this.ball.body.position.x) > 6 || Math.abs(this.ball.body.position.y) > 5) {
 			if (this.ball.body.position.x > 0)
-				this.setState({ left_score: this.$state.left_score + 1});
+				this.setState({ scoreLeft: this.$state.scoreLeft + 1});
 			if (this.ball.body.position.x < 0)
-				this.setState({ right_score: this.$state.right_score + 1});
-			if (this.$state.left_score == 1 || this.$state.right_score == 1) { // 5로 바꾸기
+				this.setState({ scoreRight: this.$state.scoreRight + 1});
+			if (this.$state.scoreLeft == 1 || this.$state.scoreRight == 1) { // 5로 바꾸기
 				this.stopGame();
 				this.setResultOpacity(100);
 				// this.isFinish = true;

@@ -33,7 +33,6 @@ export default class Router extends Component {
 		}
 
 		if (window.location.hash == '#/') {
-			console.log('check move to home');
 			if (sessionStorage.getItem('isLogging') == 'true') {
 				await this.waitForLoad().then(() => {
 					this.extractToken();
@@ -41,14 +40,12 @@ export default class Router extends Component {
 
 				await Account.attemptLogin();
 
-				console.log('why print twice???');
-
 				console.log('isLogging ' + sessionStorage.getItem('isLogging'));
 				console.log('isLoggedIn ' + sessionStorage.getItem('isLoggedIn'));
-				console.log(sessionStorage.getItem('player_name'));
-				console.log(sessionStorage.getItem('player_image'));
-				console.log(sessionStorage.getItem('access_token'));
-				console.log(sessionStorage.getItem('refresh_token'));
+				console.log(sessionStorage.getItem('playerName'));
+				console.log(sessionStorage.getItem('playerImage'));
+				console.log(sessionStorage.getItem('accessToken'));
+				console.log(sessionStorage.getItem('refreshToken'));
 			}
 
 			if (sessionStorage.getItem('isLoggedIn') == 'true') {

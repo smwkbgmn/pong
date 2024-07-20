@@ -13,6 +13,7 @@ const request = async (params) => {
 	const response = await window.fetch(url, config).catch(error => console.log(error));
 	console.log(response);
 
+	// 항상 status 200번, body가 있을 예정
 	return await response.json();
 }
 
