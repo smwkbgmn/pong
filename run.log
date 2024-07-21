@@ -1,0 +1,45 @@
+Watching for file changes with StatReloader
+[mHTTP GET / 200 [0.01, 127.0.0.1:58165][0m
+[mHTTP GET /static/pong/js/render.js 200 [0.00, 127.0.0.1:58166][0m
+[mHTTP GET /static/pong/js/matchmaking.js 200 [0.01, 127.0.0.1:58165][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.03, 127.0.0.1:58165][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:58185][0m
+[mHTTP GET /static/pong/js/matchmaking.js 200 [0.00, 127.0.0.1:58185][0m
+[mHTTP GET /static/pong/js/render.js 200 [0.00, 127.0.0.1:58187][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:58187][0m
+/Users/eunwoolee/vscode_workspace/pingpong/source/source/urls.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP GET / 200 [0.01, 127.0.0.1:58200][0m
+[mHTTP GET /static/style/Home.css 200 [0.00, 127.0.0.1:58200][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:58202][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:58202][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:58202][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:58200][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:58207][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:58200][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:58207][0m
+[mHTTP GET /static/js/pages/enter/StartPage.js 200 [0.00, 127.0.0.1:58202][0m
+[mHTTP GET /static/js/pages/enter/ConnectionType.js 200 [0.00, 127.0.0.1:58209][0m
+[mHTTP GET /static/js/pages/enter/GameType.js 200 [0.00, 127.0.0.1:58212][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:58213][0m
+[mHTTP GET /static/js/pages/setting/local/SetNameAI.js 200 [0.00, 127.0.0.1:58202][0m
+[mHTTP GET /static/js/pages/setting/online/WaitingPlayer.js 200 [0.00, 127.0.0.1:58200][0m
+[mHTTP GET /static/js/pages/setting/local/SetNameTournament.js 200 [0.00, 127.0.0.1:58207][0m
+[mHTTP GET /static/js/pages/game/GameTournament.js 200 [0.00, 127.0.0.1:58209][0m
+[mHTTP GET /static/js/pages/game/GameAI.js 200 [0.00, 127.0.0.1:58212][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:58213][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:58213][0m
+[mHTTP GET /static/js/components/GameLocal.js 200 [0.00, 127.0.0.1:58213][0m
+[mHTTP GET /static/style/enter/StartPage.css 200 [0.00, 127.0.0.1:58213][0m
+[mHTTP GET /static/style/enter/ConnectionType.css 200 [0.00, 127.0.0.1:58212][0m
+[mHTTP GET /static/style/setting/local/SetNameTournament.css 200 [0.00, 127.0.0.1:58202][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.01, 127.0.0.1:58207][0m
+[mHTTP GET /static/style/setting/local/SetNameAI.css 200 [0.01, 127.0.0.1:58200][0m
+[mHTTP GET /static/style/enter/GameType.css 200 [0.01, 127.0.0.1:58209][0m
+[mHTTP GET /static/style/setting/online/WaitingPlayer.css 200 [0.00, 127.0.0.1:58213][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:58212][0m
+[mHTTP GET /static/style/game/GameAI.css 200 [0.00, 127.0.0.1:58202][0m
+[mHTTP GET /static/style/game/GameTournament.css 200 [0.00, 127.0.0.1:58207][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:58200][0m

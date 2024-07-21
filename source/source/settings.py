@@ -39,6 +39,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,6 +57,10 @@ INSTALLED_APPS = [
     
     'oauth',
     'users',
+
+    'channels',
+	'pymunk',
+    'pong'
 ]
 
 REST_FRAMEWORK = {
@@ -150,6 +156,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'source.wsgi.application'
+ASGI_APPLICATION = 'source.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 
 # Database

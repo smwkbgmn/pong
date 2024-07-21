@@ -20,6 +20,7 @@ from . import views
 
 urlpatterns = [
 		path('', views.index),
+        # path('', include('pong.urls')),
     path('admin/', admin.site.urls),
     path('oauth/', include('oauth.urls')),
     path('users/', include('users.urls', namespace='users')),
