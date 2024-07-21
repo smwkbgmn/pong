@@ -1,5 +1,4 @@
 import Component from '../core/Component.js'
-import * as THREE from '../node_modules/three/build/three.module.js'
 //import TWEEN from '@tweenjs/tween.js';
 //import TWEEN from '../node_modules/@tweenjs/tween.js/dist/tween.umd.js'
 
@@ -13,9 +12,6 @@ import * as THREE from '../node_modules/three/build/three.module.js'
 
 import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
-import { ArrowHelper } from '../node_modules/three/build/three.module.js';
-import { mx_bits_to_01 } from '../node_modules/three/examples/jsm/nodes/materialx/lib/mx_noise.js';
-
 
 
 export default class Three extends Component {

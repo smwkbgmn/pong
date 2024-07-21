@@ -1,7 +1,7 @@
 import Router from "./Router.js"
 import Component from "./Component.js"
 import createPages from "../pages/index.js"
-//import Three from "../pages/Background.js"
+import Three from "../pages/Background.js"
 
 export default class App extends Component {
 	template() {
@@ -29,7 +29,7 @@ export default class App extends Component {
 		const $three = this.$target.querySelector(
 			'[data-conponent="three-canvas"]'
 		);
-		//new Three($three);
+		new Three($three);
 		
 		const $main = this.$target.querySelector('main');
 		const pages = createPages($main);

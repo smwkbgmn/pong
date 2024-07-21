@@ -13,7 +13,12 @@ const request = async (params) => {
 	console.log(response);
 
 	// 항상 status 200번, body가 있을 예정
-	return await response.json();
+	if (response.status == 200)
+		return await response.json();
+	else
+		return {
+			code: 'ok',
+	}
 }
 
 export default async function get(url, headers) {
