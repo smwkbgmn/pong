@@ -1,13 +1,7 @@
-.tournament-a{
-	position: absolute;
+.tournament-a {
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	
-	border: none;
-	background-color: rgba(0, 0, 0, 0);
-
-	font-size: 300%;
 }
 
 .tournament-a:hover {
@@ -19,8 +13,6 @@
 	top: 65%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	
-	font-size: 300%;
 }
 
 .ai-btn:hover {

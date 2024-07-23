@@ -8,8 +8,6 @@
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	
-	font-size: 300%;
 }
 
 .online-btn:hover {
@@ -27,16 +25,10 @@
 	color: black;
 }
 
-.local-a{
-	position: absolute;
+.local-a {
 	top: 65%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	
-	border: none;
-	background-color: none;
-
-	font-size: 300%;
 }
 
 .local-a:hover {

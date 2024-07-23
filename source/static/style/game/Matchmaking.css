@@ -15,12 +15,6 @@
 	top: 85%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	
-	border: none;
-	background-color: rgba(200, 200, 200, 0);
-
-	color: white;
-	font-size: 300%;
 }
 
 .exit-a:hover {

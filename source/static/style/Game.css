@@ -82,12 +82,6 @@
 	top: 85%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	
-	border: none;
-	background-color: rgba(0, 0, 0, 0);
-
-	color: white;
-	font-size: 300%;
 }
 
 .restart-btn:hover {

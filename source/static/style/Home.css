@@ -10,8 +10,10 @@ body {
 }
 
 a {
+	position: absolute;
 	text-decoration: none;
 	color: white;
+	font-size: 300%;
 }
 
 button {
@@ -19,7 +21,7 @@ button {
 	border: none;
 	background-color: rgba(0, 0, 0, 0);
 	color: white;
-	/* font-size: 300%; */
+	font-size: 300%;
 }
 
 .main-div {

@@ -38,7 +38,7 @@
 	opacity: 100;
 }
 
-.match-p{
+.match-p {
 	position: absolute;
 	top: 15%;
 	left: 50%;
@@ -47,7 +47,7 @@
 	font-size: 250%;
 }
 
-.next_player_left-p{
+.next_player_left-p {
 	position: absolute;
 	top: 50%;
 	left: 25%;
@@ -65,7 +65,7 @@
 	font-size: 300%;
 }
 
-.next_player_right-p{
+.next_player_right-p {
 	position: absolute;
 	top: 50%;
 	left: 75%;
@@ -74,7 +74,7 @@
 	font-size: 300%;
 }
 
-.countdown-p{
+.countdown-p {
 	position: absolute;
 	top: 85%;
 	left: 50%;
