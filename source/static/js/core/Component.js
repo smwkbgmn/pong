@@ -16,6 +16,8 @@ export default class Component {
 
 	mounted() {}
 
+	unmounted() {}
+
 	template() {
 		return ``;
 	}
@@ -30,7 +32,17 @@ export default class Component {
 	setState(newState) {
 		this.$state = { ...this.$state, ...newState };
 		this.render();
+		// this.setEvent();
 	}
+
+	// addEvent(eventType, selector, callback) {
+	// 	console.log(callback);
+	// 	this.$target.addEventListener(eventType, (event) => {
+	// 		if (!event.target.closest(selector))
+	// 			return false;
+	// 		callback(event);
+	// 	})
+	// }
 
 	addEvent(eventType, selector, callback) {
 		const $element = this.$target.querySelector(selector);

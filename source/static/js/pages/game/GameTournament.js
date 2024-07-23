@@ -104,7 +104,9 @@ export default class GameTournament extends Component {
 			let winPlayerNames = [];
 
 			for(let i = 0; i < active_playerNum; i += 2) {
-				await this.showNextPlayers(i);
+				const continueGame = await this.showNextPlayers(i);
+				if (continueGame == false)
+					return ;
 
 				if (active_playerNum == 2)
 					this.$state.lastGame = true;
@@ -126,10 +128,17 @@ export default class GameTournament extends Component {
 
 		this.setState({ playerNameLeft: activePlayerNames[idx], playerNameRight: activePlayerNames[idx + 1] });
 		for (let i = 3; i > 0; i--) {
+			if (window.location.hash != '#game_tournament/')
+				return false;
 			this.setState({ countdown: i });
 			await GameUtils.sleep(1000);
 		}
-		GameUtils.setComponentOpacity('opacity', '.match-box', 0);
+
+		if (window.location.hash != '#game_tournament/')
+			return false;
+
+		GameUtils.setComponentStyle('opacity', '.match-box', 0);
+		return true;
 	}
 
 	getLoserName(winnerName) {

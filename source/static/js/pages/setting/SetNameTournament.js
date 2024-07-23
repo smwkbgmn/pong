@@ -50,7 +50,7 @@ export default class SetNameTournament extends Component {
 			</div>
 		`;
 	}
-
+	
 	setEvent() {
 		this.addEvent('click', '.done-btn', ({ target }) => {
 			this.checkInput();
@@ -58,6 +58,8 @@ export default class SetNameTournament extends Component {
 	}
 
 	checkInput() {
+		console.log('button clicked');
+
 		const playerNum = Utils.getParsedItem('playerNum');
 		let name = [];
 
@@ -84,7 +86,7 @@ export default class SetNameTournament extends Component {
 		Utils.setStringifiedItem('playerNames', name);
 		Utils.changeFragment('#game_tournament/');
 	}
-
+	
 	checkInvalidCharacter(name) {
 		const chars = /[^0-9a-zA-Z가-힣]/;
 		return chars.test(name);
