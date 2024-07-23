@@ -51,15 +51,17 @@ export default class SetNameTournament extends Component {
 		`;
 	}
 	
+	// setEvent() {
+	// 	this.addEvent('click', '.done-btn', ({ target }) => {
+	// 		this.checkInput();
+	// 	});
+	// }
+
 	setEvent() {
-		this.addEvent('click', '.done-btn', ({ target }) => {
-			this.checkInput();
-		});
+		this.addEvent('click', '.done-btn', this.checkInput.bind(this));
 	}
 
 	checkInput() {
-		console.log('button clicked');
-
 		const playerNum = Utils.getParsedItem('playerNum');
 		let name = [];
 

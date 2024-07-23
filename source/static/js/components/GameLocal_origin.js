@@ -1,7 +1,7 @@
 // 로컬 토너먼트, AI
 import Component from '../core/Component.js'
 
-const { Engine, World, Body, Bodies, Resolver, Events } = Matter;
+const Matter = window.Matter;
 
 export default class PongGame extends Component {	
 	template() {
@@ -51,7 +51,7 @@ export default class PongGame extends Component {
 		this.paddleRandomBounceScale = 0.35; // (rand -50 ~ +50)% * 0.2 = (-10 ~ +10)% modulation
 		
 		this.aiMode = this.$props.aiMode; // on == AI, off == local tournament
-		this.aiUpdateInterval = 200; // ms
+		this.aiUpdateInterval = 1000; // ms
 		this.aiMoveInterval = 80; // ms
 		this.aiErrorMargin = 0.05; // AI has a 50% chance to make a "mistake"
 
@@ -128,9 +128,10 @@ export default class PongGame extends Component {
     setupPhysics() {
 		// See this issue for the colision configs on Matter
 		// https://github.com/liabru/matter-js/issues/394
-		Resolver._restingThresh = 0.001;
+		Matter.Resolver._restingThresh = 0.001;
 
-        this.engine = Engine.create({ gravity: { y: 0 } });
+        this.engine = Matter.Engine.create();
+        this.engine.gravity.y = 0;
 
 		this.ball = this.createBall();
 		this.resetBall();
@@ -141,7 +142,7 @@ export default class PongGame extends Component {
 		this.wallUp = this.createWall(0, -5, 10, 0.1);
 		this.wallDown = this.createWall(0, 5, 10, 0.1);
 
-        Events.on(this.engine, 'collisionEnd', (event) => this.handleCollision(event));
+        Matter.Events.on(this.engine, 'collisionEnd', (event) => this.handleCollision(event));
     }
 
 	handleCollision(event) {
@@ -151,16 +152,17 @@ export default class PongGame extends Component {
 				x: this.ball.body.velocity.x / this.ballSpeed,
 				y: this.ball.body.velocity.y / this.ballSpeed,
 			};
-
+			
 			if (pair.bodyA.label === "paddle" || pair.bodyB.label === "paddle") {
 				// this.audioLoader.play();
 
 				const mod = 1 + ((Math.random() - 0.5) * this.paddleRandomBounceScale); 
 				direction.y *= mod;
+				
+				// this.updateBallVelocity(this.ball.body, direction);
 			}
 			this.ballSpeed += this.ballSpeedIncreament;
-			// Body.setSpeed(this.ball.body, this.ballSpeed);
-
+			// Matter.Body.setSpeed(this.ball.body, this.ballSpeed);
 			this.updateBallVelocity(this.ball.body, direction);
 		}
 	}
@@ -170,7 +172,7 @@ export default class PongGame extends Component {
 			x: direction.x * this.ballSpeed,
 			y: direction.y * this.ballSpeed
 		};
-		Body.setVelocity(ballBody, velocity);
+		Matter.Body.setVelocity(ballBody, velocity);
 	}
 
     setupInputs() {
@@ -196,7 +198,7 @@ export default class PongGame extends Component {
 
 	/*** OBJ - Ball ***/
     createBall() {
-        const ballBody = Bodies.circle(0, 0, 0.1, {
+        const ballBody = Matter.Bodies.circle(0, 0, 0.1, {
 			label: "ball",
 
             restitution: 1,
@@ -208,7 +210,7 @@ export default class PongGame extends Component {
 			slop: 0.01,
 			timeScale: this.ballTimeScale
         });
-        World.add(this.engine.world, ballBody);
+        Matter.World.add(this.engine.world, ballBody);
 
         const ballGeometry = new THREE.CircleGeometry(0.1, 32);
         const ballMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
@@ -221,7 +223,7 @@ export default class PongGame extends Component {
     }
 
 	resetBall() {
-		Body.setPosition(this.ball.body, { x: 0, y: 0 });
+		Matter.Body.setPosition(this.ball.body, { x: 0, y: 0 });
 
 		// if (!this.isFinish) {
 			this.ballDirection = {
@@ -245,7 +247,7 @@ export default class PongGame extends Component {
 
 	/*** OBJ - Paddle ***/
 	createPaddle(x, y) {
-        const paddleBody = Bodies.rectangle(x, y, 0.2, 1, {
+        const paddleBody = Matter.Bodies.rectangle(x, y, 0.2, 1, {
 			label: "paddle",
 
 			isStatic: true,
@@ -256,7 +258,7 @@ export default class PongGame extends Component {
             // inertia: Infinity,
 			// inverseInertia: 1 / Infinity
 		});
-        World.add(this.engine.world, paddleBody);
+        Matter.World.add(this.engine.world, paddleBody);
 
         const paddleGeometry = new THREE.PlaneGeometry(0.2, 1);
         const paddleMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
@@ -272,7 +274,7 @@ export default class PongGame extends Component {
 	movePaddle(paddle, distance) {
         const newY = paddle.body.position.y + distance;
         if (newY > -4.5 && newY < 4.5)
-            Body.setPosition(paddle.body, { x: paddle.body.position.x, y: newY });
+            Matter.Body.setPosition(paddle.body, { x: paddle.body.position.x, y: newY });
     }
 
 	aiMovePaddle() {
@@ -303,12 +305,12 @@ export default class PongGame extends Component {
 	}
 
 	resetPaddle() {
-		Body.setPosition(this.paddleLeft.body, {
+		Matter.Body.setPosition(this.paddleLeft.body, {
 			x: -5.5,
 			y: 0,
 			z: 0
 		});
-		Body.setPosition(this.paddleRight.body, {
+		Matter.Body.setPosition(this.paddleRight.body, {
 			x: 5.5,
 			y: 0,
 			z: 0
@@ -317,7 +319,7 @@ export default class PongGame extends Component {
 
 	/*** OBJ - Wall ***/
     createWall(x, y, width, height) {
-        const wallBody = Bodies.rectangle(x, y, width, height, {
+        const wallBody = Matter.Bodies.rectangle(x, y, width, height, {
 			label: "wall",
 
 			isStatic: true,
@@ -328,7 +330,7 @@ export default class PongGame extends Component {
             // inertia: Infinity,
 			// inverseInertia: 1 / Infinity
 		});
-        World.add(this.engine.world, wallBody);
+        Matter.World.add(this.engine.world, wallBody);
 
         const wallGeometry = new THREE.PlaneGeometry(width, height);
         const wallMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
@@ -366,9 +368,9 @@ export default class PongGame extends Component {
         while(this.gameScene.children.length > 0)
             this.gameScene.remove(this.gameScene.children[0]); 
 
-        // Clear js world
-        World.clear(this.engine.world);
-        Engine.clear(this.engine);
+        // Clear Matter.js world
+        Matter.World.clear(this.engine.world);
+        Matter.Engine.clear(this.engine);
         
         this.isSetup = false;
     }
@@ -377,17 +379,14 @@ export default class PongGame extends Component {
 	/*** RENDER ***/
     animate() {
 		this.animationFrameId = requestAnimationFrame(this.animate.bind(this));
-		
+	
 		const currentTime = performance.now();
 		const delta = currentTime - this.lastTime;
 		this.lastTime = currentTime;
 		
-		Engine.update(this.engine, delta);
-		// Engine.update(this.engine, 1000 / 60, 1 / 60, 8);
-
-		console.log(this.ball.body.velocity);
+		Matter.Engine.update(this.engine, delta);
+		// Matter.Engine.update(this.engine, 1000 / 60);
 	
-		// Update positions of game objects
 		for (let [body, mesh] of this.gameObjects) {
 			mesh.position.set(body.position.x, body.position.y, 0);
 			mesh.rotation.z = body.angle;
@@ -419,7 +418,7 @@ export default class PongGame extends Component {
 		}
 	}
 
-	addEventWindowResize() { 
+	addEventWindowResize() {
 		window.addEventListener('resize', this.handleWindowResize);
 	}
 

@@ -67,7 +67,10 @@ export default class GameAI extends Component {
 	}
 
 	async startAIGame() {
-		await this.showCountdown();
+		const continueGame = await this.showCountdown();
+		if (continueGame == false)
+			return ;
+		
 		this.setPlayerInfoStyle();
 
 		while (window.location.hash == '#game_ai/')
@@ -76,11 +79,16 @@ export default class GameAI extends Component {
 
 	async showCountdown() {
 		for (let i = 3; i > 0; i--) {
+			if (window.location.hash != '#game_ai/')
+				return false;
 			this.setState({ countdown: i });
 			await GameUtils.sleep(1000);
 		}
-		
+		if (window.location.hash != '#game_ai/')
+			return false;
+
 		GameUtils.setComponentStyle('opacity', '.countdown-p', 0);
+		return true;
 	}
 
 	setPlayerInfoStyle() {

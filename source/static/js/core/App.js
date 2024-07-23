@@ -13,9 +13,8 @@ export default class App extends Component {
 			<link rel="stylesheet" href="/static/style/enter/ConnectionType.css">
 			<link rel="stylesheet" href="/static/style/enter/GameType.css">
 			<link rel="stylesheet" href="/static/style/setting/SetPlayerNum.css">
-			<link rel="stylesheet" href="/static/style/setting/local/SetNameAI.css">
-			<link rel="stylesheet" href="/static/style/setting/local/SetNameTournament.css">
-			<link rel="stylesheet" href="/static/style/setting/online/WaitingPlayer.css">
+			<link rel="stylesheet" href="/static/style/setting/SetNameAI.css">
+			<link rel="stylesheet" href="/static/style/setting/SetNameTournament.css">
 			<link rel="stylesheet" href="/static/style/Game.css">
 			<link rel="stylesheet" href="/static/style/game/GameAI.css">
 			<link rel="stylesheet" href="/static/style/game/GameTournament.css">

@@ -16,8 +16,6 @@ export default class Component {
 
 	mounted() {}
 
-	unmounted() {}
-
 	template() {
 		return ``;
 	}
@@ -32,7 +30,7 @@ export default class Component {
 	setState(newState) {
 		this.$state = { ...this.$state, ...newState };
 		this.render();
-		// this.setEvent();
+		this.setEvent();
 	}
 
 	// addEvent(eventType, selector, callback) {
@@ -50,9 +48,9 @@ export default class Component {
 		$element.addEventListener(eventType, callback);
 	}
 
-	removeEvent(eventType, selector, callback) {
-		const $element = this.$target.querySelector(selector);
+	// removeEvent(eventType, selector, callback) {
+	// 	const $element = this.$target.querySelector(selector);
 
-		$element.removeEventListener(eventType, callback);
-	}
+	// 	$element.removeEventListener(eventType, callback);
+	// }
 }
