@@ -129,7 +129,7 @@ export default class GameTournament extends Component {
 			this.setState({ countdown: i });
 			await GameUtils.sleep(1000);
 		}
-		GameUtils.setComponentOpacity('.match-box', 0);
+		GameUtils.setComponentOpacity('opacity', '.match-box', 0);
 	}
 
 	getLoserName(winnerName) {

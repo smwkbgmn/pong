@@ -12,13 +12,7 @@ const request = async (params) => {
 	const response = await window.fetch(url, config).catch(error => console.log(error));
 	console.log(response);
 
-	// 항상 status 200번, body가 있을 예정
-	if (response.status == 200)
-		return await response.json();
-	else
-		return {
-			code: 'ok',
-	}
+	return await response.json();
 }
 
 export default async function get(url, headers) {

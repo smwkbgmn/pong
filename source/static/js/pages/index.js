@@ -2,11 +2,11 @@ import StartPage from './enter/StartPage.js'
 import ConnectionType from './enter/ConnectionType.js';
 import GameType from './enter/GameType.js';
 import SetPlayerNum from './setting/SetPlayerNum.js';
-import WaitingPlayer from './setting/online/WaitingPlayer.js';
-import SetNameTournament from './setting/local/SetNameTournament.js';
-import SetNameAI from './setting/local/SetNameAI.js';
-import GameTournament from './game/GameTournament.js';
+import SetNameTournament from './setting/SetNameTournament.js';
+import SetNameAI from './setting/SetNameAI.js';
 import GameAI from './game/GameAI.js';
+import GameTournament from './game/GameTournament.js';
+import Matchmaking from './game/Matchmaking.js';
 
 export default (main) => {
 	const start = () => new StartPage(main);
@@ -15,9 +15,9 @@ export default (main) => {
 	const set_player_num = () => new SetPlayerNum(main);
 	const set_name_ai = () => new SetNameAI(main);
 	const set_name_tournament = () => new SetNameTournament(main);
-	const waiting_player = () => new WaitingPlayer(main);
 	const game_ai = () => new GameAI(main);
 	const game_tournament = () => new GameTournament(main);
+	const matchmaking = () => new Matchmaking(main);
 
 	return {
 		start,
@@ -26,8 +26,8 @@ export default (main) => {
 		set_player_num,
 		set_name_ai,
 		set_name_tournament,
-		waiting_player,
 		game_ai,
 		game_tournament,
+		matchmaking,
 	};
 };

@@ -6,19 +6,25 @@ export default class ConnectionType extends Component {
 	template() {
 		return `			
 			<div class="main-div">
-				<a class="home-a" href="#/">
+				<button class="home-btn">
 					<img class="home-img" src="/static/asset/home-icon.png">
-				</a>
+				</button>
 
 				<p class="main-p">게임 모드</p>
-				<botton class="online-btn">온라인 게임</botton>
+				<button class="online-btn">온라인 게임</button>
 				<a class="local-a" href="#game_type/">로컬 게임</a>
 			</div>
 		`;
 	}
 
 	setEvent() {
-		this.addEvent('click', '.online-btn', async ({ target }) => {
+		this.addEvent('click', '.home-btn', () => {
+			if (Utils.getParsedItem('isLogging') == true)
+				Utils.setStringifiedItem('isLogging', false);
+			Utils.changeFragment('#/');
+		});
+
+		this.addEvent('click', '.online-btn', () => {
 			Utils.setStringifiedItem('isLogging', true);
 			Account.requestOAuth();
 		});

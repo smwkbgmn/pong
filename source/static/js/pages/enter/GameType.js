@@ -11,7 +11,7 @@ export default class Gametype extends Component {
 				
 				<p class="main-p">게임 모드</p>
 				<a class="tournament-a" href="#set_player_num/">토너먼트</a>
-				<botton class="ai-btn">AI 대전</botton>
+				<button class="ai-btn">AI 대전</button>
 			</div>
 		`;
 	}

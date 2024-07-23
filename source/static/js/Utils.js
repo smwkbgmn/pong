@@ -8,6 +8,10 @@ export function setStringifiedItem(key, value) {
 	sessionStorage.setItem(key, stringifiedValue);
 }
 
+export function removeItem(key) {
+	sessionStorage.removeItem(key);
+}
+
 export function changeURL(url) {
 	window.location.href = url;
 }

@@ -7,8 +7,6 @@ export default class Router extends Component {
 		this.$state = {
 			routes: [],
 		};
-	
-		Utils.setStringifiedItem('isLoggedIn', false);
 	}
 
 	addRoute(fragment, component) {
@@ -30,9 +28,9 @@ export default class Router extends Component {
 		const currentRoute = this.$state.routes.find((route) => {
 			return route.fragment === window.location.hash;
 		});
-		
-		if (Utils.getParsedItem('isLoggedIn') == true)
-			await this.validateUserSession();
+
+		if (!currentRoute)
+			return Utils.changeFragment('#/');
 
 		if (window.location.hash == '#/') {
 			if (Utils.getParsedItem('isLogging') == true)
@@ -40,32 +38,14 @@ export default class Router extends Component {
 
 			if (Utils.getParsedItem('isLoggedIn') == true)
 				return Utils.changeFragment('#game_type/');
-			else
-				currentRoute.component();
 		}
-
-		if (!currentRoute)
-			return Utils.changeFragment('#/');
 
 		currentRoute.component();
 	}
 
-	async validateUserSession() {
-		await Account.validateToken().then(response => {
-			if (response.success == false) {
-				console.log(response.message);
-	
-				Utils.setStringifiedItem('isLoggedIn', false);
-				Utils.changeFragment('#connection_type/');
-			}
-		})
-	}
-
 	async handleOAuthRedirect() {
-		await this.waitForLoad().then(() => {
-			this.extractToken();
-		})
-
+		await this.waitForLoad();
+		await Account.extractToken();
 		await Account.initialToken();
 
 		console.log('isLogging ' + Utils.getParsedItem('isLogging'));
@@ -83,27 +63,13 @@ export default class Router extends Component {
 	// 이벤트가 발생할 때까지 promise는 대기 상태이고 종료될 때까지 await 했기 때문에
 	// 이벤트 발생 대기가 가능함
 	waitForLoad() {
-		return new Promise((resolve, reject) => {
-			window.addEventListener('load', function handler(event) {
+		return new Promise((resolve) => {
+			const handler = () => {
 				window.removeEventListener('load', handler);
-				resolve(event);
-			});
+				resolve();
+			};
+
+			window.addEventListener('load', handler);
 		});
-	}
-
-	extractToken() {
-		const token42 = new URLSearchParams(window.location.search).get('code');
-
-		if (token42) {
-			Utils.setStringifiedItem('token42', token42);
-
-			let currentURL = new URL(window.location.href);
-			let cleanURL = new URL(currentURL.origin + window.location.hash);
-			window.history.replaceState({}, document.title, cleanURL);
-
-			console.log('token42');
-		}
-		// else
-		//	hadling with fail
 	}
 }

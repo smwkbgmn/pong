@@ -9,6 +9,18 @@ export function requestOAuth() {
 	Utils.changeURL(authURL);
 }
 
+export async function extractToken() {
+	const token42 = new URLSearchParams(window.location.search).get('code');
+	
+	if (token42) {
+		Utils.setStringifiedItem('token42', token42);
+		
+		let currentURL = new URL(window.location.href);
+		let cleanURL = new URL(currentURL.origin + window.location.hash);
+		window.history.replaceState({}, document.title, cleanURL);
+	}
+}
+
 export async function initialToken() {
 	const token42 = Utils.getParsedItem('token42');
 	const url = `http://localhost:8000/oauth/login/callback/?code=${encodeURIComponent(token42)}`;
@@ -32,34 +44,6 @@ export async function initialToken() {
 				else {
 					return {
 						success: false,
-						message: response.code,
-					};
-				}
-			});
-}
-
-export async function validateToken() {
-	const accessToken = Utils.getParsedItem('accessToken');
-	const url = `http://localhost:8000/oauth/login/callback/`;
-	const header = {
-		Authorization: `${accessToken}`,
-	}
-
-	return	GET(url, header)
-			.then(response => {
-				if (response.code == 'ok') {
-					return {
-						success: true,
-					};
-				}
-				else {
-					// response.code 확인
-					// too many request면 재시도
-					// access token 만료면 refresh token으로 재요청 후 갱신된 토큰 저장
-					// refresh token 만료면 재로그인 -> router에서 false로 바꿔주고 connection type으로 라우팅
-					return {
-						success: true,
-						// success: false,
 						message: response.code,
 					};
 				}

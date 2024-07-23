@@ -1,32 +1,20 @@
 import Component from '../core/Component.js'
-//import TWEEN from '@tweenjs/tween.js';
-//import TWEEN from '../node_modules/@tweenjs/tween.js/dist/tween.umd.js'
 
-/*
-	gltf.animations;	Array<THREE.AnimationClip>
-	gltf.scene;			THREE.Group
-	gltf.scenes;		Array<THREE.Group>
-	gltf.cameras;		Array<THREE.Camera>
-	gltf.asset;			Object
-*/
+const { GLTFLoader } = THREE;
+const { OrbitControls } = THREE;
 
-import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
-
-
-export default class Three extends Component {
+export default class Background extends Component {
 	render() {
 		/*** SCENE ***/
 		const scene = new THREE.Scene();
 		
 		const texture = new THREE.TextureLoader();
-		texture.load('../../asset/3d/cloud.jpg', function(texture) {
+		texture.load('./static/asset/3d/cloud.jpg', function(texture) {
 			scene.background = texture;
 		});
 		
-		const lightAmbient = new THREE.AmbientLight( 0xffffff, 0.38 );
+		const lightAmbient = new THREE.AmbientLight( 0xffffff, 0.15 );
 		scene.add( lightAmbient );
-
 		
 		/*** CAMERA ***/
 		let camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 200 );
@@ -42,39 +30,37 @@ export default class Three extends Component {
 		let activation = camera;
 
 		/*** AUDIO ***/
-		const listener = new THREE.AudioListener();
-		camera.add(listener);
+		// const listener = new THREE.AudioListener();
+		// camera.add(listener);
 
-		const bgSound = new THREE.Audio(listener);
-		const audioLoader = new THREE.AudioLoader();
-		audioLoader.load('../asset/bgm.mp3', function(buffer) {
-			bgSound.setBuffer(buffer);
-			bgSound.setLoop(true);
-			bgSound.setVolume(0.5);
-			bgSound.play();
- 	 	});
+		// const bgSound = new THREE.Audio(listener);
+		// const audioLoader = new THREE.AudioLoader();
+		// audioLoader.load('../asset/bgm.mp3', function(buffer) {
+		// 	bgSound.setBuffer(buffer);
+		// 	bgSound.setLoop(true);
+		// 	bgSound.setVolume(0.5);
+		// 	bgSound.play();
+ 	 	// });
 
-		if (!window.audioContext) {
-			window.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-		} else if (window.audioContext.state === 'suspended') {
-			window.audioContext.resume();
-		}
+		// if (!window.audioContext) {
+		// 	window.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+		// } else if (window.audioContext.state === 'suspended') {
+		// 	window.audioContext.resume();
+		// }
 
 		/*** RENDERER ***/
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		document.body.appendChild( renderer.domElement );
 
-
 		/*** CONTROL - Orbit ***/
 		const controls = new OrbitControls( camera, renderer.domElement );
-		// const controls = new OrbitControls( seeing, renderer.domElement );
 		
-		if (window.location.hash == '#game_tournament/' || window.location.hash == '#game_ai/') {
+		if (window.location.hash == '#game_tournament/' ||
+			window.location.hash == '#game_ai/') {
 			controls.target.set( 0, 0, 4.95 );
 			controls.enabled = false;
-		}
-		else
+		} else
 			controls.target.set( 0, 0, 0.5 );
 
 		controls.enableDamping = true;
@@ -96,7 +82,6 @@ export default class Three extends Component {
 			controls.maxPolarAngle = Math.PI;
 		}
 
-
 		/*** CONTROL - Tween ***/
 		const cameraPositions = {
 			"home": { x: 0.001, y: 0.001, z: 0.001 },
@@ -112,11 +97,11 @@ export default class Three extends Component {
 			const section = window.location.hash;
 			console.log( "in section: " + section );
 
-			if (section == "#game_tournament/" || section == "#game_ai/") {
+			if (section == "#game_tournament/" ||
+				section == "#game_ai/") {
 				setCameraGame();
 				return cameraPositions["game"];
-			}
-			else {
+			} else {
 				setCameraHome();
 				return cameraPositions["home"];
 			}
@@ -126,7 +111,6 @@ export default class Three extends Component {
 			const targetPosition = getTargetPosition();
 
 			animateCamera( targetPosition );
-			console.log( camera.position );
 		}
 
 		function animateCamera( targetPosition, duration = 2300 ) {
@@ -159,7 +143,6 @@ export default class Three extends Component {
 
 		window.addEventListener( 'hashchange', updateCameraForSection );
 
-
 		/*** LISTEN ***/
 		window.addEventListener( 'resize', onWindowResize );
 		document.addEventListener( 'keydown', onKeyDown );
@@ -171,65 +154,48 @@ export default class Three extends Component {
 			renderer.setSize( window.innerWidth, window.innerHeight );
 		}
 
-		// window.addEventListener( 'resize', () => {
-		// 	camera.aspect = window.innerWidth / window.innerHeight;
-		// 	camera.updateProjectionMatrix();
-		// 	renderer.setSize( window.innerWidth, window.innerHeight );
-		// });
-
 		function onKeyDown( event ) {
 			switch ( event.keyCode ) {
-				case 80:
-
+				case 80: {
 					if ( activation === camera ) {
-						activation = seeing;
-						helper.visible = true;
-						// arrow.visible = true;
-						arrowWorld.visible = true;
-						controls.object = seeing;
-
+						activation			= seeing;
+						helper.visible		= true;
+						arrowWorld.visible	= true;
+						controls.object		= seeing;
+						
 						unsetControlLimit();
-					}
-
-					else {
-						activation = camera;
-						helper.visible = false;
-						// arrow.visible = false;
-						arrowWorld.visible = false;
-						controls.object = camera;
-
+					} else {
+						activation			= camera;
+						helper.visible		= false;
+						arrowWorld.visible	= false;
+						controls.object		= camera;
+						
 						setControlLimit();
 					}
-
 					break;
+				}
 			}
 		}
-
-
-		
 		
 		/*** WORLD - Asset ***/
 		const loader = new GLTFLoader();
 		
 		loader.load(
-			// '../../asset/3d/school_class_room/scene.gltf',
-			'../../asset/3d/classroom/classRoom_light.glb',
-		
+			// './static/asset/3d/classroom/classRoom_light.glb',
+			'./static/asset/3d/school_class_room/scene.gltf',
 			function ( gltf ) {
-		
 				gltf.scene.position.set( 96.55, -1.55, -13 );
 				scene.add( gltf.scene );
-		
 			},
 			function (xhr) { console.log((xhr.loaded / xhr.total * 100) + '% loaded'); },
 			function (error) { console.error('An error happened', error); }
 		);
 
-
+		// 0.9, 1.2
 		/*** WORLD - Lights ***/
-		const frontLeft = new THREE.DirectionalLight( 0xffffff, 0.9 );
-		const frontMid = new THREE.DirectionalLight( 0xffffff, 0.9 );
-		const frontRight = new THREE.DirectionalLight( 0xffffff, 0.9 );
+		const frontLeft = new THREE.DirectionalLight( 0xffffff, 0.28 );
+		const frontMid = new THREE.DirectionalLight( 0xffffff, 0.28 );
+		const frontRight = new THREE.DirectionalLight( 0xffffff, 0.28 );
 		frontLeft.position.set( -0.5, 0.2, -0.2 );
 		frontLeft.position.set( 0, 0.2, -0.2 );
 		frontRight.position.set( 0.5, 0.2, -0.2 );
@@ -237,10 +203,9 @@ export default class Three extends Component {
 		scene.add( frontMid );
 		scene.add( frontRight );
 		
-		
-		const rearLeft = new THREE.DirectionalLight( 0xffffff, 0.9 );
-		const rearMid = new THREE.DirectionalLight( 0xffffff, 0.9 );
-		const rearRight = new THREE.DirectionalLight( 0xffffff, 0.9 );
+		const rearLeft = new THREE.DirectionalLight( 0xffffff, 0.28 );
+		const rearMid = new THREE.DirectionalLight( 0xffffff, 0.28 );
+		const rearRight = new THREE.DirectionalLight( 0xffffff, 0.28 );
 		rearLeft.position.set( -0.5, 0.2, 0.4 );
 		rearMid.position.set( 0, 0.2, 0.4 );
 		rearRight.position.set( 0.5, 0.2, 0.4 );
@@ -248,10 +213,9 @@ export default class Three extends Component {
 		scene.add( rearMid );
 		scene.add( rearRight ); 
 		
-		const hemi = new THREE.HemisphereLight( 0xffffff, 0xffffff, 1.2 );
+		const hemi = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.5 );
 		hemi.position.set( 0, 0, 0 );
 		scene.add( hemi );
-
 
 		/*** WORLD - Helper ***/
 		const helper = new THREE.CameraHelper( camera );
@@ -265,69 +229,22 @@ export default class Three extends Component {
 		arrowWorld.visible = false;
 		scene.add( arrowWorld );
 
-		// function createArrow( camera ) {
-		// 	const axesHelper = new THREE.Group();
-		
-		// 	const length = 1;
-		
-		// 	const xArrow = new THREE.ArrowHelper(
-		// 		new THREE.Vector3(1, 0, 0),
-		// 		new THREE.Vector3(0, 0, 0),
-		// 		length,
-		// 		0x0000ff
-		// 	);
-		// 	axesHelper.add(xArrow);
-		
-		// 	const yArrow = new THREE.ArrowHelper(
-		// 		new THREE.Vector3(0, 1, 0),
-		// 		new THREE.Vector3(0, 0, 0),
-		// 		length,
-		// 		0x00ff00
-		// 	);
-		// 	axesHelper.add(yArrow);
-		
-		// 	const zArrow = new THREE.ArrowHelper(
-		// 		new THREE.Vector3(0, 0, 1),
-		// 		new THREE.Vector3(0, 0, 0),
-		// 		length,
-		// 		0xff0000
-		// 	);
-		// 	axesHelper.add(zArrow);
-		
-		// 	axesHelper.visible = false;
-		// 	scene.add(axesHelper);
-		
-		// 	return axesHelper;
-		// }
-
-		// const arrowCamera = createArrow( camera );
-		
-		
 		/*** SHOOT ***/
 		function animate() {
-			
 			controls.update();
 			TWEEN.update();
 			activation.updateMatrixWorld();
 			
-			// arrowCamera.position.copy( camera.position );
-			// arrowCamera.quaternion.copy( camera.quaternion );
-			
 			render();
-
 		}
 		
-		function render() {
-			renderer.render( scene, activation );
-			// renderer.render( scene, camera );
-			// renderer.render( scene, seeing );
-		}
+		function render() { renderer.render( scene, activation ); }
 		
 		/*
-		 *	The renderer.setAnimationLoop(animate) call is
-		 *	Three.js's way of using requestAnimationFrame internally,
-		 *	which is equivalent to calling requestAnimationFrame(animate) directly.
-		 */
+			The renderer.setAnimationLoop(animate) call is
+			Three.js's way of using requestAnimationFrame internally,
+			which is equivalent to calling requestAnimationFrame(animate) directly.
+		*/
 
 		// requestAnimationFrame( animate );
 		renderer.setAnimationLoop( animate );

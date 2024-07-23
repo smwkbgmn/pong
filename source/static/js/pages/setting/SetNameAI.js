@@ -1,5 +1,5 @@
-import Component from '../../../core/Component.js'
-import * as Utils from '../../../Utils.js'
+import Component from '../../core/Component.js'
+import * as Utils from '../../Utils.js'
 
 export default class SetNameAI extends Component {
 	setUp() {

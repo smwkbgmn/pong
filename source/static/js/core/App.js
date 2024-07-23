@@ -1,7 +1,8 @@
 import Router from "./Router.js"
 import Component from "./Component.js"
 import createPages from "../pages/index.js"
-import Three from "../pages/Background.js"
+import Background from "../pages/Background.js"
+import * as Utils from '../Utils.js'
 
 export default class App extends Component {
 	template() {
@@ -20,16 +21,23 @@ export default class App extends Component {
 			<link rel="stylesheet" href="/static/style/game/GameTournament.css">
 		</head>
 		<main>
-			<canvas data-component="three-canvas"></canvas>
+			// <canvas data-component="Background-canvas"></canvas>
 		</main>
 		`;
 	}
+
+	setUp() {
+		if (Utils.getParsedItem('isLogging') == null)
+			Utils.setStringifiedItem('isLogging', false);
+		if (Utils.getParsedItem('isLoggedIn') == null)
+			Utils.setStringifiedItem('isLoggedIn', false);
+	}
 	
 	mounted() {
-		const $three = this.$target.querySelector(
-			'[data-conponent="three-canvas"]'
+		const $Background = this.$target.querySelector(
+			'[data-conponent="Background-canvas"]'
 		);
-		new Three($three);
+		new Background($Background);
 		
 		const $main = this.$target.querySelector('main');
 		const pages = createPages($main);
@@ -40,7 +48,7 @@ export default class App extends Component {
 		router.addRoute('#game_type/', pages.game_type);
 		router.addRoute('#set_player_num/', pages.set_player_num);
 		router.addRoute('#game_tournament/', pages.game_tournament);
-		router.addRoute('#waiting_player/', pages.waiting_player);
+		router.addRoute('#matchmaking/', pages.matchmaking);
 		router.addRoute('#set_name_tournament/', pages.set_name_tournament);
 		router.addRoute('#game_ai/', pages.game_ai);
 		router.addRoute('#set_name_ai/', pages.set_name_ai);

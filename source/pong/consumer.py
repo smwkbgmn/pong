@@ -30,12 +30,12 @@ class Consumer(AsyncWebsocketConsumer):
 
 		self.connection = True
 
-	async def disconnect(self):
-		self.connection = False
+	# async def disconnect(self):
+	# 	self.connection = False
 
-		if self.channel_name in self.queue: self.queue.remove(self.channel_name)
-		if self.group_id:
-			await self.channel_layer.group_discard(self.group_id, self.channel_name)
+	# 	if self.channel_name in self.queue: self.queue.remove(self.channel_name)
+	# 	if self.group_id:
+	# 		await self.channel_layer.group_discard(self.group_id, self.channel_name)
 
 	async def receive(self, text_data):
 		data = json.loads(text_data)
@@ -54,7 +54,7 @@ class Consumer(AsyncWebsocketConsumer):
 		
 		self.queue[tourn_size].append(self.channel_name)
 		
-		if len(self.queue[tourn_size]) == tourn_size:
+		if len(self.queue[tourn_size]) == 2:
 			await self.tournament_start(tourn_size)
 		else:
 			await self.send(json.dumps({

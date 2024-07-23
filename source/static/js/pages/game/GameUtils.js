@@ -21,10 +21,10 @@ export function waitForGameEnd(pongGame) {
 	})
 }
 
-export function setComponentOpacity(componentName, value) {
+export function setComponentStyle(componentStyle, componentName, value) {
 	const $component = document.querySelector(componentName);
 
-	$component.style.opacity = value;
+	$component.style[componentStyle] = value;
 }
 
 export function sleep(ms) {

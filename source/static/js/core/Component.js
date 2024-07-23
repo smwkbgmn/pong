@@ -8,8 +8,8 @@ export default class Component {
 		this.$props = $props;
 		
 		this.setUp();		// 컴포넌트 상태 설정
-		this.setEvent();	// 컴포넌트에서 발생할 이벤트 설정
 		this.render();		// UI 렌더링
+		this.setEvent();	// 컴포넌트에서 발생할 이벤트 설정
 	}
 
 	setUp() {}
@@ -33,10 +33,14 @@ export default class Component {
 	}
 
 	addEvent(eventType, selector, callback) {
-		this.$target.addEventListener(eventType, (event) => {
-			if (!event.target.closest(selector))
-				return false;
-			callback(event);
-		})
+		const $element = this.$target.querySelector(selector);
+
+		$element.addEventListener(eventType, callback);
+	}
+
+	removeEvent(eventType, selector, callback) {
+		const $element = this.$target.querySelector(selector);
+
+		$element.removeEventListener(eventType, callback);
 	}
 }

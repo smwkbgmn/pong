@@ -66,26 +66,27 @@ export default class PongGame extends Component {
 	}
 
 	setEvent() {
-		window.addEventListener('hashchange', () => {
-			if (window.location.hash != '#game_ai/') {
-				this.stopGame();
-				this.cleanup();
-			}
-		})
+		window.addEventListener('hashchange', this.hashChanged);
+		this.addEvent('click', '.restart-btn', this.clickedRestartButton);
+	}
 
-		this.addEvent('click', '.restart-btn', ({ target }) => {
-			if (this.aiMode == true) {
-				// this.setState({ scoreLeft: 0, scoreRight: 0 });
-				// this.setResultOpacity(0);
-				// this.resetPaddle();
-				// this.resetBall();
-				// this.resumeGame();
-
-				this.endReturnValue = 'end';
-			}
-			else
-				this.endReturnValue = this.scoreLeft > this.scoreRight ? this.$props.playerNameLeft : this.$props.playerNameRight;
-		});
+	// unmounted() {
+	// 	window.removeEventListener('hashchange', this.hashChanged);
+	// 	this.removeEvent('click', '.restart-btn', this.clickedRestartButton);
+	// }
+	
+	hashChanged() {
+		if (window.location.hash != '#game_ai/') {
+			this.stopGame();
+			this.cleanup();
+		}
+	}
+	
+	clickedRestartButton() {
+		if (this.aiMode == true)
+			this.endReturnValue = 'end';
+		else
+		this.endReturnValue = this.scoreLeft > this.scoreRight ? this.$props.playerNameLeft : this.$props.playerNameRight;
 	}
 
 	isGameEnd() {

@@ -21,7 +21,7 @@ export default class SetPlayerNum extends Component {
 
 				<p class="num-p">인원 수</p>
 				<div class="num-dropdown dropend">
-					<button class="btn text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgba(200, 200, 200, 0.5);">${playerNum}</botton>
+					<button class="btn text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgba(200, 200, 200, 0.5);">${playerNum}</button>
 						<ul class="dropdown-menu">
 						<li><p id="num_2" class="dropdown-item">2</p></li>
 						<li><p id="num_4" class="dropdown-item">4</p></li>
@@ -47,10 +47,15 @@ export default class SetPlayerNum extends Component {
 
 		this.addEvent('click', '.start-btn', ({ target }) => {
 			const { playerNum } = this.$state;
-			Utils.setStringifiedItem('playerNum', playerNum);
+			if (playerNum == '2  ')
+				Utils.setStringifiedItem('playerNum', 2);
+			if (playerNum == '4  ')
+				Utils.setStringifiedItem('playerNum', 4);
+			if (playerNum == '8  ')
+				Utils.setStringifiedItem('playerNum', 8);
 
 			if (Utils.getParsedItem('isLoggedIn') == true)
-				Utils.changeFragment('#waiting_player/');
+				Utils.changeFragment('#matchmaking/');
 			else
 				Utils.changeFragment('#set_name_tournament/');
 		});

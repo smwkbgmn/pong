@@ -80,7 +80,7 @@ export default class GameAI extends Component {
 			await GameUtils.sleep(1000);
 		}
 		
-		GameUtils.setComponentOpacity('.countdown-p', 0);
+		GameUtils.setComponentStyle('opacity', '.countdown-p', 0);
 	}
 
 	setPlayerInfoStyle() {

@@ -1,4 +1,9 @@
-.online-btn{
+.home-btn {
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.online-btn {
 	position: absolute;
 	top: 40%;
 	left: 50%;
@@ -7,6 +12,7 @@
 	border: none;
 	background-color: rgba(0, 0, 0, 0);
 
+	color: white;
 	font-size: 300%;
 }
 
