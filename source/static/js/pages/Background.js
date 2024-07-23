@@ -97,8 +97,9 @@ export default class Background extends Component {
 			const section = window.location.hash;
 			console.log( "in section: " + section );
 
-			if (section == "#game_tournament/" ||
-				section == "#game_ai/") {
+			if (section == "#game_tournament/"	||
+				section == "#game_ai/"			||
+				section == "#game_matchmaking/") { // pongrender
 				setCameraGame();
 				return cameraPositions["game"];
 			} else {

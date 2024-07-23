@@ -9,16 +9,16 @@ export default class App extends Component {
 		return `
 		<head>
 			<link rel="stylesheet" href="/static/style/Home.css">
-			<link rel="stylesheet" href="/static/style/enter/StartPage.css">
-			<link rel="stylesheet" href="/static/style/enter/ConnectionType.css">
-			<link rel="stylesheet" href="/static/style/enter/GameType.css">
+			<link rel="stylesheet" href="/static/style/enter/EnterStart.css">
+			<link rel="stylesheet" href="/static/style/enter/EnterConnectionType.css">
+			<link rel="stylesheet" href="/static/style/enter/EnterGameType.css">
 			<link rel="stylesheet" href="/static/style/setting/SetPlayerNum.css">
 			<link rel="stylesheet" href="/static/style/setting/SetNameAI.css">
 			<link rel="stylesheet" href="/static/style/setting/SetNameTournament.css">
 			<link rel="stylesheet" href="/static/style/Game.css">
 			<link rel="stylesheet" href="/static/style/game/GameAI.css">
 			<link rel="stylesheet" href="/static/style/game/GameTournament.css">
-			<link rel="stylesheet" href="/static/style/game/Matchmaking.css">
+			<link rel="stylesheet" href="/static/style/game/GameMatchmaking.css">
 		</head>
 		<main>
 			// <canvas data-component="Background-canvas"></canvas>
@@ -48,7 +48,7 @@ export default class App extends Component {
 		router.addRoute('#game_type/', pages.game_type);
 		router.addRoute('#set_player_num/', pages.set_player_num);
 		router.addRoute('#game_tournament/', pages.game_tournament);
-		router.addRoute('#matchmaking/', pages.matchmaking);
+		router.addRoute('#game_matchmaking/', pages.game_matchmaking);
 		router.addRoute('#set_name_tournament/', pages.set_name_tournament);
 		router.addRoute('#game_ai/', pages.game_ai);
 		router.addRoute('#set_name_ai/', pages.set_name_ai);

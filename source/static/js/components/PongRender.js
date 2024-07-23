@@ -60,7 +60,7 @@ export default class PongRender {
 	/*** SETUP ***/
 	setupThreeJS() {
 		this.gameScene = new THREE.Scene();
-		this.gameScene.background = new THREE.Color(0x2c3e50);
+		// this.gameScene.background = new THREE.Color(0x2c3e50);
 
 		const aspect = window.innerWidth / window.innerHeight;
 		const frustumSize = 10;

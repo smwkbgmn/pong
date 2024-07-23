@@ -1,6 +1,6 @@
 import Component from '../../core/Component.js'
 
-export default class StartPage extends Component {
+export default class EnterStart extends Component {
 	template() {
 		return `			
 			<div class="main-div">

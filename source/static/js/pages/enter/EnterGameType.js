@@ -1,7 +1,7 @@
 import Component from '../../core/Component.js'
 import * as Utils from '../../Utils.js'
 
-export default class Gametype extends Component {
+export default class EnterGametype extends Component {
 	template() {
 		return `			
 			<div class="main-div">

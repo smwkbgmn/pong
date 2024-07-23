@@ -1,4 +1,4 @@
-import PongGame from '../../components/GameLocal.js'
+import PongGame from '../../components/PongGame.js'
 
 export async function playGame($state, $target) {
 	const $game = $target.querySelector(

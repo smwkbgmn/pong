@@ -1,9 +1,14 @@
+.game_home-a {
+	width: 10%;
+	top: 10%;
+	left: 6%;
+}
+
 .game_home-img {
 	z-index: 2;
 	position: absolute;
-	top: 6%;
-	left: 4%;
-	width: 3%;
+	transform: translate(-50%, -50%);
+	width: 30%;
 	filter: brightness(0) invert(1);
 }
 

@@ -38,8 +38,8 @@ export default class GameAI extends Component {
 		const inputHTML = this.makePlayerInfo();
 		
 		return `
-			<a class="home-a" href="#/">
-			<img class="game_home-img" src="/static/asset/home-icon.png">
+			<a class="game_home-a" href="#/">
+				<img class="game_home-img" src="/static/asset/home-icon.png">
 			</a>
 			
 			<p class="countdown-p">${this.$state.countdown}</p>

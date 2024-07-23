@@ -49,7 +49,7 @@ export default class GameTournament extends Component {
 		const inputHTML = this.makePlayerList();
 
 		return `
-			<a class="home-a" href="#/">
+			<a class="game_home-a" href="#/">
 				<img class="game_home-img" src="/static/asset/home-icon.png">
 			</a>
 

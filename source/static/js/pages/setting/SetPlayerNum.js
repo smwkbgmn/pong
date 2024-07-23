@@ -4,7 +4,7 @@ import * as Utils from '../../Utils.js'
 export default class SetPlayerNum extends Component {
 	setUp() {
 		this.$state = {
-			playerNum: '2  ',
+			playerNum: '2',
 		};
 	}
 
@@ -36,26 +36,20 @@ export default class SetPlayerNum extends Component {
 
 	setEvent() {
 		this.addEvent('click', '#num_2', ({ target }) => {
-			this.printNum('2  ');
+			this.printNum('2');
 		});
 		this.addEvent('click', '#num_4', ({ target }) => {
-			this.printNum('4  ');
+			this.printNum('4');
 		});
 		this.addEvent('click', '#num_8', ({ target }) => {
-			this.printNum('8  ');
+			this.printNum('8');
 		});
 
 		this.addEvent('click', '.start-btn', ({ target }) => {
-			const { playerNum } = this.$state;
-			if (playerNum == '2  ')
-				Utils.setStringifiedItem('playerNum', 2);
-			if (playerNum == '4  ')
-				Utils.setStringifiedItem('playerNum', 4);
-			if (playerNum == '8  ')
-				Utils.setStringifiedItem('playerNum', 8);
+			Utils.setStringifiedItem('playerNum', this.$state.playerNum);
 
 			if (Utils.getParsedItem('isLoggedIn') == true)
-				Utils.changeFragment('#matchmaking/');
+				Utils.changeFragment('#game_matchmaking/');
 			else
 				Utils.changeFragment('#set_name_tournament/');
 		});

@@ -1,12 +1,12 @@
 import Component from '../../core/Component.js'
-import PongRender from "../../components/GameRender.js";
+import PongRender from "../../components/PongRender.js";
 import * as Utils from '../../Utils.js'
 import * as GameUtils from "./GameUtils.js"
 
 let game = null;
 let socket = null;
 
-export default class Matchmaking extends Component {
+export default class GameMatchmaking extends Component {
 	constructor($target, $props) {
 		super($target, $props);
 

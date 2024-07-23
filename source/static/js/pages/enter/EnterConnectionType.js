@@ -4,7 +4,7 @@ import * as Utils from '../../Utils.js'
 
 export default class ConnectionType extends Component {
 	template() {
-		return `			
+		return `
 			<div class="main-div">
 				<button class="home-btn">
 					<img class="home-img" src="/static/asset/home-icon.png">
