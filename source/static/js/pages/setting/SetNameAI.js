@@ -34,9 +34,7 @@ export default class SetNameAI extends Component {
 	}
 
 	setEvent() {
-		this.addEvent('click', '.done-btn', ({ target }) => {
-			this.checkInput();
-		});
+		this.addEvent('click', '.done-btn', this.checkInput.bind(this));
 	}
 
 	checkInput() {

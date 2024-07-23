@@ -15,9 +15,11 @@ a {
 }
 
 button {
+	/* transform: translate(-50%, -50%); */
 	border: none;
 	background-color: rgba(0, 0, 0, 0);
 	color: white;
+	/* font-size: 300%; */
 }
 
 .main-div {
@@ -47,6 +49,21 @@ button {
 
 	font-size: 250%;
 }
+
+/* .home-btn {
+	position: absolute;
+	top: 12%;
+	left: 7.5%;
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	transform: translate(-50%, -50%);
+}
+
+.home-img {
+	width: 7%;
+	
+	filter: brightness(0) invert(1);
+} */
 
 .home-img {
 	position: absolute;

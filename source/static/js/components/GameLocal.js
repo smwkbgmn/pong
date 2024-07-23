@@ -67,14 +67,9 @@ export default class PongGame extends Component {
 	}
 
 	setEvent() {
-		window.addEventListener('hashchange', this.hashChanged);
-		this.addEvent('click', '.restart-btn', this.clickedRestartButton);
+		window.addEventListener('hashchange', this.hashChanged.bind(this));
+		this.addEvent('click', '.restart-btn', this.clickedRestartButton.bind(this));
 	}
-
-	// unmounted() {
-	// 	window.removeEventListener('hashchange', this.hashChanged);
-	// 	this.removeEvent('click', '.restart-btn', this.clickedRestartButton);
-	// }
 	
 	hashChanged() {
 		if (window.location.hash != '#game_ai/') {
@@ -87,7 +82,7 @@ export default class PongGame extends Component {
 		if (this.aiMode == true)
 			this.endReturnValue = 'end';
 		else
-		this.endReturnValue = this.scoreLeft > this.scoreRight ? this.$props.playerNameLeft : this.$props.playerNameRight;
+			this.endReturnValue = this.scoreLeft > this.scoreRight ? this.$props.playerNameLeft : this.$props.playerNameRight;
 	}
 
 	isGameEnd() {
@@ -385,7 +380,7 @@ export default class PongGame extends Component {
 		Engine.update(this.engine, delta);
 		// Engine.update(this.engine, 1000 / 60, 1 / 60, 8);
 
-		console.log(this.ball.body.velocity);
+		// console.log(this.ball.body.velocity);
 	
 		// Update positions of game objects
 		for (let [body, mesh] of this.gameObjects) {
