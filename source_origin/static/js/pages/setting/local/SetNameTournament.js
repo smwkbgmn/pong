@@ -52,7 +52,7 @@ export default class SetNameTournament extends Component {
 	}
 
 	setEvent() {
-		this.addEvent('click', '.done-btn', ({ target }) => {
+		Event.addEvent('click', '.done-btn', ({ target }) => {
 			this.checkInput();
 		});
 	}

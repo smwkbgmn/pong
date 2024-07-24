@@ -1,7 +1,6 @@
 // 로컬 토너먼트, AI
 import Component from '../core/Component.js'
-
-const { Engine, World, Body, Bodies, Resolver, Events } = Matter;
+import * as Event from '../core/Event.js'
 
 export default class PongGame extends Component {	
 	template() {
@@ -67,11 +66,20 @@ export default class PongGame extends Component {
 	}
 
 	setEvent() {
-		window.addEventListener('hashchange', this.hashChanged.bind(this));
-		this.addEvent('click', '.restart-btn', this.clickedRestartButton.bind(this));
+		this.hashChangedBinded = this.hashChanged.bind(this);
+		this.clickedRestartButtonBinded = this.clickedRestartButton.bind(this);
+
+		Event.addHashChangeEvent(this.hashChangedBinded);
+		Event.addEvent('click', '.restart-btn', this.clickedRestartButtonBinded);
+	}
+
+	clearEvent() {
+		Event.removeHashChangeEvent(this.hashChangedBinded);
+		Event.removeEvent('click', this.clickedRestartButtonBinded);
 	}
 	
 	hashChanged() {
+		this.clearEvent();
 		if (window.location.hash != '#game_ai/') {
 			this.stopGame();
 			this.cleanup();
@@ -90,54 +98,45 @@ export default class PongGame extends Component {
 	}
 	
 	/*** SETUP ***/
-    setupThreeJS() {
-        this.gameScene = new THREE.Scene();
+	setupThreeJS() {
+		this.gameScene = new THREE.Scene();
 
-        const aspect = window.innerWidth / window.innerHeight;
-        const frustumSize = 10;
-        this.gameCamera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 0.1, 1000);
-        this.gameCamera.position.z = 5;
+		const aspect = window.innerWidth / window.innerHeight;
+		const frustumSize = 10;
+		this.gameCamera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 0.1, 1000);
+		this.gameCamera.position.z = 5;
 
-        this.gameRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        this.gameRenderer.setClearColor(0x000000, 0);
-        this.gameRenderer.setSize(window.innerWidth, window.innerHeight);
-        this.gameRenderer.domElement.style.position = 'absolute';
-        this.gameRenderer.domElement.style.top = '0px';
-        document.body.appendChild(this.gameRenderer.domElement);
+		this.gameRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+		this.gameRenderer.setClearColor(0x000000, 0);
+		this.gameRenderer.setSize(window.innerWidth, window.innerHeight);
+		this.gameRenderer.domElement.style.position = 'absolute';
+		this.gameRenderer.domElement.style.top = '0px';
+		document.body.appendChild(this.gameRenderer.domElement);
 
-		// const listener = new THREE.AudioListener();
-		// gameCamera.add(listener);
+		this.gameObjects = new Map();
+	}
 
-		// const sound = new THREE.Audio(listener);
-		// this.audioLoader = new THREE.AudioLoader();
-		// this.audioLoader.load('../asset/hit.wav', function(buffer) {
-		// 	sound.setBuffer(buffer);
-		// 	// sound.setLoop(true);
-		// 	sound.setVolume(1.0);
-		// 	// sound.play();
- 	 	// });
+	setupPhysics() {
+		// this.engine = Matter.Engine.create(gravity = {y: 0});
+		this.engine = Matter.Engine.create();
+		this.engine.gravity.y = 0;
 
-        this.gameObjects = new Map();
-    }
-
-    setupPhysics() {
 		// See this issue for the colision configs on Matter
 		// https://github.com/liabru/matter-js/issues/394
-		Resolver._restingThresh = 0.001;
-
-        this.engine = Engine.create({ gravity: { y: 0 } });
+		// Matter.Resolver._restingThresh = 0.001;
+		Matter.Resolver._restingThresh = 0;
 
 		this.ball = this.createBall();
 		this.resetBall();
 
 		this.paddleLeft = this.createPaddle(-5.5, 0);
-        this.paddleRight = this.createPaddle(5.5, 0);
+		this.paddleRight = this.createPaddle(5.5, 0);
 
 		this.wallUp = this.createWall(0, -5, 10, 0.1);
 		this.wallDown = this.createWall(0, 5, 10, 0.1);
 
-        Events.on(this.engine, 'collisionEnd', (event) => this.handleCollision(event));
-    }
+		Matter.Events.on(this.engine, 'collisionEnd', (event) => this.handleCollision(event));
+	}
 
 	handleCollision(event) {
 		const pair = event.pairs[0];
@@ -146,16 +145,17 @@ export default class PongGame extends Component {
 				x: this.ball.body.velocity.x / this.ballSpeed,
 				y: this.ball.body.velocity.y / this.ballSpeed,
 			};
-
+			
 			if (pair.bodyA.label === "paddle" || pair.bodyB.label === "paddle") {
 				// this.audioLoader.play();
 
 				const mod = 1 + ((Math.random() - 0.5) * this.paddleRandomBounceScale); 
 				direction.y *= mod;
+				
+				// this.updateBallVelocity(this.ball.body, direction);
 			}
 			this.ballSpeed += this.ballSpeedIncreament;
-			// Body.setSpeed(this.ball.body, this.ballSpeed);
-
+			// Matter.Body.setSpeed(this.ball.body, this.ballSpeed);
 			this.updateBallVelocity(this.ball.body, direction);
 		}
 	}
@@ -165,71 +165,71 @@ export default class PongGame extends Component {
 			x: direction.x * this.ballSpeed,
 			y: direction.y * this.ballSpeed
 		};
-		Body.setVelocity(ballBody, velocity);
+		Matter.Body.setVelocity(ballBody, velocity);
 	}
 
-    setupInputs() {
-        document.addEventListener('keydown', (event) => {
-            switch (event.key) {
-                case 'w'			: this.movePaddle(this.paddleLeft, this.paddleMoveDistance); break;
-                case 's'			: this.movePaddle(this.paddleLeft, -this.paddleMoveDistance); break;
-                case 'ArrowUp'		: if (!this.aiMode) this.movePaddle(this.paddleRight, this.paddleMoveDistance); break;
-                case 'ArrowDown'	: if (!this.aiMode) this.movePaddle(this.paddleRight, -this.paddleMoveDistance); break;
+	setupInputs() {
+		document.addEventListener('keydown', this.handleKeyDown);
+	}
 
-				case 'o':
-					if (this.isRunning) this.stopGame();
-					else this.resumeGame();
-					break;
-				
-				case 'i':
-					this.aiMode = !this.aiMode;
-					console.log("AI mode: " + (this.modeAI? "ON" : "OFF"));
-					break;
-            }
-        });
-    }
+	handleKeyDown = (event) => {
+		switch (event.key) {
+			case 'w'			: this.movePaddle(this.paddleLeft, this.paddleMoveDistance); break;
+			case 's'			: this.movePaddle(this.paddleLeft, -this.paddleMoveDistance); break;
+			case 'ArrowUp'		: if (!this.aiMode) this.movePaddle(this.paddleRight, this.paddleMoveDistance); break;
+			case 'ArrowDown'	: if (!this.aiMode) this.movePaddle(this.paddleRight, -this.paddleMoveDistance); break;
+
+			case 'o':
+				if (this.isRunning) this.stopGame();
+				else this.resumeGame();
+				break;
+			
+			case 'i':
+				this.aiMode = !this.aiMode;
+				console.log("AI mode: " + (this.modeAI? "ON" : "OFF"));
+				break;
+		}
+	}
 
 	/*** OBJ - Ball ***/
-    createBall() {
-        const ballBody = Bodies.circle(0, 0, 0.1, {
+	createBall() {
+		const ballBody = Matter.Bodies.circle(0, 0, 0.1, {
 			label: "ball",
 
-            restitution: 1,
-            frictionAir: 0,
-            friction: 0,
-            // inertia: Infinity,
+			restitution: 1,
+			frictionAir: 0,
+			friction: 0,
+			// inertia: Infinity,
 			// inverseInertia: 1 / Infinity,
 			density: 1,
 			slop: 0.01,
 			timeScale: this.ballTimeScale
-        });
-        World.add(this.engine.world, ballBody);
+		});
+		Matter.World.add(this.engine.world, ballBody);
 
-        const ballGeometry = new THREE.CircleGeometry(0.1, 32);
-        const ballMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-        const ballMesh = new THREE.Mesh(ballGeometry, ballMaterial);
+		const ballGeometry = new THREE.CircleGeometry(0.1, 32);
+		const ballMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+		const ballMesh = new THREE.Mesh(ballGeometry, ballMaterial);
 
-        this.gameScene.add(ballMesh);
-        this.gameObjects.set(ballBody, ballMesh);
+		this.gameScene.add(ballMesh);
+		this.gameObjects.set(ballBody, ballMesh);
 
-        return { body: ballBody, mesh: ballMesh };
-    }
+		return { body: ballBody, mesh: ballMesh };
+	}
 
 	resetBall() {
-		Body.setPosition(this.ball.body, { x: 0, y: 0 });
+		Matter.Body.setPosition(this.ball.body, { x: 0, y: 0 });
 
-		// if (!this.isFinish) {
-			this.ballDirection = {
-				x: Math.random() > 0.5 ? 1 : -1,
-				y: (Math.random() - 0.5) * 2
-			};
-	
-			const length = Math.sqrt(this.ballDirection.x ** 2 + this.ballDirection.y ** 2);
-			this.ballDirection.x /= length;
-			this.ballDirection.y /= length;
-			this.ballSpeed = this.ballSpeedDefault;
-			this.updateBallVelocity(this.ball.body, this.ballDirection);
-		// }
+		this.ballDirection = {
+			x: Math.random() > 0.5 ? 1 : -1,
+			y: (Math.random() - 0.5) * 2
+		};
+
+		const length = Math.sqrt(this.ballDirection.x ** 2 + this.ballDirection.y ** 2);
+		this.ballDirection.x /= length;
+		this.ballDirection.y /= length;
+		this.ballSpeed = this.ballSpeedDefault;
+		this.updateBallVelocity(this.ball.body, this.ballDirection);
 	}
 
 	setResultOpacity(value) {
@@ -240,7 +240,7 @@ export default class PongGame extends Component {
 
 	/*** OBJ - Paddle ***/
 	createPaddle(x, y) {
-        const paddleBody = Bodies.rectangle(x, y, 0.2, 1, {
+		const paddleBody = Matter.Bodies.rectangle(x, y, 0.2, 1, {
 			label: "paddle",
 
 			isStatic: true,
@@ -248,27 +248,25 @@ export default class PongGame extends Component {
 			friction: 0,
 			slop: 0.01,
 			density: 1
-            // inertia: Infinity,
-			// inverseInertia: 1 / Infinity
 		});
-        World.add(this.engine.world, paddleBody);
+		Matter.World.add(this.engine.world, paddleBody);
 
-        const paddleGeometry = new THREE.PlaneGeometry(0.2, 1);
-        const paddleMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-        const paddleMesh = new THREE.Mesh(paddleGeometry, paddleMaterial);
+		const paddleGeometry = new THREE.PlaneGeometry(0.2, 1);
+		const paddleMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+		const paddleMesh = new THREE.Mesh(paddleGeometry, paddleMaterial);
 		paddleMesh.position.set(x, y, 0);
 
-        this.gameScene.add(paddleMesh);
-        this.gameObjects.set(paddleBody, paddleMesh);
+		this.gameScene.add(paddleMesh);
+		this.gameObjects.set(paddleBody, paddleMesh);
 
-        return { body: paddleBody, mesh: paddleMesh };
-    }
+		return { body: paddleBody, mesh: paddleMesh };
+	}
 
 	movePaddle(paddle, distance) {
-        const newY = paddle.body.position.y + distance;
-        if (newY > -4.5 && newY < 4.5)
-            Body.setPosition(paddle.body, { x: paddle.body.position.x, y: newY });
-    }
+		const newY = paddle.body.position.y + distance;
+		if (newY > -4.5 && newY < 4.5)
+			Matter.Body.setPosition(paddle.body, { x: paddle.body.position.x, y: newY });
+	}
 
 	aiMovePaddle() {
 		const currentTime = Date.now();
@@ -283,13 +281,13 @@ export default class PongGame extends Component {
 			// If making a "mistake", aim for a random position
 			else this.aiTargetY = (Math.random() - 0.5) * 8; // Random position between -4 and 4
 		}
-	
+
 		if (currentTime - this.aiLastMove > this.aiMoveInterval) {
 			this.aiLastMove = currentTime;
-	
+
 			const paddleY = this.paddleRight.body.position.y;
 			const difference = this.aiTargetY - paddleY;
-	
+
 			if (Math.abs(difference) > 0.3) {
 				const direction = difference > 0 ? 1 : -1;
 				this.movePaddle(this.paddleRight, direction * this.paddleMoveDistance);
@@ -298,12 +296,12 @@ export default class PongGame extends Component {
 	}
 
 	resetPaddle() {
-		Body.setPosition(this.paddleLeft.body, {
+		Matter.Body.setPosition(this.paddleLeft.body, {
 			x: -5.5,
 			y: 0,
 			z: 0
 		});
-		Body.setPosition(this.paddleRight.body, {
+		Matter.Body.setPosition(this.paddleRight.body, {
 			x: 5.5,
 			y: 0,
 			z: 0
@@ -311,8 +309,8 @@ export default class PongGame extends Component {
 	}
 
 	/*** OBJ - Wall ***/
-    createWall(x, y, width, height) {
-        const wallBody = Bodies.rectangle(x, y, width, height, {
+	createWall(x, y, width, height) {
+		const wallBody = Matter.Bodies.rectangle(x, y, width, height, {
 			label: "wall",
 
 			isStatic: true,
@@ -320,21 +318,19 @@ export default class PongGame extends Component {
 			friction: 0,
 			slop: 0.01,
 			density: 1,
-            // inertia: Infinity,
-			// inverseInertia: 1 / Infinity
 		});
-        World.add(this.engine.world, wallBody);
+		Matter.World.add(this.engine.world, wallBody);
 
-        const wallGeometry = new THREE.PlaneGeometry(width, height);
-        const wallMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-        const wallMesh = new THREE.Mesh(wallGeometry, wallMaterial);
-        wallMesh.position.set(x, y, 0);
+		const wallGeometry = new THREE.PlaneGeometry(width, height);
+		const wallMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+		const wallMesh = new THREE.Mesh(wallGeometry, wallMaterial);
+		wallMesh.position.set(x, y, 0);
 
-        this.gameScene.add(wallMesh);
+		this.gameScene.add(wallMesh);
 		this.gameObjects.set(wallBody, wallMesh);
 
 		return { body: wallBody, mesh: wallMesh };
-    }
+	}
 
 	/*** GAME UTILL ***/
 	stopGame() {
@@ -351,38 +347,35 @@ export default class PongGame extends Component {
 	}
 
 	cleanup() {
-        if (this.gameRenderer && this.gameRenderer.domElement)
-            document.body.removeChild(this.gameRenderer.domElement);
+		if (this.gameRenderer && this.gameRenderer.domElement)
+			document.body.removeChild(this.gameRenderer.domElement);
 
-        // Remove event listeners
-        document.removeEventListener('keydown', this.handleKeyDown);
+		// Remove event listeners
+		document.removeEventListener('keydown', this.handleKeyDown);
 
-        // Clear Three.js scene
-        while(this.gameScene.children.length > 0)
-            this.gameScene.remove(this.gameScene.children[0]); 
+		// Clear Three.js scene
+		while(this.gameScene.children.length > 0)
+			this.gameScene.remove(this.gameScene.children[0]); 
 
-        // Clear js world
-        World.clear(this.engine.world);
-        Engine.clear(this.engine);
-        
-        this.isSetup = false;
-    }
+		// Clear Matter.js world
+		Matter.World.clear(this.engine.world);
+		Matter.Engine.clear(this.engine);
+		
+		this.isSetup = false;
+	}
 
-	
+
 	/*** RENDER ***/
-    animate() {
+	animate() {
 		this.animationFrameId = requestAnimationFrame(this.animate.bind(this));
-		
-		const currentTime = performance.now();
-		const delta = currentTime - this.lastTime;
-		this.lastTime = currentTime;
-		
-		Engine.update(this.engine, delta);
-		// Engine.update(this.engine, 1000 / 60, 1 / 60, 8);
 
-		// console.log(this.ball.body.velocity);
-	
-		// Update positions of game objects
+		// const currentTime = performance.now();
+		// const delta = currentTime - this.lastTime;
+		// this.lastTime = currentTime;
+		
+		// Matter.Engine.update(this.engine, delta);
+		Matter.Engine.update(this.engine, 1000 / 60);
+
 		for (let [body, mesh] of this.gameObjects) {
 			mesh.position.set(body.position.x, body.position.y, 0);
 			mesh.rotation.z = body.angle;
@@ -403,8 +396,9 @@ export default class PongGame extends Component {
 		if (Math.abs(this.ball.body.position.x) > 6 || Math.abs(this.ball.body.position.y) > 5) {
 			if (this.ball.body.position.x > 0)
 				this.setState({ scoreLeft: this.$state.scoreLeft + 1});
-			if (this.ball.body.position.x < 0)
+			else if (this.ball.body.position.x < 0)
 				this.setState({ scoreRight: this.$state.scoreRight + 1});
+			
 			if (this.$state.scoreLeft == 1 || this.$state.scoreRight == 1) { // 5로 바꾸기
 				this.stopGame();
 				this.setResultOpacity(100);
@@ -413,23 +407,4 @@ export default class PongGame extends Component {
 			this.resetBall();
 		}
 	}
-
-	addEventWindowResize() { 
-		window.addEventListener('resize', this.handleWindowResize);
-	}
-
-	handleWindowResize() {
-        // get the current window size
-        var width = window.innerWidth,
-            height = window.innerHeight;
-
-        // set the render size to equal window size
-        Render.setSize(render, width, height);
-
-        // update the render bounds to fit the scene
-        Render.lookAt(render, Composite.allBodies(engine.world), {
-            x: 50,
-            y: 50
-        });
-    }
 }

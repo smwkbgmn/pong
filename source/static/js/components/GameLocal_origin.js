@@ -68,7 +68,7 @@ export default class PongGame extends Component {
 
 	setEvent() {
 		window.addEventListener('hashchange', this.hashChanged);
-		this.addEvent('click', '.restart-btn', this.clickedRestartButton);
+		Event.addEvent('click', '.restart-btn', this.clickedRestartButton);
 	}
 
 	// unmounted() {

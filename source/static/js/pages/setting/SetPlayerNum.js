@@ -1,4 +1,5 @@
 import Component from '../../core/Component.js'
+import * as Event from '../../core/Event.js'
 import * as Utils from '../../Utils.js'
 
 export default class SetPlayerNum extends Component {
@@ -35,17 +36,17 @@ export default class SetPlayerNum extends Component {
 	}
 
 	setEvent() {
-		this.addEvent('click', '#num_2', ({ target }) => {
+		Event.addEvent('click', '#num_2', ({ target }) => {
 			this.printNum('2');
 		});
-		this.addEvent('click', '#num_4', ({ target }) => {
+		Event.addEvent('click', '#num_4', ({ target }) => {
 			this.printNum('4');
 		});
-		this.addEvent('click', '#num_8', ({ target }) => {
+		Event.addEvent('click', '#num_8', ({ target }) => {
 			this.printNum('8');
 		});
 
-		this.addEvent('click', '.start-btn', ({ target }) => {
+		Event.addEvent('click', '.start-btn', ({ target }) => {
 			Utils.setStringifiedItem('playerNum', this.$state.playerNum);
 
 			if (Utils.getParsedItem('isLoggedIn') == true)

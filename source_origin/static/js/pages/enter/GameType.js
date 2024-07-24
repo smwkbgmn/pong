@@ -17,7 +17,7 @@ export default class Gametype extends Component {
 	}
 
 	setEvent() {
-		this.addEvent('click', '.ai-btn', ({ target }) => {
+		Event.addEvent('click', '.ai-btn', ({ target }) => {
 			if (Utils.getParsedItem('isLoggedIn') == true)
 				Utils.changeFragment('#game_ai/');
 			else

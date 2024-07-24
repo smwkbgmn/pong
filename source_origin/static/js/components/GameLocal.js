@@ -73,7 +73,7 @@ export default class PongGame extends Component {
 			}
 		})
 
-		this.addEvent('click', '.restart-btn', ({ target }) => {
+		Event.addEvent('click', '.restart-btn', ({ target }) => {
 			if (this.aiMode == true) {
 				// this.setState({ scoreLeft: 0, scoreRight: 0 });
 				// this.setResultOpacity(0);

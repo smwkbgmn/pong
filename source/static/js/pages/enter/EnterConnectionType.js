@@ -1,4 +1,5 @@
 import Component from '../../core/Component.js'
+import * as Event from '../../core/Event.js'
 import * as Account from '../../api/Account.js'
 import * as Utils from '../../Utils.js'
 
@@ -18,15 +19,29 @@ export default class ConnectionType extends Component {
 	}
 
 	setEvent() {
-		this.addEvent('click', '.home-btn', () => {
-			if (Utils.getParsedItem('isLogging') == true)
-				Utils.setStringifiedItem('isLogging', false);
-			Utils.changeFragment('#/');
-		});
+		this.unmountedBinded = this.unmounted.bind(this);
+		Event.addHashChangeEvent(this.unmountedBinded);
 
-		this.addEvent('click', '.online-btn', () => {
-			Utils.setStringifiedItem('isLogging', true);
-			Account.requestOAuth();
-		});
+		this.clickedHomeButtonWrapped = Event.addEvent(this.$target, 'click', '.home-btn', this.clickedHomeButton.bind(this));
+		this.clickedOnlineButtonWrapped = Event.addEvent(this.$target, 'click', '.online-btn', this.clickedOnlineButton.bind(this));
+	}
+
+	clearEvent() {
+		Event.removeHashChangeEvent(this.unmountedBinded);
+		Event.removeEvent(this.$target, 'click', this.clickedHomeButtonWrapped);
+		Event.removeEvent(this.$target, 'click', this.clickedOnlineButtonWrapped);
+	}
+
+	clickedHomeButton() {
+		console.log('clicked home button');
+
+		if (Utils.getParsedItem('isLogging') == true)
+			Utils.setStringifiedItem('isLogging', false);
+		Utils.changeFragment('#/');
+	}
+	
+	clickedOnlineButton() {
+		Utils.setStringifiedItem('isLogging', true);
+		Account.requestOAuth();
 	}
 }

@@ -2,6 +2,7 @@ import Component from '../../core/Component.js'
 import PongRender from "../../components/PongRender.js";
 import * as Utils from '../../Utils.js'
 import * as GameUtils from "./GameUtils.js"
+import { TorusKnotGeometry } from 'three/src/Three.js';
 
 let game = null;
 let socket = null;
@@ -68,8 +69,10 @@ export default class GameMatchmaking extends Component {
 
 		socket.onopen = (event) => {
 			socket.send(JSON.stringify({
-				type			: 'requestMatch',
-				tournamentSize	: playerNum
+				type				: 'requestMatch',
+				tournamentSize		: playerNum,
+				userTokenAccess		: Utils.getParsedItem('accessToken'),
+				userTokenRefresh	: Utils.getParsedItem('refreshToken')
 			}));
 		};
 

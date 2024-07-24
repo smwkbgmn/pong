@@ -1,4 +1,5 @@
 import Component from '../../core/Component.js'
+import * as Event from '../../core/Event.js'
 import * as Utils from '../../Utils.js'
 
 export default class EnterGametype extends Component {
@@ -17,11 +18,15 @@ export default class EnterGametype extends Component {
 	}
 
 	setEvent() {
-		this.addEvent('click', '.ai-btn', ({ target }) => {
-			if (Utils.getParsedItem('isLoggedIn') == true)
-				Utils.changeFragment('#game_ai/');
-			else
-				Utils.changeFragment('#set_name_ai/');
-		});
+		this.clickedAIButtonBinded = this.clickedAIButton.bind(this);
+
+		Event.addEvent(this.$target, 'click', '.ai-btn', this.clickedAIButtonBinded);
+	}
+
+	clickedAIButton() {
+		if (Utils.getParsedItem('isLoggedIn') == true)
+			Utils.changeFragment('#game_ai/');
+		else
+			Utils.changeFragment('#set_name_ai/');
 	}
 }

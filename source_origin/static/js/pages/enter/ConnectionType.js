@@ -18,7 +18,7 @@ export default class ConnectionType extends Component {
 	}
 
 	setEvent() {
-		this.addEvent('click', '.online-btn', async ({ target }) => {
+		Event.addEvent('click', '.online-btn', async ({ target }) => {
 			Utils.setStringifiedItem('isLogging', true);
 			Account.requestOAuth();
 		});

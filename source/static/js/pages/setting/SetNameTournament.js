@@ -1,4 +1,5 @@
 import Component from '../../core/Component.js'
+import * as Event from '../../core/Event.js'
 import * as Utils from '../../Utils.js'
 
 export default class SetNameTournament extends Component {
@@ -52,7 +53,7 @@ export default class SetNameTournament extends Component {
 	}
 
 	setEvent() {
-		this.addEvent('click', '.done-btn', this.checkInput.bind(this));
+		Event.addEvent('click', '.done-btn', this.checkInput.bind(this));
 	}
 
 	checkInput() {
