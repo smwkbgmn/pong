@@ -1,6 +1,9 @@
 import json
 import random
 
+# Handle Disconnection
+# Add way for send user_name and user_picture(42)
+
 from channels.generic.websocket import AsyncWebsocketConsumer
 from datetime import datetime
 from .physics import PongPhysic

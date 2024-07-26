@@ -18,9 +18,13 @@ export default class EnterGametype extends Component {
 	}
 
 	setEvent() {
-		this.clickedAIButtonBinded = this.clickedAIButton.bind(this);
+		this.unmountedBinded = Event.addHashChangeEvent(this.unmounted.bind(this));
+		this.clickedAIButtonWrapped = Event.addEvent(this.$target, 'click', '.ai-btn', this.clickedAIButton.bind(this));
+	}
 
-		Event.addEvent(this.$target, 'click', '.ai-btn', this.clickedAIButtonBinded);
+	clearEvent() {
+		Event.removeHashChangeEvent(this.unmountedBinded);
+		Event.removeEvent(this.$target, 'click', this.clickedAIButtonWrapped);
 	}
 
 	clickedAIButton() {

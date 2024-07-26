@@ -2,6 +2,8 @@
 import Component from '../core/Component.js'
 import * as Event from '../core/Event.js'
 
+import * as THREE from 'three';
+
 export default class PongGame extends Component {	
 	template() {
 		const { scoreLeft, scoreRight } = this.$state;
@@ -66,16 +68,13 @@ export default class PongGame extends Component {
 	}
 
 	setEvent() {
-		this.hashChangedBinded = this.hashChanged.bind(this);
-		this.clickedRestartButtonBinded = this.clickedRestartButton.bind(this);
-
-		Event.addHashChangeEvent(this.hashChangedBinded);
-		Event.addEvent('click', '.restart-btn', this.clickedRestartButtonBinded);
+		this.hashChangedBinded = Event.addHashChangeEvent(this.hashChanged.bind(this));
+		this.clickedRestartButtonWrapped = Event.addEvent(this.$target, 'click', '.restart-btn', this.clickedRestartButton.bind(this));
 	}
 
 	clearEvent() {
 		Event.removeHashChangeEvent(this.hashChangedBinded);
-		Event.removeEvent('click', this.clickedRestartButtonBinded);
+		Event.removeEvent(this.$target, 'click', this.clickedRestartButtonWrapped);
 	}
 	
 	hashChanged() {
@@ -117,9 +116,10 @@ export default class PongGame extends Component {
 	}
 
 	setupPhysics() {
-		// this.engine = Matter.Engine.create(gravity = {y: 0});
-		this.engine = Matter.Engine.create();
-		this.engine.gravity.y = 0;
+		this.engine = Matter.Engine.create({
+			gravity: { x: 0, y: 0, scale: 0 }
+		});
+		// this.engine.gravity.y = 0;
 
 		// See this issue for the colision configs on Matter
 		// https://github.com/liabru/matter-js/issues/394
@@ -350,14 +350,11 @@ export default class PongGame extends Component {
 		if (this.gameRenderer && this.gameRenderer.domElement)
 			document.body.removeChild(this.gameRenderer.domElement);
 
-		// Remove event listeners
 		document.removeEventListener('keydown', this.handleKeyDown);
 
-		// Clear Three.js scene
 		while(this.gameScene.children.length > 0)
 			this.gameScene.remove(this.gameScene.children[0]); 
 
-		// Clear Matter.js world
 		Matter.World.clear(this.engine.world);
 		Matter.Engine.clear(this.engine);
 		

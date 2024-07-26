@@ -35,7 +35,13 @@ export default class SetNameAI extends Component {
 	}
 
 	setEvent() {
-		Event.addEvent('click', '.done-btn', this.checkInput.bind(this));
+		this.unmountedBinded = Event.addHashChangeEvent(this.unmounted.bind(this));
+		this.checkinputWrapped = Event.addEvent(this.$target, 'click', '.done-btn', this.checkInput.bind(this));
+	}
+
+	clearEvent() {
+		Event.removeHashChangeEvent(this.unmountedBinded);
+		Event.removeEvent(this.$target, 'click', this.checkinputWrapped);
 	}
 
 	checkInput() {

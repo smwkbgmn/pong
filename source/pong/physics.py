@@ -117,7 +117,7 @@ class PongPhysic:
 		paddle_body = self.paddle_left_body if player == self.player["left"] else self.paddle_right_body
 		paddle_body.position = (paddle_body.position.x, moved_y)
 
-	async def add_player(self, channel_name, side):
+	async def add_player(self, channel_name, user_name, side):
 		self.player[side] = channel_name
 		
 		if self.player['left'] and self.player['right']:

@@ -19,9 +19,7 @@ export default class ConnectionType extends Component {
 	}
 
 	setEvent() {
-		this.unmountedBinded = this.unmounted.bind(this);
-		Event.addHashChangeEvent(this.unmountedBinded);
-
+		this.unmountedBinded = Event.addHashChangeEvent(this.unmounted.bind(this));
 		this.clickedHomeButtonWrapped = Event.addEvent(this.$target, 'click', '.home-btn', this.clickedHomeButton.bind(this));
 		this.clickedOnlineButtonWrapped = Event.addEvent(this.$target, 'click', '.online-btn', this.clickedOnlineButton.bind(this));
 	}
@@ -33,8 +31,6 @@ export default class ConnectionType extends Component {
 	}
 
 	clickedHomeButton() {
-		console.log('clicked home button');
-
 		if (Utils.getParsedItem('isLogging') == true)
 			Utils.setStringifiedItem('isLogging', false);
 		Utils.changeFragment('#/');

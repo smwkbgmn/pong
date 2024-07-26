@@ -4,9 +4,10 @@ import EnterGameType from './enter/EnterGameType.js';
 import SetPlayerNum from './setting/SetPlayerNum.js';
 import SetNameTournament from './setting/SetNameTournament.js';
 import SetNameAI from './setting/SetNameAI.js';
-import GameAI from './game/GameAI.js';
-import GameTournament from './game/GameTournament.js';
-import GameMatchmaking from './game/GameMatchmaking.js';
+import GameAI from './game/local/GameAI.js';
+import GameTournament from './game/local/GameTournament.js';
+import GameMatchmaking from './game/online/GameMatchmaking.js';
+import GameMatch from './game/online/GameMatch.js';
 
 export default (main) => {
 	const start = () => new EnterStart(main);
@@ -18,6 +19,7 @@ export default (main) => {
 	const game_ai = () => new GameAI(main);
 	const game_tournament = () => new GameTournament(main);
 	const game_matchmaking = () => new GameMatchmaking(main);
+	const game_match = () => new GameMatch(main);
 
 	return {
 		start,
@@ -29,5 +31,6 @@ export default (main) => {
 		game_ai,
 		game_tournament,
 		game_matchmaking,
+		game_match,
 	};
 };

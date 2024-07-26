@@ -1,4 +1,7 @@
 // 온라인 토너먼트일 때 렌더링만 하는 코드
+
+import * as THREE from 'three';
+
 export default class PongRender {	
 	constructor(gameId, side, socket) {
 		this.join(gameId, side, socket);
@@ -60,7 +63,6 @@ export default class PongRender {
 	/*** SETUP ***/
 	setupThreeJS() {
 		this.gameScene = new THREE.Scene();
-		// this.gameScene.background = new THREE.Color(0x2c3e50);
 
 		const aspect = window.innerWidth / window.innerHeight;
 		const frustumSize = 10;

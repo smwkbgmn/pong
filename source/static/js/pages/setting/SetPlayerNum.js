@@ -36,27 +36,36 @@ export default class SetPlayerNum extends Component {
 	}
 
 	setEvent() {
-		Event.addEvent('click', '#num_2', ({ target }) => {
-			this.printNum('2');
-		});
-		Event.addEvent('click', '#num_4', ({ target }) => {
-			this.printNum('4');
-		});
-		Event.addEvent('click', '#num_8', ({ target }) => {
-			this.printNum('8');
-		});
+		this.unmountedBinded = Event.addHashChangeEvent(this.unmounted.bind(this));
 
-		Event.addEvent('click', '.start-btn', ({ target }) => {
-			Utils.setStringifiedItem('playerNum', this.$state.playerNum);
+		this.printNumWrapped2 = Event.addEvent(this.$target, 'click', '#num_2', this.printNum.bind(this, '2'));
+		this.printNumWrapped4 = Event.addEvent(this.$target, 'click', '#num_4', this.printNum.bind(this, '4'));
+		this.printNumWrapped8 = Event.addEvent(this.$target, 'click', '#num_8', this.printNum.bind(this, '8'));
 
-			if (Utils.getParsedItem('isLoggedIn') == true)
-				Utils.changeFragment('#game_matchmaking/');
-			else
-				Utils.changeFragment('#set_name_tournament/');
-		});
+		this.clickedStartButtonWrapped = Event.addEvent(this.$target, 'click', '.start-btn', this.clickedStartButton.bind(this));
 	}
 
+	clearEvent() {
+		Event.removeHashChangeEvent(this.unmountedBinded);
+
+		Event.removeEvent(this.$target, 'click', this.printNumWrapped2);
+		Event.removeEvent(this.$target, 'click', this.printNumWrapped4);
+		Event.removeEvent(this.$target, 'click', this.printNumWrapped8);
+
+		Event.removeEvent(this.$target, 'click', this.clickedStartButtonWrapped);
+	}
+	
 	printNum(newNum) {
+		console.log('here ' + newNum);
 		this.setState({ playerNum: newNum });
+	}
+	
+	clickedStartButton() {
+		Utils.setStringifiedItem('playerNum', this.$state.playerNum);
+	
+		if (Utils.getParsedItem('isLoggedIn') == true)
+			Utils.changeFragment('#game_matchmaking/');
+		else
+			Utils.changeFragment('#set_name_tournament/');
 	}
 }
