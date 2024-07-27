@@ -11,6 +11,8 @@ export function requestOAuth() {
 
 export async function extractToken() {
 	const token42 = new URLSearchParams(window.location.search).get('code');
+
+	console.log(token42);
 	
 	if (token42) {
 		Utils.setStringifiedItem('token42', token42);

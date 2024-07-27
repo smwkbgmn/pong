@@ -1,8 +1,6 @@
 import asyncio
 import random
 import pymunk
-from datetime import datetime
-
 class PongPhysic:
 	def __init__(self, channel_layer, group, match):
 		self.group = group
@@ -13,11 +11,11 @@ class PongPhysic:
 		self.score = {"left": 0, "right": 0}
 		self.goal = 3
 		
-		self.ball_speed_default = 3
-		self.ball_speed_increment = 0.5
-		self.ball_out_of_bound = (7, 5)
+		self.ball_speed_default 			= 3
+		self.ball_speed_increment 			= 0.5
+		self.ball_out_of_bound 				= (7, 5)
 
-		self.paddle_random_bounce_scale = 0.3
+		self.paddle_random_bounce_scale 	= 0.3
 
 		self.setup()
 
@@ -88,16 +86,10 @@ class PongPhysic:
 		if abs(self.ball.body.position.x) > self.ball_out_of_bound[0] \
 		or abs(self.ball.body.position.y) > self.ball_out_of_bound[1]:
 			self.score['left' if self.ball.body.position.x < 0 else 'right'] += 1
-
-			try:
-				await self.channel_layer.group_send(self.match['game_id'], {
-					"type"	: "score_change",
-					"score"	: self.score
-				})
-			except Exception as e:
-				print("exception")
-				return
-
+			await self.channel_layer.group_send(self.match['game_id'], {
+				"type"	: "score_change",
+				"score"	: self.score
+			})
 			await self.finish() if self.goal in self.score.values() else self.reset_ball()
 	
 	def reset_ball(self):
@@ -107,7 +99,6 @@ class PongPhysic:
 		self.update_ball_velocity(direction, self.ball_speed_default)
 
 	async def finish(self):
-		print("finish")
 		self.running = False
 		if self.task and not self.task.done():
 			self.task.cancel()
@@ -134,7 +125,7 @@ class PongPhysic:
 			await self.start()
 
 	async def send_player_info(self): 
-		player_info = {
+		await self.channel_layer.group_send(self.match['game_id'], {
 			"type"	: "player_info",
 			"left"	: {
 				"name"	: self.player['left']['name'],
@@ -144,14 +135,7 @@ class PongPhysic:
 				"name"	: self.player['right']['name'],
 				"image"	: self.player['right']['image']
 			}
-		}
-		await self.channel_layer.group_send(self.match['game_id'], player_info)
-
-	# async def add_player(self, channel_name, user_info, side):
-	# 	self.player[side] = channel_name
-		
-	# 	if self.player['left'] and self.player['right']:
-	# 		await self.start()
+		})
 
 	async def start(self):
 		self.running = True

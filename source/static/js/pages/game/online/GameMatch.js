@@ -31,28 +31,25 @@ export default class GameMatch extends Component {
 					break;
 				
 				case 'player_info':
-					console.log("player_info");
-					if (game) game.getReverse()?
-						this.opntInfo = data.player_info.left : data.player_info.right;
-					console.log(this.opntInfo);
+					if (game) this.opntInfo = game.getReverse() ? data.left : data.right;
+					this.playerNameRight = this.opntInfo.name;
+					this.playerImageRight = this.opntInfo.image;
 					break;
 
 				case 'game_update':
-					console.log('game_update');
 					if (game) game.updateGameObjects(data);
 					break;
 				
 				case 'score_change':
-					console.log('score_change');
 					if (game) {
 						if (game.getReverse())
 							this.setState({ scoreLeft: data.score.right, scoreRight: data.score.left })
 						else
 							this.setState({ scoreLeft: data.score.left, scoreRight: data.score.right })
 					}
+					break;
 
 				case 'game_finish':
-					console.log('game_finish');
 					game.cleanUp();
 					game = null;
 					break;
@@ -70,8 +67,7 @@ export default class GameMatch extends Component {
 		// 플레이 중에 연결끊김 해들링
 		this.socket.onclose = (event) => {
 			if (game) {
-				console.log('disconnection: ' + new Date().toString());
-
+				console.log('disconnection');
 				game.cleanUp();
 				game = null;
 

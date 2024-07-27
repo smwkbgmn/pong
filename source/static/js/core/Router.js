@@ -44,9 +44,7 @@ export default class Router extends Component {
 	}
 
 	async handleOAuthRedirect() {
-		console.log('handle oauth redirect');
-		
-		await this.waitForLoad();
+		// await this.waitForLoad();
 		await Account.extractToken();
 		await Account.initialToken();
 
@@ -58,20 +56,16 @@ export default class Router extends Component {
 		console.log(Utils.getParsedItem('refreshToken'));
 	}
 
-	// new Promise() 메서드 호출 시 resolve와 reject를 인자로 대기 상태 진입
-	// resolve()를 실행하면 이행 상태가 되어 promise 종료
-	// reject는 실패 상태로 종료
-	// 콜백 함수에서 이벤트를 등록하고, load 이벤트 핸들러에서 resolve를 실행하기 때문에
-	// 이벤트가 발생할 때까지 promise는 대기 상태이고 종료될 때까지 await 했기 때문에
-	// 이벤트 발생 대기가 가능함
-	waitForLoad() {
-		return new Promise((resolve) => {
-			const handler = () => {
-				window.removeEventListener('load', handler);
-				resolve();
-			};
+	// waitForLoad() {
+	// 	console.log('wait for load');
+	// 	return new Promise((resolve) => {
+	// 		const handler = () => {
+	// 			console.log('event occur');
+	// 			window.removeEventListener('load', handler);
+	// 			resolve();
+	// 		};
 
-			window.addEventListener('load', handler);
-		});
-	}
+	// 		window.addEventListener('load', handler);
+	// 	});
+	// }
 }

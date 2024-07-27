@@ -1,13 +1,9 @@
 import json
 import random
 
-# Handle Disconnection
-# Add way for send user_name and user_picture(42)
-
 from channels.generic.websocket import AsyncWebsocketConsumer
 from datetime import datetime
 from .physics import PongPhysic
-
 class Consumer(AsyncWebsocketConsumer):
 	queue	= {}
 	group 	= {}
@@ -142,14 +138,16 @@ class Consumer(AsyncWebsocketConsumer):
 			'type'	: 'match_found',
 			'gameId': game_id,
 			'side'	: "left" if self.channel_name == event['player1'] else "right",
-			
 		}))
+
+	async def player_info(self, event): await self.send(json.dumps(event))
+	async def score_change(self, event): await self.send(json.dumps(event))
 
 	async def game_update(self, event):
 		if self.connection: await self.send(json.dumps(event))
 
 	async def game_finish(self, event):
-		print(self.channel_name, ">> receive game_finish from PongPhysics")
+		print(self.channel_name, ">> receive game_finish from game")
 		
 		await self.send(json.dumps({'type': 'game_finish'}))
 		await self.channel_layer.group_discard(self.match['game_id'], self.channel_name)

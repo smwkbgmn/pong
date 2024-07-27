@@ -168,6 +168,7 @@ export default class PongRender {
 	stop() { cancelAnimationFrame(this.animationFrameId); }
 	resume() { this.animate(); }
 	cleanUp() {
+		console.log('clean up');
 		this.stop();  // Use the existing stop method instead of stopGame
 	
 		if (this.gameRenderer && this.gameRenderer.domElement)
