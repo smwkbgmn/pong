@@ -6,9 +6,7 @@ export default class GameTournament extends Component {
 	constructor($target, $props) {
 		super($target, $props);
 
-		const { settingDone } = this.$state;
-
-		if (settingDone == true) {
+		if (this.settingDone == true) {
 			if (Utils.getParsedItem('isLoggedIn') == true)
 				Utils.changeFragment('#waiting_player/');
 			else
@@ -20,30 +18,27 @@ export default class GameTournament extends Component {
 
 	setUp() {
 		this.$state = {
+			countdown: '',
+			
 			aiMode: false,
-
-			playerNum: Utils.getParsedItem('playerNum'),
-
-			playerNames: Utils.getParsedItem('playerNames'),
-			activePlayerNames: Utils.getParsedItem('playerNames'),
-			losePlayerNames: [],
+			lastGame: false,
 
 			playerNameLeft: '',
 			playerNameRight: '',
-
-			countdown: '',
-			lastGame: false,
-
-			settingDone: false,
 		};
 		
-		this.$state.settingDone = this.$state.playerNames != null;
+		this.playerNames = Utils.getParsedItem('playerNames');
+		this.playerNum = Utils.getParsedItem('playerNum');
+		this.settingDone = this.playerNames != null;
+		
+		this.activePlayerNames = Utils.getParsedItem('playerNames');
+		this.losePlayerNames = [];
 	}
 
 	template() {
-		const { settingDone, playerNameLeft, playerNameRight, countdown } = this.$state;
+		const { playerNameLeft, playerNameRight, countdown } = this.$state;
 		
-		if (settingDone == false)
+		if (this.settingDone == false)
 			return ``;
 		
 		const inputHTML = this.makePlayerList();
@@ -78,19 +73,18 @@ export default class GameTournament extends Component {
 	}
 	
 	makePlayerList() {
-		const { playerNum, playerNames, losePlayerNames } = this.$state;
 		let inputHTML = '';
 
-		for(let i = 0; i < playerNum; i++) {
+		for(let i = 0; i < this.playerNum; i++) {
 			let color;
 
-			if (losePlayerNames.find(player => player == playerNames[i]))
+			if (this.losePlayerNames.find(player => player == this.playerNames[i]))
 				color = 'darkgray';
 			else
 				color = 'white';
 
 			inputHTML += `
-				<p class="playerNames-p name${i + 1}" style="color: ${color};">${playerNames[i]}</p>
+				<p class="playerNames-p name${i + 1}" style="color: ${color};">${this.playerNames[i]}</p>
 			`;
 		}
 
@@ -98,35 +92,34 @@ export default class GameTournament extends Component {
 	}
 
 	async startTournamentGame() {
-		let active_playerNum = this.$state.playerNum;
+		let activePlayerNum = this.playerNum;
 
 		while (window.location.hash == '#game_tournament/') {
 			let winPlayerNames = [];
-
-			for(let i = 0; i < active_playerNum; i += 2) {
+			
+			for(let i = 0; i < activePlayerNum; i += 2) {
 				const continueGame = await this.showNextPlayers(i);
 				if (continueGame == false)
 					return ;
 
-				if (active_playerNum == 2)
+				if (activePlayerNum == 2)
 					this.$state.lastGame = true;
 
 				const winnerName = await GameUtils.playGame(this.$state, this.$target);
-				
+
 				winPlayerNames.push(winnerName);
-				this.$state.losePlayerNames.push(this.getLoserName(winnerName));
+				this.losePlayerNames.push(this.getLoserName(winnerName));
 
 				this.render();
 			}
 			
-			active_playerNum = this.setLoopCondition(active_playerNum, winPlayerNames);
+			activePlayerNum = this.setLoopCondition(activePlayerNum, winPlayerNames);
+
 		}
 	}
 
 	async showNextPlayers(idx) {
-		const { activePlayerNames } = this.$state;
-
-		this.setState({ playerNameLeft: activePlayerNames[idx], playerNameRight: activePlayerNames[idx + 1] });
+		this.setState({ playerNameLeft: this.activePlayerNames[idx], playerNameRight: this.activePlayerNames[idx + 1] });
 		for (let i = 3; i > 0; i--) {
 			if (window.location.hash != '#game_tournament/')
 				return false;
@@ -145,21 +138,21 @@ export default class GameTournament extends Component {
 		return winnerName == this.$state.playerNameLeft ? this.$state.playerNameRight : this.$state.playerNameLeft;
 	}
 
-	setLoopCondition(active_playerNum, winPlayerNames) {
+	setLoopCondition(activePlayerNum, winPlayerNames) {
 		if (this.$state.lastGame == true)
 			return this.resetTournament();
-		return this.setNextGame(active_playerNum, winPlayerNames);
+		return this.setNextGame(activePlayerNum, winPlayerNames);
 	}
 
 	resetTournament() {
-		this.$state.activePlayerNames = this.$state.playerNames;
+		this.activePlayerNames = this.playerNames;
+		this.losePlayerNames = [];
 		this.$state.lastGame = false;
-		this.$state.losePlayerNames = [];
-		return this.$state.playerNum;
+		return this.playerNum;
 	}
 	
-	setNextGame(active_playerNum, winPlayerNames) {
-		this.$state.activePlayerNames = winPlayerNames;
-		return active_playerNum / 2;
+	setNextGame(activePlayerNum, winPlayerNames) {
+		this.activePlayerNames = winPlayerNames;
+		return activePlayerNum / 2;
 	}
 }

@@ -1,28 +1,58 @@
 import Component from '../../../core/Component.js'
+import PongRender from '../../../components/PongRender.js'
 import * as Event from '../../../core/Event.js'
 import * as Utils from '../../../Utils.js'
 import * as GameUtils from "../GameUtils.js"
 
-let game = null;
+import { setSocket, getSocket } from './SharedSocket.js';
 
+let game = null;
 export default class GameMatch extends Component {
-	constructor(socket) {
-		super();
+	constructor($target) {
+		super($target);
 		
+		this.socket = getSocket();
+		console.log(this.socket);
+
+		if (!this.socket) {
+            console.error('WebSocket not initialized');
+            return;
+        }
+
 		// 게임중의 이벤트 핸들링
-		socket.onmessage = (event) => {
+		this.socket.onmessage = (event) => {
 			const data = JSON.parse(event.data);
+			console.log(data.type);
 			
 			switch(data.type) {
 				case 'match_found':
-					this.startGame(data.gameId, data.side, socket);
+					this.gameData = data;
+					this.startGame();
+					break;
+				
+				case 'player_info':
+					console.log("player_info");
+					if (game) game.getReverse()?
+						this.opntInfo = data.player_info.left : data.player_info.right;
+					console.log(this.opntInfo);
 					break;
 
 				case 'game_update':
+					console.log('game_update');
 					if (game) game.updateGameObjects(data);
 					break;
+				
+				case 'score_change':
+					console.log('score_change');
+					if (game) {
+						if (game.getReverse())
+							this.setState({ scoreLeft: data.score.right, scoreRight: data.score.left })
+						else
+							this.setState({ scoreLeft: data.score.left, scoreRight: data.score.right })
+					}
 
 				case 'game_finish':
+					console.log('game_finish');
 					game.cleanUp();
 					game = null;
 					break;
@@ -33,77 +63,96 @@ export default class GameMatch extends Component {
 					this.roundNext(statusDiv, data);
 					break;
 			}
-
-			this.startGame(data.gameId, data.side, socket);
-		}
+		
+			// this.startGame(data.gameId, data.side, socket);
+	}
 
 		// 플레이 중에 연결끊김 해들링
-		socket.onclose = (event) => {
+		this.socket.onclose = (event) => {
 			if (game) {
+				console.log('disconnection: ' + new Date().toString());
+
 				game.cleanUp();
 				game = null;
 
-				GameUtils.setComponentStyle('display', '.matchmaking-container', 'block');
-				GameUtils.setComponentStyle('display', '.game-container', 'none');
+				setSocket(null);
+				this.socket = null;
 
-				statusDiv.textContent = 'Disconnected from server. Please refresh the page to reconnect.';
+				GameUtils.setComponentStyle('opacity', '.result-box', '100');
+				GameUtils.setComponentStyle('opacity', '.match-box', '0');
 			}
 		};
 
-		socket.onerror = function(error) {
-			statusDiv.textContent = 'Error connecting to the server. Please try again later.';
+		this.socket.onerror = function(error) {
 			console.error('WebSocket Error:', error);
-		};	
+		};
+
+		this.startGame();
 	}
 
 	setUp() {
 		this.$state = {
 			countdown: '',
-			playerNameLeft: Utils.getParsedItem('player_name'),
+
 			playerNameRight: '',
+			playerImageRight: '',
+			
+			scoreLeft: 0,
+			scoreRight: 0,
 		};
+
+		this.playerNameLeft = Utils.getParsedItem('playerName');
+		this.playerImageLeft = Utils.getParsedItem('playerImage');
+
+		this.reverse = false;
+
+		this.gameData = Utils.getParsedItem('gameData');
+
+		this.lastGame = false;
 	}
 	
 	template() {
-		const { playerNameLeft, playerNameRight, countdown } = this.$state;
+		const { playerImageRight, playerNameRight, countdown } = this.$state;
 		const { scoreLeft, scoreRight } = this.$state;
 
-		let result;
-		if (this.$props.aiMode == true)
-			result = scoreLeft > scoreRight ? '승리' : '패배';
-		else
-			result = scoreLeft > scoreRight ? playerNameLeft + ' 승리' : playerNameRight + ' 승리';
+		const result = scoreLeft > scoreRight ? this.playerNameLeft + ' 승리' : playerNameRight + ' 승리';
 
 		let button;
-		if (this.$props.lastGame == true)
+		if (this.lastGame == true)
 			button = '다시하기';
 		else
 			button = '다음 게임';
 
 		return `
-			<div class="main-div">
-				<p class="main-p">토너먼트</p>
+			<p class="score-p">${scoreLeft} : ${scoreRight}</p>
 
-				<p class="score-p">${scoreLeft} : ${scoreRight}</p>
-				
-				<div class="match-box">
-					<p class="match-p">대전 상대</p>
-					<p class="next_player_left-p">${playerNameLeft}</p>
-					<p class="next_player_vs-p">VS</p>
-					<p class="next_player_right-p">${playerNameRight}</p>
-					<p class="countdown-p">${countdown}</p>
-				</div>
-				
-				<div class="result-box">
-					<p class="result-p">게임 결과</p>
-					<p class="win_or_lose-p">${result}</p>
-					<button class="restart-btn">${button}</button>
-				</div>
+			<div class="match-box">
+				<p class="match-p">대전 상대</p>
+				<p class="next_player_left-p">${this.playerNameLeft}</p>
+				<p class="next_player_vs-p">VS</p>
+				<p class="next_player_right-p">${playerNameRight}</p>
+				<p class="countdown-p">${countdown}</p>
+			</div>
+			
+			<div class="result-box">
+				<p class="result-p">게임 결과</p>
+				<p class="win_or_lose-p">${result}</p>
+				<button class="restart-btn">${button}</button>
+			</div>			
+
+			<div class="player_left-div">
+				<img class="player-img" src="${this.playerImageLeft}"></img>
+				<p class="player_name-p">${this.playerNameLeft}</p>
+			</div>
+
+			<div class="player_right-div">
+				<img class="player-img" src="${playerImageRight}"></img>
+				<p class="player_name-p">${playerNameRight}</p>
 			</div>
 		`;
 	}
 
-	async startGame(gameId, side, socket) {
+	async startGame() {
 		for (let i = 3; i > 0; i--) {
 			if (window.location.hash != '#game_match/')
 				return false;
@@ -111,19 +160,25 @@ export default class GameMatch extends Component {
 			await GameUtils.sleep(1000);
 		}
 
-		GameUtils.setComponentStyle('display', '.matchmaking-container', 'none');
-		GameUtils.setComponentStyle('display', '.game-container', 'block');
+		GameUtils.setComponentStyle('opacity', '.match-box', '0');
 
-		game = new PongRender(gameId, side, socket);
+		game = new PongRender(this.gameData.gameId, this.gameData.side, this.socket);
 	}
 
 	roundNext(statusDiv, data) {
-		GameUtils.setComponentStyle('display', '.matchmaking-container', 'block');
-		GameUtils.setComponentStyle('display', '.game-container', 'none');
+		GameUtils.setComponentStyle('opacity', '.result-box', '100');
+		GameUtils.setComponentStyle('opacity', '.match-box', '0');
 
 		if (data.type == "round_wait") this.roundWait(statusDiv);
-		else if (data.type == "round_end") this.roundEnd(statusDiv);
-		else this.tournamentWin(statusDiv);
+		else {
+			if (data.type == "round_end") this.roundEnd(statusDiv);
+			else this.tournamentWin(statusDiv);
+
+			if (socket && socket.readyState === WebSocket.OPEN) {
+				socket.close();
+				socket = null;
+			}
+		}
 	}
 
 	roundWait(statusDiv) {
@@ -134,11 +189,6 @@ export default class GameMatch extends Component {
 	roundEnd(statusDiv) {
 		console.log("receive round_end from server");
 		statusDiv.textContent = `Your game has done.\nHave you enjoyed?`;
-
-		if (socket && socket.readyState === WebSocket.OPEN) {
-			socket.close();
-			socket = null;
-		}
 	}
 
 	tournamentWin(statusDiv) {

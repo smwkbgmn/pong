@@ -62,7 +62,7 @@ export default class PongGame extends Component {
 		
 		this.setupThreeJS();
         this.setupPhysics();
-        this.setupInputs();
+        this.setupListener();
 
         this.animate();
 	}
@@ -86,6 +86,8 @@ export default class PongGame extends Component {
 	}
 	
 	clickedRestartButton() {
+		this.cleanup();
+
 		if (this.aiMode == true)
 			this.endReturnValue = 'end';
 		else
@@ -168,11 +170,12 @@ export default class PongGame extends Component {
 		Matter.Body.setVelocity(ballBody, velocity);
 	}
 
-	setupInputs() {
-		document.addEventListener('keydown', this.handleKeyDown);
+	setupListener() {
+		document.addEventListener('keydown', this.handleKeyDownHolder = this.handleKeyDown.bind(this));
+		window.addEventListener('resize', this.handleResizeHolder = this.handleWindowResize.bind(this));
 	}
 
-	handleKeyDown = (event) => {
+	handleKeyDown(event) {
 		switch (event.key) {
 			case 'w'			: this.movePaddle(this.paddleLeft, this.paddleMoveDistance); break;
 			case 's'			: this.movePaddle(this.paddleLeft, -this.paddleMoveDistance); break;
@@ -191,6 +194,16 @@ export default class PongGame extends Component {
 		}
 	}
 
+	handleWindowResize() {
+		const width = window.innerWidth;
+		const height = window.innerHeight;
+		
+		this.gameCamera.aspect = width / height;
+		this.gameCamera.updateProjectionMatrix();
+		
+		this.gameRenderer.setSize(width, height);
+	}
+	
 	/*** OBJ - Ball ***/
 	createBall() {
 		const ballBody = Matter.Bodies.circle(0, 0, 0.1, {
@@ -350,7 +363,8 @@ export default class PongGame extends Component {
 		if (this.gameRenderer && this.gameRenderer.domElement)
 			document.body.removeChild(this.gameRenderer.domElement);
 
-		document.removeEventListener('keydown', this.handleKeyDown);
+		document.removeEventListener('keydown', this.handleKeyDownHolder);
+		window.removeEventListener('resize', this.handleResizeHoler);
 
 		while(this.gameScene.children.length > 0)
 			this.gameScene.remove(this.gameScene.children[0]); 

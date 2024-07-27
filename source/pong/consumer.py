@@ -89,8 +89,6 @@ class Consumer(AsyncWebsocketConsumer):
 		await self.matches_start(players, group_id)
 	
 	async def matches_start(self, players, group_id):
-		print(self.channel_name, ">> receive game_start from consumer")
-
 		matches = self.matches_create(players)
 		self.group[group_id]['matches'] = matches
 		
@@ -106,7 +104,6 @@ class Consumer(AsyncWebsocketConsumer):
 	
 	def matches_create(self, players):
 		print("consumer >> creating matches")
-		# random.shuffle(players)
 
 		matches = []
 		for i in range(0, len(players), 2):
@@ -127,13 +124,15 @@ class Consumer(AsyncWebsocketConsumer):
 				})
 		return matches
 	
-	async def handle_join_room(self, game_id, side): await self.game[game_id].add_player(self.channel_name, side)
+	async def handle_join_room(self, game_id, side): await self.game[game_id].add_player({'channel': self.channel_name, 'name': "Hello", 'image': 'image uri'}, side)
 	async def handle_player_move(self, moved_y): await self.game[self.match['game_id']].move_paddle(self.channel_name, moved_y)
 
 	### SERVER-SIDE EVENT (== GROUP_SEND) ###
 	async def assign_group(self, event): self.group_id = event['group_id']
 
 	async def match_start(self, event):
+		print(self.channel_name, ">> receive game_start from consumer")
+
 		game_id = event['game_id']
 
 		self.match = next(match for match in self.group[self.group_id]['matches'] if match['game_id'] == game_id)
@@ -143,6 +142,7 @@ class Consumer(AsyncWebsocketConsumer):
 			'type'	: 'match_found',
 			'gameId': game_id,
 			'side'	: "left" if self.channel_name == event['player1'] else "right",
+			
 		}))
 
 	async def game_update(self, event):

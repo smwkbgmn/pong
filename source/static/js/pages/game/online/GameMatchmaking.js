@@ -4,37 +4,38 @@ import * as Event from '../../../core/Event.js'
 import * as Utils from '../../../Utils.js'
 import * as GameUtils from "../GameUtils.js"
 
-// let game = null;
-let socket = null;
+import { setSocket } from './SharedSocket.js';
 
+// let socket = null;
 export default class GameMatchmaking extends Component {
 	constructor($target, $props) {
 		super($target, $props);
 
-		this.setSocket();
+		this.setupSocket();
 	}
 
 	setUp() {
 		this.$state = {
-			playerNum: Utils.getParsedItem('playerNum'),
-
 			idx: 2,
-			textList: [
-				'다른 참가자를 기다리는 중입니다.',
-				'다른 참가자를 기다리는 중입니다..',
-				'다른 참가자를 기다리는 중입니다...'
-			],
-			timer: 0,
-
-			gameStart: false,
 		};
+		
+		this.timer = 0;
+		this.gameStart = false;
+
+		this.playerNum = Utils.getParsedItem('playerNum');
+		
+		this.textList = [
+			'다른 참가자를 기다리는 중입니다.',
+			'다른 참가자를 기다리는 중입니다..',
+			'다른 참가자를 기다리는 중입니다...'
+		];
 
 		this.changeMessage(this.$state.idx);
 	}
 
 
 	template() {
-		const { idx, textList } = this.$state;
+		const { idx } = this.$state;
 
 		return `			
 			<div class="main-div">
@@ -44,7 +45,7 @@ export default class GameMatchmaking extends Component {
 					<img class="home-img" src="/static/asset/home-icon.png">
 				</a>
 			
-				<p class="message-p">${textList[idx]}</p>
+				<p class="message-p">${this.textList[idx]}</p>
 				
 				<a class="exit-a" href="#set_player_num/">돌아가기</a>
 
@@ -55,7 +56,7 @@ export default class GameMatchmaking extends Component {
 	}
 
 	setEvent() {
-		this.clearTimeoutWrapped = Event.addHashChangeEvent(clearTimeout.bind(this, this.$state.timer));
+		this.clearTimeoutWrapped = Event.addHashChangeEvent(clearTimeout.bind(this, this.timer));
 	}
 
 	clearEvent() {
@@ -63,20 +64,22 @@ export default class GameMatchmaking extends Component {
 	}
 
 	changeMessage(prev) {
-		if (this.$state.gameStart == false) {
+		if (this.gameStart == false
+			&& window.location.hash == '#game_matchmaking/') {
+
 			this.setState({ idx: (prev + 1) % 3 });
-			this.$state.timer = setTimeout(this.changeMessage.bind(this, this.$state.idx), 800);
+			this.timer = setTimeout(this.changeMessage.bind(this, this.$state.idx), 800);
 		}
 	}
 
-	setSocket() {
-		const { playerNum } = this.$state;
-		socket = new WebSocket('ws://' + window.location.host + '/ws/pong');
+	setupSocket() {
+		let socket = new WebSocket('ws://' + window.location.host + '/ws/pong');
+		console.log(socket);
 
 		socket.onopen = (event) => {
 			socket.send(JSON.stringify({
 				type				: 'requestMatch',
-				tournamentSize		: playerNum,
+				tournamentSize		: this.playerNum,
 				userTokenAccess		: Utils.getParsedItem('accessToken'),
 				userTokenRefresh	: Utils.getParsedItem('refreshToken')
 			}));
@@ -85,13 +88,15 @@ export default class GameMatchmaking extends Component {
 		// 다른 플레이어 기다리던 도중의 이벤트 핸들링
 		socket.onmessage = (event) => {
 			const data = JSON.parse(event.data);
+			console.log(data.type);
 
 			switch(data.type) {
 				case 'waiting_for_players':
 					break;
 
 				case 'match_found':
-					this.$state.gameStart = true;
+					this.gameStart = true;
+					Utils.setStringifiedItem('gameData', data);
 					Utils.changeFragment('#game_match/');
 					break;
 			}
@@ -103,5 +108,7 @@ export default class GameMatchmaking extends Component {
 
 		socket.onerror = function(error) {
 		};
+
+		setSocket(socket);
 	}
 }

@@ -44,6 +44,8 @@ export default class Router extends Component {
 	}
 
 	async handleOAuthRedirect() {
+		console.log('handle oauth redirect');
+		
 		await this.waitForLoad();
 		await Account.extractToken();
 		await Account.initialToken();

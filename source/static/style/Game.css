@@ -25,24 +25,6 @@
 	font-size: 350%;
 	transform: translate(-50%, -50%);
 }
-/* 
-.player1-div {
-	position: absolute;
-	top: 60%;
-	left: 10%;
-
-	font-size: 300%;
-	transform: translate(-50%, -50%);
-}
-
-.player2-div {
-	position: absolute;
-	top: 60%;
-	left: 90%;
-
-	font-size: 300%;
-	transform: translate(-50%, -50%);
-} */
 
 .result-box {
 	position: absolute;

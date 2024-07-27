@@ -5,26 +5,23 @@ import * as Utils from '../../Utils.js'
 export default class SetNameTournament extends Component {
 	setUp() {
 		this.$state = {
-			playerNum: Utils.getParsedItem('playerNum'),
-
 			errorMessage: '',
-
-			settingDone: false,
 		}
-
-		this.$state.settingDone = this.$state.playerNum != null;
+		
+		this.playerNum = Utils.getParsedItem('playerNum');
+		this.settingDone = this.playerNum != null;
 	}
 
 	template() {
-		const { settingDone, playerNum, errorMessage } = this.$state;
+		const { errorMessage } = this.$state;
 			
-		if (settingDone == false) {
+		if (this.settingDone == false) {
 			Utils.changeFragment('#/');
 			return ``;
 		}
 		
 		let inputHTML = '';
-		for(let i = 0; i < playerNum; i++) {
+		for(let i = 0; i < this.playerNum; i++) {
 			inputHTML += `
 				<div class="set-wrap">
 					<p class="set-p">플레이어 ${i + 1}</p>
@@ -63,27 +60,26 @@ export default class SetNameTournament extends Component {
 	}
 
 	checkInput() {
-		const playerNum = Utils.getParsedItem('playerNum');
 		let name = [];
 
-		for(let i = 0; i < playerNum; i++) {
-			let tmp = this.$target.querySelector('.set' + (i + 1)).value;
+		for (let i = 0; i < this.playerNum; i++) {
+			let tmpName = this.$target.querySelector('.set' + (i + 1)).value;
 
-			console.log(tmp);
+			console.log(tmpName);
 
-			if (tmp == '') {
+			if (tmpName == '') {
 				this.setErrorMessage('이름을 설정해주세요.');
 				return ;
 			}
-			else if (tmp.length > 8) {
+			else if (tmpName.length > 8) {
 				this.setErrorMessage('영문/한글/숫자 8자<br>이내로 설정해주세요.');
 				return ;
 			}
-			else if (this.checkInvalidCharacter(tmp) == true) {
+			else if (this.checkInvalidCharacter(tmpName) == true) {
 				this.setErrorMessage('영문/한글/숫자 8자<br>이내로 설정해주세요.');
 				return ;
 			}
-			name.push(tmp);
+			name.push(tmpName);
 		}
 
 		Utils.setStringifiedItem('playerNames', name);

@@ -1,6 +1,7 @@
 import asyncio
 import random
 import pymunk
+from datetime import datetime
 
 class PongPhysic:
 	def __init__(self, channel_layer, group, match):
@@ -73,23 +74,30 @@ class PongPhysic:
 		self.ball.body.velocity = velocity
 
 	async def update_game_state(self):
-		await self.out_of_bound()
+		await self.handle_out_of_bound()
 
 		game_state = {
 			"type"						: "game_update",
-			"player"					: self.player,
-			"score"						: self.score,
 			"ball_position"				: {"x": self.ball.body.position.x, "y": self.ball.body.position.y},
 			"left_paddle_position_y"	: self.paddle_left_body.position.y,
 			"right_paddle_position_y"	: self.paddle_right_body.position.y
 		}
-
 		await self.channel_layer.group_send(self.match['game_id'], game_state)
 
-	async def out_of_bound(self):
+	async def handle_out_of_bound(self):
 		if abs(self.ball.body.position.x) > self.ball_out_of_bound[0] \
 		or abs(self.ball.body.position.y) > self.ball_out_of_bound[1]:
 			self.score['left' if self.ball.body.position.x < 0 else 'right'] += 1
+
+			try:
+				await self.channel_layer.group_send(self.match['game_id'], {
+					"type"	: "score_change",
+					"score"	: self.score
+				})
+			except Exception as e:
+				print("exception")
+				return
+
 			await self.finish() if self.goal in self.score.values() else self.reset_ball()
 	
 	def reset_ball(self):
@@ -99,6 +107,7 @@ class PongPhysic:
 		self.update_ball_velocity(direction, self.ball_speed_default)
 
 	async def finish(self):
+		print("finish")
 		self.running = False
 		if self.task and not self.task.done():
 			self.task.cancel()
@@ -106,22 +115,43 @@ class PongPhysic:
 		
 		side = "left" if self.score['left'] > self.score['right'] else "right"
 
-		self.group['players'].remove(self.player['left' if side == "right" else 'right'])
-		self.match['winner'] = self.player[side]
+		self.group['players'].remove(self.player['left' if side == "right" else 'right']['channel'])
+		self.match['winner'] = self.player[side]['channel']
 
 		print(self.match['game_id'], ">> sending game_finish event")
 		await self.channel_layer.group_send(self.match['game_id'], {"type": "game_finish"})
 
 	### METHOD DERIVED BY EVENT ### 
 	async def move_paddle(self, player, moved_y):
-		paddle_body = self.paddle_left_body if player == self.player["left"] else self.paddle_right_body
+		paddle_body = self.paddle_left_body if player == self.player["left"]['channel'] else self.paddle_right_body
 		paddle_body.position = (paddle_body.position.x, moved_y)
 
-	async def add_player(self, channel_name, user_name, side):
-		self.player[side] = channel_name
+	async def add_player(self, player, side):
+		self.player[side] = player
 		
 		if self.player['left'] and self.player['right']:
+			await self.send_player_info()
 			await self.start()
+
+	async def send_player_info(self): 
+		player_info = {
+			"type"	: "player_info",
+			"left"	: {
+				"name"	: self.player['left']['name'],
+				"image"	: self.player['left']['image']
+			},
+			"right"	: {
+				"name"	: self.player['right']['name'],
+				"image"	: self.player['right']['image']
+			}
+		}
+		await self.channel_layer.group_send(self.match['game_id'], player_info)
+
+	# async def add_player(self, channel_name, user_info, side):
+	# 	self.player[side] = channel_name
+		
+	# 	if self.player['left'] and self.player['right']:
+	# 		await self.start()
 
 	async def start(self):
 		self.running = True

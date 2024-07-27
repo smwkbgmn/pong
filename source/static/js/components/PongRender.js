@@ -22,10 +22,10 @@ export default class PongRender {
 		this.socket = socket;
 
 		this.socket.send(JSON.stringify({
-            type: 'joinRoom',
-            gameId: gameId,
-            side: side
-        }));
+			type: 'joinRoom',
+			gameId: gameId,
+			side: side
+		}));
         
         this.gameId = gameId; 
         console.log("Joined room:", gameId);
@@ -59,6 +59,8 @@ export default class PongRender {
 			);
 		}
 	}
+
+	getReverse() { return this.reverse; }
 
 	/*** SETUP ***/
 	setupThreeJS() {

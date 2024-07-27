@@ -8,6 +8,7 @@ import GameAI from './game/local/GameAI.js';
 import GameTournament from './game/local/GameTournament.js';
 import GameMatchmaking from './game/online/GameMatchmaking.js';
 import GameMatch from './game/online/GameMatch.js';
+import * as Utils from '../Utils.js'
 
 export default (main) => {
 	const start = () => new EnterStart(main);

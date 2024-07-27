@@ -6,9 +6,7 @@ export default class GameAI extends Component {
 	constructor($target, $props) {
 		super($target, $props);
 
-		const { settingDone } = this.$state;
-
-		if (settingDone == true)
+		if (this.settingDone == true)
 			this.startAIGame();
 		else
 			Utils.changeFragment('#/');
@@ -16,21 +14,18 @@ export default class GameAI extends Component {
 
 	setUp() {
 		this.$state = {
-			aiMode: true,
-
-			playerName: Utils.getParsedItem('playerName'),
-
 			countdown: '',
-			lastGame: true,
 
-			settingDone: false,
+			aiMode: true,
+			lastGame: true,
 		}
 
-		this.$state.settingDone = this.$state.playerName != null;
+		this.playerName = Utils.getParsedItem('playerName');
+		this.settingDone = this.playerName != null;
 	}
 
 	template() {
-		const { settingDone, playerName } = this.$state;
+		const { settingDone, countdown } = this.$state;
 		
 		if (settingDone == false)
 			return ``;
@@ -42,11 +37,11 @@ export default class GameAI extends Component {
 				<img class="game_home-img" src="/static/asset/home-icon.png">
 			</a>
 			
-			<p class="countdown-p">${this.$state.countdown}</p>
+			<p class="countdown-p">${countdown}</p>
 			
 			<div class="player-div">
 				${inputHTML}
-				<p class="playerName-p">${playerName}</p>
+				<p class="playerName-p">${this.playerName}</p>
 			</div>
 			
 			<div data-component="game-div"></div>
