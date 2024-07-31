@@ -22,6 +22,8 @@ export function waitForGameEnd(pongGame) {
 }
 
 export function setComponentStyle(componentStyle, componentName, value) {
+	console.log(componentName, value);
+	
 	const $component = document.querySelector(componentName);
 
 	$component.style[componentStyle] = value;

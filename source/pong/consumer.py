@@ -53,7 +53,7 @@ class Consumer(AsyncWebsocketConsumer):
 		
 		self.queue[tourn_size].append(self.channel_name)
 		
-		if len(self.queue[tourn_size]) == 2:
+		if len(self.queue[tourn_size]) == tourn_size:
 			await self.tournament_start(tourn_size)
 		else:
 			await self.send(json.dumps({

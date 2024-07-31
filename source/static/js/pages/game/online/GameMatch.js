@@ -31,9 +31,12 @@ export default class GameMatch extends Component {
 					break;
 				
 				case 'player_info':
-					if (game) this.opntInfo = game.getReverse() ? data.left : data.right;
-					this.playerNameRight = this.opntInfo.name;
-					this.playerImageRight = this.opntInfo.image;
+					if (game) {
+						this.opntInfo = game.getReverse() ? data.left : data.right;
+						this.setState({ playerNameRight: this.opntInfo.name, playerImageRight: this.opntInfo.image });
+						GameUtils.setComponentStyle('opacity', '.match-box', '0');
+						// 설정 끝난 후에 게임 시작 되도록 메세지 보내기??
+					}
 					break;
 
 				case 'game_update':
@@ -46,6 +49,7 @@ export default class GameMatch extends Component {
 							this.setState({ scoreLeft: data.score.right, scoreRight: data.score.left })
 						else
 							this.setState({ scoreLeft: data.score.left, scoreRight: data.score.right })
+						GameUtils.setComponentStyle('opacity', '.match-box', '0');
 					}
 					break;
 
@@ -57,7 +61,7 @@ export default class GameMatch extends Component {
 				case 'round_wait':
 				case 'round_end':
 				case 'tournament_win':
-					this.roundNext(statusDiv, data);
+					this.roundNext(data);
 					break;
 			}
 		
@@ -89,6 +93,7 @@ export default class GameMatch extends Component {
 	setUp() {
 		this.$state = {
 			countdown: '',
+			lastGame: false,
 
 			playerNameRight: '',
 			playerImageRight: '',
@@ -103,18 +108,17 @@ export default class GameMatch extends Component {
 		this.reverse = false;
 
 		this.gameData = Utils.getParsedItem('gameData');
-
-		this.lastGame = false;
 	}
 	
 	template() {
-		const { playerImageRight, playerNameRight, countdown } = this.$state;
-		const { scoreLeft, scoreRight } = this.$state;
+		const { playerImageRight, playerNameRight,
+				countdown, lastGame,
+				scoreLeft, scoreRight } = this.$state;
 
 		const result = scoreLeft > scoreRight ? this.playerNameLeft + ' 승리' : playerNameRight + ' 승리';
 
 		let button;
-		if (this.lastGame == true)
+		if (lastGame == true)
 			button = '다시하기';
 		else
 			button = '다음 게임';
@@ -148,7 +152,24 @@ export default class GameMatch extends Component {
 		`;
 	}
 
+	setEvent() {
+		this.clickedRestartButtonWrapped = Event.addEvent(this.$target, 'click', '.restart-btn', this.clickedRestartButton.bind(this));
+	}
+
+	clearEvent() {
+		Event.removeEvent('click', this.clickedRestartButtonWrapped);
+	}
+
+	clickedRestartButton() {
+		this.setState({ lastGame: false });
+		// 새로 게임에 참가 -> game_matchmaking으로?
+	}
+
+
 	async startGame() {
+		GameUtils.setComponentStyle('opacity', '.result-box', '0');
+		GameUtils.setComponentStyle('opacity', '.match-box', '100');
+
 		for (let i = 3; i > 0; i--) {
 			if (window.location.hash != '#game_match/')
 				return false;
@@ -156,39 +177,41 @@ export default class GameMatch extends Component {
 			await GameUtils.sleep(1000);
 		}
 
-		GameUtils.setComponentStyle('opacity', '.match-box', '0');
+		// GameUtils.setComponentStyle('opacity', '.match-box', '0');
 
 		game = new PongRender(this.gameData.gameId, this.gameData.side, this.socket);
 	}
 
-	roundNext(statusDiv, data) {
-		GameUtils.setComponentStyle('opacity', '.result-box', '100');
+	roundNext(data) {
+		if (data.type != 'round_wait')
+			this.setState({ lastGame: true });
 		GameUtils.setComponentStyle('opacity', '.match-box', '0');
+		GameUtils.setComponentStyle('opacity', '.result-box', '100');
 
-		if (data.type == "round_wait") this.roundWait(statusDiv);
+		if (data.type == "round_wait") this.roundWait();
 		else {
-			if (data.type == "round_end") this.roundEnd(statusDiv);
-			else this.tournamentWin(statusDiv);
+			if (data.type == "round_end") this.roundEnd();
+			else this.tournamentWin();
 
-			if (socket && socket.readyState === WebSocket.OPEN) {
-				socket.close();
-				socket = null;
+			if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+				this.socket.close();
+				this.socket = null;
 			}
 		}
 	}
 
-	roundWait(statusDiv) {
+	roundWait() {
 		console.log("receive round_wait from server");
-		statusDiv.textContent = `Waiting for other players to finish the game`;
+		// statusDiv.textContent = `Waiting for other players to finish the game`;
 	}
 
-	roundEnd(statusDiv) {
+	roundEnd() {
 		console.log("receive round_end from server");
-		statusDiv.textContent = `Your game has done.\nHave you enjoyed?`;
+		// statusDiv.textContent = `Your game has done.\nHave you enjoyed?`;
 	}
 
-	tournamentWin(statusDiv) {
+	tournamentWin() {
 		console.log("receive tournament_win from server");
-		statusDiv.textContent = `CONGRATULATION!!\nYOU ARE THE WINNER!!`;
+		// statusDiv.textContent = `CONGRATULATION!!\nYOU ARE THE WINNER!!`;
 	}
 }

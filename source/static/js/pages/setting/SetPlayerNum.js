@@ -61,7 +61,7 @@ export default class SetPlayerNum extends Component {
 	}
 	
 	clickedStartButton() {
-		Utils.setStringifiedItem('playerNum', this.$state.playerNum);
+		Utils.setStringifiedItem('playerNum', Number(this.$state.playerNum));
 	
 		if (Utils.getParsedItem('isLoggedIn') == true)
 			Utils.changeFragment('#game_matchmaking/');
