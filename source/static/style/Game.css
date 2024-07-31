@@ -26,9 +26,18 @@
 	transform: translate(-50%, -50%);
 }
 
-.result-box {
+.player-img {
+	width: 18%;
+	object-fit: cover;
+	border-radius: 30%;
+
+	aspect-ratio: 1 / 1;
+	margin-bottom: 3%;
+}
+
+.match-div {
 	position: absolute;
-	display: flex;
+	display: none;
 
 	top: 50%;
 	left: 50%;
@@ -41,8 +50,32 @@
 	border: none;
 	border-radius: 5%;
 	background-color: rgba(76, 76, 76, 0.5);
+}
 
-	opacity: 0;
+.match-p {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	font-size: 250%;
+}
+
+.result-div {
+	position: absolute;
+	display: none;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+
+	height: 55%;
+	width: 50%;
+	
+	border: none;
+	border-radius: 5%;
+	background-color: rgba(76, 76, 76, 0.5);
 }
 
 .result-p{

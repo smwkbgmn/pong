@@ -1,10 +1,17 @@
 // 로컬 토너먼트, AI
 import Component from '../core/Component.js'
 import * as Event from '../core/Event.js'
-
 import * as THREE from 'three';
+import * as GameUtils from "../pages/game/GameUtils.js"
+import * as Utils from '../Utils.js'
 
-export default class PongGame extends Component {	
+export default class PongGame extends Component {
+	constructor($target, $props) {
+		super($target, $props);
+
+		this.animate();
+	}
+
 	template() {
 		const { scoreLeft, scoreRight } = this.$state;
 		const { playerNameLeft, playerNameRight } = this.$props;
@@ -23,7 +30,8 @@ export default class PongGame extends Component {
 
 		return `
 			<p class="score-p">${scoreLeft} : ${scoreRight}</p>
-			<div class="result-box">
+			
+			<div class="result-div">
 				<p class="result-p">게임 결과</p>
 				<p class="win_or_lose-p">${result}</p>
 				<button class="restart-btn">${button}</button>
@@ -39,7 +47,6 @@ export default class PongGame extends Component {
 		}
 		
 		this.isRunning = true;
-		this.isFinish = false;
 		this.endReturnValue = '';
 		
 		this.ballDirection = { x: 1, y: 1 };
@@ -63,8 +70,6 @@ export default class PongGame extends Component {
 		this.setupThreeJS();
         this.setupPhysics();
         this.setupListener();
-
-        this.animate();
 	}
 
 	setEvent() {
@@ -245,12 +250,6 @@ export default class PongGame extends Component {
 		this.updateBallVelocity(this.ball.body, this.ballDirection);
 	}
 
-	setResultOpacity(value) {
-		const $result = document.querySelector('.result-box');
-
-		$result.style.opacity = value;
-	}
-
 	/*** OBJ - Paddle ***/
 	createPaddle(x, y) {
 		const paddleBody = Matter.Bodies.rectangle(x, y, 0.2, 1, {
@@ -392,9 +391,6 @@ export default class PongGame extends Component {
 			mesh.rotation.z = body.angle;
 		}
 
-		// if (this.isFinish)
-		// 	this.stopGame();
-
 		if (this.aiMode)
 			this.aiMovePaddle();
 
@@ -410,10 +406,9 @@ export default class PongGame extends Component {
 			else if (this.ball.body.position.x < 0)
 				this.setState({ scoreRight: this.$state.scoreRight + 1});
 			
-			if (this.$state.scoreLeft == 1 || this.$state.scoreRight == 1) { // 5로 바꾸기
+			if (this.$state.scoreLeft == 3 || this.$state.scoreRight == 3) {
 				this.stopGame();
-				this.setResultOpacity(100);
-				// this.isFinish = true;
+				GameUtils.setComponentStyle('display', '.result-div', 'block');
 			}
 			this.resetBall();
 		}

@@ -37,7 +37,7 @@ export default class GameAI extends Component {
 				<img class="game_home-img" src="/static/asset/home-icon.png">
 			</a>
 			
-			<p class="countdown-p">${countdown}</p>
+			<p class="countdown_ai-p">${countdown}</p>
 			
 			<div class="player-div">
 				${inputHTML}
@@ -62,28 +62,13 @@ export default class GameAI extends Component {
 	}
 
 	async startAIGame() {
-		const continueGame = await this.showCountdown();
-		if (continueGame == false)
+		if (await GameUtils.showCountdown.call(this, '#game_ai/', '.countdown_ai-p') == false)
 			return ;
-		
+			
 		this.setPlayerInfoStyle();
 
 		while (window.location.hash == '#game_ai/')
 			await GameUtils.playGame(this.$state, this.$target);
-	}
-
-	async showCountdown() {
-		for (let i = 3; i > 0; i--) {
-			if (window.location.hash != '#game_ai/')
-				return false;
-			this.setState({ countdown: i });
-			await GameUtils.sleep(1000);
-		}
-		if (window.location.hash != '#game_ai/')
-			return false;
-
-		GameUtils.setComponentStyle('opacity', '.countdown-p', 0);
-		return true;
 	}
 
 	setPlayerInfoStyle() {

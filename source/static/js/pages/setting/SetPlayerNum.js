@@ -56,7 +56,6 @@ export default class SetPlayerNum extends Component {
 	}
 	
 	printNum(newNum) {
-		console.log('here ' + newNum);
 		this.setState({ playerNum: newNum });
 	}
 	

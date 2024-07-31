@@ -1,4 +1,14 @@
-.player_list-box {
+.countdown_tourn-p {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	color: white;
+	font-size: 350%;
+}
+
+.player_list-div {
 	position: absolute;
 	display: block;
 
@@ -15,36 +25,7 @@
 }
 
 .players_name-p {
-	margin: -5px;
-	margin-bottom: 6px;
-}
-
-.match-box {
-	position: absolute;
-	display: flex;
-
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 1;
-
-	height: 55%;
-	width: 50%;
-	
-	border: none;
-	border-radius: 5%;
-	background-color: rgba(76, 76, 76, 0.5);
-
-	opacity: 100;
-}
-
-.match-p {
-	position: absolute;
-	top: 15%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	
-	font-size: 250%;
+	margin-bottom: 1%;
 }
 
 .next_player_left-p {
@@ -74,20 +55,10 @@
 	font-size: 300%;
 }
 
-.countdown-p {
-	position: absolute;
-	top: 85%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	
-	color: white;
-	font-size: 350%;
-}
-
 .player_left-div {
 	position: absolute;
 	top: 51%;
-	left: 10%;
+	left: 9%;
 	transform: translate(-50%, -50%);
 	
 	display: flex;
@@ -100,7 +71,7 @@
 .player_right-div {
 	position: absolute;
 	top: 51%;
-	left: 90%;
+	left: 91%;
 	transform: translate(-50%, -50%);
 	
 	display: flex;

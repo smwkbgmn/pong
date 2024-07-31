@@ -48,16 +48,16 @@ export default class GameTournament extends Component {
 				<img class="game_home-img" src="/static/asset/home-icon.png">
 			</a>
 
-			<div class="player_list-box">
+			<div class="player_list-div">
 				${inputHTML}
 			</div>
 
-			<div class="match-box">
+			<div class="match-div">
 				<p class="match-p">대전 상대</p>
 				<p class="next_player_left-p">${playerNameLeft}</p>
 				<p class="next_player_vs-p">VS</p>
 				<p class="next_player_right-p">${playerNameRight}</p>
-				<p class="countdown-p">${countdown}</p>
+				<p class="countdown_tourn-p">${countdown}</p>
 			</div>
 
 			<div class="player_left-div">
@@ -84,7 +84,7 @@ export default class GameTournament extends Component {
 				color = 'white';
 
 			inputHTML += `
-				<p class="playerNames-p name${i + 1}" style="color: ${color};">${this.playerNames[i]}</p>
+				<p class="players_name-p name${i + 1}" style="color: ${color};">${this.playerNames[i]}</p>
 			`;
 		}
 
@@ -98,8 +98,7 @@ export default class GameTournament extends Component {
 			let winPlayerNames = [];
 			
 			for(let i = 0; i < activePlayerNum; i += 2) {
-				const continueGame = await this.showNextPlayers(i);
-				if (continueGame == false)
+				if (await this.showNextPlayers(i) == false)
 					return ;
 
 				if (activePlayerNum == 2)
@@ -120,18 +119,9 @@ export default class GameTournament extends Component {
 
 	async showNextPlayers(idx) {
 		this.setState({ playerNameLeft: this.activePlayerNames[idx], playerNameRight: this.activePlayerNames[idx + 1] });
-		for (let i = 3; i > 0; i--) {
-			if (window.location.hash != '#game_tournament/')
-				return false;
-			this.setState({ countdown: i });
-			await GameUtils.sleep(1000);
-		}
+		GameUtils.setComponentStyle('display', '.match-div', 'block');
 
-		if (window.location.hash != '#game_tournament/')
-			return false;
-
-		GameUtils.setComponentStyle('opacity', '.match-box', 0);
-		return true;
+		return await GameUtils.showCountdown.call(this, '#game_tournament/', '.match-div');
 	}
 
 	getLoserName(winnerName) {

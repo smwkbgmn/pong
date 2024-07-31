@@ -1,5 +1,21 @@
 import PongGame from '../../components/PongGame.js'
 
+export async function showCountdown(pageHash, componentName) {
+	for (let i = 3; i > 0; i--) {
+		if (window.location.hash != pageHash)
+			return false;
+		this.setState({ countdown: i });
+		setComponentStyle('display', componentName, 'block');
+		await sleep(1000);
+	}
+	
+	if (window.location.hash != pageHash)
+		return false;
+
+	setComponentStyle('display', componentName, 'none');
+	return true;
+}
+
 export async function playGame($state, $target) {
 	const $game = $target.querySelector(
 		'[data-component="game-div"]'
@@ -22,8 +38,6 @@ export function waitForGameEnd(pongGame) {
 }
 
 export function setComponentStyle(componentStyle, componentName, value) {
-	console.log(componentName, value);
-	
 	const $component = document.querySelector(componentName);
 
 	$component.style[componentStyle] = value;

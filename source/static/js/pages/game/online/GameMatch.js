@@ -27,17 +27,17 @@ export default class GameMatch extends Component {
 			switch(data.type) {
 				case 'match_found':
 					this.gameData = data;
+					this.setState({ playerNameRight: data.opnt_info.name, playerImageRight: this.opnt_info.image });
 					this.startGame();
 					break;
 				
-				case 'player_info':
-					if (game) {
-						this.opntInfo = game.getReverse() ? data.left : data.right;
-						this.setState({ playerNameRight: this.opntInfo.name, playerImageRight: this.opntInfo.image });
-						GameUtils.setComponentStyle('opacity', '.match-box', '0');
-						// 설정 끝난 후에 게임 시작 되도록 메세지 보내기??
-					}
-					break;
+				// case 'player_info':
+				// 	if (game) {
+				// 		this.opntInfo = game.getReverse() ? data.left : data.right;
+				// 		this.setState({ playerNameRight: this.opntInfo.name, playerImageRight: this.opntInfo.image });
+				// 		GameUtils.setComponentStyle('opacity', '.match-div', '0');
+				// 	}
+				// 	break;
 
 				case 'game_update':
 					if (game) game.updateGameObjects(data);
@@ -49,7 +49,7 @@ export default class GameMatch extends Component {
 							this.setState({ scoreLeft: data.score.right, scoreRight: data.score.left })
 						else
 							this.setState({ scoreLeft: data.score.left, scoreRight: data.score.right })
-						GameUtils.setComponentStyle('opacity', '.match-box', '0');
+						GameUtils.setComponentStyle('opacity', '.match-div', '0');
 					}
 					break;
 
@@ -78,8 +78,8 @@ export default class GameMatch extends Component {
 				setSocket(null);
 				this.socket = null;
 
-				GameUtils.setComponentStyle('opacity', '.result-box', '100');
-				GameUtils.setComponentStyle('opacity', '.match-box', '0');
+				GameUtils.setComponentStyle('opacity', '.result-div', '100');
+				GameUtils.setComponentStyle('opacity', '.match-div', '0');
 			}
 		};
 
@@ -124,17 +124,21 @@ export default class GameMatch extends Component {
 			button = '다음 게임';
 
 		return `
+			<a class="game_home-a" href="#/">
+				<img class="game_home-img" src="/static/asset/home-icon.png">
+			</a>
+
 			<p class="score-p">${scoreLeft} : ${scoreRight}</p>
 
-			<div class="match-box">
+			<div class="match-div">
 				<p class="match-p">대전 상대</p>
 				<p class="next_player_left-p">${this.playerNameLeft}</p>
 				<p class="next_player_vs-p">VS</p>
 				<p class="next_player_right-p">${playerNameRight}</p>
-				<p class="countdown-p">${countdown}</p>
+				<p class="countdown_tourn-p">${countdown}</p>
 			</div>
 			
-			<div class="result-box">
+			<div class="result-div">
 				<p class="result-p">게임 결과</p>
 				<p class="win_or_lose-p">${result}</p>
 				<button class="restart-btn">${button}</button>
@@ -153,31 +157,22 @@ export default class GameMatch extends Component {
 	}
 
 	setEvent() {
+		this.unmountedBinded = Event.addHashChangeEvent(this.unmounted.bind(this));
 		this.clickedRestartButtonWrapped = Event.addEvent(this.$target, 'click', '.restart-btn', this.clickedRestartButton.bind(this));
 	}
 
 	clearEvent() {
+		Event.removeHashChangeEvent(this.unmountedBinded);
 		Event.removeEvent('click', this.clickedRestartButtonWrapped);
 	}
 
 	clickedRestartButton() {
-		this.setState({ lastGame: false });
-		// 새로 게임에 참가 -> game_matchmaking으로?
+		Utils.changeFragment("#game_matchmaking/");
 	}
 
-
 	async startGame() {
-		GameUtils.setComponentStyle('opacity', '.result-box', '0');
-		GameUtils.setComponentStyle('opacity', '.match-box', '100');
-
-		for (let i = 3; i > 0; i--) {
-			if (window.location.hash != '#game_match/')
-				return false;
-			this.setState({ countdown: i });
-			await GameUtils.sleep(1000);
-		}
-
-		// GameUtils.setComponentStyle('opacity', '.match-box', '0');
+		if (GameUtils.showCountdown.call(this, '#game_match/', '.match-div') == false)
+			return ;
 
 		game = new PongRender(this.gameData.gameId, this.gameData.side, this.socket);
 	}
@@ -185,8 +180,7 @@ export default class GameMatch extends Component {
 	roundNext(data) {
 		if (data.type != 'round_wait')
 			this.setState({ lastGame: true });
-		GameUtils.setComponentStyle('opacity', '.match-box', '0');
-		GameUtils.setComponentStyle('opacity', '.result-box', '100');
+		GameUtils.setComponentStyle('display', '.result-div', 'block');
 
 		if (data.type == "round_wait") this.roundWait();
 		else {

@@ -80,8 +80,10 @@ export default class GameMatchmaking extends Component {
 			socket.send(JSON.stringify({
 				type				: 'requestMatch',
 				tournamentSize		: this.playerNum,
-				userTokenAccess		: Utils.getParsedItem('accessToken'),
-				userTokenRefresh	: Utils.getParsedItem('refreshToken')
+				playerName			: Utils.getParsedItem('playerName'),
+				playerImage			: Utils.getParsedItem('playerImage'),
+				// userTokenAccess		: Utils.getParsedItem('accessToken'),
+				// userTokenRefresh	: Utils.getParsedItem('refreshToken')
 			}));
 		};
 
