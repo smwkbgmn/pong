@@ -1,0 +1,55 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    env_file: postgres/.env
+    networks:
+      - backend
+
+  redis:
+    image: redis:alpine
+    networks:
+      - backend
+
+  django:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    env_file: .env
+    networks:
+      - backend
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - django
+    networks:
+      - backend
+    volumes:  
+      - web-data:/var/www/html
+
+volumes:
+  db-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/db
+  web-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/web
+
+networks:
+  backend:
+    driver: bridge

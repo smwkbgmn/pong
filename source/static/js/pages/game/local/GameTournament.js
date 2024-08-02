@@ -106,6 +106,8 @@ export default class GameTournament extends Component {
 
 				const winnerName = await GameUtils.playGame(this.$state, this.$target);
 
+				console.log('winner is: ' + winnerName);
+
 				winPlayerNames.push(winnerName);
 				this.losePlayerNames.push(this.getLoserName(winnerName));
 
