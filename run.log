@@ -1,72 +1,2241 @@
 Watching for file changes with StatReloader
-[mHTTP GET / 200 [0.02, 127.0.0.1:60955][0m
-[36mHTTP GET /static/js/pages/setting/SetPlayerNum.js 304 [0.00, 127.0.0.1:60955][0m
-[36mHTTP GET /static/js/pages/game/local/GameAI.js 304 [0.00, 127.0.0.1:60957][0m
-[36mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 304 [0.00, 127.0.0.1:60959][0m
-[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:60955][0m
-[36mHTTP GET /static/js/pages/game/GameUtils.js 304 [0.00, 127.0.0.1:60955][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:60959][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:60955][0m
-[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:60959][0m
-[mHTTP GET /?code=24c42035cf01187415cdea69f4586946a074ee4d124d2979a420e819469f47c4 200 [0.00, 127.0.0.1:60962][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:60962][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:60962][0m
-[mHTTP GET /oauth/login/callback/?code=24c42035cf01187415cdea69f4586946a074ee4d124d2979a420e819469f47c4 200 [1.15, 127.0.0.1:60964][0m
-[mHTTP GET / 200 [0.00, 127.0.0.1:60968][0m
-[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:60968][0m
-[36mHTTP GET /static/style/game/local/GameAI.css 304 [0.00, 127.0.0.1:60970][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:60968][0m
-[mHTTP GET / 200 [0.00, 127.0.0.1:60973][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:60973][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:60973][0m
-[mHTTP GET / 200 [0.00, 127.0.0.1:60977][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:60977][0m
-[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:60979][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:60979][0m
-[mHTTP GET / 200 [0.03, 127.0.0.1:60982][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:60982][0m
-[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:60984][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:60984][0m
-[mHTTP GET / 200 [0.01, 127.0.0.1:61001][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:61001][0m
-[36mHTTP GET /static/style/game/local/GameAI.css 304 [0.00, 127.0.0.1:61003][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:61003][0m
-[mHTTP GET / 200 [0.00, 127.0.0.1:61008][0m
-[36mHTTP GET /static/js/pages/game/local/GameTournament.js 304 [0.00, 127.0.0.1:61008][0m
-[36mHTTP GET /static/js/components/PongRender.js 304 [0.00, 127.0.0.1:61008][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:61011][0m
-[36mHTTP GET /static/style/game/local/GameAI.css 304 [0.00, 127.0.0.1:61013][0m
-[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:61014][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:61008][0m
-[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:61014][0m
-[mHTTP GET / 200 [0.01, 127.0.0.1:61018][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:61018][0m
-[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:61022][0m
-[36mHTTP GET /static/style/game/local/GameAI.css 304 [0.00, 127.0.0.1:61021][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:61021][0m
-[mHTTP GET /?code=606a17d048f72288f3e76acbd1b17dba4c58c698d2fcad0129bd69b8281a0b47 200 [0.00, 127.0.0.1:61025][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:61025][0m
-[mHTTP GET /oauth/login/callback/?code=606a17d048f72288f3e76acbd1b17dba4c58c698d2fcad0129bd69b8281a0b47 200 [1.22, 127.0.0.1:61027][0m
-[mHTTP GET / 200 [0.00, 127.0.0.1:61033][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:61033][0m
-[36mHTTP GET /static/style/game/local/GameAI.css 304 [0.00, 127.0.0.1:61035][0m
-[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:61037][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:61037][0m
-[mHTTP GET / 200 [0.00, 127.0.0.1:61039][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:61039][0m
-[36mHTTP GET /static/style/game/local/GameAI.css 304 [0.00, 127.0.0.1:61042][0m
-[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:61043][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:61043][0m
-[mHTTP GET / 200 [0.00, 127.0.0.1:61047][0m
-[36mHTTP GET /static/js/pages/setting/SetPlayerNum.js 304 [0.00, 127.0.0.1:61047][0m
-[36mHTTP GET /static/js/pages/game/local/GameAI.js 304 [0.00, 127.0.0.1:61049][0m
-[36mHTTP GET /static/js/pages/game/local/GameTournament.js 304 [0.00, 127.0.0.1:61051][0m
-[36mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 304 [0.00, 127.0.0.1:61047][0m
-[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:61049][0m
-[36mHTTP GET /static/js/pages/game/GameUtils.js 304 [0.00, 127.0.0.1:61049][0m
-[36mHTTP GET /static/js/components/PongGame.js 304 [0.00, 127.0.0.1:61049][0m
-[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:61047][0m
-[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:61053][0m
-[36mHTTP GET /static/style/game/local/GameAI.css 304 [0.00, 127.0.0.1:61051][0m
-[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:61049][0m
-[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:61051][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:63640][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:63640][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.03, 127.0.0.1:63640][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:63642][0m
+[mHTTP GET /?code=1c5d3e8524c8f93c76440e5456670673d41de889ec176f06c2cfcdbfff7d428c 200 [0.00, 127.0.0.1:63640][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:63640][0m
+[mHTTP GET /oauth/login/callback/?code=1c5d3e8524c8f93c76440e5456670673d41de889ec176f06c2cfcdbfff7d428c 200 [1.51, 127.0.0.1:63642][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:63647]
+WebSocket CONNECT /ws/pong [127.0.0.1:63647]
+[mHTTP GET / 200 [0.00, 127.0.0.1:63649][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63649][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:63651][0m
+[mHTTP GET /?code=7abb0ed6bda30d3da911a6470af0527ec58be076124da909ec5b1663fcc1642d 200 [0.00, 127.0.0.1:63654][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:63654][0m
+[mHTTP GET /oauth/login/callback/?code=7abb0ed6bda30d3da911a6470af0527ec58be076124da909ec5b1663fcc1642d 200 [1.13, 127.0.0.1:63656][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:63660]
+WebSocket CONNECT /ws/pong [127.0.0.1:63660]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:63660]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+WebSocket DISCONNECT /ws/pong [127.0.0.1:63647]
+[mHTTP GET / 200 [0.00, 127.0.0.1:63663][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:63663][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63663][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:63665][0m
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET /?code=e789e2b6232523dbdf1c3db0ff932b1919c4671e77efefad91e2e86339549fad 200 [0.00, 127.0.0.1:63669][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63669][0m
+[mHTTP GET /oauth/login/callback/?code=e789e2b6232523dbdf1c3db0ff932b1919c4671e77efefad91e2e86339549fad 200 [1.16, 127.0.0.1:63671][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:63675]
+WebSocket CONNECT /ws/pong [127.0.0.1:63675]
+[mHTTP GET / 200 [0.00, 127.0.0.1:63677][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63677][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:63679][0m
+[mHTTP GET /?code=d8f3536de30b8b88d050927145e508df9375fe9c9167897691e65f07ce2c2e3f 200 [0.00, 127.0.0.1:63679][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63679][0m
+[mHTTP GET /oauth/login/callback/?code=d8f3536de30b8b88d050927145e508df9375fe9c9167897691e65f07ce2c2e3f 200 [1.12, 127.0.0.1:63677][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:63684]
+WebSocket CONNECT /ws/pong [127.0.0.1:63684]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:63684]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+WebSocket DISCONNECT /ws/pong [127.0.0.1:63675]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.00, 127.0.0.1:63699][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:63699][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63699][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:63701][0m
+[mHTTP GET /?code=e6c110be307aca415593e3aab77410c50f0ddf8a329368fcb0d640ca12cbd795 200 [0.00, 127.0.0.1:63704][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63704][0m
+[mHTTP GET /oauth/login/callback/?code=e6c110be307aca415593e3aab77410c50f0ddf8a329368fcb0d640ca12cbd795 200 [1.58, 127.0.0.1:63706][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:63710]
+WebSocket CONNECT /ws/pong [127.0.0.1:63710]
+[mHTTP GET / 200 [0.00, 127.0.0.1:63717][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63717][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:63719][0m
+[mHTTP GET /?code=911fc6424ababb33cc50f1a43a252e96b5cfdb2860f9bd9ccf71e88842cc8570 200 [0.00, 127.0.0.1:63722][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63722][0m
+[mHTTP GET /oauth/login/callback/?code=911fc6424ababb33cc50f1a43a252e96b5cfdb2860f9bd9ccf71e88842cc8570 200 [1.41, 127.0.0.1:63724][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:63728]
+WebSocket CONNECT /ws/pong [127.0.0.1:63728]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:63710]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:63728]
+[mHTTP GET / 200 [0.01, 127.0.0.1:63748][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:63748][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63748][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:63750][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:63752][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63752][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:63759][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:63759][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63759][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:63762][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:63762][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.02, 127.0.0.1:63764][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:63854][0m
+[mHTTP GET /static/style/Home.css 200 [0.00, 127.0.0.1:63854][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:63856][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:63856][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:63856][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:63854][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:63860][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:63863][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:63862][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:63856][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:63854][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:63860][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:63862][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.01, 127.0.0.1:63863][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:63865][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:63856][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:63854][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.01, 127.0.0.1:63863][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.02, 127.0.0.1:63860][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.02, 127.0.0.1:63862][0m
+[mHTTP GET /static/js/api/http.js 200 [0.02, 127.0.0.1:63856][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.02, 127.0.0.1:63865][0m
+[mHTTP GET /static/js/components/PongRender.js 200 [0.01, 127.0.0.1:63862][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.01, 127.0.0.1:63860][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.01, 127.0.0.1:63863][0m
+[mHTTP GET /static/js/components/PongGame.js 200 [0.00, 127.0.0.1:63863][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.01, 127.0.0.1:63863][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:63865][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.01, 127.0.0.1:63862][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.01, 127.0.0.1:63860][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.01, 127.0.0.1:63854][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.01, 127.0.0.1:63856][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:63863][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:63862][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:63860][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:63865][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:63860][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:63862][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:63865][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.04, 127.0.0.1:63863][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:63884][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:63886][0m
+[mHTTP GET /static/style/Home.css 200 [0.00, 127.0.0.1:63884][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:63884][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:63884][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:63886][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:63896][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:63894][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:63897][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:63886][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:63884][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:63897][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:63896][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:63894][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.01, 127.0.0.1:63886][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.01, 127.0.0.1:63899][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.01, 127.0.0.1:63884][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.01, 127.0.0.1:63897][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.01, 127.0.0.1:63896][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.01, 127.0.0.1:63894][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.01, 127.0.0.1:63886][0m
+[mHTTP GET /static/js/api/http.js 200 [0.01, 127.0.0.1:63899][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:63896][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:63897][0m
+[mHTTP GET /static/js/components/PongRender.js 200 [0.00, 127.0.0.1:63894][0m
+[mHTTP GET /static/js/components/PongGame.js 200 [0.00, 127.0.0.1:63897][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.00, 127.0.0.1:63896][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:63899][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:63884][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:63897][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.00, 127.0.0.1:63886][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.00, 127.0.0.1:63894][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:63896][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:63899][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:63897][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:63884][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:63899][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:63897][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63884][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:63896][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:63884][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:63971][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:63971][0m
+[mHTTP GET /static/style/Home.css 200 [0.00, 127.0.0.1:63971][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:63973][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:63979][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:63979][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:63984][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:63983][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:63986][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:63987][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:63979][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:63983][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:63987][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:63984][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:63986][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:63989][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:63979][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:63983][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:63987][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:63986][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:63984][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:63989][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:63987][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:63979][0m
+[mHTTP GET /static/js/components/PongRender.js 200 [0.00, 127.0.0.1:63986][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:63983][0m
+[mHTTP GET /static/js/components/PongGame.js 200 [0.00, 127.0.0.1:63979][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:63979][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.01, 127.0.0.1:63983][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.01, 127.0.0.1:63984][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.01, 127.0.0.1:63987][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.01, 127.0.0.1:63989][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.01, 127.0.0.1:63986][0m
+[mHTTP GET /static/style/Game.css 200 [0.01, 127.0.0.1:63979][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:63984][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.01, 127.0.0.1:63983][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:63987][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:63984][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:63983][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:63987][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.03, 127.0.0.1:63979][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:63987][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:63987][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:63987][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64011][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64011][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.01, 127.0.0.1:64042][0m
+[mHTTP GET /?code=0398a3f6e212c37516dc10b17f577f19b3315c3cc4bef0c5751b5183a10703ef 200 [0.00, 127.0.0.1:64042][0m
+[mHTTP GET /static/style/Home.css 200 [0.00, 127.0.0.1:64042][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:64055][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:64055][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:64058][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:64060][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:64055][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:64061][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.01, 127.0.0.1:64042][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:64060][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.01, 127.0.0.1:64058][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.01, 127.0.0.1:64055][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.01, 127.0.0.1:64061][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.01, 127.0.0.1:64060][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.01, 127.0.0.1:64042][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.01, 127.0.0.1:64063][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:64058][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:64055][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:64061][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:64060][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:64042][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:64063][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:64055][0m
+[mHTTP GET /static/js/components/PongRender.js 200 [0.00, 127.0.0.1:64061][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:64063][0m
+[mHTTP GET /static/js/components/PongGame.js 200 [0.00, 127.0.0.1:64042][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.01, 127.0.0.1:64061][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.01, 127.0.0.1:64042][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.01, 127.0.0.1:64055][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:64058][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.01, 127.0.0.1:64060][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.01, 127.0.0.1:64063][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:64061][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64055][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:64042][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:64058][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:64042][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64058][0m
+[mHTTP GET /oauth/login/callback/?code=0398a3f6e212c37516dc10b17f577f19b3315c3cc4bef0c5751b5183a10703ef 200 [1.48, 127.0.0.1:64042][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64042][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64042][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64042][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64087]
+WebSocket CONNECT /ws/pong [127.0.0.1:64087]
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64042][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64093][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64093][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64093][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64093][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64093][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64093][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64115][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64115][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64115][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64115][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64115][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64139][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64139][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64139][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64139][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64151][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64149][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64139][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64149][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64149][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64149][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64149][0m
+[mHTTP GET /?code=67d2f9b85deb9403743480bd1e91625669a0e8bf0eba14da6dbbad20d10bf98e 200 [0.00, 127.0.0.1:64149][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64149][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64149][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64167][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64167][0m
+[mHTTP GET /oauth/login/callback/?code=67d2f9b85deb9403743480bd1e91625669a0e8bf0eba14da6dbbad20d10bf98e 200 [2.20, 127.0.0.1:64139][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64139][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64139][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64182]
+WebSocket CONNECT /ws/pong [127.0.0.1:64182]
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64139][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64194][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64194][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64194][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64194][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64194][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64216][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64216][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64216][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64252][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64262][0m
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64087]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64182]
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:64262][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:64338][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64338][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64338][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64340][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64342][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64338][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64342][0m
+[mHTTP GET /?code=4b7b8be8039b8c12d5568b557f40dfbbb423b2d0e70bc106a8384d1c36c7f69e 200 [0.00, 127.0.0.1:64345][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64345][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64345][0m
+[mHTTP GET /oauth/login/callback/?code=4b7b8be8039b8c12d5568b557f40dfbbb423b2d0e70bc106a8384d1c36c7f69e 200 [1.59, 127.0.0.1:64347][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64351]
+WebSocket CONNECT /ws/pong [127.0.0.1:64351]
+[mHTTP GET / 200 [0.01, 127.0.0.1:64355][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64355][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64357][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64355][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64357][0m
+[mHTTP GET /?code=3dd491b7fa62c92edb4ffbce0a2c63a7b20bac0be151c1641a93012597d85e11 200 [0.00, 127.0.0.1:64357][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64357][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64357][0m
+[mHTTP GET /oauth/login/callback/?code=3dd491b7fa62c92edb4ffbce0a2c63a7b20bac0be151c1641a93012597d85e11 200 [1.82, 127.0.0.1:64355][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64362]
+WebSocket CONNECT /ws/pong [127.0.0.1:64362]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64351]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64362]
+[mHTTP GET / 200 [0.01, 127.0.0.1:64375][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64375][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64375][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64377][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64379][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64375][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64379][0m
+[mHTTP GET /?code=6a3f00af3079b9eef7bc037ac6ca7d4a6ef32f0e3da07e79d509924893ac0b04 200 [0.00, 127.0.0.1:64379][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64379][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64379][0m
+[mHTTP GET /oauth/login/callback/?code=6a3f00af3079b9eef7bc037ac6ca7d4a6ef32f0e3da07e79d509924893ac0b04 200 [2.00, 127.0.0.1:64375][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64384]
+WebSocket CONNECT /ws/pong [127.0.0.1:64384]
+[mHTTP GET / 200 [0.00, 127.0.0.1:64394][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64396][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64394][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.02, 127.0.0.1:64396][0m
+[mHTTP GET /?code=30ac864f3151b9895935a599e2fc9ec6811d6488724a8ae6ede7cdd4f147dd7a 200 [0.00, 127.0.0.1:64400][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64400][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64400][0m
+[mHTTP GET /oauth/login/callback/?code=30ac864f3151b9895935a599e2fc9ec6811d6488724a8ae6ede7cdd4f147dd7a 200 [1.88, 127.0.0.1:64402][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64407]
+WebSocket CONNECT /ws/pong [127.0.0.1:64407]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64407]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64384]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.00, 127.0.0.1:64413][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64413][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64415][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64417][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64413][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64417][0m
+[mHTTP GET /?code=fe183005ba6c7ebd82655957d178a84eecc5317f0f247c9dc1fda453b9d79f9b 200 [0.00, 127.0.0.1:64420][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64420][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64420][0m
+[mHTTP GET /oauth/login/callback/?code=fe183005ba6c7ebd82655957d178a84eecc5317f0f247c9dc1fda453b9d79f9b 200 [1.51, 127.0.0.1:64422][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64426]
+WebSocket CONNECT /ws/pong [127.0.0.1:64426]
+[mHTTP GET / 200 [0.01, 127.0.0.1:64428][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64430][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64428][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64430][0m
+[mHTTP GET /?code=2468bfaeadc94a7ffb0440f6bd23a2840aafbeed25ff82726cdfee59f0533192 200 [0.00, 127.0.0.1:64430][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64430][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64430][0m
+[mHTTP GET /oauth/login/callback/?code=2468bfaeadc94a7ffb0440f6bd23a2840aafbeed25ff82726cdfee59f0533192 200 [1.81, 127.0.0.1:64428][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64435]
+WebSocket CONNECT /ws/pong [127.0.0.1:64435]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64426]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64435]
+[mHTTP GET / 200 [0.01, 127.0.0.1:64443][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64443][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:64443][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64443][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64445][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64447][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.02, 127.0.0.1:64447][0m
+[mHTTP GET /?code=f21f775989479e79335538cd7bc11b0ca5c99f423fed6cea3a0a5528adfef0b0 200 [0.00, 127.0.0.1:64443][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64443][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64443][0m
+[mHTTP GET /oauth/login/callback/?code=f21f775989479e79335538cd7bc11b0ca5c99f423fed6cea3a0a5528adfef0b0 200 [1.84, 127.0.0.1:64447][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64447][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64447][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64447][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.02, 127.0.0.1:64443][0m
+[mHTTP GET /?code=eae29851b2d3e0bd04499c3bdcdd4f48c289885c5e5b8d64864628b5137ffc64 200 [0.00, 127.0.0.1:64443][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64443][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64443][0m
+[mHTTP GET /oauth/login/callback/?code=eae29851b2d3e0bd04499c3bdcdd4f48c289885c5e5b8d64864628b5137ffc64 200 [1.57, 127.0.0.1:64447][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64454]
+WebSocket CONNECT /ws/pong [127.0.0.1:64454]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64456]
+WebSocket CONNECT /ws/pong [127.0.0.1:64456]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64456]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64454]
+[mHTTP GET / 200 [0.01, 127.0.0.1:64470][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64470][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:64470][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64470][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64472][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64472][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64470][0m
+[mHTTP GET /?code=cf5710ae21059dce14ed10646f45ea0b48b59a5288cd85fe341baefbe12a168a 200 [0.00, 127.0.0.1:64470][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64470][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64470][0m
+[mHTTP GET /oauth/login/callback/?code=cf5710ae21059dce14ed10646f45ea0b48b59a5288cd85fe341baefbe12a168a 200 [1.07, 127.0.0.1:64472][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64472][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64472][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64477][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64472][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64479]
+WebSocket CONNECT /ws/pong [127.0.0.1:64479]
+[mHTTP GET /?code=0e205bd67fcf8503ac3d2efcbc510cd2d6604d34baea406615f5ac5fc9c48568 200 [0.00, 127.0.0.1:64482][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64482][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64482][0m
+[mHTTP GET /oauth/login/callback/?code=0e205bd67fcf8503ac3d2efcbc510cd2d6604d34baea406615f5ac5fc9c48568 200 [1.47, 127.0.0.1:64484][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64488]
+WebSocket CONNECT /ws/pong [127.0.0.1:64488]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64488]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64479]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.00, 127.0.0.1:64491][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64491][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64493][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64491][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64493][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64495][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64495][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64497][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:64497][0m
+[mHTTP GET /?code=c356925dcf315a60d5123b8c594e50c10970dfcb308aa725125a873d3c9a4e10 200 [0.00, 127.0.0.1:64497][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64497][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64497][0m
+[mHTTP GET /?code=d96e9f734f834a60a8e80dda69e74013642fabc6bb74052bcbe62a3fad0b3499 200 [0.00, 127.0.0.1:64497][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64497][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64497][0m
+[mHTTP GET /oauth/login/callback/?code=c356925dcf315a60d5123b8c594e50c10970dfcb308aa725125a873d3c9a4e10 200 [1.45, 127.0.0.1:64495][0m
+[mHTTP GET /oauth/login/callback/?code=d96e9f734f834a60a8e80dda69e74013642fabc6bb74052bcbe62a3fad0b3499 200 [1.38, 127.0.0.1:64502][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64506]
+WebSocket CONNECT /ws/pong [127.0.0.1:64506]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64508]
+WebSocket CONNECT /ws/pong [127.0.0.1:64508]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64508]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64506]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.00, 127.0.0.1:64518][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64518][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64518][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64520][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64522][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64518][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64522][0m
+[mHTTP GET /?code=22e3b0cc098c6cb1a2e56751f57c831c7f1f026518e8b2f11dc605aef8f37130 200 [0.00, 127.0.0.1:64522][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64525][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64525][0m
+[mHTTP GET /oauth/login/callback/?code=22e3b0cc098c6cb1a2e56751f57c831c7f1f026518e8b2f11dc605aef8f37130 200 [1.24, 127.0.0.1:64527][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64531][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64531][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64533][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64531][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64539]
+WebSocket CONNECT /ws/pong [127.0.0.1:64539]
+[mHTTP GET /?code=f57137d6a13a82acc8db8088799e8bcf1a09c5a1e55941a08f58ce91b0b41897 200 [0.00, 127.0.0.1:64531][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64531][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64531][0m
+[mHTTP GET /oauth/login/callback/?code=f57137d6a13a82acc8db8088799e8bcf1a09c5a1e55941a08f58ce91b0b41897 200 [1.41, 127.0.0.1:64544][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64551]
+WebSocket CONNECT /ws/pong [127.0.0.1:64551]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64539]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64551]
+[mHTTP GET / 200 [0.00, 127.0.0.1:64569][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64569][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64569][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64571][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64573][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64569][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64573][0m
+[mHTTP GET /?code=7a74fabecfa8720abf93d96dcd8dc859ec415289ced759a61cc8ffd47fd2906e 200 [0.00, 127.0.0.1:64569][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64569][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64569][0m
+[mHTTP GET /oauth/login/callback/?code=7a74fabecfa8720abf93d96dcd8dc859ec415289ced759a61cc8ffd47fd2906e 200 [1.38, 127.0.0.1:64573][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64573][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64573][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64578][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64578][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64580]
+WebSocket CONNECT /ws/pong [127.0.0.1:64580]
+[mHTTP GET /?code=f55f889212997b34b099b72b692f631d6106c7ff03fd060d698411eb541c59fa 200 [0.00, 127.0.0.1:64583][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64583][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64583][0m
+[mHTTP GET /oauth/login/callback/?code=f55f889212997b34b099b72b692f631d6106c7ff03fd060d698411eb541c59fa 200 [1.10, 127.0.0.1:64585][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64589]
+WebSocket CONNECT /ws/pong [127.0.0.1:64589]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64589]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64580]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.01, 127.0.0.1:64592][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64594][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64592][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64592][0m
+[mHTTP GET /?code=948bfb5ce7e4b7e107ff65cdc879c90a478c83b77c2ad8d98cf519f915281103 200 [0.00, 127.0.0.1:64597][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64597][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64597][0m
+[mHTTP GET /oauth/login/callback/?code=948bfb5ce7e4b7e107ff65cdc879c90a478c83b77c2ad8d98cf519f915281103 200 [1.59, 127.0.0.1:64599][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64599][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64599][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64597][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64599][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64603]
+WebSocket CONNECT /ws/pong [127.0.0.1:64603]
+[mHTTP GET /?code=884d04b2594bc69a1aae9ca1ae01406aef370e0f60cd07a481da6eb341d1b5f2 200 [0.00, 127.0.0.1:64606][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64606][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64606][0m
+[mHTTP GET /oauth/login/callback/?code=884d04b2594bc69a1aae9ca1ae01406aef370e0f60cd07a481da6eb341d1b5f2 200 [1.23, 127.0.0.1:64608][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64612]
+WebSocket CONNECT /ws/pong [127.0.0.1:64612]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64612]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64603]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.01, 127.0.0.1:64615][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64615][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64617][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64615][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64617][0m
+[mHTTP GET /?code=9e44c61bc0e02b79ca5ad94bd393f59eaeb1937e34dae5663e726228654515dc 200 [0.00, 127.0.0.1:64620][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64620][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64620][0m
+[mHTTP GET /oauth/login/callback/?code=9e44c61bc0e02b79ca5ad94bd393f59eaeb1937e34dae5663e726228654515dc 200 [1.47, 127.0.0.1:64622][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64626]
+WebSocket CONNECT /ws/pong [127.0.0.1:64626]
+[mHTTP GET / 200 [0.00, 127.0.0.1:64628][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64630][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64628][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64630][0m
+[mHTTP GET /?code=93c22e8f48b0aaeec193f7ae1ca71fca976124a4671bc48ac65c4854da35b308 200 [0.01, 127.0.0.1:64633][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64633][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64633][0m
+[mHTTP GET /oauth/login/callback/?code=93c22e8f48b0aaeec193f7ae1ca71fca976124a4671bc48ac65c4854da35b308 200 [2.00, 127.0.0.1:64635][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64639]
+WebSocket CONNECT /ws/pong [127.0.0.1:64639]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64639]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64626]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.00, 127.0.0.1:64644][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64644][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64644][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64646][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64648][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64644][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.02, 127.0.0.1:64648][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64651][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64651][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64653][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64653][0m
+[mHTTP GET /?code=5fbd12b4dfa16818f5614eb62c558c2adff9228f5a0c7dc5ca7acd0c6721bdcb 200 [0.00, 127.0.0.1:64656][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64656][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64656][0m
+[mHTTP GET /oauth/login/callback/?code=5fbd12b4dfa16818f5614eb62c558c2adff9228f5a0c7dc5ca7acd0c6721bdcb 200 [1.21, 127.0.0.1:64658][0m
+[mHTTP GET /?code=e668f2f954bedcd3d6d5cee9e1d49e8615d7ce1e041c23302c035d5dc7afd880 200 [0.00, 127.0.0.1:64658][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64658][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64658][0m
+[mHTTP GET /oauth/login/callback/?code=e668f2f954bedcd3d6d5cee9e1d49e8615d7ce1e041c23302c035d5dc7afd880 200 [1.51, 127.0.0.1:64656][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64664]
+WebSocket CONNECT /ws/pong [127.0.0.1:64664]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64666]
+WebSocket CONNECT /ws/pong [127.0.0.1:64666]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64664]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64666]
+[mHTTP GET / 200 [0.01, 127.0.0.1:64684][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64684][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64684][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64686][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64688][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64684][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64688][0m
+[mHTTP GET /?code=7bbae833e1b4213a4e8ceff5ac5fafe96857fa936e4501ed1e980f60a9674804 200 [0.00, 127.0.0.1:64688][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64688][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64688][0m
+[mHTTP GET /oauth/login/callback/?code=7bbae833e1b4213a4e8ceff5ac5fafe96857fa936e4501ed1e980f60a9674804 200 [1.21, 127.0.0.1:64684][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64693][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64693][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.02, 127.0.0.1:64695][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64695][0m
+[mHTTP GET /?code=3ae6084b869787ad73df2dfeb9e0abd00edd1fd7fe8b09a1e2df5dffa9d6983a 200 [0.00, 127.0.0.1:64698][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64698][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64698][0m
+[mHTTP GET /oauth/login/callback/?code=3ae6084b869787ad73df2dfeb9e0abd00edd1fd7fe8b09a1e2df5dffa9d6983a 200 [1.78, 127.0.0.1:64700][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64704]
+WebSocket CONNECT /ws/pong [127.0.0.1:64704]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64706]
+WebSocket CONNECT /ws/pong [127.0.0.1:64706]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64704]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64706]
+[mHTTP GET / 200 [0.00, 127.0.0.1:64719][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64719][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64719][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.03, 127.0.0.1:64721][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64721][0m
+[mHTTP GET /?code=2c7dee8a234b74b3b4892fc637f1b22ac89d5ae4c675b8bd7e194efca973a92d 200 [0.00, 127.0.0.1:64719][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64719][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64719][0m
+[mHTTP GET /oauth/login/callback/?code=2c7dee8a234b74b3b4892fc637f1b22ac89d5ae4c675b8bd7e194efca973a92d 200 [1.76, 127.0.0.1:64721][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64721][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64721][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64726][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64726][0m
+[mHTTP GET /?code=7f3545ab06289a445e50509a8333b5e6c27e5c09301c6115b4ab05c5316bcfba 200 [0.00, 127.0.0.1:64729][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64729][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64729][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64735]
+WebSocket CONNECT /ws/pong [127.0.0.1:64735]
+[mHTTP GET /oauth/login/callback/?code=7f3545ab06289a445e50509a8333b5e6c27e5c09301c6115b4ab05c5316bcfba 200 [1.68, 127.0.0.1:64731][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64737]
+WebSocket CONNECT /ws/pong [127.0.0.1:64737]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64735]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64737]
+[mHTTP GET / 200 [0.01, 127.0.0.1:64742][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64742][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64744][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64746][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64742][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64742][0m
+[mHTTP GET /?code=7ba02a7ae5834f42e09bc53f38d3fb560fd4be18158ff29dd9165ff62ca103f6 200 [0.00, 127.0.0.1:64749][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64749][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64749][0m
+[mHTTP GET /oauth/login/callback/?code=7ba02a7ae5834f42e09bc53f38d3fb560fd4be18158ff29dd9165ff62ca103f6 200 [1.50, 127.0.0.1:64751][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64755]
+WebSocket CONNECT /ws/pong [127.0.0.1:64755]
+[mHTTP GET / 200 [0.00, 127.0.0.1:64757][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64757][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64759][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.03, 127.0.0.1:64759][0m
+[mHTTP GET /?code=28fd5dc686e6c8be721a7af02d3ee8f466af594ef91c3f7a607af8d0f504175e 200 [0.00, 127.0.0.1:64759][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64759][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64759][0m
+[mHTTP GET /oauth/login/callback/?code=28fd5dc686e6c8be721a7af02d3ee8f466af594ef91c3f7a607af8d0f504175e 200 [1.90, 127.0.0.1:64757][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64764]
+WebSocket CONNECT /ws/pong [127.0.0.1:64764]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64755]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64764]
+[mHTTP GET / 200 [0.00, 127.0.0.1:64767][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64767][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64769][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64767][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64769][0m
+[mHTTP GET /?code=833f327ee164d37634d16f4616dbef86fa0ce9892052dfd7f604e2f69db701ae 200 [0.00, 127.0.0.1:64772][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64772][0m
+[mHTTP GET /oauth/login/callback/?code=833f327ee164d37634d16f4616dbef86fa0ce9892052dfd7f604e2f69db701ae 200 [1.13, 127.0.0.1:64774][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:64774][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64774][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:64772][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64778]
+WebSocket CONNECT /ws/pong [127.0.0.1:64778]
+[mHTTP GET /?code=7914d16c357dd8fbf380e1385e48854849a6c31bc7c334f4d69b07bdb311169c 200 [0.00, 127.0.0.1:64781][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64781][0m
+[mHTTP GET /oauth/login/callback/?code=7914d16c357dd8fbf380e1385e48854849a6c31bc7c334f4d69b07bdb311169c 200 [1.49, 127.0.0.1:64783][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64787]
+WebSocket CONNECT /ws/pong [127.0.0.1:64787]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64778]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64787]
+[mHTTP GET / 200 [0.00, 127.0.0.1:64802][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64802][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64806][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:64804][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64802][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64804][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64813][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:64813][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64813][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64817][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64815][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64813][0m
+[mHTTP GET /?code=18bdb4e6abb92d6893179a902195b217f09510edca84eb0c632b6f6c299137c4 200 [0.00, 127.0.0.1:64826][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64826][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64826][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64826][0m
+[mHTTP GET /?code=101f6c699705e7e76fc0e3ae7a444674193386cd9408758501a2988ed8e4e5c9 200 [0.00, 127.0.0.1:64826][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64826][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64833][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64833][0m
+[mHTTP GET /oauth/login/callback/?code=18bdb4e6abb92d6893179a902195b217f09510edca84eb0c632b6f6c299137c4 200 [2.40, 127.0.0.1:64829][0m
+[mHTTP GET /oauth/login/callback/?code=101f6c699705e7e76fc0e3ae7a444674193386cd9408758501a2988ed8e4e5c9 200 [1.15, 127.0.0.1:64826][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64840]
+WebSocket CONNECT /ws/pong [127.0.0.1:64840]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64844]
+WebSocket CONNECT /ws/pong [127.0.0.1:64844]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64844]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64840]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.01, 127.0.0.1:64849][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:64849][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64851][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:64853][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64849][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64853][0m
+[mHTTP GET /?code=50d0010b5ef90792a48ef38904068daac6992810028c3f0a212ae2e48fa6e2c0 200 [0.00, 127.0.0.1:64853][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64853][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64853][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64853][0m
+[mHTTP GET /oauth/login/callback/?code=50d0010b5ef90792a48ef38904068daac6992810028c3f0a212ae2e48fa6e2c0 200 [1.53, 127.0.0.1:64849][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64849][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64849][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64849][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64858][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64858][0m
+[mHTTP GET /?code=d3ec28abd7d663b0bc6ffa9afe1ec2280d1c280b4faca5e81ae3299a54829756 200 [0.00, 127.0.0.1:64858][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64858][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64858][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64858][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64863]
+WebSocket CONNECT /ws/pong [127.0.0.1:64863]
+[mHTTP GET /oauth/login/callback/?code=d3ec28abd7d663b0bc6ffa9afe1ec2280d1c280b4faca5e81ae3299a54829756 200 [1.59, 127.0.0.1:64849][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64865]
+WebSocket CONNECT /ws/pong [127.0.0.1:64865]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64865]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64863]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.00, 127.0.0.1:64871][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64871][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64875][0m
+[mHTTP GET /static/style/Game.css 200 [0.01, 127.0.0.1:64873][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64871][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64873][0m
+[mHTTP GET /?code=23505b06d8a8d349cc69e742df38ad4e74e0008eae57fb4e715350548586d9ba 200 [0.00, 127.0.0.1:64878][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64878][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64878][0m
+[mHTTP GET /oauth/login/callback/?code=23505b06d8a8d349cc69e742df38ad4e74e0008eae57fb4e715350548586d9ba 200 [1.50, 127.0.0.1:64880][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64880][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64880][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64880][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64878][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64884][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64884][0m
+[mHTTP GET /?code=d64e497cc945c3756ffabfefe97237a704a551129eb8fc366d60b86979d6daeb 200 [0.00, 127.0.0.1:64887][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64887][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64887][0m
+[mHTTP GET /oauth/login/callback/?code=d64e497cc945c3756ffabfefe97237a704a551129eb8fc366d60b86979d6daeb 200 [1.16, 127.0.0.1:64889][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64893]
+WebSocket CONNECT /ws/pong [127.0.0.1:64893]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64895]
+WebSocket CONNECT /ws/pong [127.0.0.1:64895]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64895]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64893]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.00, 127.0.0.1:64902][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64902][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64906][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:64904][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64902][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64904][0m
+[mHTTP GET /?code=9b7d9308a80e0d3d66d5a4104d51b773af6a99587b028de6e4ae32b0138996a1 200 [0.00, 127.0.0.1:64911][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64911][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64911][0m
+[mHTTP GET /oauth/login/callback/?code=9b7d9308a80e0d3d66d5a4104d51b773af6a99587b028de6e4ae32b0138996a1 200 [1.04, 127.0.0.1:64913][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64913][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64921][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64923][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64923][0m
+[mHTTP GET /?code=623c2159634653ae1ac83e24da94682522fe9641983ab9761350251f3b37b464 200 [0.00, 127.0.0.1:64923][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64923][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64923][0m
+[mHTTP GET /oauth/login/callback/?code=623c2159634653ae1ac83e24da94682522fe9641983ab9761350251f3b37b464 200 [1.19, 127.0.0.1:64921][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64928]
+WebSocket CONNECT /ws/pong [127.0.0.1:64928]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64930]
+WebSocket CONNECT /ws/pong [127.0.0.1:64930]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64930]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64928]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.00, 127.0.0.1:64935][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64935][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64939][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64935][0m
+[mHTTP GET /static/style/Game.css 200 [0.01, 127.0.0.1:64937][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64935][0m
+[mHTTP GET /?code=dc39547a64e9638ea17ca903e718b571d418b8991f96ebbb82f7726c8f1490ec 200 [0.00, 127.0.0.1:64935][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64935][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64935][0m
+[mHTTP GET /oauth/login/callback/?code=dc39547a64e9638ea17ca903e718b571d418b8991f96ebbb82f7726c8f1490ec 200 [1.30, 127.0.0.1:64937][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64944][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64944][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64946][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64946][0m
+[mHTTP GET /?code=78c9ec61036c0d207cba72cbc6623a3dbb1cd3d7f94edd6f57105acf230f069c 200 [0.00, 127.0.0.1:64946][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64946][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64946][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64951]
+WebSocket CONNECT /ws/pong [127.0.0.1:64951]
+[mHTTP GET /oauth/login/callback/?code=78c9ec61036c0d207cba72cbc6623a3dbb1cd3d7f94edd6f57105acf230f069c 200 [1.20, 127.0.0.1:64944][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64953]
+WebSocket CONNECT /ws/pong [127.0.0.1:64953]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64953]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64951]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.01, 127.0.0.1:64957][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:64957][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64957][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64961][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:64959][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64957][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64959][0m
+[mHTTP GET /?code=605c6fec02f7fdbe8dadc2d998a77ced86a9e7c497133fa3a3bd66e4dcd78285 200 [0.00, 127.0.0.1:64959][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64959][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64959][0m
+[mHTTP GET /oauth/login/callback/?code=605c6fec02f7fdbe8dadc2d998a77ced86a9e7c497133fa3a3bd66e4dcd78285 200 [1.51, 127.0.0.1:64957][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64966]
+WebSocket CONNECT /ws/pong [127.0.0.1:64966]
+[mHTTP GET / 200 [0.01, 127.0.0.1:64968][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64970][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64968][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64970][0m
+[mHTTP GET /?code=9929355f223dbbf85248e7e3a74a4d96a96af3b70cd4b3ae85a4415e95cc4ef4 200 [0.01, 127.0.0.1:64973][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64973][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:64973][0m
+[mHTTP GET /oauth/login/callback/?code=9929355f223dbbf85248e7e3a74a4d96a96af3b70cd4b3ae85a4415e95cc4ef4 200 [1.36, 127.0.0.1:64975][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64979]
+WebSocket CONNECT /ws/pong [127.0.0.1:64979]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64966]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64979]
+[mHTTP GET / 200 [0.00, 127.0.0.1:64986][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:64986][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:64990][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:64988][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:64986][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:64988][0m
+[mHTTP GET /?code=a60c96555d8bf2fcc8e6236fb5b531b27cce3256cf488c8567dd51f9749e2419 200 [0.00, 127.0.0.1:64993][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64993][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64993][0m
+[mHTTP GET /oauth/login/callback/?code=a60c96555d8bf2fcc8e6236fb5b531b27cce3256cf488c8567dd51f9749e2419 200 [1.19, 127.0.0.1:64995][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:64995][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:64995][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:64993][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:64995][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:64999]
+WebSocket CONNECT /ws/pong [127.0.0.1:64999]
+[mHTTP GET /?code=b8d7aeeec519fdcabcfaec0c9ff0c51dc627b3f7426055d2140c864ab1aa8b4a 200 [0.00, 127.0.0.1:65002][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65002][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65002][0m
+[mHTTP GET /oauth/login/callback/?code=b8d7aeeec519fdcabcfaec0c9ff0c51dc627b3f7426055d2140c864ab1aa8b4a 200 [2.08, 127.0.0.1:65004][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65008]
+WebSocket CONNECT /ws/pong [127.0.0.1:65008]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65008]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:64999]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.01, 127.0.0.1:65011][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:65011][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:65015][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:65013][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65011][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65013][0m
+[mHTTP GET /?code=38851899492b340e8f39079467cb09588db320b0247a26e0daaa8da0fb8afe1c 200 [0.00, 127.0.0.1:65013][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65013][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65013][0m
+[mHTTP GET /oauth/login/callback/?code=38851899492b340e8f39079467cb09588db320b0247a26e0daaa8da0fb8afe1c 200 [1.11, 127.0.0.1:65011][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:65011][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:65011][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65020][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:65020][0m
+[mHTTP GET /?code=430b1fc58dc087748f353d86903c52a3199e99b27d98a8f3f635f3f7a450cd6c 200 [0.00, 127.0.0.1:65023][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65023][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65023][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65029]
+WebSocket CONNECT /ws/pong [127.0.0.1:65029]
+[mHTTP GET /oauth/login/callback/?code=430b1fc58dc087748f353d86903c52a3199e99b27d98a8f3f635f3f7a450cd6c 200 [1.92, 127.0.0.1:65025][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65031]
+WebSocket CONNECT /ws/pong [127.0.0.1:65031]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65029]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65031]
+[mHTTP GET / 200 [0.00, 127.0.0.1:65048][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:65048][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:65048][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:65052][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:65050][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65048][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65050][0m
+[mHTTP GET /?code=403bf4dc9df9827049fdf38fc08963ddeece2363e3493a98664d2bd5b364f384 200 [0.00, 127.0.0.1:65056][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65056][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:65056][0m
+[mHTTP GET /oauth/login/callback/?code=403bf4dc9df9827049fdf38fc08963ddeece2363e3493a98664d2bd5b364f384 200 [2.13, 127.0.0.1:65058][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:65058][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65058][0m
+[36mHTTP GET /static/style/Game.css 304 [0.03, 127.0.0.1:65056][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65056][0m
+[mHTTP GET /?code=67d2673ee82976fdf4e9d367ce250bd642273d87e84a589b895aed96714f9241 200 [0.00, 127.0.0.1:65063][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.03, 127.0.0.1:65063][0m
+[mHTTP GET /oauth/login/callback/?code=67d2673ee82976fdf4e9d367ce250bd642273d87e84a589b895aed96714f9241 200 [1.48, 127.0.0.1:65065][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65069]
+WebSocket CONNECT /ws/pong [127.0.0.1:65069]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65071]
+WebSocket CONNECT /ws/pong [127.0.0.1:65071]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65071]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65069]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.02, 127.0.0.1:65074][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:65074][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:65078][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:65076][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:65074][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65076][0m
+[mHTTP GET /?code=03b9d6ec7f52b1c8783689cf533f2ea9bd2f9e87a455c0a806bf89dd4b93c1a5 200 [0.00, 127.0.0.1:65081][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65081][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:65081][0m
+[mHTTP GET /oauth/login/callback/?code=03b9d6ec7f52b1c8783689cf533f2ea9bd2f9e87a455c0a806bf89dd4b93c1a5 200 [1.91, 127.0.0.1:65083][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65087]
+WebSocket CONNECT /ws/pong [127.0.0.1:65087]
+[mHTTP GET / 200 [0.00, 127.0.0.1:65089][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:65089][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65091][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65091][0m
+[mHTTP GET /?code=c7e19d9f9de62a84c30cf20b07184f27a5d73b097aa1845bc88b6216ea41dcb1 200 [0.00, 127.0.0.1:65094][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65094][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65094][0m
+[mHTTP GET /oauth/login/callback/?code=c7e19d9f9de62a84c30cf20b07184f27a5d73b097aa1845bc88b6216ea41dcb1 200 [1.92, 127.0.0.1:65096][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65100]
+WebSocket CONNECT /ws/pong [127.0.0.1:65100]
+[mHTTP GET / 200 [0.00, 127.0.0.1:65102][0m
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65100]
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65102][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65102][0m
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65087]
+[mHTTP GET / 200 [0.01, 127.0.0.1:65106][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:65108][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:65106][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65108][0m
+[mHTTP GET /?code=246fea2c1db0a70f96c5e297d965e1f82c6d1e386861049332160ce63929f8c1 200 [0.00, 127.0.0.1:65108][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65108][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:65108][0m
+[mHTTP GET /oauth/login/callback/?code=246fea2c1db0a70f96c5e297d965e1f82c6d1e386861049332160ce63929f8c1 200 [1.78, 127.0.0.1:65106][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:65117][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:65117][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65119][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:65121][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:65117][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65121][0m
+[mHTTP GET /?code=ee999a30e2211fa2e4dfe79de1548ae7ecc2654a72b1698a675518d8aff57000 200 [0.00, 127.0.0.1:65124][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65124][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65124][0m
+[mHTTP GET /oauth/login/callback/?code=ee999a30e2211fa2e4dfe79de1548ae7ecc2654a72b1698a675518d8aff57000 200 [1.16, 127.0.0.1:65126][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65130]
+WebSocket CONNECT /ws/pong [127.0.0.1:65130]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65132]
+WebSocket CONNECT /ws/pong [127.0.0.1:65132]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65132]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65130]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.01, 127.0.0.1:65138][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65140][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65138][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65140][0m
+[mHTTP GET /?code=4d26ea6ef297f5ca4c9b64ed1c7e654c90c44b2fc972c433a658c833aab5ba41 200 [0.01, 127.0.0.1:65143][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:65143][0m
+[mHTTP GET /oauth/login/callback/?code=4d26ea6ef297f5ca4c9b64ed1c7e654c90c44b2fc972c433a658c833aab5ba41 200 [1.48, 127.0.0.1:65145][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:65145][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65145][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65143][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:65145][0m
+[mHTTP GET /?code=32bcd68d0888e3ae484d915c3346e082a68262398889abb8f226ad9eae3ada40 200 [0.00, 127.0.0.1:65150][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65150][0m
+[mHTTP GET /oauth/login/callback/?code=32bcd68d0888e3ae484d915c3346e082a68262398889abb8f226ad9eae3ada40 200 [1.55, 127.0.0.1:65152][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65156]
+WebSocket CONNECT /ws/pong [127.0.0.1:65156]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65158]
+WebSocket CONNECT /ws/pong [127.0.0.1:65158]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65158]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65156]
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+Exception inside application: list.remove(x): x not in list
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 45, in disconnect
+    self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+ValueError: list.remove(x): x not in list
+[mHTTP GET / 200 [0.01, 127.0.0.1:65173][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:65173][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65173][0m
+[36mHTTP GET /static/style/Game.css 304 [0.01, 127.0.0.1:65175][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.01, 127.0.0.1:65177][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.02, 127.0.0.1:65179][0m
+[mHTTP GET /?code=d9076e9c9ca2906f03bcf4e3e6ea1c4ac37fbb728c2c92eddc0f781c978a2407 200 [0.00, 127.0.0.1:65173][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.02, 127.0.0.1:65173][0m
+[mHTTP GET /oauth/login/callback/?code=d9076e9c9ca2906f03bcf4e3e6ea1c4ac37fbb728c2c92eddc0f781c978a2407 200 [1.69, 127.0.0.1:65179][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:65179][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:65179][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:65185][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:65179][0m
+[mHTTP GET /?code=a86345950b792145c8412a31533324231513be024cac35265f6675462ea96464 200 [0.00, 127.0.0.1:65179][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65179][0m
+[mHTTP GET /oauth/login/callback/?code=a86345950b792145c8412a31533324231513be024cac35265f6675462ea96464 200 [1.50, 127.0.0.1:65185][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65194]
+WebSocket CONNECT /ws/pong [127.0.0.1:65194]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65198]
+WebSocket CONNECT /ws/pong [127.0.0.1:65198]
+[mHTTP GET / 200 [0.01, 127.0.0.1:65202][0m
+[36mHTTP GET /static/style/Home.css 304 [0.00, 127.0.0.1:65202][0m
+[36mHTTP GET /static/style/game/local/GameTournament.css 304 [0.00, 127.0.0.1:65206][0m
+[36mHTTP GET /static/style/Game.css 304 [0.00, 127.0.0.1:65204][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65202][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:65204][0m
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65194]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65198]
+[mHTTP GET /?code=6aae4ee55c54af302dfbeafc32511cd6b4b457e1f0108ef81778533f3089b04b 200 [0.00, 127.0.0.1:65204][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:65204][0m
+[mHTTP GET /oauth/login/callback/?code=6aae4ee55c54af302dfbeafc32511cd6b4b457e1f0108ef81778533f3089b04b 200 [1.85, 127.0.0.1:65209][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65213]
+WebSocket CONNECT /ws/pong [127.0.0.1:65213]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:65215]
+WebSocket CONNECT /ws/pong [127.0.0.1:65215]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65213]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:65215]

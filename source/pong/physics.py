@@ -134,8 +134,9 @@ class PongPhysic:
 			await self.channel_layer.group_send(self.match['game_id'], {"type": "game_finish"})
 
 	### METHOD DERIVEN BY EVENT ### 
-	async def add_player(self, channel_name, side):
-		self.player[side] = channel_name
+	async def add_player(self, channel_name):
+		if (channel_name == self.match['player1']['channel']): self.player['left'] = self.match['player1']
+		else: self.player['right'] = self.match['player2']
 		
 		if self.player['left'] and self.player['right']:
 			if self.task_wait:
@@ -171,7 +172,7 @@ class PongPhysic:
 			await asyncio.sleep(1/60)
 
 	async def move_paddle(self, player, moved_y):
-		paddle_body = self.paddle_left_body if player == self.player["left"] else self.paddle_right_body
+		paddle_body = self.paddle_left_body if player == self.player['left']['channel'] else self.paddle_right_body
 		paddle_body.position = (paddle_body.position.x, moved_y)
 
 	async def player_disconnect(self, channel_name):

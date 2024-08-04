@@ -21,10 +21,12 @@ export default class PongRender {
 	join(gameId, side, socket) {
 		this.socket = socket;
 
+		console.log(gameId);
+
 		this.socket.send(JSON.stringify({
 			type: 'joinRoom',
-			gameId: gameId,
-			side: side
+			gameId: gameId
+			// side: side
 		}));
         
         this.gameId = gameId; 

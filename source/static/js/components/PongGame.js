@@ -93,15 +93,11 @@ export default class PongGame extends Component {
 	clickedRestartButton() {
 		this.cleanup();
 
-		console.log(this.scoreLeft);
-		console.log(this.scoreRight);
-
 		if (this.aiMode == true)
 			this.endReturnValue = 'end';
 		else
-			this.endReturnValue = this.scoreLeft > this.scoreRight ? this.$props.playerNameLeft : this.$props.playerNameRight;
-
-		console.log(this.endReturnValue);
+			this.endReturnValue = this.$state.scoreLeft > this.$state.scoreRight
+								? this.$props.playerNameLeft : this.$props.playerNameRight;
 	}
 
 	isGameEnd() {

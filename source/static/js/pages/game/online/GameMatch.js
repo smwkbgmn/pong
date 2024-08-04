@@ -13,21 +13,24 @@ export default class GameMatch extends Component {
 		
 		this.socket = getSocket();
 		console.log(this.socket);
-
+		
 		if (!this.socket) {
             console.error('WebSocket not initialized');
             return;
         }
 
+		this.setState({ playerNameRight: this.gameData.opnt_name, playerImageRight: this.gameData.opnt_image });
+
 		// 게임중의 이벤트 핸들링
 		this.socket.onmessage = (event) => {
 			const data = JSON.parse(event.data);
-			console.log(data.type);
+			// console.log("in match");
+			// console.log(data);
 			
 			switch(data.type) {
 				case 'match_found':
 					this.gameData = data;
-					this.setState({ playerNameRight: data.opnt_info.name, playerImageRight: this.opnt_info.image });
+					this.setState({ playerNameRight: data.opnt_name, playerImageRight: data.opnt_image });
 					this.startGame();
 					break;
 				
@@ -78,12 +81,19 @@ export default class GameMatch extends Component {
 				setSocket(null);
 				this.socket = null;
 
+				// 연결 끊김 (서버에 연결할 수 없습니다)
 				GameUtils.setComponentStyle('opacity', '.result-div', '100');
 				GameUtils.setComponentStyle('opacity', '.match-div', '0');
+
+				Utils.changeFragment('#set_player_num/');
 			}
 		};
 
 		this.socket.onerror = function(error) {
+			// game.cleanUp(); ??
+
+			// 연결 끊김 (서버에 연결할 수 없습니다)
+			Utils.changeFragment('#set_player_num/');
 			console.error('WebSocket Error:', error);
 		};
 
@@ -163,7 +173,7 @@ export default class GameMatch extends Component {
 
 	clearEvent() {
 		Event.removeHashChangeEvent(this.unmountedBinded);
-		Event.removeEvent('click', this.clickedRestartButtonWrapped);
+		Event.removeEvent(this.$target, 'click', this.clickedRestartButtonWrapped);
 	}
 
 	clickedRestartButton() {
@@ -174,7 +184,7 @@ export default class GameMatch extends Component {
 		if (GameUtils.showCountdown.call(this, '#game_match/', '.match-div') == false)
 			return ;
 
-		game = new PongRender(this.gameData.gameId, this.gameData.side, this.socket);
+		game = new PongRender(this.gameData.game_id, this.gameData.side, this.socket);
 	}
 
 	roundNext(data) {

@@ -37,7 +37,7 @@ class Consumer(AsyncWebsocketConsumer):
 		self.connection = False
 
 		# if the normal disconnection
-		if close_code == 1000:  return;
+		if close_code == 1000: return;
 
 		# player has assigned at tournament
 		if self.tourn_id:
@@ -64,7 +64,8 @@ class Consumer(AsyncWebsocketConsumer):
 				# maybe in 10sec, if both player has not appear, go through walkover or handle the players
 				# if self.tourn[self.tourn_id]['matches']:
 
-		elif self.channel_name in self.queue[self.tourn_size]:
+		# elif self.channel_name in self.queue[self.tourn_size]:
+		else:
 			print(f"{self.channel_name[-12:]} | clearing cueue info")
 			self.queue[self.tourn_size].remove(self.channel_name)
 
@@ -73,7 +74,7 @@ class Consumer(AsyncWebsocketConsumer):
 
 		match data['type']:
 			case 'requestMatch'	: await self.handle_request_match(data)
-			case 'joinRoom'		: await self.handle_join_room(data['gameId'], data['side'])
+			case 'joinRoom'		: await self.handle_join_room(data['gameId'])
 			case 'playerMove'	: await self.handle_player_move(data['movedY'])
 	
 	### RECEIVE FROM CLIENT ###
@@ -132,8 +133,8 @@ class Consumer(AsyncWebsocketConsumer):
 		self.tourn[tourn_id]['matches'] = matches
 		
 		for match in matches:
-			await self.channel_layer.group_add(match['game_id'], match['player1'])
-			await self.channel_layer.group_add(match['game_id'], match['player2'])
+			await self.channel_layer.group_add(match['game_id'], match['player1']['channel'])
+			await self.channel_layer.group_add(match['game_id'], match['player2']['channel'])
 			await self.channel_layer.group_send(match['game_id'], {
 				'type'		: 'match_start',
 				'game_id'	: match['game_id'],
@@ -154,8 +155,8 @@ class Consumer(AsyncWebsocketConsumer):
 			})
 		return matches
 	
-	async def handle_join_room(self, game_id, side):
-		await self.games[game_id].add_player(self.channel_name, side)
+	async def handle_join_room(self, game_id):
+		await self.games[game_id].add_player(self.channel_name)
 
 	async def handle_player_move(self, moved_y):
 		await self.games[self.match['game_id']].move_paddle(self.channel_name, moved_y)
