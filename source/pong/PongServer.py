@@ -15,7 +15,7 @@ class PongServer:
 
 		self.player = {"left": None, "right": None}
 		self.score = {"left": 0, "right": 0}
-		self.goal = 10
+		self.goal = 3
 
 		self.ball_speed_default = 3
 		self.ball_speed_increment = 0.5

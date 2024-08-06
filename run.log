@@ -156,3 +156,87 @@ WebSocket DISCONNECT /ws/pong [127.0.0.1:49670]
 [mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:49883][0m
 [mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:49870][0m
 [mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:49883][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:49930][0m
+[mHTTP GET /static/style/Home.css 200 [0.01, 127.0.0.1:49930][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:49932][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:49932][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:49932][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:49939][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:49930][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:49932][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:49930][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:49939][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:49944][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:49932][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:49930][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:49939][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:49932][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:49944][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:49930][0m
+[mHTTP GET /static/js/components/PongClient.js 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:49939][0m
+[mHTTP GET /static/js/components/Pong.js 200 [0.00, 127.0.0.1:49930][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:49930][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.00, 127.0.0.1:49939][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:49944][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.00, 127.0.0.1:49932][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:49930][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:49939][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:49942][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /?code=f8e5f2190b97b71228fb7f0f67d2aac2656f9ed3dd8b99a750060b1e6de18a85 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /oauth/login/callback/?code=f8e5f2190b97b71228fb7f0f67d2aac2656f9ed3dd8b99a750060b1e6de18a85 200 [3.05, 127.0.0.1:49941][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:49942][0m
+[mHTTP GET /?code=627230dcd6a554fedef1b52244a313b08355afb16ff5351dfc93eec9340dc04a 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:49939][0m
+[mHTTP GET /oauth/login/callback/?code=627230dcd6a554fedef1b52244a313b08355afb16ff5351dfc93eec9340dc04a 200 [2.50, 127.0.0.1:49942][0m
+[mHTTP GET /?code=8f38f77d9dd36dabe940e4bb3956bb909aa7502ece8c391b3a56f939165ec54b 200 [0.00, 127.0.0.1:49942][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:49942][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:49942][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:49955]
+WebSocket CONNECT /ws/pong [127.0.0.1:49955]
+[mHTTP GET /oauth/login/callback/?code=8f38f77d9dd36dabe940e4bb3956bb909aa7502ece8c391b3a56f939165ec54b 200 [1.89, 127.0.0.1:49941][0m
+WebSocket DISCONNECT /ws/pong [127.0.0.1:49955]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:49957]
+WebSocket CONNECT /ws/pong [127.0.0.1:49957]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:49959]
+WebSocket CONNECT /ws/pong [127.0.0.1:49959]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:49959]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:49961]
+WebSocket CONNECT /ws/pong [127.0.0.1:49961]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:49963]
+WebSocket CONNECT /ws/pong [127.0.0.1:49963]
+[mHTTP GET / 200 [0.01, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:49942][0m
+[mHTTP GET /?code=2c1fc142d70b1c7f045743d0041e138c2945584ddd3ce6df325b5060e6b2e851 200 [0.00, 127.0.0.1:49941][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:49941][0m
+[mHTTP GET /oauth/login/callback/?code=2c1fc142d70b1c7f045743d0041e138c2945584ddd3ce6df325b5060e6b2e851 200 [1.98, 127.0.0.1:49942][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:49968]
+WebSocket CONNECT /ws/pong [127.0.0.1:49968]
+[mHTTP GET / 200 [0.00, 127.0.0.1:49942][0m
+WebSocket DISCONNECT /ws/pong [127.0.0.1:49957]
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:49942][0m
+WebSocket DISCONNECT /ws/pong [127.0.0.1:49968]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:49961]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:49963]
+/Users/eunwoolee/vscode_workspace/pingpong/source/pong/PongServer.py changed, reloading.
+Watching for file changes with StatReloader
