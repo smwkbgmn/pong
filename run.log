@@ -240,3 +240,705 @@ WebSocket DISCONNECT /ws/pong [127.0.0.1:49961]
 WebSocket DISCONNECT /ws/pong [127.0.0.1:49963]
 /Users/eunwoolee/vscode_workspace/pingpong/source/pong/PongServer.py changed, reloading.
 Watching for file changes with StatReloader
+[mHTTP GET / 200 [0.01, 127.0.0.1:49982][0m
+[mHTTP GET /static/style/Home.css 200 [0.01, 127.0.0.1:49982][0m
+[mHTTP GET /static/js/index.js 200 [0.01, 127.0.0.1:49984][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:49984][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:49993][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:49994][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:49982][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:49984][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:49991][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:49991][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:49984][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:49996][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:49993][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:49994][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:49982][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:49991][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:49984][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:49996][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:49982][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:49993][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:49994][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:49991][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:49982][0m
+[mHTTP GET /static/js/components/PongClient.js 200 [0.00, 127.0.0.1:49994][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:49993][0m
+[mHTTP GET /static/js/components/Pong.js 200 [0.00, 127.0.0.1:49982][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:49982][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.00, 127.0.0.1:49994][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:49984][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:49991][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.00, 127.0.0.1:49993][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.00, 127.0.0.1:49996][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:49982][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:49984][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:49994][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:49991][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:49994][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:49991][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:49994][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:49998][0m
+[mHTTP GET /?code=7f06e13fa1b9be0772a8503de3635f3b393e2204c8720ad9a0749b3a672b246b 200 [0.00, 127.0.0.1:49998][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:49998][0m
+[mHTTP GET /oauth/login/callback/?code=7f06e13fa1b9be0772a8503de3635f3b393e2204c8720ad9a0749b3a672b246b 200 [1.91, 127.0.0.1:50004][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50004][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50008]
+WebSocket CONNECT /ws/pong [127.0.0.1:50008]
+[mHTTP GET / 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/style/Home.css 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/components/Pong.js 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/js/components/PongClient.js 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50024][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:50023][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:50020][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:50022][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50022][0m
+[mHTTP GET /static/style/Home.css 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:50026][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:50026][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:50026][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:50026][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:50028][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:50027][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:50029][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:50027][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:50028][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:50029][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:50026][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:50028][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:50027][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:50029][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:50027][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:50028][0m
+[mHTTP GET /static/js/components/PongClient.js 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:50030][0m
+[mHTTP GET /static/js/components/Pong.js 200 [0.00, 127.0.0.1:50028][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.00, 127.0.0.1:50030][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:50028][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:50027][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:50026][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.00, 127.0.0.1:50029][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:50028][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:50030][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:50027][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:50025][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:50026][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50029][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:50030][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:50031][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50031][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:50032][0m
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50008]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50034]
+WebSocket CONNECT /ws/pong [127.0.0.1:50034]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50035]
+WebSocket CONNECT /ws/pong [127.0.0.1:50035]
+[mHTTP GET / 200 [0.00, 127.0.0.1:50037][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50037][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50039][0m
+[mHTTP GET /?code=5f019175678df64a1c0e3dcb6ae848020a368ddb8e1248e2f518096400681678 200 [0.00, 127.0.0.1:50037][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50037][0m
+[mHTTP GET /oauth/login/callback/?code=5f019175678df64a1c0e3dcb6ae848020a368ddb8e1248e2f518096400681678 200 [1.74, 127.0.0.1:50039][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50044]
+WebSocket CONNECT /ws/pong [127.0.0.1:50044]
+[mHTTP GET / 200 [0.01, 127.0.0.1:50042][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50042][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:50045][0m
+[mHTTP GET /?code=02bfc529a6f5dac0a296b1837fbcf467281652b5a2d284f98bed8962ba6e88d1 200 [0.00, 127.0.0.1:50042][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50042][0m
+[mHTTP GET /oauth/login/callback/?code=02bfc529a6f5dac0a296b1837fbcf467281652b5a2d284f98bed8962ba6e88d1 200 [1.78, 127.0.0.1:50046][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50049]
+WebSocket CONNECT /ws/pong [127.0.0.1:50049]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50035]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50049]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50034]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50044]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50054]
+WebSocket CONNECT /ws/pong [127.0.0.1:50054]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50056]
+WebSocket CONNECT /ws/pong [127.0.0.1:50056]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50056]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50054]
+[mHTTP GET / 200 [0.01, 127.0.0.1:50108][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:50110][0m
+[mHTTP GET /static/style/Home.css 200 [0.00, 127.0.0.1:50108][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:50108][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:50108][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:50110][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:50117][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:50120][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:50119][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:50110][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:50108][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:50120][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:50117][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:50122][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:50119][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:50110][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:50120][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:50108][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:50117][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:50122][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:50119][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:50110][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:50120][0m
+[mHTTP GET /static/js/components/PongClient.js 200 [0.00, 127.0.0.1:50122][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:50117][0m
+[mHTTP GET /static/js/components/Pong.js 200 [0.00, 127.0.0.1:50120][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.01, 127.0.0.1:50120][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.01, 127.0.0.1:50117][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.01, 127.0.0.1:50108][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.01, 127.0.0.1:50119][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.02, 127.0.0.1:50110][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.02, 127.0.0.1:50122][0m
+[mHTTP GET /static/style/Game.css 200 [0.01, 127.0.0.1:50120][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:50117][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:50108][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:50119][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:50120][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50110][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50120][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:50120][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:50120][0m
+[mHTTP GET /?code=0cf496f807dad9aa574e9e1f483eef05989d2fbe69d7448abe2bcdeca5a070fe 200 [0.00, 127.0.0.1:50120][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:50120][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50120][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:50120][0m
+[mHTTP GET /oauth/login/callback/?code=0cf496f807dad9aa574e9e1f483eef05989d2fbe69d7448abe2bcdeca5a070fe 200 [2.38, 127.0.0.1:50110][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50110][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50120][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:50110][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50129]
+WebSocket CONNECT /ws/pong [127.0.0.1:50129]
+[mHTTP GET /?code=ef8055da039886a389d0f76dba403dcca1727b72a1124e5da0c49854e85020ef 200 [0.00, 127.0.0.1:50110][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:50110][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50110][0m
+[mHTTP GET /oauth/login/callback/?code=ef8055da039886a389d0f76dba403dcca1727b72a1124e5da0c49854e85020ef 200 [1.97, 127.0.0.1:50120][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50134]
+WebSocket CONNECT /ws/pong [127.0.0.1:50134]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50134]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50138]
+WebSocket CONNECT /ws/pong [127.0.0.1:50138]
+Exception inside application: 'PongServer' object has no attribute 'running'
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 47, in disconnect
+    await self.clear_instance()
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 56, in clear_instance
+    if self.match: await self.clear_match()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 74, in clear_match
+    if game.running: await game.player_disconnect(self.channel_name)
+       ^^^^^^^^^^^^
+AttributeError: 'PongServer' object has no attribute 'running'
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50140]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50129]
+WebSocket CONNECT /ws/pong [127.0.0.1:50140]
+Exception inside application: 'PongServer' object has no attribute 'running'
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 47, in disconnect
+    await self.clear_instance()
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 56, in clear_instance
+    if self.match: await self.clear_match()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 74, in clear_match
+    if game.running: await game.player_disconnect(self.channel_name)
+       ^^^^^^^^^^^^
+AttributeError: 'PongServer' object has no attribute 'running'
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50140]
+Exception inside application: 'PongServer' object has no attribute 'running'
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 47, in disconnect
+    await self.clear_instance()
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 56, in clear_instance
+    if self.match: await self.clear_match()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 74, in clear_match
+    if game.running: await game.player_disconnect(self.channel_name)
+       ^^^^^^^^^^^^
+AttributeError: 'PongServer' object has no attribute 'running'
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50138]
+Exception inside application: 'PongServer' object has no attribute 'running'
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 47, in disconnect
+    await self.clear_instance()
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 56, in clear_instance
+    if self.match: await self.clear_match()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 74, in clear_match
+    if game.running: await game.player_disconnect(self.channel_name)
+       ^^^^^^^^^^^^
+AttributeError: 'PongServer' object has no attribute 'running'
+[mHTTP GET / 200 [0.00, 127.0.0.1:50142][0m
+[mHTTP GET /static/style/Home.css 200 [0.01, 127.0.0.1:50142][0m
+[mHTTP GET /static/js/index.js 200 [0.01, 127.0.0.1:50144][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:50144][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:50144][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:50142][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:50153][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:50154][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:50144][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:50142][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:50154][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:50153][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:50156][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:50144][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:50142][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:50144][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:50154][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:50156][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:50153][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/js/components/PongClient.js 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/js/components/Pong.js 200 [0.00, 127.0.0.1:50153][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:50156][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:50156][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.00, 127.0.0.1:50153][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:50154][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.00, 127.0.0.1:50144][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:50142][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:50156][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:50153][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:50154][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:50154][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50151][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50154][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:50154][0m
+[mHTTP GET /?code=ea24cc571d03a024869e0e42526984ce4b1a1394ba21ae334deb68d955b24a69 200 [0.00, 127.0.0.1:50151][0m
+[36mHTTP GET /static/js/pages/game/online/GameMatch.js 304 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /?code=364983a319bc0feba6b5f79c99492a90511c1cb47563640e4d2547429caecba7 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50151][0m
+[mHTTP GET /oauth/login/callback/?code=ea24cc571d03a024869e0e42526984ce4b1a1394ba21ae334deb68d955b24a69 200 [2.24, 127.0.0.1:50154][0m
+[mHTTP GET /oauth/login/callback/?code=364983a319bc0feba6b5f79c99492a90511c1cb47563640e4d2547429caecba7 200 [2.30, 127.0.0.1:50153][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50169]
+WebSocket CONNECT /ws/pong [127.0.0.1:50169]
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50153][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50171]
+WebSocket CONNECT /ws/pong [127.0.0.1:50171]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50171]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50169]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50175]
+WebSocket CONNECT /ws/pong [127.0.0.1:50175]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50175]
+[mHTTP GET / 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/style/Home.css 200 [0.01, 127.0.0.1:50178][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:50180][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:50180][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:50180][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:50187][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:50189][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:50190][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:50180][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.01, 127.0.0.1:50178][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.01, 127.0.0.1:50187][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:50190][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.01, 127.0.0.1:50192][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.01, 127.0.0.1:50189][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.01, 127.0.0.1:50180][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:50187][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:50190][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:50192][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:50189][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:50180][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:50187][0m
+[mHTTP GET /static/js/components/PongClient.js 200 [0.00, 127.0.0.1:50190][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/js/components/Pong.js 200 [0.00, 127.0.0.1:50187][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:50187][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.00, 127.0.0.1:50190][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.00, 127.0.0.1:50192][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:50189][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:50180][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:50190][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:50187][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:50192][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:50192][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50178][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:50192][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50178][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50192][0m
+[mHTTP GET /?code=46f1d12e8ab8137fb8a07e9a649be96263f23359f8113b793b37fcbd8669db46 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50178][0m
+[mHTTP GET /?code=1157220be877bba819716e3bb99d2056893a6b914839460e9da6d42e284531de 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50178][0m
+[mHTTP GET /oauth/login/callback/?code=46f1d12e8ab8137fb8a07e9a649be96263f23359f8113b793b37fcbd8669db46 200 [1.82, 127.0.0.1:50192][0m
+[mHTTP GET /oauth/login/callback/?code=1157220be877bba819716e3bb99d2056893a6b914839460e9da6d42e284531de 200 [2.06, 127.0.0.1:50187][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50203]
+WebSocket CONNECT /ws/pong [127.0.0.1:50203]
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.00, 127.0.0.1:50187][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50205]
+WebSocket CONNECT /ws/pong [127.0.0.1:50205]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50205]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50209]
+WebSocket CONNECT /ws/pong [127.0.0.1:50209]
+Exception inside application: 'PongServer' object has no attribute 'running'
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 47, in disconnect
+    await self.clear_instance()
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 56, in clear_instance
+    if self.match: await self.clear_match()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 74, in clear_match
+    if game.running: await game.player_disconnect(self.channel_name)
+       ^^^^^^^^^^^^
+AttributeError: 'PongServer' object has no attribute 'running'
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50203]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50209]
+Exception inside application: 'PongServer' object has no attribute 'running'
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 47, in disconnect
+    await self.clear_instance()
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 56, in clear_instance
+    if self.match: await self.clear_match()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 74, in clear_match
+    if game.running: await game.player_disconnect(self.channel_name)
+       ^^^^^^^^^^^^
+AttributeError: 'PongServer' object has no attribute 'running'
+[mHTTP GET / 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /static/style/Home.css 200 [0.01, 127.0.0.1:50217][0m
+[mHTTP GET /static/js/index.js 200 [0.00, 127.0.0.1:50219][0m
+[mHTTP GET /static/js/core/App.js 200 [0.00, 127.0.0.1:50219][0m
+[mHTTP GET /static/js/core/Router.js 200 [0.00, 127.0.0.1:50219][0m
+[mHTTP GET /static/js/core/Component.js 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /static/js/pages/Background.js 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/js/pages/index.js 200 [0.00, 127.0.0.1:50226][0m
+[mHTTP GET /static/js/Utils.js 200 [0.00, 127.0.0.1:50229][0m
+[mHTTP GET /static/js/api/Account.js 200 [0.00, 127.0.0.1:50219][0m
+[mHTTP GET /static/js/core/Event.js 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/js/pages/enter/EnterStart.js 200 [0.00, 127.0.0.1:50229][0m
+[mHTTP GET /static/js/pages/enter/EnterConnectionType.js 200 [0.00, 127.0.0.1:50226][0m
+[mHTTP GET /static/js/pages/setting/SetNameTournament.js 200 [0.00, 127.0.0.1:50231][0m
+[mHTTP GET /static/js/pages/setting/SetNameAI.js 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/js/pages/enter/EnterGameType.js 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /static/js/pages/setting/SetPlayerNum.js 200 [0.00, 127.0.0.1:50219][0m
+[mHTTP GET /static/js/pages/game/local/GameAI.js 200 [0.00, 127.0.0.1:50229][0m
+[mHTTP GET /static/js/pages/game/local/GameTournament.js 200 [0.00, 127.0.0.1:50226][0m
+[mHTTP GET /static/js/pages/game/online/GameMatchmaking.js 200 [0.00, 127.0.0.1:50231][0m
+[mHTTP GET /static/js/pages/game/online/GameMatch.js 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/js/api/http.js 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /static/js/pages/game/GameUtils.js 200 [0.00, 127.0.0.1:50226][0m
+[mHTTP GET /static/js/components/PongClient.js 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/js/pages/game/online/SharedSocket.js 200 [0.00, 127.0.0.1:50231][0m
+[mHTTP GET /static/js/components/Pong.js 200 [0.00, 127.0.0.1:50226][0m
+[mHTTP GET /static/style/enter/EnterStart.css 200 [0.00, 127.0.0.1:50226][0m
+[mHTTP GET /static/style/setting/SetNameAI.css 200 [0.00, 127.0.0.1:50229][0m
+[mHTTP GET /static/style/enter/EnterConnectionType.css 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/style/setting/SetPlayerNum.css 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /static/style/enter/EnterGameType.css 200 [0.00, 127.0.0.1:50231][0m
+[mHTTP GET /static/style/setting/SetNameTournament.css 200 [0.00, 127.0.0.1:50219][0m
+[mHTTP GET /static/style/Game.css 200 [0.00, 127.0.0.1:50226][0m
+[mHTTP GET /static/style/game/local/GameAI.css 200 [0.00, 127.0.0.1:50229][0m
+[mHTTP GET /static/style/game/local/GameTournament.css 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/style/game/online/GameMatchmaking.css 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /static/asset/3d/cloud.jpg 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.01, 127.0.0.1:50217][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50228][0m
+[mHTTP GET /static/asset/home-icon.png 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /?code=2ac32be458999ad62ffcc1a56eb40c73ec22b6bfa14ad2a044fce04321fd3c88 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50217][0m
+[mHTTP GET /oauth/login/callback/?code=2ac32be458999ad62ffcc1a56eb40c73ec22b6bfa14ad2a044fce04321fd3c88 200 [1.87, 127.0.0.1:50228][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50217][0m
+[mHTTP GET /static/asset/Typo_CrayonM.ttf 200 [0.01, 127.0.0.1:50228][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50239]
+WebSocket CONNECT /ws/pong [127.0.0.1:50239]
+[mHTTP GET /?code=31d6944acd467ca877820b32f705ee67073544c51e0cafd8767117e414c6b5ff 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /static/asset/3d/classroom/classRoom_light.glb 200 [0.00, 127.0.0.1:50228][0m
+[mHTTP GET /oauth/login/callback/?code=31d6944acd467ca877820b32f705ee67073544c51e0cafd8767117e414c6b5ff 200 [1.94, 127.0.0.1:50217][0m
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50243]
+WebSocket CONNECT /ws/pong [127.0.0.1:50243]
+WebSocket DISCONNECT /ws/pong [127.0.0.1:50239]
+WebSocket HANDSHAKING /ws/pong [127.0.0.1:50247]
+WebSocket CONNECT /ws/pong [127.0.0.1:50247]
+Exception inside application: 'PongServer' object has no attribute 'running'
+Traceback (most recent call last):
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/Users/eunwoolee/vscode_workspace/pingpong/venv/lib/python3.12/site-packages/channels/generic/websocket.py", line 238, in websocket_disconnect
+    await self.disconnect(message["code"])
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 47, in disconnect
+    await self.clear_instance()
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 56, in clear_instance
+    if self.match: await self.clear_match()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/eunwoolee/vscode_workspace/pingpong/source/pong/consumer.py", line 74, in clear_match
+    if game.running: await game.player_disconnect(self.channel_name)
+       ^^^^^^^^^^^^
+AttributeError: 'PongServer' object has no attribute 'running'

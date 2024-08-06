@@ -187,6 +187,20 @@ export default class GameMatch extends Component {
 		this.clickedRestartButtonWrapped = Event.addEvent(this.$target, 'click', '.restart-btn', this.clickedRestartButton.bind(this));
 	}
 
+	unmounted() {
+		if (game) {
+			game.cleanUp();
+			game = null;
+		}
+		// if (this.socket) {
+			this.socket.close();
+			this.socket = null;
+			setSocket(null);
+		// }
+
+		this.clearEvent();
+	}
+
 	clearEvent() {
 		Event.removeHashChangeEvent(this.unmountedBinded);
 		Event.removeEvent(this.$target, 'click', this.clickedRestartButtonWrapped);
