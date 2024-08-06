@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import * as GameUtils from "../pages/game/GameUtils.js"
 import * as Utils from '../Utils.js'
 
-export default class PongGame extends Component {
+export default class Pong extends Component {
 	constructor($target, $props) {
 		super($target, $props);
 

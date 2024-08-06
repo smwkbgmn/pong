@@ -4,6 +4,12 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader }	 from 'three/addons/loaders/GLTFLoader.js';
 export default class Background extends Component {
+	setUp() {
+		// this.sectionCurnt = window.location.hash;
+		// this.sectionPrev = null;
+		this.inGame = false;
+	}
+
 	render() {
 		/***** SCENE *****/
 		const scene = new THREE.Scene();
@@ -78,22 +84,25 @@ export default class Background extends Component {
 			const targetPosition = getTargetPosition();
 			const isEnteringGame = isSectionGame(window.location.hash);
 
-			animateCamera(targetPosition, 2300,
-				() => {
-					if (!isRunning && !isEnteringGame) {
-						console.log("turning ON rendering");
-						setRenderingState(true);
-						controls.enabled = true;
+			if (!isEnteringGame != this.inGame) {
+				this.inGame = !this.inGame;
+				animateCamera(targetPosition, 2300,
+					() => {
+						if (!isRunning && !isEnteringGame) {
+							console.log("turning ON rendering");
+							setRenderingState(true);
+							controls.enabled = true;
+						}
+					},
+					() => {
+						if (isEnteringGame) {
+							console.log("turning OFF rendering");
+							setRenderingState(false);
+							controls.enabled = false;
+						}
 					}
-				},
-				() => {
-					if (isEnteringGame) {
-						console.log("turning OFF rendering");
-						setRenderingState(false);
-						controls.enabled = false;
-					}
-				}
-			);
+				);
+			}
 		}
 
 		function animateCamera(targetPosition, duration = 2300, renderOn, renderOff) {

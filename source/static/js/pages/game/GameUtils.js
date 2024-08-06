@@ -1,4 +1,4 @@
-import PongGame from '../../components/PongGame.js'
+import Pong from '../../components/Pong.js'
 
 export async function showCountdown(pageHash, componentName) {
 	for (let i = 3; i > 0; i--) {
@@ -21,14 +21,14 @@ export async function playGame($state, $target) {
 		'[data-component="game-div"]'
 	);
 
-	const pongGame = new PongGame($game, $state);
-	return await waitForGameEnd(pongGame);
+	const pong = new Pong($game, $state);
+	return await waitForGameEnd(pong);
 }
 
-export function waitForGameEnd(pongGame) {
+export function waitForGameEnd(pong) {
 	return new Promise(resolve => {
 		const intervalID = setInterval(() => {
-			const value = pongGame.isGameEnd();
+			const value = pong.isGameEnd();
 			if (value != '') {
 				clearInterval(intervalID);
 				resolve(value);

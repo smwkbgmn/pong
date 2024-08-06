@@ -3,7 +3,8 @@ import random
 
 from channels.generic.websocket import AsyncWebsocketConsumer
 from datetime import datetime
-from .physics import PongPhysic
+# from .physics import PongPhysic
+from .PongServer import PongServer
 
 class Consumer(AsyncWebsocketConsumer):
 	queue = {}
@@ -15,6 +16,7 @@ class Consumer(AsyncWebsocketConsumer):
 
 		self.connection	= False
 
+		self.player		= None
 		self.tourn_size	= None
 		self.tourn_id	= None
 		self.match		= None
@@ -26,75 +28,82 @@ class Consumer(AsyncWebsocketConsumer):
 
 		return f"{timestamp}_{random_suffix}"
 
+	def log(self, prefix, context):
+		time = datetime.now().strftime("%H:%M:%S")
+
+		if prefix == 'channel':
+			print(f"{time} [{self.channel_name[-12:]}] {context}")
+		else: print(f"{time} [{prefix}] {context}")
+
 	### CONNECTION ###
 	async def connect(self):
 		await self.accept()
-
 		self.connection = True
 
 	async def disconnect(self, close_code):
-		print(f"{self.channel_name[-12:]} | disconnected with code {close_code}")
+		self.log('channel', f"disconnected with code {close_code}")
+
 		self.connection = False
+		await self.clear_instance()
 
-		# if the normal disconnection
-		if close_code == 1000: return;
-
-		# player has assigned at tournament
+	async def clear_instance(self):
+		# Player has assigned at tournament
 		if self.tourn_id:
-			print(f"{self.channel_name[-12:]} | clearing tournament info")
-			self.tourn[self.tourn_id]['players'].remove(self.channel_name)
+			await self.channel_layer.group_discard(self.tourn_id, self.channel_name)
+			self.tourn[self.tourn_id]['players'].remove(self.player)
 
+			# Match has assigned clear the match first
+			if self.match: await self.clear_match()
+				
+			# No on has left in tournament, eliminate the tournament
 			if len(self.tourn[self.tourn_id]['players']) == 0:
 				self.tourn[self.tourn_id] = None
-
-			await self.channel_layer.group_discard(self.tourn_id, self.channel_name)
-
-			# player has received the match_start event so the game would be created at this time
-			if self.match:
-				print(f"{self.channel_name[-12:]} | clearing game info")
-				game = self.games[self.match['game_id']]
-
-				# when disconnection if opponent players has assigned as "disconnect", it means both player are not shown
-				if game.player['left' or 'right'] == "disconnect": del self.games[self.match['game_id']]
-				else: game.player_disconnect(self.channel_name)
-				
-				# at here, the matches_create has done but didn't send match_start yet
-				# so the matches info should be modified as correctly and should be going with AI
-				# Or? just send this game as walkover game with timeout handling on joining game
-				# maybe in 10sec, if both player has not appear, go through walkover or handle the players
-				# if self.tourn[self.tourn_id]['matches']:
-
-		# elif self.channel_name in self.queue[self.tourn_size]:
 		else:
-			print(f"{self.channel_name[-12:]} | clearing cueue info")
-			self.queue[self.tourn_size].remove(self.channel_name)
+			self.log('channel', "clearing cueue")
+			self.queue[self.tourn_size].remove(self.player)
+	
+	async def clear_match(self):
+		# Set match player info as None
+		self.match['player1' if self.match['player1'] and self.match['player1']['channel'] == self.channel_name else 'player2'] = None
 
+		# Clearing game
+		self.channel_layer.group_discard(self.match['game_id'], self.channel_name)
+		
+		if self.match['game_id'] in self.games:
+			game = self.games[self.match['game_id']]
+			if game.running: await game.player_disconnect(self.channel_name)
+			del self.games[self.match['game_id']]
+		
+		# Both player has assigned as None, eliminate the match
+		if not self.match['player1'] and not self.match['player2']:
+			self.tourn[self.tourn_id]['matches'].remove(self.match)
+		
+	### RECEIVE FROM CLIENT ###
 	async def receive(self, text_data):
 		data = json.loads(text_data)
 
 		match data['type']:
 			case 'requestMatch'	: await self.handle_request_match(data)
-			case 'joinRoom'		: await self.handle_join_room(data['gameId'])
+			case 'joinRoom'		: await self.handle_join_room(data['gameId'], data['side'])
 			case 'playerMove'	: await self.handle_player_move(data['movedY'])
 	
-	### RECEIVE FROM CLIENT ###
 	async def handle_request_match(self, data):
-		print(f"consumer | receive match request from {self.channel_name[-12:]}")
+		self.log('consumer', f"receive match request from {self.channel_name[-12:]}")
 
 		tourn_size = data['tournamentSize']
 
-		# for disconnection if in queue
+		self.player = {
+			'channel'	: self.channel_name,
+			'name'		: data['playerName'],
+			'image'		: data['playerImage']
+		}
+		# For disconnection if in queue
 		self.tourn_size = tourn_size
 
 		if tourn_size not in self.queue:
 			self.queue[tourn_size] = []
 		
-		# self.queue[tourn_size].append(self.channel_name)
-		self.queue[tourn_size].append({
-			'channel'	: self.channel_name,
-			'name'		: data['playerName'],
-			'image'		: data['playerImage']
-		})
+		self.queue[tourn_size].append(self.player)
 		
 		if len(self.queue[tourn_size]) == tourn_size:
 			await self.tournament_start(tourn_size)
@@ -106,14 +115,13 @@ class Consumer(AsyncWebsocketConsumer):
 			}))
 
 	async def tournament_start(self, tourn_size):
-		print(f"consumer | starting tournament for size {tourn_size}")
+		self.log('consumer', f"starting tournament for size {tourn_size}")
 
 		players = self.queue[tourn_size]
 		self.queue[tourn_size] = []
 
 		tourn_id = f"tourn_{self.generate_id()}"
 		self.tourn[tourn_id] = {
-			# 'size'			: tourn_size,
 			'players'		: players,
 			'matches'		: [],
 		}
@@ -134,7 +142,8 @@ class Consumer(AsyncWebsocketConsumer):
 		
 		for match in matches:
 			await self.channel_layer.group_add(match['game_id'], match['player1']['channel'])
-			await self.channel_layer.group_add(match['game_id'], match['player2']['channel'])
+			if match['player2']: await self.channel_layer.group_add(match['game_id'], match['player2']['channel'])
+			# await self.group_add(match['game_id'], match['player2']['channel'] if match['player2'] else None)
 			await self.channel_layer.group_send(match['game_id'], {
 				'type'		: 'match_start',
 				'game_id'	: match['game_id'],
@@ -143,7 +152,7 @@ class Consumer(AsyncWebsocketConsumer):
 			})
 	
 	def matches_create(self, players):
-		print("consumer | creating matches")
+		self.log('consumer', "creating matches")
 
 		matches = []
 		for i in range(0, len(players), 2):
@@ -155,36 +164,38 @@ class Consumer(AsyncWebsocketConsumer):
 			})
 		return matches
 	
-	async def handle_join_room(self, game_id):
-		await self.games[game_id].add_player(self.channel_name)
+	async def handle_join_room(self, game_id, side):
+		await self.games[game_id].add_player(self.match['player1' if side == "left" else 'player2'], side)
 
 	async def handle_player_move(self, moved_y):
 		await self.games[self.match['game_id']].move_paddle(self.channel_name, moved_y)
 
-	### SERVER-SIDE EVENT (== GROUP_SEND) ###
+	### RECEIVE FROM SERVER (== GROUP_SEND) ###
 	async def assign_group(self, event):
 		self.tourn_id = event['tourn_id']
 
 	async def match_start(self, event):
-		print(f"{self.channel_name[-12:]} | receive game_start from consumer")
+		self.log('channel', "receive game_start from consumer")
 
 		game_id = event['game_id']
-
 		self.match = next(match for match in self.tourn[self.tourn_id]['matches'] if match['game_id'] == game_id)
-		self.games[game_id] = PongPhysic(self.channel_layer, self.tourn[self.tourn_id], self.match)
 
-		opponent = event['player2' if self.channel_name == event['player1']['channel'] else 'player1']
+		if event['player2']:
+			self.games[game_id] = PongServer(self.channel_layer, self.tourn[self.tourn_id], self.match, self.log)
 
-		await self.send(json.dumps({
-			'type'		: 'match_found',
-			'game_id'	: game_id,
-			'side'		: "left" if self.channel_name == event['player1']['channel'] else "right",
-			'opnt_name'	: opponent['name'],
-			'opnt_image': opponent['image']
-		}))
-
-	# async def player_info(self, event):
-	# 	await self.send(json.dumps(event))
+			side = 'left' if self.channel_name == event['player1']['channel'] else 'right'
+			opnt = event['player2' if side == 'left' else 'player1']
+			await self.send(json.dumps({
+				'type'		: 'match_found',
+				'game_id'	: game_id,
+				'side'		: side,
+				'opnt_name'	: opnt['name'],
+				'opnt_image': opnt['image'],
+				'players'	: self.tourn[self.tourn_id]['players']
+			}))
+		else:
+			self.match['winner'] = 'player1'
+			await self.game_finish({'walkover': True})
 
 	async def score_change(self, event):
 		await self.send(json.dumps(event))
@@ -193,45 +204,53 @@ class Consumer(AsyncWebsocketConsumer):
 		if self.connection: await self.send(json.dumps(event))
 
 	async def game_finish(self, event):
-		print(f"{self.channel_name[-12:]} | receive game_finish from game")
-		
-		await self.send(json.dumps({'type': 'game_finish'}))
-		await self.channel_layer.group_discard(self.match['game_id'], self.channel_name)
+		self.log('channel', "receive game_finish from game")
 
-		if self.match['winner'] == self.channel_name:
+		await self.send(json.dumps({
+			'type'		: 'game_finish',
+			'walkover'	: event['walkover']
+		}))
+
+		if self.match[self.match['winner']]['channel'] == self.channel_name:
 			await self.round_in()
-		else:
-			await self.round_out()
+		else: await self.round_out()
 
 	async def round_in(self):
 		if all(match['winner'] is not None for match in self.tourn[self.tourn_id]['matches']):
-			winners = self.tourn[self.tourn_id]['players']
+			# The way of tarvaling matches and get all the winners is more not error prone
+			winners = []
+			for match in self.tourn[self.tourn_id]['matches']:
+				if match[match['winner']]: winners.append(match[match['winner']])
+
+			# It seems more simpler but there a issue for usage of the list at
+			# creating next round with disconnecting and the concurrency of removal
+			# winners = self.tourn[self.tourn_id]['players']
 
 			if len(winners) == 1:
-				self.tourn[self.tourn_id]['players'].remove(self.channel_name)
 				await self.send(json.dumps({'type': 'tournament_win'}))
 				await self.close_connection()
-			else:
-				await self.matches_start(winners, self.tourn_id)
-		else:
-			await self.send(json.dumps({'type': 'round_wait'}))
+			else: await self.matches_start(winners, self.tourn_id)
+		else: await self.send(json.dumps({'type': 'round_wait'}))
 			
 	async def round_out(self):
 		await self.send(json.dumps({'type': 'round_end'}))
 		await self.close_connection()
 		
 	async def close_connection(self):
+		# Because of the delay of calling socket disconnect method, the 
+		# connection value should be assigned at here for more smooth control
 		self.connection = False
-		
-		await self.clear_instance()
 		await self.close()
 
-	async def clear_instance(self):
-		if self.match['game_id'] in self.games:
-			del self.games[self.match['game_id']]
+	### GROUP METHOD ###
+	# async def group_add(self, group, channel):
+	# 	print("group_add")
+	# 	if channel: self.channel_layer.group_add(group, channel)
+	
+	# async def group_discard(self, group, channel):
+	# 	print("group_discard")
+	# 	if channel: self.channel_layer.group_discard(group, channel)
 
-		await self.channel_layer.group_discard(self.tourn_id, self.channel_name)
-		if self.tourn[self.tourn_id] and len(self.tourn[self.tourn_id]['players']) == 0:
-			self.tourn[self.tourn_id] = None
-
-		# self.tourn_id = None
+	# async def group_send(self, group, event):
+	# 	print("group_send")
+	# 	self.channel_layer.group_send(group, event)

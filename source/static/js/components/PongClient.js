@@ -2,7 +2,7 @@
 
 import * as THREE from 'three';
 
-export default class PongRender {	
+export default class PongClient {	
 	constructor(gameId, side, socket) {
 		this.join(gameId, side, socket);
 		this.setUp();
@@ -25,8 +25,8 @@ export default class PongRender {
 
 		this.socket.send(JSON.stringify({
 			type: 'joinRoom',
-			gameId: gameId
-			// side: side
+			gameId: gameId,
+			side: side
 		}));
         
         this.gameId = gameId; 
@@ -85,11 +85,11 @@ export default class PongRender {
 	setupObject() {
 		this.ball = this.createBall();
 
-		this.paddleLeft = this.createPaddle(-4.5, 0);
-		this.paddleRight = this.createPaddle(4.5, 0);
+		this.paddleLeft = this.createPaddle(-5.5, 0);
+		this.paddleRight = this.createPaddle(5.5, 0);
 
-		this.wallTop = this.createWall(0, -5, 8, 0.1);
-		this.wallBottom = this.createWall(0, 5, 8, 0.1);
+		this.wallTop = this.createWall(0, -5, 10, 0.1);
+		this.wallBottom = this.createWall(0, 5, 10, 0.1);
 	}
 
 	setupListener() {

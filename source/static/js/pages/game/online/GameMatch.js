@@ -1,5 +1,5 @@
 import Component from '../../../core/Component.js'
-import PongRender from '../../../components/PongRender.js'
+import PongClient from '../../../components/PongClient.js'
 import * as Event from '../../../core/Event.js'
 import * as Utils from '../../../Utils.js'
 import * as GameUtils from "../GameUtils.js"
@@ -29,6 +29,17 @@ export default class GameMatch extends Component {
 			
 			switch(data.type) {
 				case 'match_found':
+					//data.players
+					/*
+					players {
+						player1: {
+							channel: ----
+							name: eunwole
+							image: image_uri
+						},
+						player2: ...
+					}
+					*/
 					this.gameData = data;
 					this.setState({ playerNameRight: data.opnt_name, playerImageRight: data.opnt_image });
 					this.startGame();
@@ -57,8 +68,13 @@ export default class GameMatch extends Component {
 					break;
 
 				case 'game_finish':
-					game.cleanUp();
-					game = null;
+					if (game) {
+						game.cleanUp();
+						game = null;
+					}
+					if (data.walkover == 'True') {
+						// 상대방 탈주 핸들링 
+					}
 					break;
 
 				case 'round_wait':
@@ -184,7 +200,7 @@ export default class GameMatch extends Component {
 		if (await GameUtils.showCountdown.call(this, '#game_match/', '.match-div') == false)
 			return ;
 
-		game = new PongRender(this.gameData.game_id, this.gameData.side, this.socket);
+		game = new PongClient(this.gameData.game_id, this.gameData.side, this.socket);
 	}
 
 	roundNext(data) {

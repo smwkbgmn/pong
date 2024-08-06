@@ -1,10 +1,10 @@
 import Component from '../../../core/Component.js'
-import PongRender from "../../../components/PongRender.js";
+import PongClient from "../../../components/PongClient.js";
 import * as Event from '../../../core/Event.js'
 import * as Utils from '../../../Utils.js'
 import * as GameUtils from "../GameUtils.js"
 
-import { setSocket } from './SharedSocket.js';
+import { setSocket, getSocket } from './SharedSocket.js';
 
 // let socket = null;
 export default class GameMatchmaking extends Component {
@@ -47,7 +47,7 @@ export default class GameMatchmaking extends Component {
 			
 				<p class="message-p">${this.textList[idx]}</p>
 				
-				<a class="exit-a" href="#set_player_num/">돌아가기</a>
+				<button class="exit-btn">돌아가기</button>
 
 				<div class="matchmaking-container"></div>
 				<div class="game-container"></div>
@@ -57,10 +57,20 @@ export default class GameMatchmaking extends Component {
 
 	setEvent() {
 		this.clearTimeoutWrapped = Event.addHashChangeEvent(clearTimeout.bind(this, this.timer));
+		this.clickedExitButtonWrapped = Event.addEvent(this.$target, 'click', '.exit-btn', this.clickedExitButton.bind(this));
 	}
 
 	clearEvent() {
 		Event.removeHashChangeEvent(this.clearTimeoutWrapped);
+		Event.removeEvent(this.$target, 'click', this.clickedExitButtonWrapped);
+	}
+
+	clickedExitButton() {
+		// socket = getSocket();
+		// if (socket.readyState === WebSocket.OPEN)
+		// socket.close();
+		getSocket().close();
+		Utils.changeFragment('#set_player_num/');
 	}
 
 	changeMessage(prev) {
