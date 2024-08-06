@@ -181,7 +181,7 @@ export default class GameMatch extends Component {
 	}
 
 	async startGame() {
-		if (GameUtils.showCountdown.call(this, '#game_match/', '.match-div') == false)
+		if (await GameUtils.showCountdown.call(this, '#game_match/', '.match-div') == false)
 			return ;
 
 		game = new PongRender(this.gameData.game_id, this.gameData.side, this.socket);
