@@ -1,0 +1,12 @@
+.walkover-p {
+	position: absolute;
+	top: 68%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+
+	font-size: 150%;
+	white-space: nowrap;
+}

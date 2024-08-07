@@ -18,14 +18,16 @@ export default class GameAI extends Component {
 
 			aiMode: true,
 			lastGame: true,
+
+			playerNameLeft: Utils.getParsedItem('playerName'),
+			playerNameRight: 'AI',
 		}
 
-		this.playerName = Utils.getParsedItem('playerName');
-		this.settingDone = this.playerName != null;
+		this.settingDone = this.$state.playerNameLeft != null;
 	}
 
 	template() {
-		const { settingDone, countdown } = this.$state;
+		const { settingDone, countdown, playerNameLeft, playerNameRight } = this.$state;
 		
 		if (settingDone == false)
 			return ``;
@@ -39,11 +41,15 @@ export default class GameAI extends Component {
 			
 			<p class="countdown_ai-p">${countdown}</p>
 			
-			<div class="player-div">
+			<div class="player_left-div">
 				${inputHTML}
-				<p class="playerName-p">${this.playerName}</p>
+				<p class="player_name-p">${playerNameLeft}</p>
 			</div>
 			
+			<div class="player_right-div">
+				<p class="player_name-p">${playerNameRight}</p>
+			</div>
+
 			<div data-component="game-div"></div>
 		`;
 	}
@@ -75,7 +81,7 @@ export default class GameAI extends Component {
 		const isLoggedIn = Utils.getParsedItem('isLoggedIn');
 
 		if (isLoggedIn == true) {
-			const playerDiv = this.$target.querySelector('.player-div');
+			const playerDiv = this.$target.querySelector('.player_left-div');
 			playerDiv.style.top = '52%';
 		}
 	}

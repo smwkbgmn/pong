@@ -16,11 +16,7 @@ export default class Pong extends Component {
 		const { scoreLeft, scoreRight } = this.$state;
 		const { playerNameLeft, playerNameRight } = this.$props;
 
-		let result;
-		if (this.$props.aiMode == true)
-			result = scoreLeft > scoreRight ? '승리' : '패배';
-		else
-			result = scoreLeft > scoreRight ? playerNameLeft + ' 승리' : playerNameRight + ' 승리';
+		const result = scoreLeft > scoreRight ? playerNameLeft + ' 승리' : playerNameRight + ' 승리';
 
 		let button;
 		if (this.$props.lastGame == true)
@@ -92,12 +88,8 @@ export default class Pong extends Component {
 	
 	clickedRestartButton() {
 		this.cleanup();
-
-		if (this.aiMode == true)
-			this.endReturnValue = 'end';
-		else
-			this.endReturnValue = this.$state.scoreLeft > this.$state.scoreRight
-								? this.$props.playerNameLeft : this.$props.playerNameRight;
+		this.endReturnValue = this.$state.scoreLeft > this.$state.scoreRight
+							? this.$props.playerNameLeft : this.$props.playerNameRight;
 	}
 
 	isGameEnd() {

@@ -19,6 +19,7 @@ export default class App extends Component {
 			<link rel="stylesheet" href="/static/style/game/local/GameAI.css">
 			<link rel="stylesheet" href="/static/style/game/local/GameTournament.css">
 			<link rel="stylesheet" href="/static/style/game/online/GameMatchmaking.css">
+			<link rel="stylesheet" href="/static/style/game/online/GameMatch.css">
 		</head>
 		<main>
 			// <canvas data-component="Background-canvas"></canvas>

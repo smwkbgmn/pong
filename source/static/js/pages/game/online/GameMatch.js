@@ -10,110 +10,100 @@ let game = null;
 export default class GameMatch extends Component {
 	constructor($target) {
 		super($target);
-		
-		this.socket = getSocket();
-		console.log(this.socket);
-		
-		if (!this.socket) {
-            console.error('WebSocket not initialized');
-            return;
-        }
 
-		this.setState({ playerNameRight: this.gameData.opnt_name, playerImageRight: this.gameData.opnt_image });
-
-		// 게임중의 이벤트 핸들링
-		this.socket.onmessage = (event) => {
-			const data = JSON.parse(event.data);
-			// console.log("in match");
-			// console.log(data);
-			
-			switch(data.type) {
-				case 'match_found':
-					//data.players
-					/*
-					players {
-						player1: {
-							channel: ----
-							name: eunwole
-							image: image_uri
-						},
-						player2: ...
-					}
-					*/
-					this.gameData = data;
-					this.setState({ playerNameRight: data.opnt_name, playerImageRight: data.opnt_image });
-					this.startGame();
-					break;
-				
-				// case 'player_info':
-				// 	if (game) {
-				// 		this.opntInfo = game.getReverse() ? data.left : data.right;
-				// 		this.setState({ playerNameRight: this.opntInfo.name, playerImageRight: this.opntInfo.image });
-				// 		GameUtils.setComponentStyle('opacity', '.match-div', '0');
-				// 	}
-				// 	break;
-
-				case 'game_update':
-					if (game) game.updateGameObjects(data);
-					break;
-				
-				case 'score_change':
-					if (game) {
-						if (game.getReverse())
-							this.setState({ scoreLeft: data.score.right, scoreRight: data.score.left })
-						else
-							this.setState({ scoreLeft: data.score.left, scoreRight: data.score.right })
-						GameUtils.setComponentStyle('opacity', '.match-div', '0');
-					}
-					break;
-
-				case 'game_finish':
-					if (game) {
-						game.cleanUp();
-						game = null;
-					}
-					if (data.walkover == 'True') {
-						// 상대방 탈주 핸들링 
-					}
-					break;
-
-				case 'round_wait':
-				case 'round_end':
-				case 'tournament_win':
-					this.roundNext(data);
-					break;
-			}
-		
-			// this.startGame(data.gameId, data.side, socket);
-	}
-
-		// 플레이 중에 연결끊김 해들링
-		this.socket.onclose = (event) => {
-			if (game) {
-				console.log('disconnection');
-				game.cleanUp();
-				game = null;
-
-				setSocket(null);
-				this.socket = null;
-
-				// 연결 끊김 (서버에 연결할 수 없습니다)
-				GameUtils.setComponentStyle('opacity', '.result-div', '100');
-				GameUtils.setComponentStyle('opacity', '.match-div', '0');
-
-				Utils.changeFragment('#set_player_num/');
-			}
-		};
-
-		this.socket.onerror = function(error) {
-			// game.cleanUp(); ??
-
-			// 연결 끊김 (서버에 연결할 수 없습니다)
+		if (Utils.getParsedItem('gameStart') == true) {
+			Utils.setStringifiedItem('gameStart', false);
 			Utils.changeFragment('#set_player_num/');
-			console.error('WebSocket Error:', error);
-		};
-
-		this.startGame();
+		}
+		else {
+			Utils.setStringifiedItem('gameStart', true);
+	
+			this.socket = getSocket();
+			console.log(this.socket);
+			
+			if (!this.socket) {
+				console.error('WebSocket not initialized');
+				return;
+			}
+	
+			this.setState({ playerNameRight: this.gameData.opnt_name, playerImageRight: this.gameData.opnt_image });
+	
+			// 게임중의 이벤트 핸들링
+			this.socket.onmessage = (event) => {
+				const data = JSON.parse(event.data);
+				// console.log("in match");
+				// console.log(data);
+				
+				switch(data.type) {
+					case 'match_found':
+						console.log(data.players);
+						
+						this.gameData = data;
+						const tmpPlayerNames = this.gameData.players.map(player => player.name);
+						this.setState({ playerNameRight: data.opnt_name, playerImageRight: data.opnt_image, winnerPlayerNames: tmpPlayerNames });
+						this.startGame();
+						break;
+	
+					case 'game_update':
+						if (game) game.updateGameObjects(data);
+						break;
+					
+					case 'score_change':
+						if (game) {
+							if (game.getReverse())
+								this.setState({ scoreLeft: data.score.right, scoreRight: data.score.left })
+							else
+								this.setState({ scoreLeft: data.score.left, scoreRight: data.score.right })
+							GameUtils.setComponentStyle('opacity', '.match-div', '0');
+						}
+						break;
+	
+					case 'game_finish':
+						if (game) {
+							game.cleanUp();
+							game = null;
+						}
+						this.$state.walkover = data.walkover;
+						break;
+	
+					case 'round_wait':
+					case 'round_end':
+					case 'tournament_win':
+						this.roundNext(data);
+						break;
+				}
+			
+				// this.startGame(data.gameId, data.side, socket);
+		}
+	
+			// 플레이 중에 연결끊김 해들링
+			this.socket.onclose = (event) => {
+				if (game) {
+					console.log('disconnection');
+					game.cleanUp();
+					game = null;
+	
+					setSocket(null);
+					this.socket = null;
+	
+					// 연결 끊김 (서버에 연결할 수 없습니다)
+					GameUtils.setComponentStyle('opacity', '.result-div', '100');
+					GameUtils.setComponentStyle('opacity', '.match-div', '0');
+	
+					Utils.changeFragment('#set_player_num/');
+				}
+			};
+	
+			this.socket.onerror = function(error) {
+				// game.cleanUp(); ??
+	
+				// 연결 끊김 (서버에 연결할 수 없습니다)
+				console.error('WebSocket Error:', error);
+				Utils.changeFragment('#set_player_num/');
+			};
+	
+			this.startGame();
+		}
 	}
 
 	setUp() {
@@ -123,9 +113,13 @@ export default class GameMatch extends Component {
 
 			playerNameRight: '',
 			playerImageRight: '',
-			
+
+			winnerPlayerNames: null,
+
 			scoreLeft: 0,
 			scoreRight: 0,
+
+			walkover: false,
 		};
 
 		this.playerNameLeft = Utils.getParsedItem('playerName');
@@ -134,20 +128,28 @@ export default class GameMatch extends Component {
 		this.reverse = false;
 
 		this.gameData = Utils.getParsedItem('gameData');
+		this.playerNames = this.gameData.players.map(player => player.name);
+		this.$state.winnerPlayerNames = this.playerNames;
+		this.playerNum = Utils.getParsedItem('playerNum');
 	}
 	
 	template() {
 		const { playerImageRight, playerNameRight,
-				countdown, lastGame,
+				countdown, lastGame, walkover,
 				scoreLeft, scoreRight } = this.$state;
 
+		const inputHTML = this.makePlayerList();
 		const result = scoreLeft > scoreRight ? this.playerNameLeft + ' 승리' : playerNameRight + ' 승리';
 
 		let button;
 		if (lastGame == true)
 			button = '다시하기';
 		else
-			button = '다음 게임';
+			button = '다른 게임 기다리는 중...';
+
+		let walkoverMsg = '';
+		if (walkover == true)
+			walkoverMsg = '상대방이 게임에서 퇴장하였습니다.';
 
 		return `
 			<a class="game_home-a" href="#/">
@@ -155,6 +157,10 @@ export default class GameMatch extends Component {
 			</a>
 
 			<p class="score-p">${scoreLeft} : ${scoreRight}</p>
+
+			<div class="player_list-div">
+				${inputHTML}
+			</div>
 
 			<div class="match-div">
 				<p class="match-p">대전 상대</p>
@@ -167,6 +173,7 @@ export default class GameMatch extends Component {
 			<div class="result-div">
 				<p class="result-p">게임 결과</p>
 				<p class="win_or_lose-p">${result}</p>
+				<p class="walkover-p">${walkoverMsg}</p>
 				<button class="restart-btn">${button}</button>
 			</div>			
 
@@ -188,15 +195,17 @@ export default class GameMatch extends Component {
 	}
 
 	unmounted() {
+		Utils.setStringifiedItem('gameStart', false);
+		
 		if (game) {
 			game.cleanUp();
 			game = null;
 		}
-		// if (this.socket) {
+		if (this.socket) {
 			this.socket.close();
 			this.socket = null;
 			setSocket(null);
-		// }
+		}
 
 		this.clearEvent();
 	}
@@ -210,6 +219,25 @@ export default class GameMatch extends Component {
 		Utils.changeFragment("#game_matchmaking/");
 	}
 
+	makePlayerList() {
+		let inputHTML = '';
+
+		for(let i = 0; i < this.playerNum; i++) {
+			let color;
+
+			if (this.$state.winnerPlayerNames.find(player => player == this.playerNames[i]))
+				color = 'white';
+			else
+				color = 'darkgray';
+
+			inputHTML += `
+				<p class="players_name-p name${i + 1}" style="color: ${color};">${this.playerNames[i]}</p>
+			`;
+		}
+
+		return inputHTML;
+	}
+
 	async startGame() {
 		if (await GameUtils.showCountdown.call(this, '#game_match/', '.match-div') == false)
 			return ;
@@ -218,6 +246,10 @@ export default class GameMatch extends Component {
 	}
 
 	roundNext(data) {
+		console.log('round next');
+		console.log(data.walkover);
+		if (data.walkover == true)
+			this.setState({ walkover: true });
 		if (data.type != 'round_wait')
 			this.setState({ lastGame: true });
 		GameUtils.setComponentStyle('display', '.result-div', 'block');
