@@ -11,6 +11,8 @@ const request = async (params) => {
 
 	const response = await window.fetch(url, config).catch(error => console.log(error));
 
+	console.log(response);
+
 	return await response.json();
 }
 

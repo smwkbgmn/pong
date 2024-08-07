@@ -1,7 +1,7 @@
 import GET from './http.js'
 import * as Utils from '../Utils.js'
 
-const clientID = 'u-s4t2ud-ffe307ba0889574ea9737775e70526b8e6ba5c1aac4b9b0e80086de8f383c9ab';
+const clientID = 'u-s4t2ud-9063f4e8ff01e5b0878f85b3cc0434661267ebbee2ae65bcba9fc2a973a6584e';
 const redirectURI = 'http://localhost:8000/';
 
 export function requestOAuth() {
