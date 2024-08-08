@@ -4,29 +4,40 @@ import pymunk
 
 class PongServer:
 	def __init__(self, channel_layer, tourn, match, fn_log):
+		# Tourn info
 		self.tourn = tourn
 		self.match = match
 		self.channel_layer = channel_layer
 
-		self.wait_time = 5
-
-		self.task_wait = None
-		self.task_update = None
-
+		# Game info
 		self.player = {"left": None, "right": None}
 		self.score = {"left": 0, "right": 0}
 		self.goal = 3
 
+		# Game states
+		self.wait_time = 10
+		self.wating = False
+		self.running = False
+
+		self.task_wait = None
+		self.task_update = None
+
+		# Game configs
 		self.ball_speed_default = 3
 		self.ball_speed_increment = 0.5
 		self.ball_random_bounce_scale = 0.3 # (rand -50 ~ +50)% * 0.3 = (-17 ~ +17)% modulation
 		self.ball_out_of_bound = {'x': 6, 'y': 5}
 
+		# Logging method from consumer
 		self.log = fn_log
 
+		# Do
 		self.setup()
-		self.timer_on()
 
+		self.waiting = True
+		self.time_elapse = 0
+		# self.task_wait = self.task_on(self.wait_for_player)
+		
 	def setup(self):
 		self.space 							= pymunk.Space()
 		self.space.gravity 					= (0, 0)
@@ -79,17 +90,25 @@ class PongServer:
 		velocity = (direction[0] * speed, direction[1] * speed)
 		self.ball.body.velocity = velocity
 
-	def timer_on(self):
-		self.task_wait = asyncio.create_task(self.wait_for_player())
-	
-	async def wait_for_player(self):
-		await asyncio.sleep(self.wait_time)
+	def task_on(self, task):
+		self.log(f"{self.match['game_id']}", f"turning on task {task}")
+		return asyncio.create_task(task())
 
-		# if not self.task_update:
-		# 	if not self.player['left'] and not self.player['right']:
-		# 		await self.finish(None)
-		# 	else:
-		# 		await self.finish(self.player['left' if self.is_dead('right') else 'right'])
+	def task_off(self, holder):
+		self.log(f"{self.match['game_id']}", f"turning off task {holder}")
+		holder.cancel()
+		holder = None
+
+	async def wait_for_player(self):
+		while self.waiting and self.time_elapse < self.wait_time:
+			self.log(f"{self.match['game_id']}", f"timer {self.time_elapse}")
+			await asyncio.sleep(1)
+			self.time_elapse += 1
+
+		if self.waiting:
+			if not self.player['left'] and not self.player['right']:
+				self.log(f"{self.match['gam_id']}", "both player has not shown")
+			else: self.log(f"{self.match['gam_id']}", "a player has not shown")
 
 	async def update_game_state(self):
 		await self.handle_out_of_bound()
@@ -121,9 +140,12 @@ class PongServer:
 		self.update_ball_velocity(direction, self.ball_speed_default)
 
 	async def finish(self, winner):
-		self.running = False
-		if self.task_wait: self.task_wait.cancel()
-		else: self.task_update.cancel()
+		if self.waiting:
+			self.waiting = False
+			self.task_off(self.task_wait)
+		else:
+			self.running = False
+			self.task_off(self.task_update)
 
 		self.match['winner'] = 'player1' if winner == 'left' else 'player2'
 
@@ -138,18 +160,18 @@ class PongServer:
 		self.player[side] = player
 		
 		if self.player['left'] and self.player['right']:
+			self.waiting = False
+			self.task_off(self.task_wait)
 			await self.start()
 
 	async def start(self):
 		self.running = True
-		self.task_wait.cancel()
-		self.task_wait = None
-		self.task_update = asyncio.create_task(self.schedule())
+		self.task_update = self.task_on(self.update)
 
 		self.log(f"{self.match['game_id']}", "game has started!")
 		self.reset_ball()
 
-	async def schedule(self):
+	async def update(self):
 		while self.running:
 			self.space.step(1/60)
 			await self.update_game_state()
@@ -162,12 +184,6 @@ class PongServer:
 	async def player_disconnect(self, channel_name):
 		self.log(f"{self.match['game_id']}", "taking player_disconnect")
 
-		# means the game is ongoing
 		if self.task_update:
 			self.log(f"{self.match['game_id']}", "calling finish in way of ongoing game")
 			await self.finish('left' if channel_name == self.player['right']['channel'] else 'right')
-		# or in timer, the other player could be in or not. either way
-		# need to be assigned as None to disconnected player for correct
-		# handling after time of waiting because it uses the player state
-		# else:
-		# 	self.player['left' if self.player['left'] == channel_name else 'right'] = "disconnect"

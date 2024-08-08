@@ -48,12 +48,12 @@ export default class Router extends Component {
 		await Account.extractToken();
 		await Account.initialToken();
 
-		console.log('isLogging ' + Utils.getParsedItem('isLogging'));
-		console.log('isLoggedIn ' + Utils.getParsedItem('isLoggedIn'));
-		console.log(Utils.getParsedItem('playerName'));
-		console.log(Utils.getParsedItem('playerImage'));
-		console.log(Utils.getParsedItem('accessToken'));
-		console.log(Utils.getParsedItem('refreshToken'));
+		// console.log('isLogging ' + Utils.getParsedItem('isLogging'));
+		// console.log('isLoggedIn ' + Utils.getParsedItem('isLoggedIn'));
+		// console.log(Utils.getParsedItem('playerName'));
+		// console.log(Utils.getParsedItem('playerImage'));
+		// console.log(Utils.getParsedItem('accessToken'));
+		// console.log(Utils.getParsedItem('refreshToken'));
 	}
 
 	// waitForLoad() {

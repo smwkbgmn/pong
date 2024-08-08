@@ -131,6 +131,8 @@ export default class GameMatch extends Component {
 			this.closeSocket();
 			this.clearSocket();
 		}
+		
+		$target = null;
 		this.clearEvent();
 	}
 

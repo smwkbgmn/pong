@@ -50,7 +50,6 @@ class Consumer(AsyncWebsocketConsumer):
 		# Player has assigned at tournament
 		if self.tourn_id:
 			await self.channel_layer.group_discard(self.tourn_id, self.channel_name)
-			# self.tourn[self.tourn_id]['players'].remove(self.player)
 
 			# Match has assigned clear the match first
 			if self.match: await self.clear_match()
@@ -63,7 +62,7 @@ class Consumer(AsyncWebsocketConsumer):
 			self.queue[self.tourn_size].remove(self.player)
 	
 	async def clear_match(self):
-		# Set match player info as None
+		# Set player info as None in match
 		self.match['player1' if self.match['player1'] and self.match['player1']['channel'] == self.channel_name else 'player2'] = None
 
 		# Clearing game

@@ -72,7 +72,6 @@ export default class Background extends Component {
 
 		function getTargetPosition() {
 			const section = window.location.hash;
-			console.log("in section: " + section);
 
 			if (isSectionGame(section))
 				return cameraPositions["game"];
