@@ -15,7 +15,7 @@ class PongServer:
 		self.goal = 3
 
 		# Game states
-		self.wait_time = 10
+		self.wait_time = 7
 		self.wating = False
 		self.running = False
 
@@ -91,28 +91,18 @@ class PongServer:
 		self.ball.body.velocity = velocity
 
 	def task_on(self, task):
-		self.log(f"{self.match['game_id']}", f"turning on task {task}")
 		return asyncio.create_task(task())
 
 	def task_off(self, holder):
-		self.log(f"{self.match['game_id']}", f"turning off task {holder}")
 		holder.cancel()
 		holder = None
 
 	async def wait_for_player(self):
 		while self.waiting and self.time_elapse < self.wait_time:
-			self.log(f"{self.match['game_id']}", f"timer {self.time_elapse}")
 			await asyncio.sleep(1)
 			self.time_elapse += 1
 
-		if self.waiting:
-			self.log(f"{self.match['game_id']}", f"the game could not begin")
-
-			if not self.player['left'] and not self.player['right']:
-				self.log(f"{self.match['game_id']}", "both player has not shown")
-			else:
-				self.log(f"{self.match['game_id']}", "a player has not shown")
-				await self.finish('left' if self.player['left'] else 'right')
+		if self.waiting: await self.finish('left' if self.player['left'] else 'right')
 
 	async def update_game_state(self):
 		await self.handle_out_of_bound()
@@ -144,11 +134,12 @@ class PongServer:
 		self.update_ball_velocity(direction, self.ball_speed_default)
 
 	async def finish(self, winner):
-		self.log(f"{self.match['game_id']}", f"handling game_finish with {winner}")
-
 		if self.running:
 			self.running = False
 			self.task_off(self.task_update)
+		else:
+			self.waiting = False
+			self.task_off(self.task_wait)
 		
 		if winner:
 			self.match['winner'] = 'player1' if winner == 'left' else 'player2'

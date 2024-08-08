@@ -1,7 +1,7 @@
 import Pong from '../../components/Pong.js'
 
 export async function showCountdown(pageHash, componentName) {
-	for (let i = 5; i > 0; i--) { //3으로 바꾸기
+	for (let i = 3; i > 0; i--) {
 		if (window.location.hash != pageHash)
 			return false;
 		this.setState({ countdown: i });

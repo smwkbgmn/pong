@@ -69,16 +69,15 @@ class Consumer(AsyncWebsocketConsumer):
 		
 		if self.match['game_id'] in self.games:
 			game = self.games[self.match['game_id']]
-			# Handle clearing as the game has started normally
-			if not game.waiting:
-				if game.running: await game.player_disconnect(self.channel_name)
-				del self.games[self.match['game_id']]
-			# Handle both player has left while the game has not started yet
+			# A player has left while ongoing game
+			if game.running:
+				await game.player_disconnect(self.channel_name)
+				# del self.games[self.match['game_id']]
+			# Both player has left while the game has not started yet
 			elif not self.match['player1'] and not self.match['player2']:
-				game.finish(None)
+				await game.finish(None)
+				print("deleting the game - in disconnect")
 				del self.games[self.match['game_id']]
-			# The only rest case is that a player has left
-			# while the game is waiting the other player
 		
 		# Both player has assigned as None, eliminate the match
 		if not self.match['player1'] and not self.match['player2']:
@@ -222,6 +221,8 @@ class Consumer(AsyncWebsocketConsumer):
 		}))
 
 		if self.match[self.match['winner']]['channel'] == self.channel_name:
+			print("deleting the game - in finish")
+			del self.games[self.match['game_id']]
 			await self.round_in()
 		else: await self.round_out()
 
