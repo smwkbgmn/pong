@@ -18,8 +18,8 @@ export default class GameMatch extends Component {
 		else {
 			Utils.setStringifiedItem('gameStart', true);
 	
+			console.log('getsocket');
 			this.socket = getSocket();
-			console.log(this.socket);
 			
 			if (!this.socket) {
 				console.error('WebSocket not initialized');
@@ -40,6 +40,7 @@ export default class GameMatch extends Component {
 						
 						this.gameData = data;
 						const tmpPlayerNames = this.gameData.players.map(player => player.name);
+						console.log(tmpPlayerNames);
 						this.setState({ playerNameRight: data.opnt_name, playerImageRight: data.opnt_image, winnerPlayerNames: tmpPlayerNames });
 						this.startGame();
 						break;
@@ -59,47 +60,34 @@ export default class GameMatch extends Component {
 						break;
 	
 					case 'game_finish':
-						if (game) {
-							game.cleanUp();
-							game = null;
-						}
-						this.$state.walkover = data.walkover;
+						console.log('gamefinish');
+						this.clearGame();
+						this.setState({ walkover: data.walkover });
 						break;
 	
 					case 'round_wait':
 					case 'round_end':
 					case 'tournament_win':
+						console.log('end');
 						this.roundNext(data);
 						break;
 				}
-			
-				// this.startGame(data.gameId, data.side, socket);
-		}
+			}
 	
-			// 플레이 중에 연결끊김 해들링
 			this.socket.onclose = (event) => {
-				if (game) {
-					console.log('disconnection');
-					game.cleanUp();
-					game = null;
-	
-					setSocket(null);
-					this.socket = null;
-	
-					// 연결 끊김 (서버에 연결할 수 없습니다)
-					GameUtils.setComponentStyle('opacity', '.result-div', '100');
-					GameUtils.setComponentStyle('opacity', '.match-div', '0');
-	
-					Utils.changeFragment('#set_player_num/');
-				}
+				console.log('onclose');
+				this.clearGame();
+				// this.closeSocket();
+				this.clearSocket();
 			};
 	
 			this.socket.onerror = function(error) {
-				// game.cleanUp(); ??
+				this.clearGame();
+				// this.closeSocket();
+				this.clearSocket();
 	
-				// 연결 끊김 (서버에 연결할 수 없습니다)
-				console.error('WebSocket Error:', error);
-				Utils.changeFragment('#set_player_num/');
+				this.setState({ isError: true });
+				Utils.changeFragment('#/');
 			};
 	
 			this.startGame();
@@ -120,6 +108,7 @@ export default class GameMatch extends Component {
 			scoreRight: 0,
 
 			walkover: false,
+			isError: false,
 		};
 
 		this.playerNameLeft = Utils.getParsedItem('playerName');
@@ -133,16 +122,35 @@ export default class GameMatch extends Component {
 		this.playerNum = Utils.getParsedItem('playerNum');
 	}
 	
+	unmounted() {
+		console.log('unmounted');
+		Utils.setStringifiedItem('gameStart', false);
+
+		// this.clearGame();
+		if (this.socket) {
+			this.closeSocket();
+			this.clearSocket();
+		}
+		this.clearEvent();
+	}
+
 	template() {
 		const { playerImageRight, playerNameRight,
-				countdown, lastGame, walkover,
+				countdown, lastGame, walkover, isError,
 				scoreLeft, scoreRight } = this.$state;
 
 		const inputHTML = this.makePlayerList();
-		const result = scoreLeft > scoreRight ? this.playerNameLeft + ' 승리' : playerNameRight + ' 승리';
+
+		let result;
+		if (isError == true)
+			result = '서버에 연결할 수 없습니다.';
+		else
+			result = scoreLeft > scoreRight ? this.playerNameLeft + ' 승리' : playerNameRight + ' 승리';
 
 		let button;
-		if (lastGame == true)
+		if (isError == true)
+			button = '';
+		else if (lastGame == true)
 			button = '다시하기';
 		else
 			button = '다른 게임 기다리는 중...';
@@ -194,29 +202,13 @@ export default class GameMatch extends Component {
 		this.clickedRestartButtonWrapped = Event.addEvent(this.$target, 'click', '.restart-btn', this.clickedRestartButton.bind(this));
 	}
 
-	unmounted() {
-		Utils.setStringifiedItem('gameStart', false);
-		
-		if (game) {
-			game.cleanUp();
-			game = null;
-		}
-		if (this.socket) {
-			this.socket.close();
-			this.socket = null;
-			setSocket(null);
-		}
-
-		this.clearEvent();
-	}
-
 	clearEvent() {
 		Event.removeHashChangeEvent(this.unmountedBinded);
 		Event.removeEvent(this.$target, 'click', this.clickedRestartButtonWrapped);
 	}
 
 	clickedRestartButton() {
-		Utils.changeFragment("#game_matchmaking/");
+		Utils.changeFragment("#game_matchmaking/"); //error
 	}
 
 	makePlayerList() {
@@ -238,8 +230,33 @@ export default class GameMatch extends Component {
 		return inputHTML;
 	}
 
+	clearGame() {
+		if (game) {
+			game.cleanUp();
+			game = null;
+		}
+	}
+
+	closeSocket() {
+		if (this.socket.readyState === WebSocket.OPEN)
+			this.socket.close();		
+	}
+
+	clearSocket() {
+		// if (this.socket) {
+		// 	if (this.socket.readyState === WebSocket.OPEN)
+		// 		this.socket.close();
+		// 	this.socket = null;
+		// 	setSocket(null);
+		// }
+		if (getSocket() == this.socket)
+			setSocket(null);
+		this.socket = null;
+	}
+
 	async startGame() {
-		if (await GameUtils.showCountdown.call(this, '#game_match/', '.match-div') == false)
+		if (this.$state.isError == true ||
+			await GameUtils.showCountdown.call(this, '#game_match/', '.match-div') == false)
 			return ;
 
 		game = new PongClient(this.gameData.game_id, this.gameData.side, this.socket);
@@ -247,9 +264,6 @@ export default class GameMatch extends Component {
 
 	roundNext(data) {
 		console.log('round next');
-		console.log(data.walkover);
-		if (data.walkover == true)
-			this.setState({ walkover: true });
 		if (data.type != 'round_wait')
 			this.setState({ lastGame: true });
 		GameUtils.setComponentStyle('display', '.result-div', 'block');
@@ -259,10 +273,7 @@ export default class GameMatch extends Component {
 			if (data.type == "round_end") this.roundEnd();
 			else this.tournamentWin();
 
-			if (this.socket && this.socket.readyState === WebSocket.OPEN) {
-				this.socket.close();
-				this.socket = null;
-			}
+			this.clearSocket();
 		}
 	}
 

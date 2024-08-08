@@ -50,7 +50,7 @@ class Consumer(AsyncWebsocketConsumer):
 		# Player has assigned at tournament
 		if self.tourn_id:
 			await self.channel_layer.group_discard(self.tourn_id, self.channel_name)
-			self.tourn[self.tourn_id]['players'].remove(self.player)
+			# self.tourn[self.tourn_id]['players'].remove(self.player)
 
 			# Match has assigned clear the match first
 			if self.match: await self.clear_match()
@@ -221,6 +221,8 @@ class Consumer(AsyncWebsocketConsumer):
 			winners = []
 			for match in self.tourn[self.tourn_id]['matches']:
 				if match[match['winner']]: winners.append(match[match['winner']])
+
+			self.tourn[self.tourn_id]['players'] = winners
 
 			# It seems more simpler but there a issue for usage of the list at
 			# creating next round with disconnecting and the concurrency of removal

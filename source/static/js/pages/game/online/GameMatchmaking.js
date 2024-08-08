@@ -16,6 +16,7 @@ export default class GameMatchmaking extends Component {
 	setUp() {
 		this.$state = {
 			idx: 2,
+			isError: false,
 		};
 		
 		this.timer = 0;
@@ -34,7 +35,17 @@ export default class GameMatchmaking extends Component {
 
 
 	template() {
-		const { idx } = this.$state;
+		const { idx, isError } = this.$state;
+
+		let message;
+		if (isError == true)
+			message = '서버에 연결할 수 없습니다.';
+		else
+			message = this.textList[idx];
+
+		let button = '';
+		if (isError == false)
+			button = '돌아가기';
 
 		return `			
 			<div class="main-div">
@@ -44,9 +55,9 @@ export default class GameMatchmaking extends Component {
 					<img class="home-img" src="/static/asset/home-icon.png">
 				</a>
 			
-				<p class="message-p">${this.textList[idx]}</p>
+				<p class="message-p">${message}</p>
 				
-				<button class="exit-btn">돌아가기</button>
+				<button class="exit-btn">${button}</button>
 
 				<div class="matchmaking-container"></div>
 				<div class="game-container"></div>
@@ -55,21 +66,21 @@ export default class GameMatchmaking extends Component {
 	}
 
 	setEvent() {
+		this.unmountedBinded = Event.addHashChangeEvent(this.unmounted.bind(this));
 		this.clearTimeoutWrapped = Event.addHashChangeEvent(clearTimeout.bind(this, this.timer));
 		this.clickedExitButtonWrapped = Event.addEvent(this.$target, 'click', '.exit-btn', this.clickedExitButton.bind(this));
 	}
 
 	clearEvent() {
+		Event.removeHashChangeEvent(this.unmountedBinded);
 		Event.removeHashChangeEvent(this.clearTimeoutWrapped);
 		Event.removeEvent(this.$target, 'click', this.clickedExitButtonWrapped);
 	}
 
 	clickedExitButton() {
-		// socket = getSocket();
-		// if (socket.readyState === WebSocket.OPEN)
-		// socket.close();
-		getSocket().close();
-		Utils.changeFragment('#set_player_num/');
+		const socket = getSocket();
+		if (socket && socket.readyState === WebSocket.OPEN)
+			socket.close();
 	}
 
 	changeMessage(prev) {
@@ -83,7 +94,7 @@ export default class GameMatchmaking extends Component {
 
 	setupSocket() {
 		let socket = new WebSocket('ws://' + window.location.host + '/ws/pong');
-		console.log(socket);
+		// console.log(socket);
 
 		socket.onopen = (event) => {
 			socket.send(JSON.stringify({
@@ -110,17 +121,18 @@ export default class GameMatchmaking extends Component {
 					this.gameStart = true;
 					Utils.setStringifiedItem('gameStart', false);
 					Utils.setStringifiedItem('gameData', data);
-					Utils.changeFragment('#game_match/');
+					Utils.changeFragment('#game_match/'); //error
 					break;
 			}
 		};
 
 		// 다른 플레이어 기다리던 도중의 연결끊김 핸들링
 		socket.onclose = (event) => {
+			return Utils.changeFragment('#set_player_num/');
 		};
 
 		socket.onerror = function(error) {
-			console.error('WebSocket Error:', error);
+			this.setState({ isError: true });
 			return Utils.changeFragment('#set_player_num/');
 		};
 
