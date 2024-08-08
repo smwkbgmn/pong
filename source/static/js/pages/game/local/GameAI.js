@@ -27,9 +27,9 @@ export default class GameAI extends Component {
 	}
 
 	template() {
-		const { settingDone, countdown, playerNameLeft, playerNameRight } = this.$state;
+		const { countdown, playerNameLeft, playerNameRight } = this.$state;
 		
-		if (settingDone == false)
+		if (this.settingDone == false)
 			return ``;
 		
 		const inputHTML = this.makePlayerInfo();

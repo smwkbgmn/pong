@@ -11,20 +11,12 @@ export default class GameMatch extends Component {
 	constructor($target) {
 		super($target);
 
-		if (Utils.getParsedItem('gameStart') == true) {
+		if (this.settingDone == false) {
 			Utils.setStringifiedItem('gameStart', false);
 			Utils.changeFragment('#set_player_num/');
 		}
 		else {
 			Utils.setStringifiedItem('gameStart', true);
-	
-			console.log('getsocket');
-			this.socket = getSocket();
-			
-			if (!this.socket) {
-				console.error('WebSocket not initialized');
-				return;
-			}
 	
 			this.setState({ playerNameRight: this.gameData.opnt_name, playerImageRight: this.gameData.opnt_image });
 	
@@ -73,7 +65,7 @@ export default class GameMatch extends Component {
 						break;
 				}
 			}
-	
+
 			this.socket.onclose = (event) => {
 				console.log('onclose');
 				this.clearGame();
@@ -111,15 +103,21 @@ export default class GameMatch extends Component {
 			isError: false,
 		};
 
+		this.socket = getSocket();
+		this.gameData = Utils.getParsedItem('gameData');
+
+		this.settingDone = (this.socket && this.gameData && Utils.getParsedItem('gameStart') == false) == true ? true : false;
+		if (this.settingDone == false)
+			return ;
+
 		this.playerNameLeft = Utils.getParsedItem('playerName');
 		this.playerImageLeft = Utils.getParsedItem('playerImage');
 
-		this.reverse = false;
-
-		this.gameData = Utils.getParsedItem('gameData');
 		this.playerNames = this.gameData.players.map(player => player.name);
 		this.$state.winnerPlayerNames = this.playerNames;
 		this.playerNum = Utils.getParsedItem('playerNum');
+
+		this.reverse = false;
 	}
 	
 	unmounted() {
@@ -132,7 +130,6 @@ export default class GameMatch extends Component {
 			this.clearSocket();
 		}
 		
-		$target = null;
 		this.clearEvent();
 	}
 
@@ -141,6 +138,9 @@ export default class GameMatch extends Component {
 				countdown, lastGame, walkover, isError,
 				scoreLeft, scoreRight } = this.$state;
 
+		if (this.settingDone == false)
+			return ``;
+		
 		const inputHTML = this.makePlayerList();
 
 		let result;
@@ -210,7 +210,7 @@ export default class GameMatch extends Component {
 	}
 
 	clickedRestartButton() {
-		Utils.changeFragment("#game_matchmaking/"); //error
+		Utils.changeFragment("#game_matchmaking/");
 	}
 
 	makePlayerList() {
@@ -294,3 +294,13 @@ export default class GameMatch extends Component {
 		// statusDiv.textContent = `CONGRATULATION!!\nYOU ARE THE WINNER!!`;
 	}
 }
+
+/*
+	function goBack() {
+	if 
+		do else
+	else
+		window.history.back();
+	}
+	<button onclick="goBack()">Go Back</button>
+*/

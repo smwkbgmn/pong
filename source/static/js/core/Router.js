@@ -24,6 +24,8 @@ export default class Router extends Component {
 
 	async checkRoutes() {
 		console.log('current hash: ' + window.location.hash);
+		Utils.setStringifiedItem('prevHash', Utils.getParsedItem('curHash'));
+		Utils.setStringifiedItem('curHash', window.location.hash);
 		
 		const currentRoute = this.$state.routes.find((route) => {
 			return route.fragment === window.location.hash;

@@ -10,7 +10,12 @@ export default class GameMatchmaking extends Component {
 	constructor($target, $props) {
 		super($target, $props);
 
-		this.setupSocket();
+		if (Utils.getParsedItem('prevHash') == '#set_player_num/'
+			&& Utils.getParsedItem('playerNum')) {
+			this.setupSocket();
+		}
+		else
+			Utils.changeFragment('#set_player_num/');
 	}
 
 	setUp() {
@@ -18,7 +23,6 @@ export default class GameMatchmaking extends Component {
 			idx: 2,
 			isError: false,
 		};
-		
 		this.timer = 0;
 		this.gameStart = false;
 
@@ -32,7 +36,6 @@ export default class GameMatchmaking extends Component {
 
 		this.changeMessage(this.$state.idx);
 	}
-
 
 	template() {
 		const { idx, isError } = this.$state;

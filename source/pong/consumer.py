@@ -3,7 +3,6 @@ import random
 
 from channels.generic.websocket import AsyncWebsocketConsumer
 from datetime import datetime
-# from .physics import PongPhysic
 from .PongServer import PongServer
 
 class Consumer(AsyncWebsocketConsumer):
@@ -70,8 +69,16 @@ class Consumer(AsyncWebsocketConsumer):
 		
 		if self.match['game_id'] in self.games:
 			game = self.games[self.match['game_id']]
-			if game.running: await game.player_disconnect(self.channel_name)
-			del self.games[self.match['game_id']]
+			# Handle clearing as the game has started normally
+			if not game.waiting:
+				if game.running: await game.player_disconnect(self.channel_name)
+				del self.games[self.match['game_id']]
+			# Handle both player has left while the game has not started yet
+			elif not self.match['player1'] and not self.match['player2']:
+				game.finish(None)
+				del self.games[self.match['game_id']]
+			# The only rest case is that a player has left
+			# while the game is waiting the other player
 		
 		# Both player has assigned as None, eliminate the match
 		if not self.match['player1'] and not self.match['player2']:
@@ -138,11 +145,13 @@ class Consumer(AsyncWebsocketConsumer):
 	async def matches_start(self, players, tourn_id):
 		matches = self.matches_create(players)
 		self.tourn[tourn_id]['matches'] = matches
-		
+
 		for match in matches:
 			await self.channel_layer.group_add(match['game_id'], match['player1']['channel'])
-			if match['player2']: await self.channel_layer.group_add(match['game_id'], match['player2']['channel'])
-			# await self.group_add(match['game_id'], match['player2']['channel'] if match['player2'] else None)
+			if match['player2']:
+				await self.channel_layer.group_add(match['game_id'], match['player2']['channel'])
+				self.games[match['game_id']] = PongServer(self.channel_layer, self.tourn[tourn_id], match, self.log)
+
 			await self.channel_layer.group_send(match['game_id'], {
 				'type'		: 'match_start',
 				'game_id'	: match['game_id'],
@@ -161,6 +170,8 @@ class Consumer(AsyncWebsocketConsumer):
 				'player2'	: players[i + 1] if i + 1 < len(players) else None,
 				'winner'	: None
 			})
+
+		self.log('consumer', f"{len(matches)} matches has created")
 		return matches
 	
 	async def handle_join_room(self, game_id, side):
@@ -180,7 +191,7 @@ class Consumer(AsyncWebsocketConsumer):
 		self.match = next(match for match in self.tourn[self.tourn_id]['matches'] if match['game_id'] == game_id)
 
 		if event['player2']:
-			self.games[game_id] = PongServer(self.channel_layer, self.tourn[self.tourn_id], self.match, self.log)
+			# self.games[game_id] = PongServer(self.channel_layer, self.tourn[self.tourn_id], self.match, self.log)
 
 			side = 'left' if self.channel_name == event['player1']['channel'] else 'right'
 			opnt = event['player2' if side == 'left' else 'player1']

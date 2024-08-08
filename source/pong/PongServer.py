@@ -36,7 +36,7 @@ class PongServer:
 
 		self.waiting = True
 		self.time_elapse = 0
-		# self.task_wait = self.task_on(self.wait_for_player)
+		self.task_wait = self.task_on(self.wait_for_player)
 		
 	def setup(self):
 		self.space 							= pymunk.Space()
@@ -106,9 +106,13 @@ class PongServer:
 			self.time_elapse += 1
 
 		if self.waiting:
+			self.log(f"{self.match['game_id']}", f"the game could not begin")
+
 			if not self.player['left'] and not self.player['right']:
-				self.log(f"{self.match['gam_id']}", "both player has not shown")
-			else: self.log(f"{self.match['gam_id']}", "a player has not shown")
+				self.log(f"{self.match['game_id']}", "both player has not shown")
+			else:
+				self.log(f"{self.match['game_id']}", "a player has not shown")
+				await self.finish('left' if self.player['left'] else 'right')
 
 	async def update_game_state(self):
 		await self.handle_out_of_bound()
@@ -140,23 +144,24 @@ class PongServer:
 		self.update_ball_velocity(direction, self.ball_speed_default)
 
 	async def finish(self, winner):
-		if self.waiting:
-			self.waiting = False
-			self.task_off(self.task_wait)
-		else:
+		self.log(f"{self.match['game_id']}", f"handling game_finish with {winner}")
+
+		if self.running:
 			self.running = False
 			self.task_off(self.task_update)
+		
+		if winner:
+			self.match['winner'] = 'player1' if winner == 'left' else 'player2'
 
-		self.match['winner'] = 'player1' if winner == 'left' else 'player2'
-
-		self.log(f"{self.match['game_id']}", "sending game_finish event")
-		await self.channel_layer.group_send(self.match['game_id'], {
-			"type"		: "game_finish",
-			"walkover"	: False if self.goal in self.score.values() else True
-		})
+			self.log(f"{self.match['game_id']}", "sending game_finish event")
+			await self.channel_layer.group_send(self.match['game_id'], {
+				"type"		: "game_finish",
+				"walkover"	: False if self.goal in self.score.values() else True
+			})
 
 	### METHOD DERIVEN BY EVENT ### 
 	async def add_player(self, player, side):
+		self.log(f"{self.match['game_id']}", f"{player} has joined as player {side}")
 		self.player[side] = player
 		
 		if self.player['left'] and self.player['right']:
