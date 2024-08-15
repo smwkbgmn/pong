@@ -5,8 +5,8 @@ RUN apt-get update \
 		postgresql-client \
 	&& rm -rf /var/lib/apt/lists/*
 
-COPY ./requirements/requirements.txt ./requirements/requirements.txt
-RUN pip install --no-cache-dir -r ./requirements/requirements.txt
+COPY ./requirements/requirements_prod.txt ./requirements.txt
+RUN pip install --no-cache-dir -r ./requirements.txt
 
 COPY ./source /source
 

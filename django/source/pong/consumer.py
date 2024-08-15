@@ -46,31 +46,40 @@ class Consumer(AsyncWebsocketConsumer):
 		await self.clear_instance()
 
 	async def clear_instance(self):
+		# Player has assigned at tournament
 		if self.tourn_id:
 			await self.channel_layer.group_discard(self.tourn_id, self.channel_name)
 
+			# Match has assigned clear the match first
 			if self.match: await self.clear_match()
-
+				
+			# No on has left in tournament, eliminate the tournament
 			if len(self.tourn[self.tourn_id]['players']) == 0:
 				self.tourn[self.tourn_id] = None
-		else: self.queue[self.tourn_size].remove(self.player)
+		else:
+			self.log('channel', "clearing cueue")
+			self.queue[self.tourn_size].remove(self.player)
 	
 	async def clear_match(self):
-		self.match['player1' if self.match['player1'] \
-			and self.match['player1']['channel'] == self.channel_name else 'player2'] = None
+		# Set player info as None in match
+		self.match['player1' if self.match['player1'] and self.match['player1']['channel'] == self.channel_name else 'player2'] = None
 
-		''' Regardless the game instance has created or not, if match has
-		assinged it assures that the channel_name added to game_id group '''
+		# Clearing game
 		self.channel_layer.group_discard(self.match['game_id'], self.channel_name)
 		
 		if self.match['game_id'] in self.games:
 			game = self.games[self.match['game_id']]
-			
-			if game.running: await game.player_disconnect(self.channel_name)
+			# A player has left while ongoing game
+			if game.running:
+				await game.player_disconnect(self.channel_name)
+				# del self.games[self.match['game_id']]
+			# Both player has left while the game has not started yet
 			elif not self.match['player1'] and not self.match['player2']:
 				await game.finish(None)
+				print("deleting the game - in disconnect")
 				del self.games[self.match['game_id']]
 		
+		# Both player has assigned as None, eliminate the match
 		if not self.match['player1'] and not self.match['player2']:
 			self.tourn[self.tourn_id]['matches'].remove(self.match)
 		
@@ -93,8 +102,8 @@ class Consumer(AsyncWebsocketConsumer):
 			'name'		: data['playerName'],
 			'image'		: data['playerImage']
 		}
-		# For disconnection when in queue
-		self.tourn_size = tourn_size 
+		# For disconnection if in queue
+		self.tourn_size = tourn_size
 
 		if tourn_size not in self.queue:
 			self.queue[tourn_size] = []
@@ -130,15 +139,28 @@ class Consumer(AsyncWebsocketConsumer):
 			'tourn_id'	: tourn_id
 		})
 
-		await self.matches_init(players, tourn_id)
+		await self.matches_start(players, tourn_id)
 	
-	async def matches_init(self, players, tourn_id):
+	async def matches_start(self, players, tourn_id):
 		matches = self.matches_create(players)
-
 		self.tourn[tourn_id]['matches'] = matches
-		await self.matches_send(matches)
+
+		for match in matches:
+			await self.channel_layer.group_add(match['game_id'], match['player1']['channel'])
+			if match['player2']:
+				await self.channel_layer.group_add(match['game_id'], match['player2']['channel'])
+				self.games[match['game_id']] = PongServer(self.channel_layer, self.tourn[tourn_id], match, self.log)
+
+			await self.channel_layer.group_send(match['game_id'], {
+				'type'		: 'match_start',
+				'game_id'	: match['game_id'],
+				'player1'	: match['player1'],
+				'player2'	: match['player2'],
+			})
 	
 	def matches_create(self, players):
+		self.log('consumer', "creating matches")
+
 		matches = []
 		for i in range(0, len(players), 2):
 			matches.append({
@@ -150,20 +172,6 @@ class Consumer(AsyncWebsocketConsumer):
 
 		self.log('consumer', f"{len(matches)} matches has created")
 		return matches
-
-	async def matches_send(self, matches):
-		for match in matches:
-			await self.channel_layer.group_add(match['game_id'], match['player1']['channel'])
-			if match['player2']:
-				await self.channel_layer.group_add(match['game_id'], match['player2']['channel'])
-				self.games[match['game_id']] = PongServer(match, self.channel_layer, self.log)
-
-			await self.channel_layer.group_send(match['game_id'], {
-				'type'		: 'game_start',
-				'game_id'	: match['game_id'],
-				'player1'	: match['player1'],
-				'player2'	: match['player2'],
-			})
 	
 	async def handle_join_room(self, game_id, side):
 		await self.games[game_id].add_player(self.match['player1' if side == "left" else 'player2'], side)
@@ -175,13 +183,15 @@ class Consumer(AsyncWebsocketConsumer):
 	async def assign_group(self, event):
 		self.tourn_id = event['tourn_id']
 
-	async def game_start(self, event):
+	async def match_start(self, event):
 		self.log('channel', "receive game_start from consumer")
 
 		game_id = event['game_id']
 		self.match = next(match for match in self.tourn[self.tourn_id]['matches'] if match['game_id'] == game_id)
 
 		if event['player2']:
+			# self.games[game_id] = PongServer(self.channel_layer, self.tourn[self.tourn_id], self.match, self.log)
+
 			side = 'left' if self.channel_name == event['player1']['channel'] else 'right'
 			opnt = event['player2' if side == 'left' else 'player1']
 			await self.send(json.dumps({
@@ -211,22 +221,28 @@ class Consumer(AsyncWebsocketConsumer):
 		}))
 
 		if self.match[self.match['winner']]['channel'] == self.channel_name:
+			print("deleting the game - in finish")
 			del self.games[self.match['game_id']]
 			await self.round_in()
 		else: await self.round_out()
 
 	async def round_in(self):
 		if all(match['winner'] is not None for match in self.tourn[self.tourn_id]['matches']):
+			# The way of tarvaling matches and get all the winners is more not error prone
 			winners = []
 			for match in self.tourn[self.tourn_id]['matches']:
 				if match[match['winner']]: winners.append(match[match['winner']])
 
+			self.tourn[self.tourn_id]['players'] = winners
+
+			# It seems more simpler but there a issue for usage of the list at
+			# creating next round with disconnecting and the concurrency of removal
+			# winners = self.tourn[self.tourn_id]['players']
+
 			if len(winners) == 1:
 				await self.send(json.dumps({'type': 'tournament_win'}))
 				await self.close_connection()
-			else:
-				self.tourn[self.tourn_id]['players'] = winners
-				await self.matches_init(winners, self.tourn_id)
+			else: await self.matches_start(winners, self.tourn_id)
 		else: await self.send(json.dumps({'type': 'round_wait'}))
 			
 	async def round_out(self):
@@ -234,7 +250,20 @@ class Consumer(AsyncWebsocketConsumer):
 		await self.close_connection()
 		
 	async def close_connection(self):
-		''' Because of the delay at calling disconnect method, the connection
-		value should be assigned at here first for more resonable control '''
+		# Because of the delay of calling socket disconnect method, the 
+		# connection value should be assigned at here for more smooth control
 		self.connection = False
 		await self.close()
+
+	### GROUP METHOD ###
+	# async def group_add(self, group, channel):
+	# 	print("group_add")
+	# 	if channel: self.channel_layer.group_add(group, channel)
+	
+	# async def group_discard(self, group, channel):
+	# 	print("group_discard")
+	# 	if channel: self.channel_layer.group_discard(group, channel)
+
+	# async def group_send(self, group, event):
+	# 	print("group_send")
+	# 	self.channel_layer.group_send(group, event)

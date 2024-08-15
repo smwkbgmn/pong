@@ -3,34 +3,27 @@ import Component from '../core/Component.js'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader }	 from 'three/addons/loaders/GLTFLoader.js';
-
-const pahtAsset = './static/asset/'
-const pathCloud = pahtAsset + '3d/cloud.jpg';
-const pathClassroom = pahtAsset + '3d/classroom/classRoom_light.glb';
-// const pathClassroom = pahtAsset + '3d/school_class_room/scene.gltf';
-
-const lightAmbient = 0.38;
-const lightBulb = 0.9;
-const lightHemi = 1.2;
-
 export default class Background extends Component {
 	setUp() {
+		// this.sectionCurnt = window.location.hash;
+		// this.sectionPrev = null;
 		this.inGame = false;
 	}
 
 	render() {
-		/*** SCENE ***/
+		/***** SCENE *****/
 		const scene = new THREE.Scene();
-		scene.add(new THREE.AmbientLight(0xffffff, lightAmbient));
+		scene.add(new THREE.AmbientLight(0xffffff, 0.38));
 
 		const texture = new THREE.TextureLoader();
-		texture.load(pathCloud, function(texture) { scene.background = texture; });
+		texture.load('./static/asset/3d/cloud.jpg', function(texture) { scene.background = texture; });
 
-		/*** CAMERA ***/
+		/***** CAMERA *****/
 		const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 200);
 		if (isSectionGame(window.location.hash))
 			camera.position.set(0, 0, 4.9);
-		else camera.position.set(0, 0, 0.01);
+		else
+			camera.position.set(0, 0, 0.01);
 		camera.lookAt(0, 0, 10);
 
 		const seeing = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 2000);
@@ -38,20 +31,21 @@ export default class Background extends Component {
 
 		let activation = camera;
 
-		/*** RENDERER ***/
+		/***** RENDERER *****/
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		document.body.appendChild(renderer.domElement);
 
 		let isRunning = true;
 
-		/*** CONTROL - Orbit ***/
+		/***** CONTROL - Orbit *****/
 		const controls = new OrbitControls(camera, renderer.domElement);
 		
 		if (isSectionGame(window.location.hash)) {
 			controls.target.set(0, 0, 4.95);
 			controls.enabled = false;
-		} else controls.target.set(0, 0, 0.5);
+		} else
+			controls.target.set(0, 0, 0.5);
 
 		controls.enableDamping = true;
 		controls.dampingFactor = 0.05;
@@ -70,13 +64,7 @@ export default class Background extends Component {
 			controls.maxPolarAngle = Math.PI;
 		}
 		
-		/*** CONTROL - Tween ***/
-		/*
-			If init position be set as 0,0,0 Tween can not take
-			camera seeing direction. so by setting start position as
-			SLIGHTLY far from the camera, can make Tween be available to
-			catch the seeing direction. I didn't take time to look for it
-		*/
+		/***** CONTROL - Tween *****/
 		const cameraPositions = {
 			"home": { x: 0.001, y: 0.001, z: 0.001 },
 			"game": { x: 0.001, y: 0.001, z: 4.9 }
@@ -144,7 +132,7 @@ export default class Background extends Component {
 
 		window.addEventListener('hashchange', updateCameraForSection);
 
-		/*** LISTEN ***/
+		/***** LISTEN *****/
 		window.addEventListener('resize', onWindowResize);
 		document.addEventListener('keydown', onKeyDown);
 		
@@ -160,7 +148,6 @@ export default class Background extends Component {
 				case 80:
 					if (activation === camera) {
 						activation = seeing;
-						
 						helper.visible = true;
 						// arrowCamera.visible = true;
 						arrowWorld.visible = true;
@@ -169,7 +156,6 @@ export default class Background extends Component {
 						unsetControlLimit();
 					} else {
 						activation = camera;
-
 						helper.visible = false;
 						// arrowCamera.visible = false;
 						arrowWorld.visible = false;
@@ -181,11 +167,12 @@ export default class Background extends Component {
 			}
 		}
 		
-		/*** WORLD - Asset ***/
+		/***** WORLD - Asset *****/
 		const loader = new GLTFLoader();
 		
 		loader.load(
-			pathClassroom,
+			'./static/asset/3d/classroom/classRoom_light.glb',
+			// './static/asset/3d/school_class_room/scene.gltf',
 			function (gltf) {
 				gltf.scene.position.set(96.55, -1.55, -13);
 				scene.add(gltf.scene);
@@ -194,10 +181,10 @@ export default class Background extends Component {
 			function (error) { console.error('An error happened', error); }
 		);
 
-		/*** WORLD - Lights ***/
-		const frontLeft = new THREE.DirectionalLight(0xffffff, lightBulb);
-		const frontMid = new THREE.DirectionalLight(0xffffff, lightBulb);
-		const frontRight = new THREE.DirectionalLight(0xffffff, lightBulb);
+		/***** WORLD - Lights *****/
+		const frontLeft = new THREE.DirectionalLight(0xffffff, 0.9);
+		const frontMid = new THREE.DirectionalLight(0xffffff, 0.9);
+		const frontRight = new THREE.DirectionalLight(0xffffff, 0.9);
 		frontLeft.position.set(-0.5, 0.2, -0.2);
 		frontLeft.position.set(0, 0.2, -0.2);
 		frontRight.position.set(0.5, 0.2, -0.2);
@@ -205,9 +192,9 @@ export default class Background extends Component {
 		scene.add(frontMid);
 		scene.add(frontRight);
 		
-		const rearLeft = new THREE.DirectionalLight(0xffffff, lightBulb);
-		const rearMid = new THREE.DirectionalLight(0xffffff, lightBulb);
-		const rearRight = new THREE.DirectionalLight(0xffffff, lightBulb);
+		const rearLeft = new THREE.DirectionalLight(0xffffff, 0.9);
+		const rearMid = new THREE.DirectionalLight(0xffffff, 0.9);
+		const rearRight = new THREE.DirectionalLight(0xffffff, 0.9);
 		rearLeft.position.set(-0.5, 0.2, 0.4);
 		rearMid.position.set(0, 0.2, 0.4);
 		rearRight.position.set(0.5, 0.2, 0.4);
@@ -215,11 +202,11 @@ export default class Background extends Component {
 		scene.add(rearMid);
 		scene.add(rearRight); 
 		
-		const hemi = new THREE.HemisphereLight(0xffffff, 0xffffff, lightHemi);
+		const hemi = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.2);
 		hemi.position.set(0, 0, 0);
 		scene.add(hemi);
 
-		/*** WORLD - Helper ***/
+		/***** WORLD - Helper *****/
 		const helper = new THREE.CameraHelper(camera);
 		helper.visible = false;
 		scene.add(helper);
@@ -267,7 +254,7 @@ export default class Background extends Component {
 
 		// const arrowCamera = createArrow(camera);
 		
-		/*** SHOOT ***/
+		/***** SHOOT *****/
 		function animate() {
 			controls.update();
 			TWEEN.update();

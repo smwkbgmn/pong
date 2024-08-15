@@ -8,12 +8,6 @@ services:
     env_file: .env
     networks:
       - backend
-    healthcheck:
-      test: ["CMD-SHELL", "psql -U $POSTGRES_USER -lqt | cut -d \\| -f 1 | grep -qw $POSTGRES_DB"]
-      interval: 2s
-      timeout: 10s
-      retries: 5
-      start_period: 30s
 
   redis:
     image: redis:alpine
@@ -55,13 +49,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./data/db
+      device: $DB_VOLUME_PATH
   web-data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ./data/web
+      device: $WEB_VOLUME_PATH
 
 networks:
   backend:

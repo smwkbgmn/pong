@@ -3,8 +3,9 @@ import random
 import pymunk
 
 class PongServer:
-	def __init__(self, match, channel_layer, fn_log):
-		# Match info
+	def __init__(self, channel_layer, tourn, match, fn_log):
+		# Tourn info
+		self.tourn = tourn
 		self.match = match
 		self.channel_layer = channel_layer
 
@@ -27,15 +28,15 @@ class PongServer:
 		self.ball_random_bounce_scale = 0.3 # (rand -50 ~ +50)% * 0.3 = (-17 ~ +17)% modulation
 		self.ball_out_of_bound = {'x': 6, 'y': 5}
 
-		# Initialize
+		# Logging method from consumer
+		self.log = fn_log
+
+		# Do
 		self.setup()
 
 		self.waiting = True
 		self.time_elapse = 0
 		self.task_wait = self.task_on(self.wait_for_player)
-
-		# Logging method
-		self.log = fn_log
 		
 	def setup(self):
 		self.space 							= pymunk.Space()
@@ -151,6 +152,7 @@ class PongServer:
 
 	### METHOD DERIVEN BY EVENT ### 
 	async def add_player(self, player, side):
+		self.log(f"{self.match['game_id']}", f"{player} has joined as player {side}")
 		self.player[side] = player
 		
 		if self.player['left'] and self.player['right']:
@@ -176,7 +178,7 @@ class PongServer:
 		paddle_body.position = (paddle_body.position.x, moved_y)
 
 	async def player_disconnect(self, channel_name):
-		self.log(f"{self.match['game_id']}", "handling player_disconnect")
+		self.log(f"{self.match['game_id']}", "taking player_disconnect")
 
 		if self.task_update:
 			self.log(f"{self.match['game_id']}", "calling finish in way of ongoing game")
