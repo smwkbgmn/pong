@@ -31,23 +31,6 @@ fourty_two_login_uri = "https://api.intra.42.fr/oauth/authorize"
 fourty_two_token_uri = "https://api.intra.42.fr/oauth/token"
 fourty_two_profile_uri = "https://api.intra.42.fr/v2/me"
 
-class FourtyTwoLoginView(APIView):
-    permission_classes = [AllowAny]
-
-    def get(self, request):
-        '''
-        API code 요청
-
-        ---
-        '''
-        client_id = settings.FOURTY_TWO_CLIENT_ID
-        redirect_uri = settings.FOURTY_TWO_REDIRECT_URI
-        uri = f"{fourty_two_login_uri}?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code"
-        
-        res = redirect(uri)
-        return res
-
-
 class FourtyTwoCallbackView(APIView):
     permission_classes = [AllowAny]
 
@@ -91,8 +74,8 @@ class FourtyTwoCallbackView(APIView):
             'user_id': user_id,
             'name': user_info_json.get('login'),
             'email': user_info_json.get('email'),
-						'image': user_info_json.get('image').get("link"),
-				}
+			'image': user_info_json.get('image').get("link"),
+		}
 
         # 회원가입 및 로그인
         res = login_api(user_id=user_id, data=user_data)

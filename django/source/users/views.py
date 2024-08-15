@@ -2,7 +2,6 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .serializers import *
 from .lib.permission import LoginRequired
@@ -81,7 +80,6 @@ class LoginView(APIView):
 
 class LogoutView(APIView):
     permission_classes = [LoginRequired]
-    authentication_classes = [JWTAuthentication]
 
     def post(self, request):
         '''
@@ -96,21 +94,3 @@ class LogoutView(APIView):
         serializer.validated_data.blacklist()
 
         return Response(status=status.HTTP_200_OK)
-
-
-class TokenRefreshView(APIView):
-    permission_classes = [AllowAny]
-
-    def post(self, request):
-        '''
-        Access Token 재발급
-
-        ---
-        '''
-        serializer = RefreshTokenSerializer(data=request.data)
-
-        if not serializer.is_valid():
-            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        token = serializer.validated_data
-
-        return Response(data=token, status=status.HTTP_201_CREATED)

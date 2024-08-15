@@ -87,10 +87,12 @@ class Consumer(AsyncWebsocketConsumer):
 	async def receive(self, text_data):
 		data = json.loads(text_data)
 
-		match data['type']:
-			case 'requestMatch'	: await self.handle_request_match(data)
-			case 'joinRoom'		: await self.handle_join_room(data['gameId'], data['side'])
-			case 'playerMove'	: await self.handle_player_move(data['movedY'])
+		if data['type'] == 'requestMatch':
+			await self.handle_request_match(data)
+		elif data['type'] == 'joinRoom':
+			await self.handle_join_room(data['gameId'], data['side'])
+		elif data['type'] == 'playerMove':
+			await self.handle_player_move(data['movedY'])
 	
 	async def handle_request_match(self, data):
 		self.log('consumer', f"receive match request from {self.channel_name[-12:]}")
