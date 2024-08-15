@@ -15,19 +15,21 @@ from datetime import timedelta
 import json
 import sys
 import os
+import environ
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CONFIG_BASE_DIR = os.path.join(BASE_DIR, 'source')
-
-import environ
 
 env = environ.Env(
     DEBUG=(bool, False)
 )
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+ENV_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent
+environ.Env.read_env(os.path.join(ENV_DIR, '.env'))
 
 SECRET_KEY = env('SECRET_KEY')
 FOURTY_TWO_CLIENT_ID = env('FOURTY_TWO_CLIENT_ID')
@@ -41,7 +43,7 @@ FOURTY_TWO_CLIENT_SECRET_KEY = env('FOURTY_TWO_CLIENT_SECRET_KEY')
 DEBUG = True
 # DEBUG = True if os.environ.get('DJANGO_DEBUG', 'False') == 'True' else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

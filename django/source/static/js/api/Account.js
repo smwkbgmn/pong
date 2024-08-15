@@ -1,12 +1,19 @@
 import GET from './http.js'
 import * as Utils from '../Utils.js'
 
-const clientID = 'u-s4t2ud-9063f4e8ff01e5b0878f85b3cc0434661267ebbee2ae65bcba9fc2a973a6584e';
-const redirectURI = 'http://localhost:8000/';
-
 export function requestOAuth() {
-	const authURL = `https://api.intra.42.fr/oauth/authorize?client_id=${clientID}&redirect_uri=${encodeURIComponent(redirectURI)}&response_type=code&scope=public`;
-	Utils.changeURL(authURL);
+	const uri = `https://localhost/oauth/login`;
+	let clientID, redirectURI;
+
+	GET(uri).then(async response => {
+		const json_response = await response.json();
+
+		clientID = json_response.client_id;
+		redirectURI = json_response.redirect_uri;
+	
+		const authURL = `https://api.intra.42.fr/oauth/authorize?client_id=${clientID}&redirect_uri=${encodeURIComponent(redirectURI)}&response_type=code&scope=public`;
+		Utils.changeURL(authURL);
+	});
 }
 
 export async function extractToken() {
@@ -24,9 +31,9 @@ export async function extractToken() {
 }
 
 export async function initialToken(token) {
-	const url = `http://localhost/oauth/login/callback/?code=${encodeURIComponent(token)}`;
+	const uri = `https://localhost/oauth/login/callback/?code=${encodeURIComponent(token)}`;
 
-	return	GET(url)
+	return	GET(uri)
 			.then(async response => {
 				if (response.status == 200) {
 					if (Utils.getParsedItem('isLoggedIn') == false) {
