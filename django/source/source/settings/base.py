@@ -21,10 +21,18 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CONFIG_BASE_DIR = os.path.join(BASE_DIR, 'source')
 
-SECRET_BASE_FILE = os.path.join(CONFIG_BASE_DIR, 'secrets/secrets.json')
-secrets = json.loads(open(SECRET_BASE_FILE).read())
-for key, value in secrets.items():
-    setattr(sys.modules[__name__], key, value)
+import environ
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+SECRET_KEY = env('SECRET_KEY')
+FOURTY_TWO_CLIENT_ID = env('FOURTY_TWO_CLIENT_ID')
+FOURTY_TWO_REDIRECT_URI = env('FOURTY_TWO_REDIRECT_URI')
+FOURTY_TWO_CLIENT_SECRET_KEY = env('FOURTY_TWO_CLIENT_SECRET_KEY')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -51,7 +59,7 @@ INSTALLED_APPS = [
     # external library
     'rest_framework',
     'rest_framework.authtoken',
-	'dj_rest_auth',
+		'dj_rest_auth',
     'corsheaders',
     
     'oauth',
@@ -69,6 +77,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (  # Authenticationt 설정
         # 'rest_framework.authentication.SessionAuthentication',
+        # 'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
         # 'rest_framework.authentication.BasicAuthentication',
     ),
@@ -113,7 +122,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = False
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'source.urls'
 

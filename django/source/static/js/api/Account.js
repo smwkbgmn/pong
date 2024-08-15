@@ -24,8 +24,7 @@ export async function extractToken() {
 }
 
 export async function initialToken(token) {
-	const url = `http://localhost:8000/oauth/login/callback/?code=${encodeURIComponent(token)}`;
-	// const url = `http://localhost:8000/oauth/login/callback/?code=`;
+	const url = `http://localhost/oauth/login/callback/?code=${encodeURIComponent(token)}`;
 
 	return	GET(url)
 			.then(async response => {
