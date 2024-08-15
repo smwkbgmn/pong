@@ -46,28 +46,8 @@ export default class Router extends Component {
 	}
 
 	async handleOAuthRedirect() {
-		// await this.waitForLoad();
-		await Account.extractToken();
-		await Account.initialToken();
-
-		// console.log('isLogging ' + Utils.getParsedItem('isLogging'));
-		// console.log('isLoggedIn ' + Utils.getParsedItem('isLoggedIn'));
-		// console.log(Utils.getParsedItem('playerName'));
-		// console.log(Utils.getParsedItem('playerImage'));
-		// console.log(Utils.getParsedItem('accessToken'));
-		// console.log(Utils.getParsedItem('refreshToken'));
+		const token = await Account.extractToken();
+		if (token)
+			await Account.initialToken(token);
 	}
-
-	// waitForLoad() {
-	// 	console.log('wait for load');
-	// 	return new Promise((resolve) => {
-	// 		const handler = () => {
-	// 			console.log('event occur');
-	// 			window.removeEventListener('load', handler);
-	// 			resolve();
-	// 		};
-
-	// 		window.addEventListener('load', handler);
-	// 	});
-	// }
 }

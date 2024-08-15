@@ -10,44 +10,37 @@ export function requestOAuth() {
 }
 
 export async function extractToken() {
-	const token42 = new URLSearchParams(window.location.search).get('code');
+	const token = new URLSearchParams(window.location.search).get('code');
 
-	console.log(token42);
-	
-	if (token42) {
-		Utils.setStringifiedItem('token42', token42);
-		
+	if (token) {
 		let currentURL = new URL(window.location.href);
 		let cleanURL = new URL(currentURL.origin + window.location.hash);
 		window.history.replaceState({}, document.title, cleanURL);
 	}
+	else
+		Utils.setStringifiedItem('isLogging', false);
+
+	return token;
 }
 
-export async function initialToken() {
-	const token42 = Utils.getParsedItem('token42');
-	const url = `http://localhost:8000/oauth/login/callback/?code=${encodeURIComponent(token42)}`;
+export async function initialToken(token) {
+	const url = `http://localhost:8000/oauth/login/callback/?code=${encodeURIComponent(token)}`;
+	// const url = `http://localhost:8000/oauth/login/callback/?code=`;
 
 	return	GET(url)
-			.then(response => {
-				if (response.code == 'ok') {
+			.then(async response => {
+				if (response.status == 200) {
 					if (Utils.getParsedItem('isLoggedIn') == false) {
+						const json_response = await response.json();
 
 						Utils.setStringifiedItem('isLogging', false);
 						Utils.setStringifiedItem('isLoggedIn', true);
-						Utils.setStringifiedItem('playerName', response.detail.name);
-						Utils.setStringifiedItem('playerImage', response.detail.image);
-						Utils.setStringifiedItem('accessToken', response.detail.access_token);
-						Utils.setStringifiedItem('refreshToken', response.detail.refresh_token);
+						Utils.setStringifiedItem('playerName', json_response.detail.name);
+						Utils.setStringifiedItem('playerImage', json_response.detail.image);
 					}
-					return {
-						success: true,
-					};
 				}
 				else {
-					return {
-						success: false,
-						message: response.code,
-					};
+					Utils.setStringifiedItem('isLogging', false);
 				}
 			});
 }

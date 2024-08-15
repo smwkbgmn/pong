@@ -105,8 +105,6 @@ export default class GameMatchmaking extends Component {
 				tournamentSize		: this.playerNum,
 				playerName			: Utils.getParsedItem('playerName'),
 				playerImage			: Utils.getParsedItem('playerImage'),
-				// userTokenAccess		: Utils.getParsedItem('accessToken'),
-				// userTokenRefresh	: Utils.getParsedItem('refreshToken')
 			}));
 		};
 

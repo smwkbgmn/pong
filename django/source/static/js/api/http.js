@@ -9,9 +9,7 @@ const request = async (params) => {
 	if (body)
 		config.body = JSON.stringify(body);
 
-	const response = await window.fetch(url, config).catch(error => console.log(error));
-
-	return await response.json();
+	return await window.fetch(url, config);
 }
 
 export default async function get(url, headers) {
