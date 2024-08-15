@@ -21,8 +21,6 @@ services:
 
   django:
     build: ./django
-    ports:
-      - "8000:8000"
     depends_on:
       postgres:
         condition: service_healthy
@@ -35,7 +33,7 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - "80:80"
+      - "443:443"
     depends_on:
       - django
     networks:

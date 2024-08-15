@@ -19,11 +19,9 @@
 
 # restframework
 (venv)> pip install djangorestframework
-(venv)> pip install djangorestframework-simplejwt
 
 # oauth
 (venv)> pip install requests
-(venv)> pip install pyjwt[crypto]
 
 # swagger
 (venv)> pip install drf-yasg
