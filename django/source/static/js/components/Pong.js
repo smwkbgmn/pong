@@ -46,10 +46,12 @@ export default class Pong extends Component {
 		this.endReturnValue = '';
 		
 		this.ballDirection = { x: 1, y: 1 };
-		this.ballSpeedDefault = 0.04;
+		// this.ballSpeedDefault = 0.07;
+		this.ballSpeedDefault = 0.9;
 		this.ballSpeed = this.ballSpeedDefault;
-		this.ballSpeedIncreament = 0.006;
-		this.ballTimeScale = 1;
+		// this.ballSpeedIncreament = 0.09;
+		this.ballSpeedIncreament = 0.11;
+		this.ballTimeScale = 0.05;
 		
 		this.paddleMoveDistance = 0.7;
 		this.paddleRandomBounceScale = 0.35; // (rand -50 ~ +50)% * 0.2 = (-10 ~ +10)% modulation
@@ -123,8 +125,8 @@ export default class Pong extends Component {
 
 		// See this issue for the colision configs on Matter
 		// https://github.com/liabru/matter-js/issues/394
-		// Matter.Resolver._restingThresh = 0.001;
-		Matter.Resolver._restingThresh = 0;
+		Matter.Resolver._restingThresh = 0.001;
+		// Matter.Resolver._restingThresh = 0;
 
 		this.ball = this.createBall();
 		this.resetBall();
@@ -154,7 +156,7 @@ export default class Pong extends Component {
 				
 				// this.updateBallVelocity(this.ball.body, direction);
 			}
-			this.ballSpeed += this.ballSpeedIncreament;
+			this.ballSpeed *= (1 + this.ballSpeedIncreament);
 			// Matter.Body.setSpeed(this.ball.body, this.ballSpeed);
 			this.updateBallVelocity(this.ball.body, direction);
 		}
@@ -180,15 +182,15 @@ export default class Pong extends Component {
 			case 'ArrowUp'		: if (!this.aiMode) this.movePaddle(this.paddleRight, this.paddleMoveDistance); break;
 			case 'ArrowDown'	: if (!this.aiMode) this.movePaddle(this.paddleRight, -this.paddleMoveDistance); break;
 
-			case 'o':
-				if (this.isRunning) this.stopGame();
-				else this.resumeGame();
-				break;
+			// case 'o':
+			// 	if (this.isRunning) this.stopGame();
+			// 	else this.resumeGame();
+			// 	break;
 			
-			case 'i':
-				this.aiMode = !this.aiMode;
-				console.log("AI mode: " + (this.modeAI? "ON" : "OFF"));
-				break;
+			// case 'i':
+			// 	this.aiMode = !this.aiMode;
+			// 	console.log("AI mode: " + (this.modeAI? "ON" : "OFF"));
+			// 	break;
 		}
 	}
 
@@ -204,15 +206,19 @@ export default class Pong extends Component {
 	
 	/*** OBJ - Ball ***/
 	createBall() {
+		/*
+			At collision, there is a issue at losing energt(velocity)
+			Please see this. https://github.com/liabru/matter-js/issues/256
+		*/
 		const ballBody = Matter.Bodies.circle(0, 0, 0.1, {
 			label: "ball",
 
 			restitution: 1,
 			frictionAir: 0,
 			friction: 0,
-			// inertia: Infinity,
-			// inverseInertia: 1 / Infinity,
-			density: 1,
+			inertia: Infinity,
+			inverseInertia: 1 / Infinity,
+			// density: 1,
 			slop: 0.01,
 			timeScale: this.ballTimeScale
 		});
