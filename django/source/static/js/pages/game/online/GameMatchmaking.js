@@ -22,12 +22,14 @@ export default class GameMatchmaking extends Component {
 		this.$state = {
 			idx: 2,
 			isError: false,
+			isOnQueue: false,
+			isMatchFound: false,
 		};
 		this.timer = 0;
 		this.gameStart = false;
 
 		this.playerNum = Utils.getParsedItem('playerNum');
-		
+
 		this.textList = [
 			'다른 참가자를 기다리는 중입니다.',
 			'다른 참가자를 기다리는 중입니다..',
@@ -37,17 +39,30 @@ export default class GameMatchmaking extends Component {
 		this.changeMessage(this.$state.idx);
 	}
 
+	unmounted() {
+		console.log('matchmaking unmounted');
+
+		if (getSocket() && this.$state.isMatchFound == false) {
+			this.closeSocket();
+			this.clearSocket();
+		}
+		
+		this.clearEvent();
+	}
+
 	template() {
-		const { idx, isError } = this.$state;
+		const { idx, isError, isOnQueue } = this.$state;
 
 		let message;
 		if (isError == true)
 			message = '서버에 연결할 수 없습니다.';
+		else if (isOnQueue == true)
+			message = '이미 게임 중입니다.';
 		else
 			message = this.textList[idx];
 
 		let button = '';
-		if (isError == false)
+		if (isError == false || isOnQueue == true)
 			button = '돌아가기';
 
 		return `			
@@ -84,6 +99,8 @@ export default class GameMatchmaking extends Component {
 		const socket = getSocket();
 		if (socket && socket.readyState === WebSocket.OPEN)
 			socket.close();
+		if (this.$state.isOnQueue == true)
+			return Utils.changeFragment('#set_player_num/');
 	}
 
 	changeMessage(prev) {
@@ -96,7 +113,8 @@ export default class GameMatchmaking extends Component {
 	}
 
 	setupSocket() {
-		let socket = new WebSocket('ws://' + window.location.host + '/ws/pong');
+		this.socket = new WebSocket('wss://' + window.location.host + '/ws/pong');
+		const socket = this.socket;
 		// console.log(socket);
 
 		socket.onopen = (event) => {
@@ -123,13 +141,19 @@ export default class GameMatchmaking extends Component {
 					Utils.setStringifiedItem('gameStart', false);
 					Utils.setStringifiedItem('gameData', data);
 					Utils.changeFragment('#game_match/'); //error
+					this.$state.isMatchFound = true;
 					break;
+
+				case 'user_already_on_queue':
+					console.log("on queue");
+					this.setState({ isOnQueue: true });
 			}
 		};
 
 		// 다른 플레이어 기다리던 도중의 연결끊김 핸들링
 		socket.onclose = (event) => {
-			return Utils.changeFragment('#set_player_num/');
+			if (this.$state.isOnQueue == false)
+				return Utils.changeFragment('#set_player_num/');
 		};
 
 		socket.onerror = function(error) {
@@ -139,4 +163,22 @@ export default class GameMatchmaking extends Component {
 
 		setSocket(socket);
 	}
+
+	closeSocket() {
+		if (this.socket.readyState === WebSocket.OPEN)
+			this.socket.close();		
+	}
+
+	clearSocket() {
+		// if (this.socket) {
+		// 	if (this.socket.readyState === WebSocket.OPEN)
+		// 		this.socket.close();
+		// 	this.socket = null;
+		// 	setSocket(null);
+		// }
+		if (getSocket() == this.socket)
+			setSocket(null);
+		this.socket = null;
+	}
+
 }

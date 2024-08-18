@@ -33,7 +33,8 @@ export default class GameMatch extends Component {
 						this.gameData = data;
 						const tmpPlayerNames = this.gameData.players.map(player => player.name);
 						console.log(tmpPlayerNames);
-						this.setState({ playerNameRight: data.opnt_name, playerImageRight: data.opnt_image, winnerPlayerNames: tmpPlayerNames });
+						this.setState({ playerNameRight: data.opnt_name, playerImageRight: data.opnt_image, 
+										winnerPlayerNames: tmpPlayerNames, scoreLeft: 0, scoreRight: 0 });
 						this.startGame();
 						break;
 	
@@ -146,6 +147,8 @@ export default class GameMatch extends Component {
 		let result;
 		if (isError == true)
 			result = '서버에 연결할 수 없습니다.';
+		else if (walkover == true)
+			result = this.playerNameLeft + ' 승리';
 		else
 			result = scoreLeft > scoreRight ? this.playerNameLeft + ' 승리' : playerNameRight + ' 승리';
 
