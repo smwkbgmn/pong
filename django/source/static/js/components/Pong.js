@@ -156,7 +156,8 @@ export default class Pong extends Component {
 				
 				// this.updateBallVelocity(this.ball.body, direction);
 			}
-			this.ballSpeed *= (1 + this.ballSpeedIncreament);
+			if (!this.aiMode)
+				this.ballSpeed *= (1 + this.ballSpeedIncreament);
 			// Matter.Body.setSpeed(this.ball.body, this.ballSpeed);
 			this.updateBallVelocity(this.ball.body, direction);
 		}
