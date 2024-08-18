@@ -2,7 +2,8 @@ import GET from './http.js'
 import * as Utils from '../Utils.js'
 
 export function requestOAuth() {
-	const uri = `https://localhost/oauth/login`;
+	let baseUrl = window.location.protocol + "//" + window.location.host;
+	const uri = baseUrl + `/oauth/login`;
 	let clientID, redirectURI;
 
 	GET(uri).then(async response => {
@@ -31,7 +32,8 @@ export async function extractToken() {
 }
 
 export async function initialToken(token) {
-	const uri = `https://localhost/oauth/login/callback/?code=${encodeURIComponent(token)}`;
+	let baseUrl = window.location.protocol + "//" + window.location.host;
+	const uri = baseUrl + `/oauth/login/callback/?code=${encodeURIComponent(token)}`;
 
 	return	GET(uri)
 			.then(async response => {

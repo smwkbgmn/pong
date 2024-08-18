@@ -57,9 +57,9 @@ export default class Pong extends Component {
 		this.paddleRandomBounceScale = 0.35; // (rand -50 ~ +50)% * 0.2 = (-10 ~ +10)% modulation
 		
 		this.aiMode = this.$props.aiMode; // on == AI, off == local tournament
-		this.aiUpdateInterval = 200; // ms
+		this.aiUpdateInterval = 1000; // ms
 		this.aiMoveInterval = 80; // ms
-		this.aiErrorMargin = 0.05; // AI has a 50% chance to make a "mistake"
+		// this.aiErrorMargin = 0.05; // AI has a 50% chance to make a "mistake"
 
 		this.aiLastUpdate = 0;
 		this.aiLastMove = 0;
@@ -286,11 +286,12 @@ export default class Pong extends Component {
 		if (currentTime - this.aiLastUpdate > this.aiUpdateInterval) {
 			this.aiLastUpdate = currentTime;
 			const ballY = this.ball.body.position.y;
+			this.aiTargetY = ballY;
 
-			// Randomly decide whether to make a "mistake"
-			if (Math.random() > this.aiErrorMargin) this.aiTargetY = ballY;
-			// If making a "mistake", aim for a random position
-			else this.aiTargetY = (Math.random() - 0.5) * 8; // Random position between -4 and 4
+			// // Randomly decide whether to make a "mistake"
+			// if (Math.random() > this.aiErrorMargin) this.aiTargetY = ballY;
+			// // If making a "mistake", aim for a random position
+			// else this.aiTargetY = (Math.random() - 0.5) * 8; // Random position between -4 and 4
 		}
 
 		if (currentTime - this.aiLastMove > this.aiMoveInterval) {
