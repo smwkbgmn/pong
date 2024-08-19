@@ -1,5 +1,3 @@
-import * as Event from './Event.js'
-
 export default class Component {
 	$target;
 	$props;

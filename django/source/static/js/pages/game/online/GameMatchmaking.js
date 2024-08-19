@@ -2,7 +2,6 @@ import Component from '../../../core/Component.js'
 import PongClient from "../../../components/PongClient.js";
 import * as Event from '../../../core/Event.js'
 import * as Utils from '../../../Utils.js'
-import * as GameUtils from "../GameUtils.js"
 
 import { setSocket, getSocket } from './SharedSocket.js';
 
@@ -126,11 +125,8 @@ export default class GameMatchmaking extends Component {
 			}));
 		};
 
-		// 다른 플레이어 기다리던 도중의 이벤트 핸들링
 		socket.onmessage = (event) => {
 			const data = JSON.parse(event.data);
-			// console.log("in matchmaking");
-			// console.log(data);
 
 			switch(data.type) {
 				case 'waiting_for_players':
@@ -140,7 +136,7 @@ export default class GameMatchmaking extends Component {
 					this.gameStart = true;
 					Utils.setStringifiedItem('gameStart', false);
 					Utils.setStringifiedItem('gameData', data);
-					Utils.changeFragment('#game_match/'); //error
+					Utils.changeFragment('#game_match/');
 					this.$state.isMatchFound = true;
 					break;
 
@@ -150,7 +146,6 @@ export default class GameMatchmaking extends Component {
 			}
 		};
 
-		// 다른 플레이어 기다리던 도중의 연결끊김 핸들링
 		socket.onclose = (event) => {
 			if (this.$state.isOnQueue == false)
 				return Utils.changeFragment('#set_player_num/');

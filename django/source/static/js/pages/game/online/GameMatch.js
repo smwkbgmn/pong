@@ -20,11 +20,8 @@ export default class GameMatch extends Component {
 	
 			this.setState({ playerNameRight: this.gameData.opnt_name, playerImageRight: this.gameData.opnt_image });
 	
-			// 게임중의 이벤트 핸들링
 			this.socket.onmessage = (event) => {
 				const data = JSON.parse(event.data);
-				// console.log("in match");
-				// console.log(data);
 				
 				switch(data.type) {
 					case 'match_found':
@@ -284,26 +281,13 @@ export default class GameMatch extends Component {
 
 	roundWait() {
 		console.log("receive round_wait from server");
-		// statusDiv.textContent = `Waiting for other players to finish the game`;
 	}
 
 	roundEnd() {
 		console.log("receive round_end from server");
-		// statusDiv.textContent = `Your game has done.\nHave you enjoyed?`;
 	}
 
 	tournamentWin() {
 		console.log("receive tournament_win from server");
-		// statusDiv.textContent = `CONGRATULATION!!\nYOU ARE THE WINNER!!`;
 	}
 }
-
-/*
-	function goBack() {
-	if 
-		do else
-	else
-		window.history.back();
-	}
-	<button onclick="goBack()">Go Back</button>
-*/

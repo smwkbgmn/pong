@@ -1,5 +1,3 @@
-// 온라인 토너먼트일 때 렌더링만 하는 코드
-
 import * as THREE from 'three';
 
 export default class PongClient {	

@@ -1,9 +1,7 @@
-// 로컬 토너먼트, AI
 import Component from '../core/Component.js'
 import * as Event from '../core/Event.js'
 import * as THREE from 'three';
 import * as GameUtils from "../pages/game/GameUtils.js"
-import * as Utils from '../Utils.js'
 
 export default class Pong extends Component {
 	constructor($target, $props) {
