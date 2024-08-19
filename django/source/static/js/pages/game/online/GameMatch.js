@@ -97,6 +97,7 @@ export default class GameMatch extends Component {
 			scoreLeft: 0,
 			scoreRight: 0,
 
+			isWinner: false,
 			walkover: false,
 			isError: false,
 		};
@@ -133,7 +134,7 @@ export default class GameMatch extends Component {
 
 	template() {
 		const { playerImageRight, playerNameRight,
-				countdown, lastGame, walkover, isError,
+				countdown, lastGame, walkover, isError, isWinner,
 				scoreLeft, scoreRight } = this.$state;
 
 		if (this.settingDone == false)
@@ -157,9 +158,13 @@ export default class GameMatch extends Component {
 		else
 			button = '다른 게임 기다리는 중...';
 
-		let walkoverMsg = '';
+		let message = '';
 		if (walkover == true)
-			walkoverMsg = '상대방이 게임에서 퇴장하였습니다.';
+			message = '상대방이 게임에서 퇴장하였습니다.';
+		else if (isWinner == true)
+			message = '토너먼트에서 승리했습니다.';
+
+		console.log('winner' + isWinner);
 
 		return `
 			<a class="game_home-a" href="#/">
@@ -183,7 +188,7 @@ export default class GameMatch extends Component {
 			<div class="result-div">
 				<p class="result-p">게임 결과</p>
 				<p class="win_or_lose-p">${result}</p>
-				<p class="walkover-p">${walkoverMsg}</p>
+				<p class="walkover-p">${message}</p>
 				<button class="restart-btn">${button}</button>
 			</div>			
 
@@ -289,5 +294,7 @@ export default class GameMatch extends Component {
 
 	tournamentWin() {
 		console.log("receive tournament_win from server");
+		this.setState({ isWinner: true });
+		GameUtils.setComponentStyle('display', '.result-div', 'block');
 	}
 }
