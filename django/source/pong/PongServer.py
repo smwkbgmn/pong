@@ -23,8 +23,8 @@ class PongServer:
 		self.task_update = None
 
 		# Game configs
-		self.ball_speed_default = 3
-		self.ball_speed_increment = 0.5
+		self.ball_speed_default = 3.5
+		self.ball_speed_increment = 0.2
 		self.ball_random_bounce_scale = 0.3 # (rand -50 ~ +50)% * 0.3 = (-17 ~ +17)% modulation
 		self.ball_out_of_bound = {'x': 6, 'y': 5}
 
