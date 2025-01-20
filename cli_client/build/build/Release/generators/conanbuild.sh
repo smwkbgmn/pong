@@ -1,1 +1,0 @@
-. "/Users/donghyun/dev/pong_mine/pong_client/build/build/Release/generators/conanbuildenv-release-armv8.sh"
