@@ -25,13 +25,13 @@ class PongServer:
 		# Game configs
 		self.ball_speed_default = 3.5
 		self.ball_speed_increment = 0.2
-		self.ball_random_bounce_scale = 0.45 # (rand -50 ~ +50)% * 0.3 = (-17 ~ +17)% modulation
+		self.ball_random_bounce_scale = 0.45 
 		self.ball_out_of_bound = {'x': 6, 'y': 5}
 
 		# Logging method from consumer
 		self.log = fn_log
 
-		# Do
+		# Init
 		self.setup()
 
 		self.waiting = True
@@ -178,8 +178,10 @@ class PongServer:
 		paddle_body.position = (paddle_body.position.x, moved_y)
 
 	async def player_disconnect(self, channel_name):
-		self.log(f"{self.match['game_id']}", "taking player_disconnect")
+		self.log(f"{self.match['game_id']}", "handle player_disconnect")
 
 		if self.task_update:
 			self.log(f"{self.match['game_id']}", "calling finish in way of ongoing game")
 			await self.finish('left' if channel_name == self.player['right']['channel'] else 'right')
+			
+# (rand -50 ~ +50)% * 0.3 = (-17 ~ +17)% modulation

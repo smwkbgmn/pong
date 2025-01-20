@@ -3,10 +3,9 @@ import Component from '../core/Component.js'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader }	 from 'three/addons/loaders/GLTFLoader.js';
+
 export default class Background extends Component {
 	setUp() {
-		// this.sectionCurnt = window.location.hash;
-		// this.sectionPrev = null;
 		this.inGame = false;
 	}
 

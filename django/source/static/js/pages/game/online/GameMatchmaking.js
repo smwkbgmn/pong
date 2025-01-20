@@ -114,7 +114,6 @@ export default class GameMatchmaking extends Component {
 	setupSocket() {
 		this.socket = new WebSocket('wss://' + window.location.host + '/ws/pong');
 		const socket = this.socket;
-		// console.log(socket);
 
 		socket.onopen = (event) => {
 			socket.send(JSON.stringify({

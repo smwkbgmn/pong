@@ -1,0 +1,1 @@
+. "/Users/donghyun/dev/pong_mine/pong_client/build/build/Release/generators/deactivate_conanrunenv-release-armv8.sh"

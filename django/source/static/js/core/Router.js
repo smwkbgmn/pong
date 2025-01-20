@@ -43,6 +43,7 @@ export default class Router extends Component {
 		}
 
 		currentRoute.component();
+		console.log("router: ", currentRoute);
 	}
 
 	async handleOAuthRedirect() {

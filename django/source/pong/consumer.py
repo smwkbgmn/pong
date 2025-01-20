@@ -37,6 +37,7 @@ class Consumer(AsyncWebsocketConsumer):
 	### CONNECTION ###
 	async def connect(self):
 		await self.accept()
+
 		self.connection = True
 
 	async def disconnect(self, close_code):
@@ -55,7 +56,7 @@ class Consumer(AsyncWebsocketConsumer):
 				self.tourn[self.tourn_id] = None
 		elif self.tourn_size:
 			self.queue[self.tourn_size].remove(self.player)
-	
+
 	async def clear_match(self):
 		self.match['player1' if self.match['player1'] and self.match['player1']['channel'] == self.channel_name else 'player2'] = None
 
@@ -63,6 +64,7 @@ class Consumer(AsyncWebsocketConsumer):
 		
 		if self.match['game_id'] in self.games:
 			game = self.games[self.match['game_id']]
+
 			if game.running: await game.player_disconnect(self.channel_name)
 			elif not self.match['player1'] and not self.match['player2']:
 				await game.finish(None)
@@ -70,6 +72,25 @@ class Consumer(AsyncWebsocketConsumer):
 		
 		if not self.match['player1'] and not self.match['player2']:
 			self.tourn[self.tourn_id]['matches'].remove(self.match)
+
+
+	# async def clear_match(self):
+	# 	match = self.match
+
+	# 	match['player1' if match['player1'] and match['player1']['channel'] == self.channel_name else 'player2'] = None
+
+	# 	self.channel_layer.group_discard(match['game_id'], self.channel_name)
+		
+	# 	if match['game_id'] in self.games:
+	# 		game = self.games[match['game_id']]
+
+	# 		if game.running: await game.player_disconnect(self.channel_name)
+	# 		elif not match['player1'] and not match['player2']:
+	# 			await game.finish(None)
+	# 			del self.games[match['game_id']]
+		
+	# 	if not match['player1'] and not match['player2']:
+	# 		self.tourn[self.tourn_id]['matches'].remove(match)
 		
 	### RECEIVE FROM CLIENT ###
 	async def receive(self, text_data):
@@ -81,19 +102,24 @@ class Consumer(AsyncWebsocketConsumer):
 			await self.handle_join_room(data['gameId'], data['side'])
 		elif data['type'] == 'playerMove':
 			await self.handle_player_move(data['movedY'])
+
+		# match data['type']:
+		# 	case 'requestMatch'	: await self.handle_request_match(data)
+		# 	case 'joinRoom'		: await self.handle_join_room(data['gameId'], data['side'])
+		# 	case 'playerMove'	: await self.handle_player_move(data['movedY'])
 	
 	async def handle_request_match(self, data):
 		self.log('consumer', f"receive match request from {self.channel_name[-12:]}")
 		
 		tourn_size = data['tournamentSize']
 
-		if tourn_size in self.queue and \
-			data['playerName'] in [player['name'] for player in self.queue[tourn_size]]:
-			await self.send(json.dumps({
-					'type'	: 'user_already_on_queue'
-				}))
-			await self.close_connection()
-			return
+		# if tourn_size in self.queue and \
+		# 	data['playerName'] in [player['name'] for player in self.queue[tourn_size]]:
+		# 	await self.send(json.dumps({
+		# 			'type'	: 'user_already_on_queue'
+		# 		}))
+		# 	await self.close_connection()
+		# 	return
 			
 		self.player = {
 			'channel'	: self.channel_name,
@@ -252,3 +278,7 @@ class Consumer(AsyncWebsocketConsumer):
 		# connection value should be assigned at here for more smooth control
 		self.connection = False
 		await self.close()
+
+'''
+
+'''

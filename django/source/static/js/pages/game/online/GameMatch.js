@@ -24,7 +24,7 @@ export default class GameMatch extends Component {
 				const data = JSON.parse(event.data);
 				
 				switch(data.type) {
-					case 'match_found':
+					case 'match_found': {
 						console.log(data.players);
 						
 						this.gameData = data;
@@ -34,12 +34,14 @@ export default class GameMatch extends Component {
 										winnerPlayerNames: tmpPlayerNames, scoreLeft: 0, scoreRight: 0 });
 						this.startGame();
 						break;
-	
-					case 'game_update':
+					}
+
+					case 'game_update': {
 						if (game) game.updateGameObjects(data);
 						break;
+					}
 					
-					case 'score_change':
+					case 'score_change': {
 						if (game) {
 							if (game.getReverse())
 								this.setState({ scoreLeft: data.score.right, scoreRight: data.score.left })
@@ -48,19 +50,22 @@ export default class GameMatch extends Component {
 							GameUtils.setComponentStyle('opacity', '.match-div', '0');
 						}
 						break;
+					}
 	
-					case 'game_finish':
+					case 'game_finish': {
 						console.log('gamefinish');
 						this.clearGame();
 						this.setState({ walkover: data.walkover });
 						break;
+					}
 	
 					case 'round_wait':
 					case 'round_end':
-					case 'tournament_win':
+					case 'tournament_win': {
 						console.log('end');
 						this.roundNext(data);
 						break;
+					}
 				}
 			}
 

@@ -98,19 +98,19 @@ export default class Pong extends Component {
 	
 	/*** SETUP ***/
 	setupThreeJS() {
-		this.gameScene = new THREE.Scene();
+		this.scene = new THREE.Scene();
 
 		const aspect = window.innerWidth / window.innerHeight;
 		const frustumSize = 10;
-		this.gameCamera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 0.1, 1000);
-		this.gameCamera.position.z = 5;
+		this.camera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 0.1, 1000);
+		this.camera.position.z = 5;
 
-		this.gameRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-		this.gameRenderer.setClearColor(0x000000, 0);
-		this.gameRenderer.setSize(window.innerWidth, window.innerHeight);
-		this.gameRenderer.domElement.style.position = 'absolute';
-		this.gameRenderer.domElement.style.top = '0px';
-		document.body.appendChild(this.gameRenderer.domElement);
+		this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+		this.renderer.setClearColor(0x000000, 0);
+		this.renderer.setSize(window.innerWidth, window.innerHeight);
+		this.renderer.domElement.style.position = 'absolute';
+		this.renderer.domElement.style.top = '0px';
+		document.body.appendChild(this.renderer.domElement);
 
 		this.gameObjects = new Map();
 	}
@@ -119,10 +119,11 @@ export default class Pong extends Component {
 		this.engine = Matter.Engine.create({
 			gravity: { x: 0, y: 0, scale: 0 }
 		});
-		// this.engine.gravity.y = 0;
 
-		// See this issue for the colision configs on Matter
-		// https://github.com/liabru/matter-js/issues/394
+		/*
+			See this issue for the colision configs on Matter
+			https://github.com/liabru/matter-js/issues/394
+		*/
 		Matter.Resolver._restingThresh = 0.001;
 		// Matter.Resolver._restingThresh = 0;
 
@@ -181,15 +182,15 @@ export default class Pong extends Component {
 			case 'ArrowUp'		: if (!this.aiMode) this.movePaddle(this.paddleRight, this.paddleMoveDistance); break;
 			case 'ArrowDown'	: if (!this.aiMode) this.movePaddle(this.paddleRight, -this.paddleMoveDistance); break;
 
-			// case 'o':
-			// 	if (this.isRunning) this.stopGame();
-			// 	else this.resumeGame();
-			// 	break;
+			case 'o':
+				if (this.isRunning) this.stopGame();
+				else this.resumeGame();
+				break;
 			
-			// case 'i':
-			// 	this.aiMode = !this.aiMode;
-			// 	console.log("AI mode: " + (this.modeAI? "ON" : "OFF"));
-			// 	break;
+			case 'i':
+				this.aiMode = !this.aiMode;
+				console.log("AI mode: " + (this.modeAI? "ON" : "OFF"));
+				break;
 		}
 	}
 
@@ -197,16 +198,16 @@ export default class Pong extends Component {
 		const width = window.innerWidth;
 		const height = window.innerHeight;
 		
-		this.gameCamera.aspect = width / height;
-		this.gameCamera.updateProjectionMatrix();
+		this.camera.aspect = width / height;
+		this.camera.updateProjectionMatrix();
 		
-		this.gameRenderer.setSize(width, height);
+		this.renderer.setSize(width, height);
 	}
 	
 	/*** OBJ - Ball ***/
 	createBall() {
 		/*
-			At collision, there is a issue at losing energt(velocity)
+			At collision, there is a issue with losing energy(velocity)
 			Please see this. https://github.com/liabru/matter-js/issues/256
 		*/
 		const ballBody = Matter.Bodies.circle(0, 0, 0.1, {
@@ -227,7 +228,7 @@ export default class Pong extends Component {
 		const ballMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 		const ballMesh = new THREE.Mesh(ballGeometry, ballMaterial);
 
-		this.gameScene.add(ballMesh);
+		this.scene.add(ballMesh);
 		this.gameObjects.set(ballBody, ballMesh);
 
 		return { body: ballBody, mesh: ballMesh };
@@ -266,7 +267,7 @@ export default class Pong extends Component {
 		const paddleMesh = new THREE.Mesh(paddleGeometry, paddleMaterial);
 		paddleMesh.position.set(x, y, 0);
 
-		this.gameScene.add(paddleMesh);
+		this.scene.add(paddleMesh);
 		this.gameObjects.set(paddleBody, paddleMesh);
 
 		return { body: paddleBody, mesh: paddleMesh };
@@ -337,7 +338,7 @@ export default class Pong extends Component {
 		const wallMesh = new THREE.Mesh(wallGeometry, wallMaterial);
 		wallMesh.position.set(x, y, 0);
 
-		this.gameScene.add(wallMesh);
+		this.scene.add(wallMesh);
 		this.gameObjects.set(wallBody, wallMesh);
 
 		return { body: wallBody, mesh: wallMesh };
@@ -358,14 +359,14 @@ export default class Pong extends Component {
 	}
 
 	cleanup() {
-		if (this.gameRenderer && this.gameRenderer.domElement)
-			document.body.removeChild(this.gameRenderer.domElement);
+		if (this.renderer && this.renderer.domElement)
+			document.body.removeChild(this.renderer.domElement);
 
 		document.removeEventListener('keydown', this.handleKeyDownHolder);
 		window.removeEventListener('resize', this.handleResizeHoler);
 
-		while(this.gameScene.children.length > 0)
-			this.gameScene.remove(this.gameScene.children[0]); 
+		while(this.scene.children.length > 0)
+			this.scene.remove(this.scene.children[0]); 
 
 		Matter.World.clear(this.engine.world);
 		Matter.Engine.clear(this.engine);
@@ -395,7 +396,7 @@ export default class Pong extends Component {
 
 		this.checkIfBallIsOutOfBounds();
 
-		this.gameRenderer.render(this.gameScene, this.gameCamera);
+		this.renderer.render(this.scene, this.camera);
 	}
 
 	checkIfBallIsOutOfBounds() {
