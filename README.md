@@ -1,53 +1,91 @@
-# django oauth
+# Pong Online Tournament
 
-`django rest framework`의 APIView와 `drf-yasg`를 이용한 swagger API로 oauth 테스트 구현 
+A web-based multiplayer Pong game with real-time WebSocket gameplay and tournament bracket support.
 
-# Setting
+## Stack
 
-## 1. 가상환경 생성 및 접속
+- **Backend:** Django 4.2 + Django Channels (WebSocket)
+- **Physics:** Pymunk 6.6
+- **Database:** PostgreSQL
+- **Web Server:** Nginx (HTTPS reverse proxy)
+- **Auth:** 42 School OAuth
+- **Deployment:** Docker Compose
 
+## Features
+
+- Real-time multiplayer Pong via WebSocket (60 FPS physics updates)
+- Tournament matchmaking with configurable bracket sizes
+- Automatic match creation and round advancement
+- Physics-based ball and paddle collision detection
+- 42 School OAuth login
+
+## Prerequisites
+
+- Docker & Docker Compose
+- A 42 School OAuth application (client ID + secret)
+
+## Setup
+
+1. Create a `.env` file in the project root:
+
+```env
+SECRET_KEY=your_django_secret_key
+FOURTY_TWO_CLIENT_ID=your_42_client_id
+FOURTY_TWO_CLIENT_SECRET_KEY=your_42_client_secret
+FOURTY_TWO_REDIRECT_URI=https://localhost/oauth/callback
+DB_VOLUME_PATH=/path/to/postgres/data
+WEB_VOLUME_PATH=/path/to/web/data
 ```
-> python -m venv venv
-> venv\Scripts\activate
-```
 
-## 2. 라이브러리 설치
+2. Build and start all services:
 
 ```bash
-(venv)> pip install -U pylint
-(venv)> pip install django
-
-# restframework
-(venv)> pip install djangorestframework
-
-# oauth
-(venv)> pip install requests
-
-# swagger
-(venv)> pip install drf-yasg
+make all
 ```
 
-## 3. oauth 사이트 설정 및 설명
+The app will be available at `https://localhost`.
 
-- [Django 소셜로그인(oauth) kakao 연동](https://sangjuncha-dev.github.io/posts/framework/django/2021-10-11-django-oauth-kakao/)
-- [Django 소셜로그인(oauth) naver 연동](https://sangjuncha-dev.github.io/posts/framework/django/2021-11-12-django-oauth-naver/)
-- [Django 소셜로그인(oauth) google 연동](https://sangjuncha-dev.github.io/posts/framework/django/2021-11-22-django-oauth-google/)
-- [Django 소셜로그인(oauth) facebook 연동](https://sangjuncha-dev.github.io/posts/framework/django/2021-12-29-django-oauth-facebook/)
-- [Django 소셜로그인(oauth) apple 연동](https://sangjuncha-dev.github.io/posts/framework/django/2021-12-28-django-oauth-apple/)
+## Makefile Commands
 
-## 4. 서버 실행
+| Command | Description |
+|---|---|
+| `make all` | Create data directories, build images, start services |
+| `make up` | Start services |
+| `make down` | Stop services |
+| `make restart` | Restart services |
+| `make clean` | Stop and remove containers |
+| `make fclean` | Full cleanup (containers, images, volumes) |
+| `make re` | Full cleanup and rebuild |
+
+## Architecture
 
 ```
-> cd source
-> python manage.py makemigrations
-> python manage.py migrate
-> python manage.py runserver localhost:8000
+Nginx (443 HTTPS)
+    └── Django + Daphne (8000)
+            ├── HTTP: page rendering, OAuth
+            └── WebSocket (/ws/pong): game state, matchmaking
+PostgreSQL
+    └── User accounts, tournament data
 ```
 
-## 5. client 테스트
+## Game Rules
 
-- 설정파일에 지정한 oauth의 `REDIRECT_URI`주소로 웹브라우저로 접속한다.
-- oauth 로그인이 정상적으로 완료되면 `{"user_id": ..., "access_token": ..., "refresh_token": ...}` 값이 반환된다.
-- `http://localhost:8000/swagger/` 접속하여 우측상단에 `Authorize`버튼 클릭한다.
-- 방금전에 발급받은 `access_token`을 입력하고 `Authorize`버튼 클릭한다.
-- users의 `GET /users/info/` 요청을 전송하면 사용자의 정보가 출력된다.
+- First player to 3 points wins
+- Ball speed increases slightly on each paddle hit
+- Tournament: players are queued and matched automatically into a bracket
+
+## Project Structure
+
+```
+├── django/
+│   ├── source/
+│   │   ├── pong/          # Game logic, WebSocket consumer, physics
+│   │   ├── users/         # Custom user model and auth
+│   │   ├── oauth/         # 42 OAuth callback
+│   │   └── source/        # Django settings, ASGI/WSGI config
+│   └── requirements/
+├── nginx/                 # Nginx config and SSL certs
+├── postgres/              # DB init scripts
+├── docker-compose.yml
+└── Makefile
+```
